@@ -1,0 +1,273 @@
+---
+title: "Implementing MIUI's Wave Animation  🌊  Using React Native Reanimated v2"
+date: "2020-12-12"
+description: "After the MIUI 12 upgrade, I just loved playing the new smooth animations 😍 and as a developer, was excited to know how to implement it 🤔.
+The first thing I did was google \"Wave Animation Can it be"
+coverImage: "https://cdn.hashnode.com/res/hashnode/image/upload/v1607774921357/nRr66QEIy.gif"
+tags: ["React Native", "Animation", "JavaScript", "Tutorial", "React"]
+author: "Rishabh Rathod"
+---
+
+After the MIUI 12 upgrade, I just loved playing the new smooth animations 😍 and as a developer, was excited to know how to implement it 🤔.
+
+The first thing I did was google "Wave Animation Can it be done in react-native? " 😬 and got a close result to what I was looking for but as I wanted to play with the wave. That wasn't enough and hence I tried further on my own.
+
+Here are all my learnings compiled as an article.
+
+## 1\. Make A Smooth Curve
+
+To draw a curve, we will use SVG Path which supports the cubic bezier curve.
+
+A **cubic bezier curve** is a curve line formed using 4 points, a starting point, an ending point, and control points ( c1 & c2 ).
+
+**If you are familiar with making curves using SVG, you can jump 🏃🏻‍♂️ to point 2.**
+
+#### 1.1 Let's Move To The Start Point 🎯
+
+To move to a particular point in SVG, we use the "Move to" command i.e., `M x y`.
+
+`M 0 0.5`
+
+![Screenshot 2020-12-11 at 11.51.05 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1607711013471/y_XztobMp.png align="left")
+
+#### 1.2 Make The 🧊 Cubic Curve
+
+![Screenshot 2020-12-11 at 11.51.11 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1607711136028/m9yaHkffz.png align="left")
+
+In the above example, we plot a curve that starts at (0, 0.5) and ends at (1, 0.5) with control points at (0.5, 0) and (0.5, 1).
+
+🔴 Red dots are curve endpoints and 🟢 green dots are the control points.
+
+#### 1.3 Form A Closed Figure To Fill Color
+
+To form a closed figure, we will draw lines connecting curve endpoints to (1, 1) and (0, 1).
+
+![Screenshot 2020-12-11 at 11.51.32 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1607711273821/YADt5EezP.png align="left")
+
+Hence, the complete path command is ⬇️
+
+`M 0 0.5 C 0.5 0 0.5 1 1 0.5 L 1 1 L 0 1 Z`
+
+```js
+const curveDimension = {
+  start: { x: 0, y: 0.5 },
+  c1: { x: 0.5, y: 0 },
+  c2: { x: 0.5, y: 1 },
+  end: { x: 1, y: 0.5 },
+};
+```
+
+React Native code to make curve using SVG ⬇️ .
+
+
+[🔗 View on snack.expo.io](https://snack.expo.io/@rishabhrathod2012/svg-wave-(bezier-curve-demo))
+ 
+
+> To understand how the bezier curve works check out [this](https://vimeo.com/106757336) video. To learn more about SVG path format read [this](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths).
+
+## 2\. Get Device Orientation Values 📱
+
+We will use [`expo-sensors's`](https://docs.expo.io/versions/latest/sdk/accelerometer/) accelerometer to get the values.
+
+Let's get the accelerometer (x,y,z) values and store them in the state variable `orientation`.
+
+```js
+import { Accelerometer } from 'expo-sensors';
+const Wave = () => {
+ const [orientation, setOrientation] = useState({
+    x: 0,
+    y: 0,
+    z: 0,
+  });
+
+
+ useEffect(() => {
+    subscription.current = Accelerometer.addListener(({ x, y, z }) => {
+      setOrientation(() => ({
+        x: x,
+        y: y,
+        z: z,
+      }));
+    });
+    return () => subscription.current.remove();
+  }, []);
+}
+return <View><Text>{orientation.x}</Text></View>
+}
+```
+
+![Phone Tilt Demo](https://cdn.hashnode.com/res/hashnode/image/upload/v1607778461762/XLiVKTs5M.gif align="left")
+
+> Note: On tilting the phone left, the `orientation.x` value becomes positive and vice versa when tilting right.
+
+## 3\. Moving the Curve on Phone Tilt
+
+When a phone is tilted from the extreme left to the extreme right, the `orientation.x` value moves from a positive maximum to a negative maximum.
+
+Accordingly, curve points coordinate move as shown below
+
+![Screenshot 2020-12-12 at 5.48.43 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1607780037633/ZPXghqy2a.png align="left")
+
+When you go through the above 5 steps, you can notice
+
+1. The `start` point will move from (0,0) to (0,1).
+    
+2. The `end` point will move from (1,1) to (1,0).
+    
+3. Control points `c1` moves from (0.25, 0.25) to (0.25, 0.75) and `c2` from (0.75,0.75) to (0.75, 0.25).
+    
+
+**X coordinates for all the curve points are kept constant.**
+
+Let's find the relation of the Y coordinates of the curve points and the `orientation.x` value.
+
+#### 3.1 Start Point
+
+We will find the relation between `orientation.x` and the start point. For that, we need to remember the below points.
+
+* When the phone is not tilted, the starting point stays at 0.5.
+    
+* When titled right (negative `orientation.x` value) `start` point increases from 0.5 till 1 and similarly 0.5 to 0 when titled left (positive `orientation.x` value). Hence, we negate the `orientation.x` value.
+    
+* Initial position of the `start` point is 0.5 when the `orientation.x` value is 0, so we will need to add 0.5 to the `orientation.x` value.
+    
+
+`const adjustAxis = (value) => 0.5 + (-value / 1.5);`
+
+**adjustAxis** is a helper function to map `orientation.x` to the starting point's y value.
+
+Hence, `start.y = adjustAxis(orientation.x)`
+
+#### 3.2 End Point
+
+Since the `end` point is always opposite to the `start` point.
+
+`end.y = 1 - start.y`
+
+#### 3.3 Start Control Point `c1`
+
+After scratching the brain for a long 🤯, I came up with a linear equation that works fine for control points.
+
+`c1 = (start.y / 2) + 0.25`
+
+#### 3.4 Ending Control Point `c2`
+
+`c2 = 1 - c1`
+
+#### **🤫** Enough Talking, Let's Code It Down.
+
+```js
+// start
+const startY = adjustAxis(orientation.x);
+// initial control point c1 
+const startControlPointY = (adjustAxis(orientation.x) / 2) + 0.25;
+// curvePoints
+const curveDimension = {
+  start: { x: 0, y: startY},
+   c1: { x: 0.4, y: startControlPointY},
+   c2: { x: 0.6, y: 1 - startControlPointY},
+   end: { x: 1, y: 1 - startY},
+};
+```
+
+## 4\. Let's Get Ready To Animate 🏋🏻‍♀️
+
+As our curve points are derived from the `startY` and `startControlPointY`. We will make `startY` and `startControlPointY` as \*\* [shared values](https://docs.swmansion.com/react-native-reanimated/docs/shared-values/) \*\* and curve point as \*\*derived value \*\*.
+
+* Shared values can be understood as a replacement of `Animated.Value` with more benefits.
+    
+* Derived values are similar to shared values whose value is derived from other shared values.
+    
+
+```js
+ const startY = useSharedValue(0);
+ const startControlPointY = useSharedValue(0);
+```
+
+[`useSharedValue`](https://docs.swmansion.com/react-native-reanimated/docs/api/useSharedValue/) returns a reference to shared value initialized with the provided data. A reference is an object with `.value` property, that can be accessed and modified from worklets, but also updated directly from the main JS thread.
+
+```js
+const curveDimension = useDerivedValue(() => {
+    return {
+      start: { x: 0, y: startY.value },
+      c1: { x: 0.4, y: startControlPointY.value },
+      c2: { x: 0.6, y: 1 - startControlPointY.value },
+      end: { x: 1, y: 1 - startY.value },
+    };
+  });
+```
+
+[`useDerivedValue`](https://docs.swmansion.com/react-native-reanimated/docs/api/useDerivedValue) allows for creating shared value reference that can change in response to updating of one or more other shared values.
+
+#### Create `AnimatedPath`
+
+As we will animate values supplied in the SVGpath, let's first create an `<AnimatedPath />` Component and replace it with `<Path/>`.
+
+```js
+const AnimatedPath = Animated.createAnimatedComponent(Path);
+```
+
+`animatedProps` returns an object with key `d` and value as SVG `path`.
+
+```diff
++ const animatedProps = useAnimatedProps(() => {
++   const { start, c1, c2, end } = curveDimension.value;
++   return {
++      d: `M ${start.x} ${start.y} C ${c1.x} ${c1.y} ${c2.x} ${c2.y} ${end.x} ${end.y} L 1 1 L 0 + 1 Z`,
++   };
++ });
+
+- const staticPath = `M ${curveDimension.start.x} ${curveDimension.start.y} 
+- C ${curveDimension.c1.x} ${curveDimension.c1.y} 
+- ${curveDimension.c2.x} ${curveDimension.c2.y} 
+- ${curveDimension.end.x} ${curveDimension.end.y} 
+- L 1 1 L 0 1 Z`;
+```
+
+Supply `animatedProps` instead of the `d`.
+
+```diff
+- <Path
++ <AnimatedPath
+      fill={'#0099ff'}
+-    d={d}
++     animatedProps={animatedProps}
+ />
+```
+
+## 5\. Add Spring Animation
+
+We are using [spring animation](https://reactnative.dev/docs/animated#spring) because it gives control over velocity, stiffness, friction which can be used to give a fluid property to the curve.
+
+```js
+
+ startY.value = withSpring(adjustAxis(orientation.x), {
+    damping: 80,
+    mass: 1,
+    stiffness: 10,
+    restDisplacementThreshold: 0.0001,
+    restSpeedThreshold: 0.001,
+  });
+
+  const value = (adjustAxis(orientation.x) / 2) + 0.25;
+
+  startControlPointY.value = withSpring(value, {
+    easing: Easing.out(Easing.bounce),
+  });
+```
+
+[`withSpring`](https://docs.swmansion.com/react-native-reanimated/docs/api/withSpring) is a reanimated hook to implement string physics-based animation.
+
+And finally, we are done. 🥳 🎊
+
+### This is how it looks ⬇️ .
+
+![Final Result](https://cdn.hashnode.com/res/hashnode/image/upload/v1607812388510/sSmE7cRgj.gif align="left")
+
+To play with it in the expo app [`click here`](https://expo.io/@rishabhrathod2012/projects/miui-wave-animation) and if you are interested in improving it, check out the [complete code.](https://github.com/Rishabh-Rathod/Animation)
+
+Hope you enjoyed this article and learned something new. 🙇‍♂️
+
+Also, check out William Candillon's Wave Animation [Video](https://www.youtube.com/watch?v=OU43e7TwlEY) if you haven't.
+
+#### Thank you for reading and would love to hear your suggestions to make it better. You can connect with me on [Twitter](https://twitter.com/rishabhrathod01).

@@ -1,0 +1,111 @@
+---
+title: "Building a store website"
+date: "2021-08-05"
+description: "In this article, I will share my experience building a website using Quarkly
+So, What is Quarkly 🤔 ?
+Quarkly is a low-code design tool for creating websites and web apps.
+It was the best fit for all "
+coverImage: "https://cdn.hashnode.com/res/hashnode/image/upload/v1628282142901/QcXFtY_Ddj.png"
+tags: ["Web Development"]
+author: "Rishabh Rathod"
+---
+
+In this article, I will share my experience building a website using [Quarkly](https://quarkly.io/)
+
+
+### So, What is Quarkly 🤔 ?
+
+Quarkly is a low-code design tool for creating websites and web apps.
+
+It was the best fit for all the features I needed and was also free 😋
+
+Few features are listed below -
+1. Github sync of whole website code. *(take home your website code )* 🥺
+2. Building custom components using react.
+3. Prebuild components library.
+4. performant (changes are visible close to real-time)
+
+
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623704690316/lneP3Vevcs.png)
+
+
+Now, let's begin to create the website. 🛠
+
+For the website demoed in this article, inspiration was taken from a design by [bhavya sinha](https://dribbble.com/bhavyasinha).  
+
+![Screenshot 2021-06-20 at 12.39.25 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624173716656/YTaheglVR.png)
+
+> Before starting to create anything using quarkly I would suggest checking out their tutorials on  [youtube](https://www.youtube.com/watch?v=F0SS7xuI2ug&list=PLPVxzkrdHj5mcPfXj2hVR5Kkw7j8ISDkw). Understanding how components are created and consumed will boost website development using quarkly.
+
+
+When a user creates a new project, they will see an empty canvas as shown below ⬇️
+![Screenshot 2021-06-21 at 12.20.37 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624215051212/ghylYcGFl.png)
+
+
+Now, let's start with making components that are common in multiple pages such as `Header`, `Footer`.
+
+### 1. Creating `<Header/>` and `<Footer />` component
+
+In quarkly's catalog, there are a few sample headers for the basic use case.
+
+
+![Screenshot 2021-07-11 at 2.55.09 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625952451554/sYsX42rRy.png)
+    
+I choose one of them, modified the style, and added two new pages to the project.
+Also to show the currently selected page color modify the theme accordingly.
+
+After the header was ready, I converted it as a component to use on every page.
+
+![Screenshot 2021-07-11 at 3.20.38 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625953860427/hSW0gTv7N.png)
+
+Similarly, Add a footer component. 
+
+
+### 2. Creating Product Cards
+
+
+![Screenshot 2021-07-11 at 3.27.46 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625954290167/nNGdN1M3wZ.png)
+
+Quarkly also provides a components library that can be used to create other components.
+ 
+I used quarkly's stack component to show the ProductItem (Card) inside it.
+
+
+[🔗 View on gist.github.com](https://gist.github.com/Rishabh-Rathod/6daebe9db5d704c2c9157ad3cc0e243e)
+
+
+### 3. Load data from google sheets
+
+As for this project, google Sheets is used as a database, we need a way to fetch google Sheets data.
+
+I followed the steps in the video below, to set it up. 
+
+
+[🔗 View on www.youtube.com](https://www.youtube.com/watch?v=pFpytftOYiw&t=582s)
+
+
+Here is a sample code to fetch data from google sheets.
+
+
+[🔗 View on gist.github.com](https://gist.github.com/Rishabh-Rathod/c1177aed655f4de9c0eac7797f017bb9)
+
+
+This is how [products page](https://spadeevents.netlify.app/products) of the website looks. 🤩
+
+![Screenshot 2021-07-11 at 4.07.43 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625956689300/ECUR5MfSa.png)
+
+### 4. Git Sync and smooth deploy experience 💨
+
+
+I loved the git sync and one-click netlify deployment feature. It was one of the smoothest deployment experiences I ever had.
+
+
+![Screenshot 2021-07-11 at 4.24.16 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625957850871/1KKuzKwns.png)
+
+And we are done 🎉
+
+
+![thankyoufor attention.jpeg](https://cdn.hashnode.com/res/hashnode/image/upload/v1625957451618/56Ady5LQd.jpeg)
+
+PS: I would love to know what you make using quarkly. If you are stuck anywhere feel free to  [join their discord](https://discord.com/invite/AevfxmF3TM). 
