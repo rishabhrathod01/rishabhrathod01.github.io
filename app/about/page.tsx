@@ -1,11 +1,11 @@
-"use client"
+'use client';
 
-import { Metadata } from "next"
-import { motion } from "framer-motion"
-import { Mail, MapPin, Briefcase, GraduationCap } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { personalInfo, skills, experience, education } from "@/lib/data"
+import { Metadata } from 'next';
+import { motion } from 'framer-motion';
+import { Mail, MapPin, Briefcase, GraduationCap } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { personalInfo, skills, experience, education } from '@/lib/data';
 
 export default function AboutPage() {
   return (
@@ -34,7 +34,9 @@ export default function AboutPage() {
               <CardTitle>Who I Am</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-lg leading-relaxed mb-4">{personalInfo.about.long}</p>
+              <p className="text-lg leading-relaxed mb-4">
+                {personalInfo.about.long}
+              </p>
               <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4" />
@@ -42,7 +44,10 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4" />
-                  <a href={`mailto:${personalInfo.email}`} className="hover:text-foreground transition-colors">
+                  <a
+                    href={`mailto:${personalInfo.email}`}
+                    className="hover:text-foreground transition-colors"
+                  >
                     {personalInfo.email}
                   </a>
                 </div>
@@ -80,7 +85,9 @@ export default function AboutPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Frameworks & Libraries</CardTitle>
+                <CardTitle className="text-lg">
+                  Frameworks & Libraries
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -160,13 +167,19 @@ export default function AboutPage() {
                           <span>{exp.company}</span>
                         </div>
                       </div>
-                      <span className="text-sm text-muted-foreground">{exp.period}</span>
+                      <span className="text-sm text-muted-foreground">
+                        {exp.period}
+                      </span>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground mb-4">{exp.description}</p>
+                    <p className="text-muted-foreground mb-4">
+                      {exp.description}
+                    </p>
                     <div>
-                      <p className="font-semibold mb-2 text-sm">Key Achievements:</p>
+                      <p className="font-semibold mb-2 text-sm">
+                        Key Achievements:
+                      </p>
                       <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
                         {exp.achievements.map((achievement, i) => (
                           <li key={i}>{achievement}</li>
@@ -206,12 +219,16 @@ export default function AboutPage() {
                           <span>{edu.degree}</span>
                         </div>
                       </div>
-                      <span className="text-sm text-muted-foreground">{edu.period}</span>
+                      <span className="text-sm text-muted-foreground">
+                        {edu.period}
+                      </span>
                     </div>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">{edu.field}</p>
-                    <p className="text-sm text-muted-foreground mt-1">{edu.location}</p>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {edu.location}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -226,9 +243,12 @@ export default function AboutPage() {
           transition={{ duration: 0.5, delay: 0.7 }}
           className="text-center bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8"
         >
-          <h2 className="text-2xl font-bold mb-4">Interested in working together?</h2>
+          <h2 className="text-2xl font-bold mb-4">
+            Interested in working together?
+          </h2>
           <p className="text-muted-foreground mb-6">
-            I'm always open to discussing new opportunities and collaborations.
+            I&apos;m always open to discussing new opportunities and
+            collaborations.
           </p>
           <Button size="lg" asChild>
             <a href={`mailto:${personalInfo.email}`}>
@@ -239,6 +259,5 @@ export default function AboutPage() {
         </motion.div>
       </div>
     </div>
-  )
+  );
 }
-

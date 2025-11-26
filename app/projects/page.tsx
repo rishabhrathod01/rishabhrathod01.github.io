@@ -1,11 +1,12 @@
-import { Metadata } from "next"
-import { ProjectCard } from "@/components/ProjectCard"
-import { projects } from "@/lib/data"
+import { Metadata } from 'next';
+import { ProjectCard } from '@/components/ProjectCard';
+import { projects } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: "Projects",
-  description: "Explore my portfolio of web development projects built with modern technologies.",
-}
+  title: 'Projects',
+  description:
+    'Explore my portfolio of web development projects built with modern technologies.',
+};
 
 export default function ProjectsPage() {
   return (
@@ -14,8 +15,9 @@ export default function ProjectsPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">My Projects</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A collection of projects I've built, ranging from full-stack applications to frontend experiments.
-            Each project represents a unique challenge and learning experience.
+            A collection of projects I&apos;ve built, ranging from full-stack
+            applications to frontend experiments. Each project represents a
+            unique challenge and learning experience.
           </p>
         </div>
 
@@ -26,6 +28,5 @@ export default function ProjectsPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

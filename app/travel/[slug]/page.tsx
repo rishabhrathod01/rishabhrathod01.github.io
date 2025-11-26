@@ -8,9 +8,9 @@ import { MDXContent } from "@/components/MDXContent"
 import { Button } from "@/components/ui/button"
 
 interface TravelStoryPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
@@ -21,7 +21,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: TravelStoryPageProps): Promise<Metadata> {
-  const story = await getTravelStory(params.slug)
+  const { slug } = await params
+  const story = await getTravelStory(slug)
 
   if (!story) {
     return {
@@ -43,7 +44,8 @@ export async function generateMetadata({ params }: TravelStoryPageProps): Promis
 }
 
 export default async function TravelStoryPage({ params }: TravelStoryPageProps) {
-  const story = await getTravelStory(params.slug)
+  const { slug } = await params
+  const story = await getTravelStory(slug)
 
   if (!story) {
     notFound()

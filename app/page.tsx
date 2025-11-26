@@ -1,14 +1,24 @@
-"use client"
+'use client';
 
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowRight, Github, Linkedin, Twitter, Instagram, Mail, Download, Code, Briefcase } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ProjectCard } from "@/components/ProjectCard"
-import { personalInfo, experience, projects } from "@/lib/data"
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import {
+  ArrowRight,
+  Github,
+  Linkedin,
+  Twitter,
+  Instagram,
+  Mail,
+  Download,
+  Code,
+  Briefcase,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ProjectCard } from '@/components/ProjectCard';
+import { personalInfo, experience, projects } from '@/lib/data';
 
 export default function HomePage() {
-  const featuredProjects = projects.filter(p => p.featured).slice(0, 3)
+  const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -29,7 +39,7 @@ export default function HomePage() {
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               {personalInfo.tagline}
             </p>
-            
+
             {/* Social Links */}
             <div className="flex justify-center gap-4 mb-8">
               <Button variant="outline" size="icon" asChild>
@@ -108,7 +118,9 @@ export default function HomePage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">About Me</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+            About Me
+          </h2>
           <p className="text-lg text-muted-foreground text-center leading-relaxed">
             {personalInfo.about.short}
           </p>
@@ -132,9 +144,11 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Featured Projects</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+              Featured Projects
+            </h2>
             <p className="text-muted-foreground text-center mb-12">
-              Some of my recent work that I'm proud of
+              Some of my recent work that I&apos;m proud of
             </p>
           </motion.div>
 
@@ -164,7 +178,9 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Experience</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+              Experience
+            </h2>
             <p className="text-muted-foreground text-center mb-12">
               My professional journey
             </p>
@@ -213,9 +229,12 @@ export default function HomePage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Work Together</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Let&apos;s Work Together
+          </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            I&apos;m always open to discussing new projects, creative ideas, or
+            opportunities to be part of your vision.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
@@ -234,6 +253,5 @@ export default function HomePage() {
         </motion.div>
       </section>
     </div>
-  )
+  );
 }
-
