@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build",
+    "deploy": "npm run export && touch out/.nojekyll && gh-pages -d out -t true"
   },
   "dependencies": {
     "next": "^15.0.0",
@@ -39,7 +41,8 @@
     "postcss": "^8",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "^15.0.0"
+    "eslint-config-next": "^15.0.0",
+    "gh-pages": "^6.1.0"
   }
 }
 
