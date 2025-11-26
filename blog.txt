@@ -1,0 +1,645 @@
+1:"$Sreact.fragment"
+2:I[7085,["386","static/chunks/386-050f686506f6526c.js","92","static/chunks/92-3f5ceb2c654995d0.js","177","static/chunks/app/layout-b537132055919d50.js"],"Header"]
+3:I[4811,[],""]
+4:I[4503,[],""]
+5:I[8904,["386","static/chunks/386-050f686506f6526c.js","92","static/chunks/92-3f5ceb2c654995d0.js","345","static/chunks/app/not-found-9bec728d926a89ac.js"],"default"]
+6:I[2386,["386","static/chunks/386-050f686506f6526c.js","92","static/chunks/92-3f5ceb2c654995d0.js","177","static/chunks/app/layout-b537132055919d50.js"],""]
+f:I[9841,[],""]
+:HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/488a341127a98a98.css","style"]
+0:{"P":null,"b":"ojhJRDAsztxoB8zNKP0xl","p":"","c":["","blog"],"i":false,"f":[[["",{"children":["blog",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/488a341127a98a98.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                const theme = localStorage.getItem('theme');\n                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {\n                  document.documentElement.classList.add('dark');\n                }\n              } catch (e) {}\n            "}}]}],["$","body",null,{"className":"__className_f367f3","children":["$","div",null,{"className":"flex min-h-screen flex-col","children":[["$","$L2",null,{}],["$","main",null,{"className":"flex-1","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L5",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t bg-background","children":["$","div",null,{"className":"container mx-auto px-4 py-8","children":[["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-3 gap-8","children":[["$","div",null,{"children":[["$","h3",null,{"className":"font-semibold mb-3","children":"Rishabh Rathod"}],["$","p",null,{"className":"text-sm text-muted-foreground","children":"Staff Frontend Engineer passionate about building efficient developer tools and user-friendly applications."}]]}],["$","div",null,{"children":[["$","h3",null,{"className":"font-semibold mb-3","children":"Quick Links"}],["$","ul",null,{"className":"space-y-2 text-sm","children":[["$","li",null,{"children":["$","$L6",null,{"href":"/projects","className":"text-muted-foreground hover:text-foreground transition-colors","children":"Projects"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/blog","className":"text-muted-foreground hover:text-foreground transition-colors","children":"Blog"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/travel","className":"text-muted-foreground hover:text-foreground transition-colors","children":"Travel Stories"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/about","className":"text-muted-foreground hover:text-foreground transition-colors","children":"About"}]}]]}]]}],["$","div",null,{"children":[["$","h3",null,{"className":"font-semibold mb-3","children":"Connect"}],["$","div",null,{"className":"flex space-x-4","children":[["$","a",null,{"href":"https://github.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"GitHub","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-github h-5 w-5","children":[["$","path","tonef",{"d":"M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"}],["$","path","9comsn",{"d":"M9 18c-4.51 2-5-2-7-2"}],"$undefined"]}]}],["$","a",null,{"href":"https://www.linkedin.com/in/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"LinkedIn","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-linkedin h-5 w-5","children":[["$","path","c2jq9f",{"d":"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"}],["$","rect","mk3on5",{"width":"4","height":"12","x":"2","y":"9"}],["$","circle","bt5ra8",{"cx":"4","cy":"4","r":"2"}],"$undefined"]}]}],["$","a",null,{"href":"https://twitter.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"Twitter","children":"$L7"}],"$L8","$L9"]}]]}]]}],"$La"]}]}]]}]}]]}]]}],{"children":["blog","$Lb",{"children":["__PAGE__","$Lc",{},null,false]},null,false]},["$Ld",[],[]],false],"$Le",false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+11:I[2546,[],"OutletBoundary"]
+13:I[7383,[],"AsyncMetadataOutlet"]
+15:I[2546,[],"ViewportBoundary"]
+17:I[2546,[],"MetadataBoundary"]
+18:"$Sreact.suspense"
+7:["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-twitter h-5 w-5","children":[["$","path","pff0z6",{"d":"M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"}],"$undefined"]}]
+8:["$","a",null,{"href":"https://www.instagram.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"Instagram","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-instagram h-5 w-5","children":[["$","rect","2e1cvw",{"width":"20","height":"20","x":"2","y":"2","rx":"5","ry":"5"}],["$","path","9exkf1",{"d":"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"}],["$","line","r4j83e",{"x1":"17.5","x2":"17.51","y1":"6.5","y2":"6.5"}],"$undefined"]}]}]
+9:["$","a",null,{"href":"mailto:rishabhrathod2012@gmail.com","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"Email","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-mail h-5 w-5","children":[["$","rect","18n3k1",{"width":"20","height":"16","x":"2","y":"4","rx":"2"}],["$","path","1ocrg3",{"d":"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"}],"$undefined"]}]}]
+a:["$","div",null,{"className":"mt-8 pt-8 border-t text-center text-sm text-muted-foreground","children":["$","p",null,{"children":["© ",2025," Rishabh Rathod. All rights reserved."]}]}]
+b:["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+c:["$","$1","c",{"children":["$L10",null,["$","$L11",null,{"children":["$L12",["$","$L13",null,{"promise":"$@14"}]]}]]}]
+d:["$","div","l",{"className":"container mx-auto px-4 py-16","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":["$","div",null,{"className":"animate-pulse space-y-8","children":[["$","div",null,{"className":"h-12 bg-muted rounded w-1/3"}],["$","div",null,{"className":"h-6 bg-muted rounded w-2/3"}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6","children":[["$","div","1",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","2",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","3",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","4",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","5",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","6",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}]]}]]}]}]}]
+e:["$","$1","h",{"children":[null,[["$","$L15",null,{"children":"$L16"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$L17",null,{"children":["$","div",null,{"hidden":true,"children":["$","$18",null,{"fallback":null,"children":"$L19"}]}]}]]}]
+1a:I[5080,["386","static/chunks/386-050f686506f6526c.js","92","static/chunks/92-3f5ceb2c654995d0.js","514","static/chunks/514-9f554e00db9ecce4.js","831","static/chunks/app/blog/page-b0a4424c01a11a89.js"],"BlogCard"]
+1b:Tff9,
+# Getting Started with Next.js 15: A Comprehensive Guide
+
+Next.js has revolutionized the way we build React applications, and with version 15, it's better than ever. In this guide, we'll explore the key features and best practices for building modern web applications.
+
+## Why Next.js?
+
+Next.js provides an incredible developer experience with features that just work out of the box:
+
+- **Server-Side Rendering (SSR)**: Improve SEO and initial page load times
+- **Static Site Generation (SSG)**: Build lightning-fast static websites
+- **API Routes**: Create backend endpoints without a separate server
+- **Image Optimization**: Automatic image optimization and lazy loading
+- **Built-in CSS Support**: Support for CSS Modules, Sass, and CSS-in-JS
+
+## Setting Up Your First Project
+
+Getting started with Next.js is incredibly simple. Open your terminal and run:
+
+```bash
+npx create-next-app@latest my-app
+cd my-app
+npm run dev
+```
+
+This will create a new Next.js application with all the necessary configuration files and start the development server on `http://localhost:3000`.
+
+## Understanding the App Router
+
+Next.js 15 uses the App Router by default, which introduces some powerful concepts:
+
+### Server Components
+
+By default, all components in the `app` directory are Server Components. This means they run on the server and send only the rendered HTML to the client.
+
+```tsx
+// app/page.tsx
+export default function HomePage() {
+  return (
+    <div>
+      <h1>Welcome to Next.js</h1>
+      <p>This is a Server Component by default!</p>
+    </div>
+  )
+}
+```
+
+### Client Components
+
+When you need interactivity, use the `"use client"` directive:
+
+```tsx
+"use client"
+
+import { useState } from "react"
+
+export default function Counter() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  )
+}
+```
+
+## Data Fetching Made Easy
+
+Next.js 15 simplifies data fetching with async Server Components:
+
+```tsx
+async function getData() {
+  const res = await fetch('https://api.example.com/data')
+  return res.json()
+}
+
+export default async function Page() {
+  const data = await getData()
+
+  return (
+    <div>
+      <h1>{data.title}</h1>
+      <p>{data.description}</p>
+    </div>
+  )
+}
+```
+
+## Metadata API for SEO
+
+Next.js 15 provides a powerful Metadata API for SEO optimization:
+
+```tsx
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'My Page Title',
+  description: 'This is my page description',
+  openGraph: {
+    title: 'My Page Title',
+    description: 'This is my page description',
+    images: ['/og-image.jpg'],
+  },
+}
+```
+
+## Best Practices
+
+Here are some best practices I've learned while building with Next.js:
+
+1. **Use Server Components by default**: Only add `"use client"` when you need interactivity
+2. **Optimize Images**: Always use the `next/image` component for automatic optimization
+3. **Leverage Static Generation**: Use SSG whenever possible for better performance
+4. **Code Splitting**: Next.js automatically code-splits your application
+5. **Environment Variables**: Use `.env.local` for sensitive data
+
+## Performance Optimization
+
+Next.js provides several built-in optimization features:
+
+- **Automatic Code Splitting**: Each page only loads the JavaScript it needs
+- **Prefetching**: Links are automatically prefetched in the viewport
+- **Image Optimization**: Built-in image optimization with WebP support
+- **Font Optimization**: Automatic font optimization with `next/font`
+
+## Conclusion
+
+Next.js 15 is an incredible framework that makes building modern web applications a joy. With its powerful features, excellent developer experience, and focus on performance, it's no wonder it's become the go-to choice for React developers.
+
+Whether you're building a simple blog or a complex web application, Next.js has the tools and features you need to succeed. Start building today and experience the difference!
+
+---
+
+**What's your experience with Next.js? Let me know in the comments below!**
+
+10:["$","div",null,{"className":"container mx-auto px-4 py-16","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":[["$","div",null,{"className":"text-center mb-12","children":[["$","h1",null,{"className":"text-4xl md:text-5xl font-bold mb-4","children":"Tech Blog"}],["$","p",null,{"className":"text-lg text-muted-foreground max-w-2xl mx-auto","children":"Thoughts, tutorials, and insights about web development, programming, and the latest in tech."}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6","children":[["$","$L1a","getting-started-with-nextjs",{"slug":"getting-started-with-nextjs","title":"Getting Started with Next.js 15: A Comprehensive Guide","date":"2024-11-15","description":"Learn how to build modern web applications with Next.js 15, exploring the App Router, Server Components, and best practices.","tags":["Next.js","React","Web Development","Tutorial"],"readingTime":"3 min read","content":"$1b","index":0}],"$L1c","$L1d"]}]]}]}]
+1e:T1079,
+# Mastering TypeScript: Tips and Tricks for Better Code
+
+TypeScript has become an essential tool in modern web development, providing type safety and better developer experience. Let's explore some advanced techniques and best practices.
+
+## Why TypeScript Matters
+
+TypeScript isn't just about adding types to JavaScript—it's about catching bugs before they reach production and making your code more maintainable.
+
+### Key Benefits
+
+- **Type Safety**: Catch errors at compile time, not runtime
+- **Better IDE Support**: Autocomplete, refactoring, and intelligent code navigation
+- **Self-Documenting Code**: Types serve as inline documentation
+- **Refactoring Confidence**: Rename and restructure with confidence
+
+## Advanced Type Techniques
+
+### 1. Utility Types
+
+TypeScript provides built-in utility types that can make your life easier:
+
+```typescript
+interface User {
+  id: string
+  name: string
+  email: string
+  password: string
+}
+
+// Pick only specific properties
+type PublicUser = Pick<User, 'id' | 'name' | 'email'>
+
+// Omit specific properties
+type UserWithoutPassword = Omit<User, 'password'>
+
+// Make all properties optional
+type PartialUser = Partial<User>
+
+// Make all properties required
+type RequiredUser = Required<User>
+```
+
+### 2. Conditional Types
+
+Create types that change based on conditions:
+
+```typescript
+type IsString<T> = T extends string ? true : false
+
+type A = IsString<string>  // true
+type B = IsString<number>  // false
+```
+
+### 3. Mapped Types
+
+Transform existing types into new ones:
+
+```typescript
+type Readonly<T> = {
+  readonly [P in keyof T]: T[P]
+}
+
+type ReadonlyUser = Readonly<User>
+```
+
+## Real-World Patterns
+
+### Type-Safe API Calls
+
+```typescript
+interface ApiResponse<T> {
+  data: T
+  status: number
+  message: string
+}
+
+async function fetchData<T>(url: string): Promise<ApiResponse<T>> {
+  const response = await fetch(url)
+  return response.json()
+}
+
+// Usage with type inference
+const users = await fetchData<User[]>('/api/users')
+```
+
+### Discriminated Unions
+
+Perfect for handling different states:
+
+```typescript
+type LoadingState = {
+  status: 'loading'
+}
+
+type SuccessState<T> = {
+  status: 'success'
+  data: T
+}
+
+type ErrorState = {
+  status: 'error'
+  error: string
+}
+
+type AsyncState<T> = LoadingState | SuccessState<T> | ErrorState
+
+function handleState<T>(state: AsyncState<T>) {
+  switch (state.status) {
+    case 'loading':
+      return 'Loading...'
+    case 'success':
+      return state.data
+    case 'error':
+      return state.error
+  }
+}
+```
+
+## Best Practices
+
+### 1. Avoid `any`
+
+Using `any` defeats the purpose of TypeScript. Use `unknown` instead:
+
+```typescript
+// Bad
+function process(data: any) {
+  return data.value
+}
+
+// Good
+function process(data: unknown) {
+  if (typeof data === 'object' && data !== null && 'value' in data) {
+    return data.value
+  }
+  throw new Error('Invalid data')
+}
+```
+
+### 2. Use `const` Assertions
+
+```typescript
+const routes = {
+  home: '/',
+  about: '/about',
+  contact: '/contact'
+} as const
+
+type Route = typeof routes[keyof typeof routes]
+```
+
+### 3. Prefer Interfaces for Object Types
+
+```typescript
+// Good
+interface User {
+  id: string
+  name: string
+}
+
+// Also good (when you need union types)
+type Status = 'active' | 'inactive' | 'pending'
+```
+
+## Common Pitfalls to Avoid
+
+### 1. Over-Engineering Types
+
+Don't create complex types just because you can. Keep it simple and readable.
+
+### 2. Ignoring Type Errors
+
+Never use `@ts-ignore` or `@ts-expect-error` without a good reason. Fix the underlying issue instead.
+
+### 3. Not Enabling Strict Mode
+
+Always enable strict mode in `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true
+  }
+}
+```
+
+## Conclusion
+
+TypeScript is a powerful tool that, when used correctly, can significantly improve your code quality and developer experience. By mastering these techniques and following best practices, you'll write safer, more maintainable code.
+
+Remember: TypeScript is there to help you, not to slow you down. Embrace it, and you'll wonder how you ever lived without it!
+
+---
+
+**What's your favorite TypeScript feature? Share in the comments!**
+
+1c:["$","$L1a","mastering-typescript",{"slug":"mastering-typescript","title":"Mastering TypeScript: Tips and Tricks for Better Code","date":"2024-10-28","description":"Discover advanced TypeScript techniques and best practices to write safer, more maintainable code.","tags":["TypeScript","JavaScript","Programming","Best Practices"],"readingTime":"3 min read","content":"$1e","index":1}]
+1f:T16f2,
+# React Performance Optimization: A Complete Guide
+
+Performance is crucial for modern web applications. In this guide, we'll explore practical techniques to optimize your React applications and deliver lightning-fast user experiences.
+
+## Why Performance Matters
+
+- **User Experience**: Fast apps keep users engaged
+- **SEO**: Google ranks faster sites higher
+- **Conversion**: Every 100ms delay can cost you conversions
+- **Accessibility**: Performance is an accessibility concern
+
+## Measuring Performance
+
+Before optimizing, you need to measure. Use these tools:
+
+1. **React DevTools Profiler**: Identify component render bottlenecks
+2. **Chrome DevTools**: Performance tab for detailed analysis
+3. **Lighthouse**: Overall performance score and recommendations
+4. **Web Vitals**: Core Web Vitals metrics
+
+## Key Optimization Techniques
+
+### 1. Memoization with useMemo and useCallback
+
+Prevent unnecessary recalculations and re-renders:
+
+```tsx
+import { useMemo, useCallback } from 'react'
+
+function ExpensiveComponent({ data, onItemClick }) {
+  // Memoize expensive calculations
+  const processedData = useMemo(() => {
+    return data.map(item => ({
+      ...item,
+      computed: expensiveCalculation(item)
+    }))
+  }, [data])
+
+  // Memoize callback functions
+  const handleClick = useCallback((id) => {
+    onItemClick(id)
+  }, [onItemClick])
+
+  return (
+    <div>
+      {processedData.map(item => (
+        <Item key={item.id} data={item} onClick={handleClick} />
+      ))}
+    </div>
+  )
+}
+```
+
+### 2. React.memo for Component Memoization
+
+Prevent re-renders when props haven't changed:
+
+```tsx
+import { memo } from 'react'
+
+const ExpensiveChild = memo(function ExpensiveChild({ data }) {
+  // This component only re-renders if 'data' changes
+  return <div>{/* Render expensive content */}</div>
+})
+```
+
+### 3. Code Splitting and Lazy Loading
+
+Split your bundle and load components on demand:
+
+```tsx
+import { lazy, Suspense } from 'react'
+
+const HeavyComponent = lazy(() => import('./HeavyComponent'))
+
+function App() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HeavyComponent />
+    </Suspense>
+  )
+}
+```
+
+### 4. Virtualization for Long Lists
+
+Use libraries like `react-window` for long lists:
+
+```tsx
+import { FixedSizeList } from 'react-window'
+
+function VirtualList({ items }) {
+  const Row = ({ index, style }) => (
+    <div style={style}>
+      {items[index].name}
+    </div>
+  )
+
+  return (
+    <FixedSizeList
+      height={600}
+      itemCount={items.length}
+      itemSize={50}
+      width="100%"
+    >
+      {Row}
+    </FixedSizeList>
+  )
+}
+```
+
+### 5. Optimize Context Usage
+
+Avoid unnecessary re-renders from context:
+
+```tsx
+import { createContext, useContext, useMemo } from 'react'
+
+const DataContext = createContext()
+
+function DataProvider({ children }) {
+  const [data, setData] = useState([])
+  
+  // Memoize context value to prevent unnecessary re-renders
+  const value = useMemo(() => ({
+    data,
+    setData
+  }), [data])
+
+  return (
+    <DataContext.Provider value={value}>
+      {children}
+    </DataContext.Provider>
+  )
+}
+```
+
+## Advanced Techniques
+
+### 1. Debouncing and Throttling
+
+Control how often expensive operations run:
+
+```tsx
+import { useMemo } from 'react'
+import debounce from 'lodash/debounce'
+
+function SearchInput({ onSearch }) {
+  const debouncedSearch = useMemo(
+    () => debounce(onSearch, 300),
+    [onSearch]
+  )
+
+  return (
+    <input
+      type="text"
+      onChange={(e) => debouncedSearch(e.target.value)}
+      placeholder="Search..."
+    />
+  )
+}
+```
+
+### 2. Web Workers for Heavy Computations
+
+Move CPU-intensive tasks off the main thread:
+
+```tsx
+// worker.ts
+self.onmessage = (e) => {
+  const result = performHeavyCalculation(e.data)
+  self.postMessage(result)
+}
+
+// Component.tsx
+const worker = new Worker(new URL('./worker.ts', import.meta.url))
+
+function useWorker() {
+  const [result, setResult] = useState(null)
+
+  useEffect(() => {
+    worker.onmessage = (e) => setResult(e.data)
+    return () => worker.terminate()
+  }, [])
+
+  return { result, compute: (data) => worker.postMessage(data) }
+}
+```
+
+### 3. Image Optimization
+
+Use modern formats and lazy loading:
+
+```tsx
+import Image from 'next/image'
+
+function OptimizedImage({ src, alt }) {
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={800}
+      height={600}
+      loading="lazy"
+      placeholder="blur"
+    />
+  )
+}
+```
+
+## Common Anti-Patterns to Avoid
+
+### ❌ Creating Objects/Arrays in Render
+
+```tsx
+// Bad
+function Component({ onUpdate }) {
+  return <Child config={{ theme: 'dark' }} />
+}
+
+// Good
+const CONFIG = { theme: 'dark' }
+function Component({ onUpdate }) {
+  return <Child config={CONFIG} />
+}
+```
+
+### ❌ Not Keying Lists Properly
+
+```tsx
+// Bad
+items.map((item, index) => <Item key={index} {...item} />)
+
+// Good
+items.map((item) => <Item key={item.id} {...item} />)
+```
+
+### ❌ Inline Functions in JSX
+
+```tsx
+// Bad
+<button onClick={() => handleClick(id)}>Click</button>
+
+// Good
+const handleButtonClick = useCallback(() => {
+  handleClick(id)
+}, [id])
+
+<button onClick={handleButtonClick}>Click</button>
+```
+
+## Performance Checklist
+
+- [ ] Use production build for deployment
+- [ ] Enable code splitting
+- [ ] Implement lazy loading for routes
+- [ ] Optimize images and assets
+- [ ] Use memoization wisely
+- [ ] Virtualize long lists
+- [ ] Minimize bundle size
+- [ ] Enable compression (gzip/brotli)
+- [ ] Use CDN for static assets
+- [ ] Monitor with performance tools
+
+## Conclusion
+
+React performance optimization is an ongoing process. Start by measuring, identify bottlenecks, and apply the appropriate techniques. Remember: premature optimization is the root of all evil—optimize what actually needs optimization.
+
+Your users will thank you with better engagement and conversions!
+
+---
+
+**What performance techniques have worked best for you? Share your experience!**
+
+1d:["$","$L1a","react-performance-optimization",{"slug":"react-performance-optimization","title":"React Performance Optimization: A Complete Guide","date":"2024-09-12","description":"Learn proven techniques to optimize React applications for better performance and user experience.","tags":["React","Performance","Optimization","Web Development"],"readingTime":"4 min read","content":"$1f","index":2}]
+16:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+12:null
+14:{"metadata":[["$","title","0",{"children":"Blog | Rishabh Rathod"}],["$","meta","1",{"name":"description","content":"Articles about web development, programming, and technology."}],["$","meta","2",{"name":"author","content":"Rishabh Rathod"}],["$","meta","3",{"name":"keywords","content":"Frontend Developer,Web Developer,React,Next.js,TypeScript,Portfolio,Rishabh Rathod"}],["$","meta","4",{"name":"creator","content":"Rishabh Rathod"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"property":"og:title","content":"Rishabh Rathod - Staff Frontend Engineer"}],["$","meta","7",{"property":"og:description","content":"Building efficient and user-friendly developer tools, websites, and mobile apps with JavaScript, React, and React Native"}],["$","meta","8",{"property":"og:url","content":"https://rishabhrathod.com"}],["$","meta","9",{"property":"og:site_name","content":"Rishabh Rathod"}],["$","meta","10",{"property":"og:locale","content":"en_US"}],["$","meta","11",{"property":"og:type","content":"website"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:creator","content":"@rishabhrathod"}],["$","meta","14",{"name":"twitter:title","content":"Rishabh Rathod - Staff Frontend Engineer"}],["$","meta","15",{"name":"twitter:description","content":"Building efficient and user-friendly developer tools, websites, and mobile apps with JavaScript, React, and React Native"}]],"error":null,"digest":"$undefined"}
+19:"$14:metadata"
