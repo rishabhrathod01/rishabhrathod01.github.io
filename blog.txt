@@ -7,7 +7,7 @@
 f:I[9841,[],""]
 :HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/css/488a341127a98a98.css","style"]
-0:{"P":null,"b":"BBGTMsuXruPxXcxCGEBhG","p":"","c":["","blog"],"i":false,"f":[[["",{"children":["blog",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/488a341127a98a98.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                const theme = localStorage.getItem('theme');\n                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {\n                  document.documentElement.classList.add('dark');\n                }\n              } catch (e) {}\n            "}}]}],["$","body",null,{"className":"__className_f367f3","children":["$","div",null,{"className":"flex min-h-screen flex-col","children":[["$","$L2",null,{}],["$","main",null,{"className":"flex-1","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L5",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t bg-background","children":["$","div",null,{"className":"container mx-auto px-4 py-8","children":[["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-3 gap-8","children":[["$","div",null,{"children":[["$","h3",null,{"className":"font-semibold mb-3","children":"Rishabh Rathod"}],["$","p",null,{"className":"text-sm text-muted-foreground","children":"Staff Frontend Engineer passionate about building efficient developer tools and user-friendly applications."}]]}],["$","div",null,{"children":[["$","h3",null,{"className":"font-semibold mb-3","children":"Quick Links"}],["$","ul",null,{"className":"space-y-2 text-sm","children":[["$","li",null,{"children":["$","$L6",null,{"href":"/projects","className":"text-muted-foreground hover:text-foreground transition-colors","children":"Projects"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/blog","className":"text-muted-foreground hover:text-foreground transition-colors","children":"Blog"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/travel","className":"text-muted-foreground hover:text-foreground transition-colors","children":"Travel Stories"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/about","className":"text-muted-foreground hover:text-foreground transition-colors","children":"About"}]}]]}]]}],["$","div",null,{"children":[["$","h3",null,{"className":"font-semibold mb-3","children":"Connect"}],["$","div",null,{"className":"flex space-x-4","children":[["$","a",null,{"href":"https://github.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"GitHub","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-github h-5 w-5","children":[["$","path","tonef",{"d":"M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"}],["$","path","9comsn",{"d":"M9 18c-4.51 2-5-2-7-2"}],"$undefined"]}]}],["$","a",null,{"href":"https://www.linkedin.com/in/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"LinkedIn","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-linkedin h-5 w-5","children":[["$","path","c2jq9f",{"d":"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"}],["$","rect","mk3on5",{"width":"4","height":"12","x":"2","y":"9"}],["$","circle","bt5ra8",{"cx":"4","cy":"4","r":"2"}],"$undefined"]}]}],["$","a",null,{"href":"https://twitter.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"Twitter","children":"$L7"}],"$L8","$L9"]}]]}]]}],"$La"]}]}]]}]}]]}]]}],{"children":["blog","$Lb",{"children":["__PAGE__","$Lc",{},null,false]},null,false]},["$Ld",[],[]],false],"$Le",false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+0:{"P":null,"b":"t70opzSvG9ByUUTX6x3F5","p":"","c":["","blog"],"i":false,"f":[[["",{"children":["blog",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/488a341127a98a98.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                const theme = localStorage.getItem('theme');\n                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {\n                  document.documentElement.classList.add('dark');\n                }\n              } catch (e) {}\n            "}}]}],["$","body",null,{"className":"__className_f367f3","children":["$","div",null,{"className":"flex min-h-screen flex-col","children":[["$","$L2",null,{}],["$","main",null,{"className":"flex-1","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L5",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t bg-background","children":["$","div",null,{"className":"container mx-auto px-4 py-8","children":[["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-3 gap-8","children":[["$","div",null,{"children":[["$","h3",null,{"className":"font-semibold mb-3","children":"Rishabh Rathod"}],["$","p",null,{"className":"text-sm text-muted-foreground","children":"Staff Frontend Engineer passionate about building efficient developer tools and user-friendly applications."}]]}],["$","div",null,{"children":[["$","h3",null,{"className":"font-semibold mb-3","children":"Quick Links"}],["$","ul",null,{"className":"space-y-2 text-sm","children":[["$","li",null,{"children":["$","$L6",null,{"href":"/projects","className":"text-muted-foreground hover:text-foreground transition-colors","children":"Projects"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/blog","className":"text-muted-foreground hover:text-foreground transition-colors","children":"Blog"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/travel","className":"text-muted-foreground hover:text-foreground transition-colors","children":"Travel Stories"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/about","className":"text-muted-foreground hover:text-foreground transition-colors","children":"About"}]}]]}]]}],["$","div",null,{"children":[["$","h3",null,{"className":"font-semibold mb-3","children":"Connect"}],["$","div",null,{"className":"flex space-x-4","children":[["$","a",null,{"href":"https://github.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"GitHub","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-github h-5 w-5","children":[["$","path","tonef",{"d":"M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"}],["$","path","9comsn",{"d":"M9 18c-4.51 2-5-2-7-2"}],"$undefined"]}]}],["$","a",null,{"href":"https://www.linkedin.com/in/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"LinkedIn","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-linkedin h-5 w-5","children":[["$","path","c2jq9f",{"d":"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"}],["$","rect","mk3on5",{"width":"4","height":"12","x":"2","y":"9"}],["$","circle","bt5ra8",{"cx":"4","cy":"4","r":"2"}],"$undefined"]}]}],["$","a",null,{"href":"https://twitter.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"Twitter","children":"$L7"}],"$L8","$L9"]}]]}]]}],"$La"]}]}]]}]}]]}]]}],{"children":["blog","$Lb",{"children":["__PAGE__","$Lc",{},null,false]},null,false]},["$Ld",[],[]],false],"$Le",false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
 11:I[2546,[],"OutletBoundary"]
 13:I[7383,[],"AsyncMetadataOutlet"]
 15:I[2546,[],"ViewportBoundary"]
@@ -22,7 +22,545 @@ c:["$","$1","c",{"children":["$L10",null,["$","$L11",null,{"children":["$L12",["
 d:["$","div","l",{"className":"container mx-auto px-4 py-16","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":["$","div",null,{"className":"animate-pulse space-y-8","children":[["$","div",null,{"className":"h-12 bg-muted rounded w-1/3"}],["$","div",null,{"className":"h-6 bg-muted rounded w-2/3"}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6","children":[["$","div","1",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","2",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","3",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","4",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","5",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","6",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}]]}]]}]}]}]
 e:["$","$1","h",{"children":[null,[["$","$L15",null,{"children":"$L16"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$L17",null,{"children":["$","div",null,{"hidden":true,"children":["$","$18",null,{"fallback":null,"children":"$L19"}]}]}]]}]
 1a:I[5080,["386","static/chunks/386-050f686506f6526c.js","92","static/chunks/92-3f5ceb2c654995d0.js","514","static/chunks/514-9f554e00db9ecce4.js","831","static/chunks/app/blog/page-b0a4424c01a11a89.js"],"BlogCard"]
-1b:T28d6,
+1b:T3940,
+# How I Automated Daily WhatsApp Messages to My Cook (No More Headaches!)
+
+**The Problem:** Every single morning at 7:30 AM and evening at 5:30 PM, I had to manually message my cook about what to prepare for lunch and dinner. Miss one message? No proper meal. It was a daily mental burden I didn't need.
+
+**The Solution:** A fully automated system using GitHub Actions, TypeScript, and Whapi that sends meal plan instructions to WhatsApp automatically. Zero cost. Zero maintenance. Zero headaches.
+
+## The Daily Headache
+
+If you have a cook who comes to your home, you know the routine:
+
+- **7:30 AM:** "Di, aaj lunch mein ye banao..."
+- **5:30 PM:** "Di, dinner mein ye chahiye..."
+- **Every. Single. Day.**
+
+Miss a message? Your cook doesn't know what to prepare. You come home to either the wrong meal or nothing at all. It's a tiny task that creates daily friction and mental overhead.
+
+I thought: *"I'm a software engineer. There has to be a better way."*
+
+## The Automation Stack
+
+Here's what I built using 100% free tools:
+
+### Architecture Overview
+
+```
+Google Doc (Meal Plan)
+        ↓
+GitHub Actions (Scheduled Runner)
+        ↓
+TypeScript Script (Parser + Message Builder)
+        ↓
+Whapi.Cloud API (WhatsApp Gateway)
+        ↓
+WhatsApp Group (Cook receives message)
+```
+
+### Tech Stack
+
+- **GitHub Actions** — Free scheduled cron jobs (2,000 minutes/month on free tier)
+- **TypeScript** — Type-safe scripting
+- **Whapi.Cloud** — WhatsApp Business API (Free Sandbox: 150 messages/day)
+- **Google Docs** — Easy meal plan management for non-technical family members
+
+### Why This Stack?
+
+1. **GitHub Actions** — Already using GitHub, free tier is generous, reliable cron scheduling
+2. **TypeScript** — Better than bash scripts, type safety prevents bugs
+3. **Whapi** — Simplest WhatsApp API I found (no Meta Business verification needed for sandbox)
+4. **Google Docs** — My parents can update the meal plan without touching code
+
+## How It Works
+
+### 1. Meal Plan Google Doc
+
+I maintain a simple Google Doc with a 12-day rotating meal plan:
+
+```
+Day 1
+Lunch
+Main: Aloo Gobi (potato cauliflower)
+
+Dinner
+Main: Rajma Rice (kidney beans)
+
+Day 2
+Lunch
+Main: Palak Paneer (spinach cottage cheese)
+
+Dinner
+Main: Dal Tadka with Roti
+...
+```
+
+The script parses this and extracts the "Main" dish for each meal.
+
+### 2. GitHub Actions Workflow
+
+The workflow runs twice daily, Monday–Saturday:
+
+```yaml
+name: Meal plan WhatsApp
+
+on:
+  schedule:
+    # 7:30 AM IST = 02:00 UTC (lunch)
+    - cron: '0 2 * * 1-6'
+    # 5:30 PM IST = 12:00 UTC (dinner)
+    - cron: '0 12 * * 1-6'
+  workflow_dispatch: # Manual trigger for testing
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install and build
+        run: npm ci && npm run build
+      
+      - name: Send meal plan message
+        env:
+          WHAPI_API_TOKEN: ${{ secrets.WHAPI_API_TOKEN }}
+          WHAPI_GROUP_ID: ${{ secrets.WHAPI_GROUP_ID }}
+          MEAL_PLAN_COOK_PHONE: ${{ secrets.MEAL_PLAN_COOK_PHONE }}
+          MEAL_PLAN_DOC_ID: ${{ secrets.MEAL_PLAN_DOC_ID }}
+        run: node dist/scripts/meal-plan/send-meal-plan-message.js
+```
+
+**Key Features:**
+- Runs automatically at 7:30 AM and 5:30 PM IST
+- Skips Sundays (our cook's day off)
+- Manual trigger available for testing
+- All secrets stored securely in GitHub
+
+### 3. TypeScript Script Logic
+
+The script does four things:
+
+#### A. Fetch the Google Doc
+
+```typescript
+async function fetchDoc(): Promise<string> {
+  const docId = process.env.MEAL_PLAN_DOC_ID;
+  const url = `https://docs.google.com/document/d/${docId}/export?format=txt`;
+  const res = await fetch(url);
+  return res.text();
+}
+```
+
+**Pro tip:** Set your Google Doc to "Anyone with the link can view" so the script can access it without OAuth.
+
+#### B. Parse Meal Plan by Day
+
+```typescript
+function parseDocText(text: string): DayPlan[] {
+  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  const days: DayPlan[] = [];
+  let currentDay: number | null = null;
+  let mains: string[] = [];
+
+  for (const line of lines) {
+    const dayMatch = line.match(/^Day\s+(\d+)$/i);
+    if (dayMatch) {
+      if (currentDay !== null && mains.length >= 2) {
+        days.push({ 
+          dayNum: currentDay, 
+          lunch: mains[0], 
+          dinner: mains[1] 
+        });
+      }
+      currentDay = parseInt(dayMatch[1], 10);
+      mains = [];
+      continue;
+    }
+    if (currentDay !== null && line.startsWith('Main:')) {
+      mains.push(line.replace(/^Main:\s*/i, '').trim());
+    }
+  }
+  return days;
+}
+```
+
+This parses the plain text export and extracts lunch/dinner dishes for each day.
+
+#### C. Build the Message
+
+```typescript
+function buildMessage(
+  mealType: 'lunch' | 'dinner',
+  sabji: string,
+  chapatiCount: number,
+  isRiceDay: boolean,
+  mentionPhone: string
+): string {
+  const mealLabel = mealType === 'lunch' ? 'lunch' : 'dinner';
+  const riceLine = mealType === 'lunch'
+    ? 'Rice aur dal (subah bana lijiye, dono time ke liye)'
+    : 'Rice aur dal (subah wala use karein)';
+
+  return [
+    `@${mentionPhone} di,`,
+    `Aaj ${mealLabel} mai niche di gayi chezze bana dijiye`,
+    `- Sabji: ${sabji}`,
+    `- Chapati: ${chapatiCount}`,
+    `- ${riceLine}`,
+  ].join('\n');
+}
+```
+
+**Message format:**
+```
+@91XXXXXXXXXX di,
+Aaj lunch mai niche di gayi chezze bana dijiye
+- Sabji: Aloo Gobi
+- Chapati: 16
+- Rice aur dal (subah bana lijiye, dono time ke liye)
+```
+
+The `@mention` ensures my cook gets a notification even in a busy group chat.
+
+#### D. Send via Whapi
+
+```typescript
+async function sendWhapiMessage(body: string): Promise<void> {
+  const token = process.env.WHAPI_API_TOKEN;
+  const url = 'https://gate.whapi.cloud/messages/text';
+  
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      to: WHAPI_GROUP_ID,
+      body,
+      mentions: [COOK_PHONE],
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Whapi send failed: ${res.status}`);
+  }
+}
+```
+
+Whapi handles the WhatsApp Business API complexity. I just send a POST request.
+
+## Setup Guide (Step-by-Step)
+
+Want to build this yourself? Here's how:
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/rishabhrathod01/personal_automation.git
+cd personal_automation
+npm install
+npm run build
+```
+
+**Repository:** [github.com/rishabhrathod01/personal_automation](https://github.com/rishabhrathod01/personal_automation)
+
+### Step 2: Sign Up for Whapi.Cloud
+
+1. Go to [whapi.cloud](https://whapi.cloud/)
+2. Sign up (free Sandbox tier)
+3. Create a channel and link your WhatsApp
+4. Copy your **API Token** from the dashboard
+
+**Note:** The free Sandbox plan includes:
+- 150 messages/day
+- 5 active conversations/month
+- Perfect for this use case!
+
+### Step 3: Get Your WhatsApp Group ID
+
+This is tricky — the invite link is NOT the group ID. Run this helper script:
+
+```bash
+WHAPI_API_TOKEN=your_token npm run meal-plan:get-groups
+```
+
+Output:
+```
+Groups:
+1. Name: 565A Cook
+   ID: 1234567890-1234567890@g.us
+   
+2. Name: Family
+   ID: 9876543210-9876543210@g.us
+```
+
+Copy the group `ID` (not the invite link!).
+
+### Step 4: Create Your Meal Plan Google Doc
+
+1. Create a new Google Doc
+2. Format it like this:
+
+```
+Day 1
+Lunch
+Main: Your dish name
+
+Dinner
+Main: Your dish name
+
+Day 2
+...
+```
+
+3. **Share** → "Anyone with the link can view"
+4. Copy the **Doc ID** from URL: `https://docs.google.com/document/d/DOC_ID/edit`
+
+### Step 5: Set GitHub Secrets
+
+Go to your repo: **Settings → Secrets and variables → Actions**
+
+Add these 4 secrets:
+
+| Secret Name | Value |
+|------------|-------|
+| `WHAPI_API_TOKEN` | Your Whapi token |
+| `WHAPI_GROUP_ID` | Group ID from Step 3 (e.g., `123...@g.us`) |
+| `MEAL_PLAN_COOK_PHONE` | Cook's phone with country code (e.g., `919876543210`) |
+| `MEAL_PLAN_DOC_ID` | Google Doc ID from Step 4 |
+
+### Step 6: Test It!
+
+1. Go to **Actions** tab in GitHub
+2. Click **Meal plan WhatsApp**
+3. Click **Run workflow**
+4. Check the "Send Day 1... as test" option
+5. Click **Run workflow**
+
+Check your WhatsApp — you should see the message! 🎉
+
+### Step 7: Enable the Schedule
+
+Uncomment the `schedule` lines in `.github/workflows/meal-plan-whatsapp.yml`:
+
+```yaml
+on:
+  schedule:
+    - cron: '0 2 * * 1-6'   # 7:30 AM IST
+    - cron: '0 12 * * 1-6'  # 5:30 PM IST
+  workflow_dispatch:
+```
+
+Commit and push. Your automation is now live!
+
+## Configuration Options
+
+You can customize these in `scripts/meal-plan/config.ts`:
+
+```typescript
+// Chapati count when rice is not served
+const CHAPATI_WITHOUT_RICE = 16;
+
+// Chapati count when rice is served  
+const CHAPATI_WITH_RICE = 12;
+
+// Weekdays when rice is served (1=Mon, 6=Sat)
+const RICE_DAYS: number[] = [3]; // Wednesday
+```
+
+## Real-World Impact
+
+**Before automation:**
+- 2 messages/day × 6 days/week = **12 manual messages/week**
+- Mental overhead: "Did I message the cook?"
+- Missed messages = wrong/no meal
+
+**After automation:**
+- **0 manual messages**
+- Set it and forget it
+- 100% consistent meal planning
+- Family members can update Google Doc directly
+
+**Time saved:** ~5 minutes/day = **30 hours/year**
+
+More importantly: **Zero mental burden**. That's the real win.
+
+## Cost Breakdown
+
+Let's talk money:
+
+| Service | Plan | Cost |
+|---------|------|------|
+| GitHub Actions | Free tier (2,000 min/month) | $0 |
+| Whapi.Cloud | Sandbox (150 msg/day) | $0 |
+| Google Docs | Personal account | $0 |
+| **Total** | | **$0/month** |
+
+For my use case (12 messages/week), I use:
+- ~2 GitHub Actions minutes/day
+- ~12 Whapi messages/week
+- Both well within free limits
+
+**Paid option:** If you need more volume, Whapi's Developer Premium plan is $19/month (unlimited messages).
+
+## Lessons Learned
+
+### 1. Whapi's Group ID is NOT the Invite Link
+
+I wasted an hour trying to use `chat.whatsapp.com/...` before realizing I needed the API group ID. The helper script saves you this headache.
+
+### 2. Google Docs > JSON Files
+
+Initially, I used a JSON file in the repo for the meal plan. Problem: non-technical family members couldn't update it. Google Docs solved this perfectly.
+
+### 3. Cron Time Zones are Tricky
+
+GitHub Actions runs in UTC. IST is UTC+5:30. So:
+- 7:30 AM IST = 2:00 AM UTC
+- 5:30 PM IST = 12:00 PM UTC
+
+Test with `workflow_dispatch` before enabling the schedule!
+
+### 4. @Mentions Are Critical
+
+In a group chat, regular messages get lost. The `@mention` ensures my cook gets a notification even with muted conversations.
+
+### 5. Error Handling Matters
+
+The script includes proper error handling:
+```typescript
+if (!res.ok) {
+  const errText = await res.text();
+  throw new Error(`Whapi send failed: ${res.status} ${errText}`);
+}
+```
+
+When it breaks (and it will), clear error messages in GitHub Actions logs make debugging easy.
+
+## Future Enhancements
+
+Ideas I'm considering:
+
+1. **Two-Way Communication**
+   - Let cook reply "Done" to mark meal as completed
+   - Send summary to family group
+
+2. **Smart Meal Planning**
+   - AI-powered meal suggestions based on:
+     - Previous preferences
+     - Seasonal vegetables
+     - Nutritional balance
+
+3. **Grocery List Automation**
+   - Parse meal plan
+   - Auto-generate shopping list
+   - Send to BigBasket/Zepto via API
+
+4. **Multi-Language Support**
+   - Currently Hindi + English mix
+   - Add regional languages based on cook's preference
+
+5. **Voice Messages**
+   - Some cooks prefer voice notes
+   - Whapi supports audio messages
+
+## Alternative Approaches
+
+### Option 1: Telegram Bot
+**Pros:** Easier API, no phone number needed  
+**Cons:** My cook doesn't use Telegram
+
+### Option 2: Twilio WhatsApp
+**Pros:** Official WhatsApp Business API  
+**Cons:** Requires Meta Business verification, more expensive
+
+### Option 3: N8N / Zapier
+**Pros:** No-code visual automation  
+**Cons:** Paid plans required for scheduling, less customization
+
+### Option 4: AWS Lambda + EventBridge
+**Pros:** Highly scalable, powerful  
+**Cons:** Overkill for this use case, requires AWS knowledge
+
+**Why I chose GitHub Actions + Whapi:**
+- Free forever (within reasonable limits)
+- No infrastructure to maintain
+- All code in one place
+- Easy to extend with new automations
+
+## Security Considerations
+
+### Secrets Management
+✅ All sensitive data in GitHub Secrets (encrypted at rest)  
+✅ Never committed to repository  
+✅ Repo can be safely made public
+
+### Access Control
+✅ Only authorized GitHub account can run workflows  
+✅ Whapi token scoped to specific channel  
+✅ Google Doc set to view-only for export URL
+
+### Data Privacy
+✅ No personal meal data stored in third-party databases  
+✅ Meal plan in our Google account (not on external servers)  
+✅ WhatsApp messages use end-to-end encryption
+
+## Community & Contributions
+
+The full source code is open source:
+
+**GitHub:** [rishabhrathod01/personal_automation](https://github.com/rishabhrathod01/personal_automation)
+
+**Want to contribute?**
+- Add support for more messaging platforms (Telegram, Signal)
+- Improve meal plan parsing (handle more formats)
+- Add internationalization (i18n)
+- Build a web dashboard for meal plan management
+
+**Fork it and make it your own!**
+
+## Conclusion
+
+What started as a daily annoyance turned into a fun weekend project. Now I have:
+
+✅ **Zero manual messages** to my cook  
+✅ **Zero cost** automation  
+✅ **Zero maintenance** (been running for months)  
+✅ **Extensible system** for future home automations  
+
+The best part? My parents can update the meal plan without touching code. My cook gets clear instructions every day. I never think about it anymore.
+
+**That's the beauty of good automation** — you set it up once and forget it exists.
+
+---
+
+## Get Started Today
+
+1. Star the repo: [github.com/rishabhrathod01/personal_automation](https://github.com/rishabhrathod01/personal_automation)
+2. Follow the setup guide above
+3. Customize for your needs
+4. Share your automation story!
+
+**Have questions?** Drop a comment or open an issue on GitHub. I'm happy to help you set this up.
+
+**Built something similar?** I'd love to hear about your home automation projects. Connect with me on [Twitter](https://twitter.com/rishabhrathod01) or [LinkedIn](https://linkedin.com/in/rishabhrathod01).
+
+---
+
+### Related Reading
+
+- [System Design Learning Path — 12-Week Intensive Curriculum](/blog/system-design-learning-path-12-week-curriculum)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [Whapi.Cloud API Docs](https://whapi.cloud/docs)
+
+**Happy Automating!** 🤖✨
+10:["$","div",null,{"className":"container mx-auto px-4 py-16","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":[["$","div",null,{"className":"text-center mb-12","children":[["$","h1",null,{"className":"text-4xl md:text-5xl font-bold mb-4","children":"Tech Blog"}],["$","p",null,{"className":"text-lg text-muted-foreground max-w-2xl mx-auto","children":"Thoughts, tutorials, and insights about web development, programming, and the latest in tech."}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6","children":[["$","$L1a","automate-whatsapp-messages-to-cook-github-actions",{"slug":"automate-whatsapp-messages-to-cook-github-actions","title":"How I Automated Daily WhatsApp Messages to My Cook (No More Headaches!)","date":"2025-02-16","description":"Tired of daily reminder messages to your cook? Learn how I built a free automation using GitHub Actions, TypeScript, and Whapi to send meal plans automatically — saving time and mental energy every single day.","tags":["Automation","GitHub Actions","TypeScript","WhatsApp","Productivity","Life Hacks"],"readingTime":"11 min read","content":"$1b","index":0}],"$L1c","$L1d","$L1e","$L1f"]}]]}]}]
+20:T28d6,
 # System Design Learning Path — 12-Week Intensive Curriculum
 
 **For Frontend Developers Transitioning to AI Engineering**
@@ -376,8 +914,8 @@ Start Week 1 today. Share your progress. Build in public. Good luck! 🚀
 ---
 
 **Want to connect?** Find me on [Twitter](https://twitter.com/rishabhrathod01), [GitHub](https://github.com/rishabhrathod01), or [LinkedIn](https://linkedin.com/in/rishabhrathod01).
-10:["$","div",null,{"className":"container mx-auto px-4 py-16","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":[["$","div",null,{"className":"text-center mb-12","children":[["$","h1",null,{"className":"text-4xl md:text-5xl font-bold mb-4","children":"Tech Blog"}],["$","p",null,{"className":"text-lg text-muted-foreground max-w-2xl mx-auto","children":"Thoughts, tutorials, and insights about web development, programming, and the latest in tech."}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6","children":[["$","$L1a","system-design-learning-path-12-week-curriculum",{"slug":"system-design-learning-path-12-week-curriculum","title":"System Design Learning Path — 12-Week Intensive Curriculum","date":"2025-02-14","description":"A 12-week intensive curriculum for frontend developers transitioning to AI engineering. Complete both System Design Interview (Alex Xu) and Designing Data-Intensive Applications (DDIA) using only free resources—weekly reading, hands-on projects, and blog topics.","tags":["System Design","Learning Path","DDIA","Alex Xu","Curriculum","Distributed Systems","AI Engineering"],"readingTime":"7 min read","content":"$1b","index":0}],"$L1c","$L1d","$L1e"]}]]}]}]
-1f:T1aca,
+1c:["$","$L1a","system-design-learning-path-12-week-curriculum",{"slug":"system-design-learning-path-12-week-curriculum","title":"System Design Learning Path — 12-Week Intensive Curriculum","date":"2025-02-14","description":"A 12-week intensive curriculum for frontend developers transitioning to AI engineering. Complete both System Design Interview (Alex Xu) and Designing Data-Intensive Applications (DDIA) using only free resources—weekly reading, hands-on projects, and blog topics.","tags":["System Design","Learning Path","DDIA","Alex Xu","Curriculum","Distributed Systems","AI Engineering"],"readingTime":"7 min read","content":"$20","index":1}]
+21:T1aca,
 In the article, we will be building an admin dashboard that will help us manage the product data of a balloon's store website.
 ![products.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623737585900/kf-1uvKk3.png)
 The above image is a website's product page that fetches data from a google sheet acting as a database.
@@ -549,8 +1087,8 @@ And it's done. 🎉🥳
 
 ![Screenshot 2021-06-20 at 12.25.22 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624172135740/bT1-TutUK.png)
 
-That's how it looks. 🧐🤩1c:["$","$L1a","building-an-admin-panel-using-low-code-tools-appsmith",{"slug":"building-an-admin-panel-using-low-code-tools-appsmith","title":"Building an admin panel using low code tools - Appsmith","date":"2021-08-05","description":"In the article, we will be building an admin dashboard that will help us manage the product data of a balloon's store website.\nThe above image is a website's product page that fetches data from a goo","tags":["Low Code","Tools","React"],"readingTime":"5 min read","content":"$1f","index":1}]
-20:Tf3e,
+That's how it looks. 🧐🤩1d:["$","$L1a","building-an-admin-panel-using-low-code-tools-appsmith",{"slug":"building-an-admin-panel-using-low-code-tools-appsmith","title":"Building an admin panel using low code tools - Appsmith","date":"2021-08-05","description":"In the article, we will be building an admin dashboard that will help us manage the product data of a balloon's store website.\nThe above image is a website's product page that fetches data from a goo","tags":["Low Code","Tools","React"],"readingTime":"5 min read","content":"$21","index":2}]
+22:Tf3e,
 In this article, I will share my experience building a website using [Quarkly](https://quarkly.io/)
 
 
@@ -650,8 +1188,8 @@ And we are done 🎉
 ![thankyoufor attention.jpeg](https://cdn.hashnode.com/res/hashnode/image/upload/v1625957451618/56Ady5LQd.jpeg)
 
 PS: I would love to know what you make using quarkly. If you are stuck anywhere feel free to  [join their discord](https://discord.com/invite/AevfxmF3TM). 
-1d:["$","$L1a","create-website-using-low-code-tool",{"slug":"create-website-using-low-code-tool","title":"Building a store website","date":"2021-08-05","description":"In this article, I will share my experience building a website using Quarkly So, What is Quarkly 🤔 ? Quarkly is a low-code design tool for creating websites and web apps. It was the best fit for all ","tags":["Web Development"],"readingTime":"3 min read","content":"$20","index":2}]
-21:T24e4,
+1e:["$","$L1a","create-website-using-low-code-tool",{"slug":"create-website-using-low-code-tool","title":"Building a store website","date":"2021-08-05","description":"In this article, I will share my experience building a website using Quarkly So, What is Quarkly 🤔 ? Quarkly is a low-code design tool for creating websites and web apps. It was the best fit for all ","tags":["Web Development"],"readingTime":"3 min read","content":"$22","index":3}]
+23:T24e4,
 After the MIUI 12 upgrade, I just loved playing the new smooth animations 😍 and as a developer, was excited to know how to implement it 🤔.
 
 The first thing I did was google "Wave Animation Can it be done in react-native? " 😬 and got a close result to what I was looking for but as I wanted to play with the wave. That wasn't enough and hence I tried further on my own.
@@ -914,7 +1452,7 @@ Hope you enjoyed this article and learned something new. 🙇‍♂️
 
 Also, check out William Candillon's Wave Animation [Video](https://www.youtube.com/watch?v=OU43e7TwlEY) if you haven't.
 
-#### Thank you for reading and would love to hear your suggestions to make it better. You can connect with me on [Twitter](https://twitter.com/rishabhrathod01).1e:["$","$L1a","implementing-miuis-wave-animation-using-react-native-reanimated-v2",{"slug":"implementing-miuis-wave-animation-using-react-native-reanimated-v2","title":"Implementing MIUI's Wave Animation  🌊  Using React Native Reanimated v2","date":"2020-12-12","description":"After the MIUI 12 upgrade, I just loved playing the new smooth animations 😍 and as a developer, was excited to know how to implement it 🤔. The first thing I did was google \"Wave Animation Can it be","tags":["React Native","Animation","JavaScript","Tutorial","React"],"readingTime":"7 min read","content":"$21","index":3}]
+#### Thank you for reading and would love to hear your suggestions to make it better. You can connect with me on [Twitter](https://twitter.com/rishabhrathod01).1f:["$","$L1a","implementing-miuis-wave-animation-using-react-native-reanimated-v2",{"slug":"implementing-miuis-wave-animation-using-react-native-reanimated-v2","title":"Implementing MIUI's Wave Animation  🌊  Using React Native Reanimated v2","date":"2020-12-12","description":"After the MIUI 12 upgrade, I just loved playing the new smooth animations 😍 and as a developer, was excited to know how to implement it 🤔. The first thing I did was google \"Wave Animation Can it be","tags":["React Native","Animation","JavaScript","Tutorial","React"],"readingTime":"7 min read","content":"$23","index":4}]
 16:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 12:null
 14:{"metadata":[["$","title","0",{"children":"Blog | Rishabh Rathod"}],["$","meta","1",{"name":"description","content":"Articles about web development, programming, and technology."}],["$","meta","2",{"name":"author","content":"Rishabh Rathod"}],["$","meta","3",{"name":"keywords","content":"Frontend Developer,Web Developer,React,Next.js,TypeScript,Portfolio,Rishabh Rathod"}],["$","meta","4",{"name":"creator","content":"Rishabh Rathod"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"property":"og:title","content":"Rishabh Rathod - Staff Frontend Engineer"}],["$","meta","7",{"property":"og:description","content":"Building efficient and user-friendly developer tools, websites, and mobile apps with JavaScript, React, and React Native"}],["$","meta","8",{"property":"og:url","content":"https://rishabhrathod.com"}],["$","meta","9",{"property":"og:site_name","content":"Rishabh Rathod"}],["$","meta","10",{"property":"og:locale","content":"en_US"}],["$","meta","11",{"property":"og:type","content":"website"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:creator","content":"@rishabhrathod"}],["$","meta","14",{"name":"twitter:title","content":"Rishabh Rathod - Staff Frontend Engineer"}],["$","meta","15",{"name":"twitter:description","content":"Building efficient and user-friendly developer tools, websites, and mobile apps with JavaScript, React, and React Native"}]],"error":null,"digest":"$undefined"}
