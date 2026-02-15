@@ -1,0 +1,545 @@
+---
+title: "How I Automated Daily WhatsApp Messages to My Cook (No More Headaches!)"
+date: "2025-02-16"
+description: "Tired of daily reminder messages to your cook? Learn how I built a free automation using GitHub Actions, TypeScript, and Whapi to send meal plans automatically — saving time and mental energy every single day."
+coverImage: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=1200&q=80"
+tags: ["Automation", "GitHub Actions", "TypeScript", "WhatsApp", "Productivity", "Life Hacks"]
+author: "Rishabh Rathod"
+---
+
+# How I Automated Daily WhatsApp Messages to My Cook (No More Headaches!)
+
+**The Problem:** Every single morning at 7:30 AM and evening at 5:30 PM, I had to manually message my cook about what to prepare for lunch and dinner. Miss one message? No proper meal. It was a daily mental burden I didn't need.
+
+**The Solution:** A fully automated system using GitHub Actions, TypeScript, and Whapi that sends meal plan instructions to WhatsApp automatically. Zero cost. Zero maintenance. Zero headaches.
+
+## The Daily Headache
+
+If you have a cook who comes to your home, you know the routine:
+
+- **7:30 AM:** "Di, aaj lunch mein ye banao..."
+- **5:30 PM:** "Di, dinner mein ye chahiye..."
+- **Every. Single. Day.**
+
+Miss a message? Your cook doesn't know what to prepare. You come home to either the wrong meal or nothing at all. It's a tiny task that creates daily friction and mental overhead.
+
+I thought: *"I'm a software engineer. There has to be a better way."*
+
+## The Automation Stack
+
+Here's what I built using 100% free tools:
+
+### Architecture Overview
+
+```
+Google Doc (Meal Plan)
+        ↓
+GitHub Actions (Scheduled Runner)
+        ↓
+TypeScript Script (Parser + Message Builder)
+        ↓
+Whapi.Cloud API (WhatsApp Gateway)
+        ↓
+WhatsApp Group (Cook receives message)
+```
+
+### Tech Stack
+
+- **GitHub Actions** — Free scheduled cron jobs (2,000 minutes/month on free tier)
+- **TypeScript** — Type-safe scripting
+- **Whapi.Cloud** — WhatsApp Business API (Free Sandbox: 150 messages/day)
+- **Google Docs** — Easy meal plan management for non-technical family members
+
+### Why This Stack?
+
+1. **GitHub Actions** — Already using GitHub, free tier is generous, reliable cron scheduling
+2. **TypeScript** — Better than bash scripts, type safety prevents bugs
+3. **Whapi** — Simplest WhatsApp API I found (no Meta Business verification needed for sandbox)
+4. **Google Docs** — My parents can update the meal plan without touching code
+
+## How It Works
+
+### 1. Meal Plan Google Doc
+
+I maintain a simple Google Doc with a 12-day rotating meal plan:
+
+```
+Day 1
+Lunch
+Main: Aloo Gobi (potato cauliflower)
+
+Dinner
+Main: Rajma Rice (kidney beans)
+
+Day 2
+Lunch
+Main: Palak Paneer (spinach cottage cheese)
+
+Dinner
+Main: Dal Tadka with Roti
+...
+```
+
+The script parses this and extracts the "Main" dish for each meal.
+
+### 2. GitHub Actions Workflow
+
+The workflow runs twice daily, Monday–Saturday:
+
+```yaml
+name: Meal plan WhatsApp
+
+on:
+  schedule:
+    # 7:30 AM IST = 02:00 UTC (lunch)
+    - cron: '0 2 * * 1-6'
+    # 5:30 PM IST = 12:00 UTC (dinner)
+    - cron: '0 12 * * 1-6'
+  workflow_dispatch: # Manual trigger for testing
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install and build
+        run: npm ci && npm run build
+      
+      - name: Send meal plan message
+        env:
+          WHAPI_API_TOKEN: ${{ secrets.WHAPI_API_TOKEN }}
+          WHAPI_GROUP_ID: ${{ secrets.WHAPI_GROUP_ID }}
+          MEAL_PLAN_COOK_PHONE: ${{ secrets.MEAL_PLAN_COOK_PHONE }}
+          MEAL_PLAN_DOC_ID: ${{ secrets.MEAL_PLAN_DOC_ID }}
+        run: node dist/scripts/meal-plan/send-meal-plan-message.js
+```
+
+**Key Features:**
+- Runs automatically at 7:30 AM and 5:30 PM IST
+- Skips Sundays (our cook's day off)
+- Manual trigger available for testing
+- All secrets stored securely in GitHub
+
+### 3. TypeScript Script Logic
+
+The script does four things:
+
+#### A. Fetch the Google Doc
+
+```typescript
+async function fetchDoc(): Promise<string> {
+  const docId = process.env.MEAL_PLAN_DOC_ID;
+  const url = `https://docs.google.com/document/d/${docId}/export?format=txt`;
+  const res = await fetch(url);
+  return res.text();
+}
+```
+
+**Pro tip:** Set your Google Doc to "Anyone with the link can view" so the script can access it without OAuth.
+
+#### B. Parse Meal Plan by Day
+
+```typescript
+function parseDocText(text: string): DayPlan[] {
+  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  const days: DayPlan[] = [];
+  let currentDay: number | null = null;
+  let mains: string[] = [];
+
+  for (const line of lines) {
+    const dayMatch = line.match(/^Day\s+(\d+)$/i);
+    if (dayMatch) {
+      if (currentDay !== null && mains.length >= 2) {
+        days.push({ 
+          dayNum: currentDay, 
+          lunch: mains[0], 
+          dinner: mains[1] 
+        });
+      }
+      currentDay = parseInt(dayMatch[1], 10);
+      mains = [];
+      continue;
+    }
+    if (currentDay !== null && line.startsWith('Main:')) {
+      mains.push(line.replace(/^Main:\s*/i, '').trim());
+    }
+  }
+  return days;
+}
+```
+
+This parses the plain text export and extracts lunch/dinner dishes for each day.
+
+#### C. Build the Message
+
+```typescript
+function buildMessage(
+  mealType: 'lunch' | 'dinner',
+  sabji: string,
+  chapatiCount: number,
+  isRiceDay: boolean,
+  mentionPhone: string
+): string {
+  const mealLabel = mealType === 'lunch' ? 'lunch' : 'dinner';
+  const riceLine = mealType === 'lunch'
+    ? 'Rice aur dal (subah bana lijiye, dono time ke liye)'
+    : 'Rice aur dal (subah wala use karein)';
+
+  return [
+    `@${mentionPhone} di,`,
+    `Aaj ${mealLabel} mai niche di gayi chezze bana dijiye`,
+    `- Sabji: ${sabji}`,
+    `- Chapati: ${chapatiCount}`,
+    `- ${riceLine}`,
+  ].join('\n');
+}
+```
+
+**Message format:**
+```
+@91XXXXXXXXXX di,
+Aaj lunch mai niche di gayi chezze bana dijiye
+- Sabji: Aloo Gobi
+- Chapati: 16
+- Rice aur dal (subah bana lijiye, dono time ke liye)
+```
+
+The `@mention` ensures my cook gets a notification even in a busy group chat.
+
+#### D. Send via Whapi
+
+```typescript
+async function sendWhapiMessage(body: string): Promise<void> {
+  const token = process.env.WHAPI_API_TOKEN;
+  const url = 'https://gate.whapi.cloud/messages/text';
+  
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      to: WHAPI_GROUP_ID,
+      body,
+      mentions: [COOK_PHONE],
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Whapi send failed: ${res.status}`);
+  }
+}
+```
+
+Whapi handles the WhatsApp Business API complexity. I just send a POST request.
+
+## Setup Guide (Step-by-Step)
+
+Want to build this yourself? Here's how:
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/rishabhrathod01/personal_automation.git
+cd personal_automation
+npm install
+npm run build
+```
+
+**Repository:** [github.com/rishabhrathod01/personal_automation](https://github.com/rishabhrathod01/personal_automation)
+
+### Step 2: Sign Up for Whapi.Cloud
+
+1. Go to [whapi.cloud](https://whapi.cloud/)
+2. Sign up (free Sandbox tier)
+3. Create a channel and link your WhatsApp
+4. Copy your **API Token** from the dashboard
+
+**Note:** The free Sandbox plan includes:
+- 150 messages/day
+- 5 active conversations/month
+- Perfect for this use case!
+
+### Step 3: Get Your WhatsApp Group ID
+
+This is tricky — the invite link is NOT the group ID. Run this helper script:
+
+```bash
+WHAPI_API_TOKEN=your_token npm run meal-plan:get-groups
+```
+
+Output:
+```
+Groups:
+1. Name: 565A Cook
+   ID: 1234567890-1234567890@g.us
+   
+2. Name: Family
+   ID: 9876543210-9876543210@g.us
+```
+
+Copy the group `ID` (not the invite link!).
+
+### Step 4: Create Your Meal Plan Google Doc
+
+1. Create a new Google Doc
+2. Format it like this:
+
+```
+Day 1
+Lunch
+Main: Your dish name
+
+Dinner
+Main: Your dish name
+
+Day 2
+...
+```
+
+3. **Share** → "Anyone with the link can view"
+4. Copy the **Doc ID** from URL: `https://docs.google.com/document/d/DOC_ID/edit`
+
+### Step 5: Set GitHub Secrets
+
+Go to your repo: **Settings → Secrets and variables → Actions**
+
+Add these 4 secrets:
+
+| Secret Name | Value |
+|------------|-------|
+| `WHAPI_API_TOKEN` | Your Whapi token |
+| `WHAPI_GROUP_ID` | Group ID from Step 3 (e.g., `123...@g.us`) |
+| `MEAL_PLAN_COOK_PHONE` | Cook's phone with country code (e.g., `919876543210`) |
+| `MEAL_PLAN_DOC_ID` | Google Doc ID from Step 4 |
+
+### Step 6: Test It!
+
+1. Go to **Actions** tab in GitHub
+2. Click **Meal plan WhatsApp**
+3. Click **Run workflow**
+4. Check the "Send Day 1... as test" option
+5. Click **Run workflow**
+
+Check your WhatsApp — you should see the message! 🎉
+
+### Step 7: Enable the Schedule
+
+Uncomment the `schedule` lines in `.github/workflows/meal-plan-whatsapp.yml`:
+
+```yaml
+on:
+  schedule:
+    - cron: '0 2 * * 1-6'   # 7:30 AM IST
+    - cron: '0 12 * * 1-6'  # 5:30 PM IST
+  workflow_dispatch:
+```
+
+Commit and push. Your automation is now live!
+
+## Configuration Options
+
+You can customize these in `scripts/meal-plan/config.ts`:
+
+```typescript
+// Chapati count when rice is not served
+const CHAPATI_WITHOUT_RICE = 16;
+
+// Chapati count when rice is served  
+const CHAPATI_WITH_RICE = 12;
+
+// Weekdays when rice is served (1=Mon, 6=Sat)
+const RICE_DAYS: number[] = [3]; // Wednesday
+```
+
+## Real-World Impact
+
+**Before automation:**
+- 2 messages/day × 6 days/week = **12 manual messages/week**
+- Mental overhead: "Did I message the cook?"
+- Missed messages = wrong/no meal
+
+**After automation:**
+- **0 manual messages**
+- Set it and forget it
+- 100% consistent meal planning
+- Family members can update Google Doc directly
+
+**Time saved:** ~5 minutes/day = **30 hours/year**
+
+More importantly: **Zero mental burden**. That's the real win.
+
+## Cost Breakdown
+
+Let's talk money:
+
+| Service | Plan | Cost |
+|---------|------|------|
+| GitHub Actions | Free tier (2,000 min/month) | $0 |
+| Whapi.Cloud | Sandbox (150 msg/day) | $0 |
+| Google Docs | Personal account | $0 |
+| **Total** | | **$0/month** |
+
+For my use case (12 messages/week), I use:
+- ~2 GitHub Actions minutes/day
+- ~12 Whapi messages/week
+- Both well within free limits
+
+**Paid option:** If you need more volume, Whapi's Developer Premium plan is $19/month (unlimited messages).
+
+## Lessons Learned
+
+### 1. Whapi's Group ID is NOT the Invite Link
+
+I wasted an hour trying to use `chat.whatsapp.com/...` before realizing I needed the API group ID. The helper script saves you this headache.
+
+### 2. Google Docs > JSON Files
+
+Initially, I used a JSON file in the repo for the meal plan. Problem: non-technical family members couldn't update it. Google Docs solved this perfectly.
+
+### 3. Cron Time Zones are Tricky
+
+GitHub Actions runs in UTC. IST is UTC+5:30. So:
+- 7:30 AM IST = 2:00 AM UTC
+- 5:30 PM IST = 12:00 PM UTC
+
+Test with `workflow_dispatch` before enabling the schedule!
+
+### 4. @Mentions Are Critical
+
+In a group chat, regular messages get lost. The `@mention` ensures my cook gets a notification even with muted conversations.
+
+### 5. Error Handling Matters
+
+The script includes proper error handling:
+```typescript
+if (!res.ok) {
+  const errText = await res.text();
+  throw new Error(`Whapi send failed: ${res.status} ${errText}`);
+}
+```
+
+When it breaks (and it will), clear error messages in GitHub Actions logs make debugging easy.
+
+## Future Enhancements
+
+Ideas I'm considering:
+
+1. **Two-Way Communication**
+   - Let cook reply "Done" to mark meal as completed
+   - Send summary to family group
+
+2. **Smart Meal Planning**
+   - AI-powered meal suggestions based on:
+     - Previous preferences
+     - Seasonal vegetables
+     - Nutritional balance
+
+3. **Grocery List Automation**
+   - Parse meal plan
+   - Auto-generate shopping list
+   - Send to BigBasket/Zepto via API
+
+4. **Multi-Language Support**
+   - Currently Hindi + English mix
+   - Add regional languages based on cook's preference
+
+5. **Voice Messages**
+   - Some cooks prefer voice notes
+   - Whapi supports audio messages
+
+## Alternative Approaches
+
+### Option 1: Telegram Bot
+**Pros:** Easier API, no phone number needed  
+**Cons:** My cook doesn't use Telegram
+
+### Option 2: Twilio WhatsApp
+**Pros:** Official WhatsApp Business API  
+**Cons:** Requires Meta Business verification, more expensive
+
+### Option 3: N8N / Zapier
+**Pros:** No-code visual automation  
+**Cons:** Paid plans required for scheduling, less customization
+
+### Option 4: AWS Lambda + EventBridge
+**Pros:** Highly scalable, powerful  
+**Cons:** Overkill for this use case, requires AWS knowledge
+
+**Why I chose GitHub Actions + Whapi:**
+- Free forever (within reasonable limits)
+- No infrastructure to maintain
+- All code in one place
+- Easy to extend with new automations
+
+## Security Considerations
+
+### Secrets Management
+✅ All sensitive data in GitHub Secrets (encrypted at rest)  
+✅ Never committed to repository  
+✅ Repo can be safely made public
+
+### Access Control
+✅ Only authorized GitHub account can run workflows  
+✅ Whapi token scoped to specific channel  
+✅ Google Doc set to view-only for export URL
+
+### Data Privacy
+✅ No personal meal data stored in third-party databases  
+✅ Meal plan in our Google account (not on external servers)  
+✅ WhatsApp messages use end-to-end encryption
+
+## Community & Contributions
+
+The full source code is open source:
+
+**GitHub:** [rishabhrathod01/personal_automation](https://github.com/rishabhrathod01/personal_automation)
+
+**Want to contribute?**
+- Add support for more messaging platforms (Telegram, Signal)
+- Improve meal plan parsing (handle more formats)
+- Add internationalization (i18n)
+- Build a web dashboard for meal plan management
+
+**Fork it and make it your own!**
+
+## Conclusion
+
+What started as a daily annoyance turned into a fun weekend project. Now I have:
+
+✅ **Zero manual messages** to my cook  
+✅ **Zero cost** automation  
+✅ **Zero maintenance** (been running for months)  
+✅ **Extensible system** for future home automations  
+
+The best part? My parents can update the meal plan without touching code. My cook gets clear instructions every day. I never think about it anymore.
+
+**That's the beauty of good automation** — you set it up once and forget it exists.
+
+---
+
+## Get Started Today
+
+1. Star the repo: [github.com/rishabhrathod01/personal_automation](https://github.com/rishabhrathod01/personal_automation)
+2. Follow the setup guide above
+3. Customize for your needs
+4. Share your automation story!
+
+**Have questions?** Drop a comment or open an issue on GitHub. I'm happy to help you set this up.
+
+**Built something similar?** I'd love to hear about your home automation projects. Connect with me on [Twitter](https://twitter.com/rishabhrathod01) or [LinkedIn](https://linkedin.com/in/rishabhrathod01).
+
+---
+
+### Related Reading
+
+- [System Design Learning Path — 12-Week Intensive Curriculum](/blog/system-design-learning-path-12-week-curriculum)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [Whapi.Cloud API Docs](https://whapi.cloud/docs)
+
+**Happy Automating!** 🤖✨
