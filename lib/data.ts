@@ -124,70 +124,26 @@ export const experience = [
 
 export const projects = [
   {
-    title: 'AI Data Pipeline Agent - Prophecy',
+    title: 'DiffyCurl',
     description:
-      'Contributed to shipping AI agent features for data exploration, comparison, and pipeline generation using AI. Built intelligent features for enterprise data workflows.',
+      'A powerful developer tool for comparing API responses. Helps developers identify differences between multiple API endpoints, track API changes, and debug response variations efficiently.',
     image:
-      'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
-    tags: ['AI', 'TypeScript', 'React', 'Data Engineering'],
-    liveUrl: 'https://www.prophecy.io',
-    githubUrl: '',
-    featured: true,
-  },
-  {
-    title: 'Generate CRUD - Appsmith',
-    description:
-      'Built the Generate CRUD feature enabling users to create fully functional apps in under 10 seconds. Revolutionized rapid application development for the platform.',
-    image:
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-    tags: ['React', 'TypeScript', 'Low-Code', 'JavaScript'],
-    liveUrl: 'https://www.appsmith.com',
-    githubUrl: '',
-    featured: true,
-  },
-  {
-    title: 'JavaScript Evaluation Engine - Appsmith',
-    description:
-      'Optimized the internal JavaScript evaluation engine, boosting performance by over 200% and reducing initial application load time from 5 seconds to under 1 second. Enabled autocomplete, linting, and more.',
-    image:
-      'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&q=80',
-    tags: ['JavaScript', 'TypeScript', 'Performance', 'Engine'],
-    liveUrl: 'https://www.appsmith.com',
-    githubUrl: '',
-    featured: true,
-  },
-  {
-    title: 'Packages Feature - Appsmith',
-    description:
-      'Developed enterprise feature improving reusability of queries and logic across workspaces, driving increased enterprise sales and better code organization.',
-    image:
-      'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80',
-    tags: ['React', 'TypeScript', 'Enterprise', 'Architecture'],
-    liveUrl: 'https://www.appsmith.com',
-    githubUrl: '',
-    featured: false,
-  },
-  {
-    title: 'Platform-Independent Charting Solution',
-    description:
-      'Built a customized TradingView Lite solution optimized for both React Native and web, with enhanced performance in mobile webviews for financial data visualization.',
-    image:
-      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80',
-    tags: ['React Native', 'React', 'TradingView', 'Charts'],
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80',
+    tags: ['Developer Tools', 'API', 'CLI', 'Open Source'],
     liveUrl: '',
-    githubUrl: '',
-    featured: false,
+    githubUrl: 'https://github.com/rishabhrathod01/DiffyCurl',
+    featured: true,
   },
   {
-    title: 'Technical Analysis Website - Streak',
+    title: 'CSS to JS - VS Code Extension',
     description:
-      'Developed responsive website using Gatsby with >90 SEO score on Lighthouse. Reduced bundle size by 65%, improving First Contentful Paint from 4.0s to 1.8s.',
+      'A VS Code extension that converts CSS styles to JavaScript objects instantly. Streamlines the workflow for developers working with CSS-in-JS libraries like styled-components and emotion. Published on VS Code Marketplace.',
     image:
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
-    tags: ['Gatsby', 'React', 'SEO', 'Performance'],
-    liveUrl: '',
-    githubUrl: '',
-    featured: false,
+      'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80',
+    tags: ['VS Code', 'Extension', 'CSS', 'JavaScript', 'Developer Tools'],
+    liveUrl: 'https://marketplace.visualstudio.com/items?itemName=rishabh-rathod.css-to-js',
+    githubUrl: 'https://github.com/rishabhrathod01/css-to-js',
+    featured: true,
   },
 ];
 
