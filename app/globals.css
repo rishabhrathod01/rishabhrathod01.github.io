@@ -80,3 +80,58 @@ html {
   @apply bg-muted-foreground/50;
 }
 
+/* Haveli feedback page — light lavender theme (scoped) */
+.haveli-feedback-page {
+  --background: 270 40% 97%;
+  --foreground: 270 30% 20%;
+  --card: 0 0% 100%;
+  --card-foreground: 270 30% 20%;
+  --primary: 270 50% 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 270 30% 92%;
+  --secondary-foreground: 270 30% 25%;
+  --muted: 270 25% 93%;
+  --muted-foreground: 270 20% 45%;
+  --accent: 270 40% 90%;
+  --accent-foreground: 270 30% 25%;
+  --border: 270 25% 88%;
+  --input: 270 25% 88%;
+  --ring: 270 50% 45%;
+}
+.haveli-feedback-page {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Range slider track and thumb — visible bar */
+.haveli-feedback-page input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  width: 100%;
+  border-radius: 9999px;
+  background: hsl(var(--input));
+}
+
+.haveli-feedback-page input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
+  cursor: pointer;
+  border: 2px solid hsl(var(--primary-foreground) / 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.haveli-feedback-page input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
+  cursor: pointer;
+  border: 2px solid hsl(var(--primary-foreground) / 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+

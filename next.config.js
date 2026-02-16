@@ -4,7 +4,7 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     unoptimized: true,
-    domains: ['images.unsplash.com', 'github.com'],
+    domains: ['images.unsplash.com', 'github.com', 'placekitten.com'],
   },
 }
 
