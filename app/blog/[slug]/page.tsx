@@ -4,7 +4,10 @@ import Link from "next/link"
 import { Calendar, Clock, ArrowLeft } from "lucide-react"
 import { getBlogPost, getBlogPosts } from "@/lib/mdx"
 import { MDXContent } from "@/components/MDXContent"
+import { CurriculumTodoList } from "@/components/CurriculumTodoList"
 import { Button } from "@/components/ui/button"
+
+const CURRICULUM_TODO_SLUG = "system-design-learning-path-12-week-curriculum"
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -94,7 +97,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </header>
 
         <div className="prose prose-neutral dark:prose-invert max-w-none">
-          <MDXContent source={post.content} />
+          {slug === CURRICULUM_TODO_SLUG ? (
+            <CurriculumTodoList />
+          ) : (
+            <MDXContent source={post.content} />
+          )}
         </div>
 
         <footer className="mt-12 pt-8 border-t">
