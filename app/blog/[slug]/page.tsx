@@ -1,35 +1,37 @@
-import { Metadata } from "next"
-import { notFound } from "next/navigation"
-import Link from "next/link"
-import { Calendar, Clock, ArrowLeft } from "lucide-react"
-import { getBlogPost, getBlogPosts } from "@/lib/mdx"
-import { MDXContent } from "@/components/MDXContent"
-import { CurriculumTodoList } from "@/components/CurriculumTodoList"
-import { Button } from "@/components/ui/button"
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { Calendar, Clock, ArrowLeft } from 'lucide-react';
+import { getBlogPost, getBlogPosts } from '@/lib/mdx';
+import { MDXContent } from '@/components/MDXContent';
+import { CurriculumTodoList } from '@/components/CurriculumTodoList';
+import { Button } from '@/components/ui/button';
 
-const CURRICULUM_TODO_SLUG = "system-design-learning-path-12-week-curriculum"
+const CURRICULUM_TODO_SLUG = 'system-design-learning-path-12-week-curriculum';
 
 interface BlogPostPageProps {
   params: Promise<{
-    slug: string
-  }>
+    slug: string;
+  }>;
 }
 
 export async function generateStaticParams() {
-  const posts = await getBlogPosts()
+  const posts = await getBlogPosts();
   return posts.map((post) => ({
     slug: post.slug,
-  }))
+  }));
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = await params
-  const post = await getBlogPost(slug)
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
 
   if (!post) {
     return {
-      title: "Post Not Found",
-    }
+      title: 'Post Not Found',
+    };
   }
 
   return {
@@ -39,40 +41,42 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     openGraph: {
       title: post.title,
       description: post.description,
-      type: "article",
+      type: 'article',
       publishedTime: post.date,
       tags: post.tags,
     },
-  }
+  };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = await params
-  const post = await getBlogPost(slug)
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
-  const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
+  const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <article className="max-w-3xl mx-auto">
-        <Button variant="ghost" asChild className="mb-8">
-          <Link href="/blog">
-            <ArrowLeft className="mr-2 h-4 w-4" />
+    <div className="container mx-auto px-4 py-8">
+      <div className="sticky top-16 z-40 -mx-4 px-4 py-3 mb-6 flex justify-start bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-transparent">
+        <Button variant="ghost" asChild size="sm">
+          <Link href="/blog" className="flex items-center gap-2">
+            <ArrowLeft className="h-4 w-4" />
             Back to Blog
           </Link>
         </Button>
+      </div>
 
+      <article className="max-w-3xl mx-auto">
         <header className="mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
-          
+
           <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-6">
             <div className="flex items-center gap-1">
               <Calendar className="h-4 w-4" />
@@ -114,6 +118,5 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </footer>
       </article>
     </div>
-  )
+  );
 }
-
