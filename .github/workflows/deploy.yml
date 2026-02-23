@@ -35,6 +35,8 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build (export)
+        env:
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
         run: pnpm run export
 
       - name: Add .nojekyll

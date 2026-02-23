@@ -1,7 +1,7 @@
 "use client"
 
-import Link from "next/link"
 import { motion } from "framer-motion"
+import { TrackedLink } from "@/components/TrackedLink"
 import { Calendar, Clock } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -37,7 +37,7 @@ export function BlogCard({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <Link href={`/blog/${slug}`}>
+      <TrackedLink href={`/blog/${slug}`} gaLabel={`Blog: ${title}`} gaLocation="blog_listing">
         <Card className="h-full hover:shadow-lg transition-all hover:border-primary">
           <CardHeader>
             <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
@@ -66,7 +66,7 @@ export function BlogCard({
             </div>
           </CardContent>
         </Card>
-      </Link>
+      </TrackedLink>
     </motion.div>
   )
 }

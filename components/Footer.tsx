@@ -1,6 +1,6 @@
-import Link from "next/link"
 import { Github, Linkedin, Twitter, Instagram, Mail } from "lucide-react"
 import { personalInfo } from "@/lib/data"
+import { TrackedLink } from "@/components/TrackedLink"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -22,24 +22,24 @@ export function Footer() {
             <h3 className="font-semibold mb-3">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/projects" className="text-muted-foreground hover:text-foreground transition-colors">
+                <TrackedLink href="/projects" gaLabel="Projects" gaLocation="footer" className="text-muted-foreground hover:text-foreground transition-colors">
                   Projects
-                </Link>
+                </TrackedLink>
               </li>
               <li>
-                <Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
+                <TrackedLink href="/blog" gaLabel="Blog" gaLocation="footer" className="text-muted-foreground hover:text-foreground transition-colors">
                   Blog
-                </Link>
+                </TrackedLink>
               </li>
               <li>
-                <Link href="/travel" className="text-muted-foreground hover:text-foreground transition-colors">
+                <TrackedLink href="/travel" gaLabel="Travel Stories" gaLocation="footer" className="text-muted-foreground hover:text-foreground transition-colors">
                   Travel Stories
-                </Link>
+                </TrackedLink>
               </li>
               <li>
-                <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+                <TrackedLink href="/about" gaLabel="About" gaLocation="footer" className="text-muted-foreground hover:text-foreground transition-colors">
                   About
-                </Link>
+                </TrackedLink>
               </li>
             </ul>
           </div>
@@ -48,49 +48,59 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-3">Connect</h3>
             <div className="flex space-x-4">
-              <a
+              <TrackedLink
                 href={personalInfo.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                gaLabel="GitHub"
+                gaLocation="footer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="GitHub"
               >
                 <Github className="h-5 w-5" />
-              </a>
-              <a
+              </TrackedLink>
+              <TrackedLink
                 href={personalInfo.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                gaLabel="LinkedIn"
+                gaLocation="footer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
-              </a>
-              <a
+              </TrackedLink>
+              <TrackedLink
                 href={personalInfo.social.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
+                gaLabel="Twitter"
+                gaLocation="footer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
-              </a>
-              <a
+              </TrackedLink>
+              <TrackedLink
                 href={personalInfo.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
+                gaLabel="Instagram"
+                gaLocation="footer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a
+              </TrackedLink>
+              <TrackedLink
                 href={`mailto:${personalInfo.email}`}
+                gaLabel="Email"
+                gaLocation="footer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Email"
               >
                 <Mail className="h-5 w-5" />
-              </a>
+              </TrackedLink>
             </div>
           </div>
         </div>

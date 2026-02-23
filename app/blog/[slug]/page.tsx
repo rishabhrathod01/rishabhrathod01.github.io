@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 import { getBlogPost, getBlogPosts } from '@/lib/mdx';
 import { MDXContent } from '@/components/MDXContent';
 import { CurriculumTodoList } from '@/components/CurriculumTodoList';
+import { TrackedLink } from '@/components/TrackedLink';
 import { Button } from '@/components/ui/button';
 
 const CURRICULUM_TODO_SLUG = 'system-design-learning-path-12-week-curriculum';
@@ -66,10 +66,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <div className="container mx-auto px-4 py-8">
       <div className="sticky top-16 z-40 -mx-4 px-4 py-3 mb-6 flex justify-start bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-transparent">
         <Button variant="ghost" asChild size="sm">
-          <Link href="/blog" className="flex items-center gap-2">
+          <TrackedLink href="/blog" gaLabel="Back to Blog" gaLocation="blog_post_sticky" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
             Back to Blog
-          </Link>
+          </TrackedLink>
         </Button>
       </div>
 
@@ -110,10 +110,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         <footer className="mt-12 pt-8 border-t">
           <Button asChild>
-            <Link href="/blog">
+            <TrackedLink href="/blog" gaLabel="Back to All Posts" gaLocation="blog_post_footer">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to All Posts
-            </Link>
+            </TrackedLink>
           </Button>
         </footer>
       </article>
