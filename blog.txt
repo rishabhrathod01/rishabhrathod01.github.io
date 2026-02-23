@@ -1,0 +1,1421 @@
+1:"$Sreact.fragment"
+2:I[9954,["112","static/chunks/112-8bfc55d60e50ccd0.js","386","static/chunks/386-050f686506f6526c.js","177","static/chunks/app/layout-2dd6ae1b3d96951d.js"],"GoogleAnalytics"]
+3:I[8381,["112","static/chunks/112-8bfc55d60e50ccd0.js","386","static/chunks/386-050f686506f6526c.js","177","static/chunks/app/layout-2dd6ae1b3d96951d.js"],"Header"]
+4:I[4811,[],""]
+5:I[4503,[],""]
+6:I[8904,["112","static/chunks/112-8bfc55d60e50ccd0.js","386","static/chunks/386-050f686506f6526c.js","345","static/chunks/app/not-found-d7563601cecc10b4.js"],"default"]
+7:I[7628,["112","static/chunks/112-8bfc55d60e50ccd0.js","386","static/chunks/386-050f686506f6526c.js","177","static/chunks/app/layout-2dd6ae1b3d96951d.js"],"TrackedLink"]
+12:I[9841,[],""]
+:HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/d47cc8eacd7359e4.css","style"]
+0:{"P":null,"b":"nNCt78H4byOp7GpM3cbpL","p":"","c":["","blog"],"i":false,"f":[[["",{"children":["blog",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d47cc8eacd7359e4.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                const theme = localStorage.getItem('theme');\n                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {\n                  document.documentElement.classList.add('dark');\n                }\n              } catch (e) {}\n            "}}]}],["$","body",null,{"className":"__className_f367f3","children":[["$","$L2",null,{}],["$","div",null,{"className":"flex min-h-screen flex-col","children":[["$","$L3",null,{}],["$","main",null,{"className":"flex-1","children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L6",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t bg-background","children":["$","div",null,{"className":"container mx-auto px-4 py-8","children":[["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-3 gap-8","children":[["$","div",null,{"children":[["$","h3",null,{"className":"font-semibold mb-3","children":"Rishabh Rathod"}],["$","p",null,{"className":"text-sm text-muted-foreground","children":"Staff Frontend Engineer passionate about building efficient developer tools and user-friendly applications."}]]}],["$","div",null,{"children":[["$","h3",null,{"className":"font-semibold mb-3","children":"Quick Links"}],["$","ul",null,{"className":"space-y-2 text-sm","children":[["$","li",null,{"children":["$","$L7",null,{"href":"/projects","gaLabel":"Projects","gaLocation":"footer","className":"text-muted-foreground hover:text-foreground transition-colors","children":"Projects"}]}],["$","li",null,{"children":["$","$L7",null,{"href":"/blog","gaLabel":"Blog","gaLocation":"footer","className":"text-muted-foreground hover:text-foreground transition-colors","children":"Blog"}]}],["$","li",null,{"children":["$","$L7",null,{"href":"/travel","gaLabel":"Travel Stories","gaLocation":"footer","className":"text-muted-foreground hover:text-foreground transition-colors","children":"Travel Stories"}]}],["$","li",null,{"children":["$","$L7",null,{"href":"/about","gaLabel":"About","gaLocation":"footer","className":"text-muted-foreground hover:text-foreground transition-colors","children":"About"}]}]]}]]}],["$","div",null,{"children":[["$","h3",null,{"className":"font-semibold mb-3","children":"Connect"}],["$","div",null,{"className":"flex space-x-4","children":[["$","$L7",null,{"href":"https://github.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","gaLabel":"GitHub","gaLocation":"footer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"GitHub","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-github h-5 w-5","children":[["$","path","tonef",{"d":"M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"}],["$","path","9comsn",{"d":"M9 18c-4.51 2-5-2-7-2"}],"$undefined"]}]}],["$","$L7",null,{"href":"https://www.linkedin.com/in/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","gaLabel":"LinkedIn","gaLocation":"footer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"LinkedIn","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-linkedin h-5 w-5","children":[["$","path","c2jq9f",{"d":"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"}],"$L8","$L9","$undefined"]}]}],"$La","$Lb","$Lc"]}]]}]]}],"$Ld"]}]}]]}]]}]]}]]}],{"children":["blog","$Le",{"children":["__PAGE__","$Lf",{},null,false]},null,false]},["$L10",[],[]],false],"$L11",false]],"m":"$undefined","G":["$12",[]],"s":false,"S":true}
+14:I[2546,[],"OutletBoundary"]
+16:I[7383,[],"AsyncMetadataOutlet"]
+18:I[2546,[],"ViewportBoundary"]
+1a:I[2546,[],"MetadataBoundary"]
+1b:"$Sreact.suspense"
+8:["$","rect","mk3on5",{"width":"4","height":"12","x":"2","y":"9"}]
+9:["$","circle","bt5ra8",{"cx":"4","cy":"4","r":"2"}]
+a:["$","$L7",null,{"href":"https://twitter.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","gaLabel":"Twitter","gaLocation":"footer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"Twitter","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-twitter h-5 w-5","children":[["$","path","pff0z6",{"d":"M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"}],"$undefined"]}]}]
+b:["$","$L7",null,{"href":"https://www.instagram.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","gaLabel":"Instagram","gaLocation":"footer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"Instagram","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-instagram h-5 w-5","children":[["$","rect","2e1cvw",{"width":"20","height":"20","x":"2","y":"2","rx":"5","ry":"5"}],["$","path","9exkf1",{"d":"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"}],["$","line","r4j83e",{"x1":"17.5","x2":"17.51","y1":"6.5","y2":"6.5"}],"$undefined"]}]}]
+c:["$","$L7",null,{"href":"mailto:rishabhrathod2012@gmail.com","gaLabel":"Email","gaLocation":"footer","className":"text-muted-foreground hover:text-foreground transition-colors","aria-label":"Email","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-mail h-5 w-5","children":[["$","rect","18n3k1",{"width":"20","height":"16","x":"2","y":"4","rx":"2"}],["$","path","1ocrg3",{"d":"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"}],"$undefined"]}]}]
+d:["$","div",null,{"className":"mt-8 pt-8 border-t text-center text-sm text-muted-foreground","children":["$","p",null,{"children":["© ",2026," Rishabh Rathod. All rights reserved."]}]}]
+e:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+f:["$","$1","c",{"children":["$L13",null,["$","$L14",null,{"children":["$L15",["$","$L16",null,{"promise":"$@17"}]]}]]}]
+10:["$","div","l",{"className":"container mx-auto px-4 py-16","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":["$","div",null,{"className":"animate-pulse space-y-8","children":[["$","div",null,{"className":"h-12 bg-muted rounded w-1/3"}],["$","div",null,{"className":"h-6 bg-muted rounded w-2/3"}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6","children":[["$","div","1",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","2",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","3",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","4",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","5",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}],["$","div","6",{"className":"space-y-4","children":[["$","div",null,{"className":"h-48 bg-muted rounded"}],["$","div",null,{"className":"h-6 bg-muted rounded w-3/4"}],["$","div",null,{"className":"h-4 bg-muted rounded w-full"}],["$","div",null,{"className":"h-4 bg-muted rounded w-5/6"}]]}]]}]]}]}]}]
+11:["$","$1","h",{"children":[null,[["$","$L18",null,{"children":"$L19"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$L1a",null,{"children":["$","div",null,{"hidden":true,"children":["$","$1b",null,{"fallback":null,"children":"$L1c"}]}]}]]}]
+1d:I[5080,["112","static/chunks/112-8bfc55d60e50ccd0.js","386","static/chunks/386-050f686506f6526c.js","624","static/chunks/624-3916e79648fe2693.js","831","static/chunks/app/blog/page-a1e3b24f0300b5a7.js"],"BlogCard"]
+1e:T4536,
+**The Problem:** Every morning at 7:30 AM and evening at 5:30 PM, I had to manually tell my cook what to prepare for lunch and dinner — and we still had to figure out *who* was eating so she knew how much to make. Miss one message? Wrong meal or no meal. Endless "who's in?" chats. Daily mental load.
+
+**The Solution:** Two automated pieces in one WhatsApp group: **(1)** Meal notifications — GitHub Actions + TypeScript + Whapi send the day’s menu from a Google Doc at 7:30 AM and 5:30 PM IST. **(2)** Poll messages — the same stack sends a WhatsApp poll on schedule: “Who would like to have dinner today?” at 11:30 AM IST and “Who would like to have lunch tomorrow?” at 9:00 PM IST (day before). Everyone ticks Yes/No; the cook sees headcount at a glance. Zero cost. Zero maintenance. One place for the full plan, the automated reminder, and who’s in.
+
+## The Daily Headache
+
+If you have a cook who comes to your home, you know the routine:
+
+- **7:30 AM:** "Di, aaj lunch mein ye banao..."
+- **5:30 PM:** "Di, dinner mein ye chahiye..."
+- **Plus:** "Who's having lunch today?" "I'm in for dinner." "Count me out tomorrow."
+- **Every. Single. Day.**
+
+Two problems: **what to cook** (menu) and **who’s eating** (headcount). Miss a message? Your cook doesn’t know what to prepare or how much. You end up with the wrong meal, no meal, or too much food. It’s a small task that adds up to real friction.
+
+I thought: *"I'm a software engineer. There has to be a better way."*
+
+## The System: Notifications + Polls
+
+Here’s what we run:
+
+1. **Meal notifications (automated)** — The system sends the day’s menu (sabji, chapati, rice/dal) to the cook group at 7:30 AM and 5:30 PM IST, so she always knows *what* to make.
+2. **Poll messages (automated)** — A separate scheduled job sends a WhatsApp poll to the same group: “Who would like to have dinner today?” at **11:30 AM IST** (same day) and “Who would like to have lunch tomorrow?” at **9:00 PM IST** (day before). Options: Yes / No. The cook and family see votes and who’s in without typing.
+
+Everything lives in one group: a pinned Google Doc link (full meal plan), the automated “what to cook” messages, and the automated polls for “who’s in.” Menu + attendance in one thread.
+
+### Architecture Overview (Meal Notifications)
+
+The automated part looks like this:
+
+```
+Google Doc (Meal Plan)
+        ↓
+GitHub Actions (Scheduled Runner)
+        ↓
+TypeScript Script (Parser + Message Builder)
+        ↓
+Whapi.Cloud API (WhatsApp Gateway)
+        ↓
+WhatsApp Group (Cook receives meal notification)
+```
+
+A second workflow runs the [poll script](https://github.com/rishabhrathod01/personal_automation/blob/main/scripts/meal-plan/send-meal-plan-poll.ts) on schedule and sends the poll to the same group via Whapi’s poll API.
+
+### Tech Stack (for both automations)
+
+- **GitHub Actions** — Free scheduled cron jobs (2,000 minutes/month on free tier)
+- **TypeScript** — Type-safe scripting
+- **Whapi.Cloud** — WhatsApp Business API (Free Sandbox: 150 messages/day)
+- **Google Docs** — Easy meal plan management for non-technical family members
+
+### Why This Stack?
+
+1. **GitHub Actions** — Already using GitHub, free tier is generous, reliable cron scheduling
+2. **TypeScript** — Better than bash scripts, type safety prevents bugs
+3. **Whapi** — Simplest WhatsApp API I found (no Meta Business verification needed for sandbox)
+4. **Google Docs** — My parents can update the meal plan without touching code
+
+## How the Meal Notification Works
+
+The next sections walk through the **meal notification** automation. The **poll automation** (schedule + script) is described later in [Poll Messages: Who’s In for Lunch or Dinner?](#poll-messages-whos-in-for-lunch-or-dinner).
+
+### 1. Meal Plan Google Doc
+
+I maintain a simple Google Doc with a 12-day rotating meal plan:
+
+```
+Day 1
+Lunch
+Main: Aloo Gobi (potato cauliflower)
+
+Dinner
+Main: Rajma Rice (kidney beans)
+
+Day 2
+Lunch
+Main: Palak Paneer (spinach cottage cheese)
+
+Dinner
+Main: Dal Tadka with Roti
+...
+```
+
+The script parses this and extracts the "Main" dish for each meal.
+
+### 2. GitHub Actions Workflow
+
+The workflow runs twice daily, Monday–Saturday:
+
+```yaml
+name: Meal plan WhatsApp
+
+on:
+  schedule:
+    # 7:30 AM IST = 02:00 UTC (lunch)
+    - cron: '0 2 * * 1-6'
+    # 5:30 PM IST = 12:00 UTC (dinner)
+    - cron: '0 12 * * 1-6'
+  workflow_dispatch: # Manual trigger for testing
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install and build
+        run: npm ci && npm run build
+      
+      - name: Send meal plan message
+        env:
+          WHAPI_API_TOKEN: ${{ secrets.WHAPI_API_TOKEN }}
+          WHAPI_GROUP_ID: ${{ secrets.WHAPI_GROUP_ID }}
+          MEAL_PLAN_COOK_PHONE: ${{ secrets.MEAL_PLAN_COOK_PHONE }}
+          MEAL_PLAN_DOC_ID: ${{ secrets.MEAL_PLAN_DOC_ID }}
+        run: node dist/scripts/meal-plan/send-meal-plan-message.js
+```
+
+**Poll automation:** A second workflow (or extra schedule in the same repo) runs the [send-meal-plan-poll.ts](https://github.com/rishabhrathod01/personal_automation/blob/main/scripts/meal-plan/send-meal-plan-poll.ts) script: **dinner poll** at 11:30 AM IST (“Who would like to have dinner today?”) and **lunch poll** at 9:00 PM IST (“Who would like to have lunch tomorrow?”). It uses the same `WHAPI_API_TOKEN` and `WHAPI_GROUP_ID`; set `MEAL_PLAN_POLL_TYPE=lunch` or `dinner` from the schedule so the script knows which poll to send.
+
+**Key Features:**
+- Runs automatically at 7:30 AM and 5:30 PM IST
+- Skips Sundays (our cook's day off)
+- Manual trigger available for testing
+- All secrets stored securely in GitHub
+- Same group receives the automated poll messages for "who's in" — one chat for menu + headcount
+
+### 3. TypeScript Script Logic
+
+The script does four things:
+
+#### A. Fetch the Google Doc
+
+```typescript
+async function fetchDoc(): Promise<string> {
+  const docId = process.env.MEAL_PLAN_DOC_ID;
+  const url = `https://docs.google.com/document/d/${docId}/export?format=txt`;
+  const res = await fetch(url);
+  return res.text();
+}
+```
+
+**Pro tip:** Set your Google Doc to "Anyone with the link can view" so the script can access it without OAuth.
+
+#### B. Parse Meal Plan by Day
+
+```typescript
+function parseDocText(text: string): DayPlan[] {
+  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  const days: DayPlan[] = [];
+  let currentDay: number | null = null;
+  let mains: string[] = [];
+
+  for (const line of lines) {
+    const dayMatch = line.match(/^Day\s+(\d+)$/i);
+    if (dayMatch) {
+      if (currentDay !== null && mains.length >= 2) {
+        days.push({ 
+          dayNum: currentDay, 
+          lunch: mains[0], 
+          dinner: mains[1] 
+        });
+      }
+      currentDay = parseInt(dayMatch[1], 10);
+      mains = [];
+      continue;
+    }
+    if (currentDay !== null && line.startsWith('Main:')) {
+      mains.push(line.replace(/^Main:\s*/i, '').trim());
+    }
+  }
+  return days;
+}
+```
+
+This parses the plain text export and extracts lunch/dinner dishes for each day.
+
+#### C. Build the Message
+
+```typescript
+function buildMessage(
+  mealType: 'lunch' | 'dinner',
+  sabji: string,
+  chapatiCount: number,
+  isRiceDay: boolean,
+  mentionPhone: string
+): string {
+  const mealLabel = mealType === 'lunch' ? 'lunch' : 'dinner';
+  const riceLine = mealType === 'lunch'
+    ? 'Rice aur dal (subah bana lijiye, dono time ke liye)'
+    : 'Rice aur dal (subah wala use karein)';
+
+  return [
+    `@${mentionPhone} di,`,
+    `Aaj ${mealLabel} mai niche di gayi chezze bana dijiye`,
+    `- Sabji: ${sabji}`,
+    `- Chapati: ${chapatiCount}`,
+    `- ${riceLine}`,
+  ].join('\n');
+}
+```
+
+**Message format:**
+```
+@91XXXXXXXXXX di,
+Aaj lunch mai niche di gayi chezze bana dijiye
+- Sabji: Aloo Gobi
+- Chapati: 16
+- Rice aur dal (subah bana lijiye, dono time ke liye)
+```
+
+The `@mention` ensures my cook gets a notification even in a busy group chat.
+
+#### D. Send via Whapi
+
+```typescript
+async function sendWhapiMessage(body: string): Promise<void> {
+  const token = process.env.WHAPI_API_TOKEN;
+  const url = 'https://gate.whapi.cloud/messages/text';
+  
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      to: WHAPI_GROUP_ID,
+      body,
+      mentions: [COOK_PHONE],
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Whapi send failed: ${res.status}`);
+  }
+}
+```
+
+Whapi handles the WhatsApp Business API complexity. I just send a POST request.
+
+## Setup Guide (Step-by-Step)
+
+Want to build this yourself? Here's how:
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/rishabhrathod01/personal_automation.git
+cd personal_automation
+npm install
+npm run build
+```
+
+**Repository:** [github.com/rishabhrathod01/personal_automation](https://github.com/rishabhrathod01/personal_automation)
+
+### Step 2: Sign Up for Whapi.Cloud
+
+1. Go to [whapi.cloud](https://whapi.cloud/)
+2. Sign up (free Sandbox tier)
+3. Create a channel and link your WhatsApp
+4. Copy your **API Token** from the dashboard
+
+**Note:** The free Sandbox plan includes:
+- 150 messages/day
+- 5 active conversations/month
+- Perfect for this use case!
+
+### Step 3: Get Your WhatsApp Group ID
+
+This is tricky — the invite link is NOT the group ID. Run this helper script:
+
+```bash
+WHAPI_API_TOKEN=your_token npm run meal-plan:get-groups
+```
+
+Output:
+```
+Groups:
+1. Name: 565A Cook
+   ID: 1234567890-1234567890@g.us
+   
+2. Name: Family
+   ID: 9876543210-9876543210@g.us
+```
+
+Copy the group `ID` (not the invite link!).
+
+### Step 4: Create Your Meal Plan Google Doc
+
+1. Create a new Google Doc
+2. Format it like this:
+
+```
+Day 1
+Lunch
+Main: Your dish name
+
+Dinner
+Main: Your dish name
+
+Day 2
+...
+```
+
+3. **Share** → "Anyone with the link can view"
+4. Copy the **Doc ID** from URL: `https://docs.google.com/document/d/DOC_ID/edit`
+
+### Step 5: Set GitHub Secrets
+
+Go to your repo: **Settings → Secrets and variables → Actions**
+
+Add these 4 secrets:
+
+| Secret Name | Value |
+|------------|-------|
+| `WHAPI_API_TOKEN` | Your Whapi token |
+| `WHAPI_GROUP_ID` | Group ID from Step 3 (e.g., `123...@g.us`) |
+| `MEAL_PLAN_COOK_PHONE` | Cook's phone with country code (e.g., `919876543210`) |
+| `MEAL_PLAN_DOC_ID` | Google Doc ID from Step 4 |
+
+### Step 6: Test It!
+
+1. Go to **Actions** tab in GitHub
+2. Click **Meal plan WhatsApp**
+3. Click **Run workflow**
+4. Check the "Send Day 1... as test" option
+5. Click **Run workflow**
+
+Check your WhatsApp — you should see the message! 🎉
+
+### Step 7: Enable the Schedule
+
+Uncomment the `schedule` lines in `.github/workflows/meal-plan-whatsapp.yml`:
+
+```yaml
+on:
+  schedule:
+    - cron: '0 2 * * 1-6'   # 7:30 AM IST
+    - cron: '0 12 * * 1-6'  # 5:30 PM IST
+  workflow_dispatch:
+```
+
+Commit and push. Your automation is now live!
+
+## Configuration Options
+
+You can customize these in `scripts/meal-plan/config.ts`:
+
+```typescript
+// Chapati count when rice is not served
+const CHAPATI_WITHOUT_RICE = 16;
+
+// Chapati count when rice is served  
+const CHAPATI_WITH_RICE = 12;
+
+// Weekdays when rice is served (1=Mon, 6=Sat)
+const RICE_DAYS: number[] = [3]; // Wednesday
+```
+
+## Real-World Impact
+
+**Before (notifications + coordination):**
+- 2 meal messages/day × 6 days/week = **12 manual messages/week**
+- Plus back-and-forth: “Who’s in for lunch?” “I’m in.” “Not me.”
+- Mental overhead: “Did I message the cook? Did we do the headcount?”
+- Missed message = wrong meal or wrong quantity
+
+**After (automated notifications + automated polls):**
+- **0 manual meal notifications** — automation sends the menu on time
+- **0 manual polls** — automation sends the dinner poll at 11:30 AM IST and the lunch poll at 9:00 PM IST (day before)
+- Set it and forget it for both; family just taps Yes/No when the poll appears
+- Family can update the Google Doc; cook sees the plan and the poll results in one chat
+
+**Time saved:** ~5 minutes/day = **30 hours/year**, and no more “who’s eating?” chaos.
+
+More importantly: **Zero mental burden**. That’s the real win.
+
+## Poll Messages: Who’s In for Lunch or Dinner? (Automated)
+
+We use **WhatsApp poll messages** in the same cook group to see who’s having lunch or dinner. The meal notification answers *what to cook*; the polls answer *how many to expect*. Both are automated.
+
+**Schedule:** A separate GitHub Actions workflow runs the [poll script](https://github.com/rishabhrathod01/personal_automation/blob/main/scripts/meal-plan/send-meal-plan-poll.ts) twice daily:
+
+- **11:30 AM IST** — “Who would like to have dinner today?” (Yes / No), so the cook knows headcount for the same evening.
+- **9:00 PM IST** — “Who would like to have lunch tomorrow?” (Yes / No), so she knows headcount for the next day.
+
+The script uses the same `WHAPI_API_TOKEN` and `WHAPI_GROUP_ID` as the meal plan message workflow and calls Whapi’s poll API (`/messages/poll`) with the question and options. The cook and family see the poll in the group, tap Yes/No, and vote counts are visible at a glance. Together: **menu** from the meal automation, **attendance** from the automated polls, all in one thread.
+
+![WhatsApp cook group with pinned Google Doc and poll messages for dinner and lunch](/blog/assets/whatsapp-poll-screenshot.png)
+
+*Screenshot: 565A Cook group — pinned meal plan doc and poll messages in use.*
+
+## Cost Breakdown
+
+Let's talk money:
+
+| Service | Plan | Cost |
+|---------|------|------|
+| GitHub Actions | Free tier (2,000 min/month) | $0 |
+| Whapi.Cloud | Sandbox (150 msg/day) | $0 |
+| Google Docs | Personal account | $0 |
+| WhatsApp polls (via Whapi) | Same API, 2 polls/day × 6 days | $0 |
+| **Total** | | **$0/month** |
+
+For my use case: **meal notifications** = ~12 Whapi messages/week; **polls** = ~12 Whapi poll messages/week; plus a few more GitHub Actions minutes for the poll workflow. Everything stays within free limits.
+
+**Paid option:** If you need more volume, Whapi's Developer Premium plan is $19/month (unlimited messages).
+
+## Lessons Learned
+
+### 1. Whapi's Group ID is NOT the Invite Link
+
+I wasted an hour trying to use `chat.whatsapp.com/...` before realizing I needed the API group ID. The helper script saves you this headache.
+
+### 2. Google Docs > JSON Files
+
+Initially, I used a JSON file in the repo for the meal plan. Problem: non-technical family members couldn't update it. Google Docs solved this perfectly.
+
+### 3. Cron Time Zones are Tricky
+
+GitHub Actions runs in UTC. IST is UTC+5:30. So:
+- 7:30 AM IST = 2:00 AM UTC
+- 5:30 PM IST = 12:00 PM UTC
+
+Test with `workflow_dispatch` before enabling the schedule!
+
+### 4. @Mentions Are Critical
+
+In a group chat, regular messages get lost. The `@mention` ensures my cook gets a notification even with muted conversations.
+
+### 5. Error Handling Matters
+
+The script includes proper error handling:
+```typescript
+if (!res.ok) {
+  const errText = await res.text();
+  throw new Error(`Whapi send failed: ${res.status} ${errText}`);
+}
+```
+
+When it breaks (and it will), clear error messages in GitHub Actions logs make debugging easy.
+
+## Community & Contributions
+
+The full source code is open source:
+
+**GitHub:** [rishabhrathod01/personal_automation](https://github.com/rishabhrathod01/personal_automation)
+
+**Want to contribute?**
+- Add support for more messaging platforms (Telegram, Signal)
+- Improve meal plan parsing (handle more formats)
+- Add internationalization (i18n)
+- Build a web dashboard for meal plan management
+
+**Fork it and make it your own!**
+
+## Conclusion
+
+What started as a daily annoyance turned into a simple system: **automated notifications for the menu and automated polls for who’s in.**
+
+✅ **Automated meal notifications** — zero manual “what to cook” messages  
+✅ **Automated polls** — dinner poll at 11:30 AM IST, lunch poll at 9:00 PM IST (day before), same group  
+✅ **Zero cost** — free tier everywhere  
+✅ **Zero maintenance** — both automations have been running for months  
+✅ **One place** — pinned doc + automated messages + automated polls in a single WhatsApp group  
+
+My parents update the meal plan in the Google Doc without touching code. My cook gets the menu on time and the poll at the right time; she just checks the votes. I don’t think about it anymore.
+
+**That’s the beauty of it** — set up both automations once and forget the rest.
+
+---
+
+## Get Started Today
+
+1. Star the repo: [github.com/rishabhrathod01/personal_automation](https://github.com/rishabhrathod01/personal_automation)
+2. Follow the setup guide above for the **meal notification** automation
+3. Enable the **poll workflow** and run [send-meal-plan-poll.ts](https://github.com/rishabhrathod01/personal_automation/blob/main/scripts/meal-plan/send-meal-plan-poll.ts) on your schedule (dinner poll / lunch poll)
+4. Customize the meal plan and timings for your household
+5. Share your automation story!
+
+**Have questions?** Drop a comment or open an issue on GitHub. I'm happy to help you set this up.
+
+**Built something similar?** I'd love to hear about your home automation projects. Connect with me on [Twitter](https://twitter.com/rishabhrathod01) or [LinkedIn](https://linkedin.com/in/rishabhrathod01).
+
+---
+
+### Related Reading
+
+- [System Design Learning Path — 12-Week Intensive Curriculum](/blog/system-design-learning-path-12-week-curriculum)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [Whapi.Cloud API Docs](https://whapi.cloud/docs)
+
+**Happy Automating!** 🤖✨
+13:["$","div",null,{"className":"container mx-auto px-4 py-16","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":[["$","div",null,{"className":"text-center mb-12","children":[["$","h1",null,{"className":"text-4xl md:text-5xl font-bold mb-4","children":"Tech Blog"}],["$","p",null,{"className":"text-lg text-muted-foreground max-w-2xl mx-auto","children":"Thoughts, tutorials, and insights about web development, programming, and the latest in tech."}]]}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6","children":[["$","$L1d","automate-whatsapp-messages-to-cook-github-actions",{"slug":"automate-whatsapp-messages-to-cook-github-actions","title":"How I Automated Daily WhatsApp Messages to My Cook (No More Headaches!)","date":"2025-02-16","description":"Meal coordination with a cook: what to make and who's in. Learn how I automated both daily meal notifications and WhatsApp polls (dinner/lunch headcount) with GitHub Actions, TypeScript, and Whapi — zero cost, zero hassle.","tags":["Automation","GitHub Actions","TypeScript","WhatsApp","Productivity","Life Hacks"],"readingTime":"13 min read","content":"$1e","index":0}],"$L1f","$L20","$L21","$L22"]}]]}]}]
+23:T2896,
+**For Frontend Developers Transitioning to AI Engineering**
+
+This course uses **only free and book-based sources**. No paid masterclass or subscription is required. You will complete **both** books: **System Design Interview: An Insider's Guide** (Alex Xu) and **Designing Data-Intensive Applications** (DDIA, Martin Kleppmann).
+
+**New to system design?** Start with [System Design was HARD until I Learned these 30 Concepts](https://blog.algomaster.io/p/30-system-design-concepts) and use the curated [awesome-system-design-resources](https://github.com/ashishps1/awesome-system-design-resources) repo.
+
+---
+
+## Program Overview
+
+This 12-week intensive program completes **both books** plus practical implementation from free resources and modern AI engineering patterns.
+
+**Each week includes:**
+- **Content to learn from** — Assigned chapters from both books plus free videos
+- **Project to implement** — Hands-on build  
+- **Blog topics** — Primary and alternative topics
+
+---
+
+## Week 1: Scale from Zero to Millions & Reliable/Maintainable/Scalable Apps
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**  
+- Chapter 1: Scale from Zero to Millions of Users  
+
+**DDIA (Martin Kleppmann):**  
+- Chapter 1: Reliable, Scalable, and Maintainable Applications
+
+**Video:**  
+- [How Discord Stores TRILLIONS of Messages](https://www.youtube.com/watch?v=xDC71DKtDUE)
+
+### Project
+
+Build a simple Node.js + Redis app with horizontal scaling.
+
+### Blog Topics
+
+**Primary:** "Scaling my portfolio site from 0 to 1 million users (in theory)"  
+**Alternative:** "Frontend engineers: here's how to think like a backend architect" or "3 principles of well-designed systems"
+
+---
+
+## Week 2: Back-of-the-Envelope Estimation & Data Models (SQL/NoSQL)
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**  
+- Chapter 2: Back-of-the-envelope Estimation  
+
+**DDIA (Martin Kleppmann):**  
+- Chapter 2: Data Models and Query Languages
+
+**Video:**  
+- [Big-O Notation in 100 Seconds (Fireship)](https://www.youtube.com/watch?v=g2o22C3CRfU)
+
+### Project
+
+Run capacity planning for your own app (e.g., blog or portfolio). Try basic SQL and Postgres queries.
+
+### Blog Topics
+
+**Primary:** "How to estimate if your side project can handle 10k users"  
+**Alternative:** "SQL vs. NoSQL: which should I use for my AI app?" or "Capacity planning 101 for frontend devs"
+
+---
+
+## Week 3: System Design Framework & Storage/Retrieval
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**  
+- Chapter 3: A Framework for System Design Interviews  
+
+**DDIA (Martin Kleppmann):**  
+- Chapter 3: Storage and Retrieval
+
+**Video:**  
+- [System Design Interview Basics (ByteByteGo)](https://www.youtube.com/watch?v=FSR1s2b-l_I)
+
+### Project
+
+Answer a mock interview question using the 4-step framework (e.g., "Design a URL shortener").
+
+### Blog Topics
+
+**Primary:** "My system design interview framework (steal this!)"  
+**Alternative:** "How databases actually store data" or "Indexes explained for React devs"
+
+---
+
+## Week 4: Design a Rate Limiter & Encoding/Evolution
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**  
+- Chapter 4: Design a Rate Limiter  
+
+**DDIA (Martin Kleppmann):**  
+- Chapter 4: Encoding and Evolution
+
+**Video:**  
+- [Rate Limiting (Fireship)](https://www.youtube.com/watch?v=cIperSdIEpI)
+
+### Project
+
+Implement a token-bucket rate limiter in Node.js or Python, test under load.
+
+### Blog Topics
+
+**Primary:** "I built a rate limiter from scratch (here's how it works)"  
+**Alternative:** "How APIs handle spammy clients" or "Protobuf, JSON, Avro: what's the difference?"
+
+---
+
+## Week 5: Consistent Hashing & Replication
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**  
+- Chapter 5: Design Consistent Hashing  
+
+**DDIA (Martin Kleppmann):**  
+- Chapter 5: Replication
+
+**Video:**  
+- [Consistent Hashing (Gaurav Sen)](https://www.youtube.com/watch?v=zaRkONvyGr8)
+
+### Project
+
+Simulate consistent hashing with a simple ring; observe node addition/removal.
+
+### Blog Topics
+
+**Primary:** "How consistent hashing powers distributed caching"  
+**Alternative:** "Replication: why your data lives on 3+ servers" or "Simulating database failover in Python"
+
+---
+
+## Week 6: Key-Value Store & Partitioning
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**  
+- Chapter 6: Design a Key-Value Store  
+
+**DDIA (Martin Kleppmann):**  
+- Chapter 6: Partitioning
+
+**Video:**  
+- [Database Sharding Explained (Fireship)](https://www.youtube.com/watch?v=5faMjKuB9bc)
+
+### Project
+
+Build a tiny key-value store with partitioning logic (Python or Go).
+
+### Blog Topics
+
+**Primary:** "Building a mini Redis clone in 200 lines"  
+**Alternative:** "Sharding vs. partitioning: what's the difference?" or "Why Cassandra uses consistent hashing"
+
+---
+
+## Week 7: Unique ID Generator & Transactions
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**  
+- Chapter 7: Design a Unique ID Generator in Distributed Systems  
+
+**DDIA (Martin Kleppmann):**  
+- Chapter 7: Transactions
+
+**Video:**  
+- [UUID vs. Snowflake IDs](https://www.youtube.com/watch?v=gpxnbly9bz4)
+
+### Project
+
+Implement Twitter Snowflake IDs in Node.js or Python.
+
+### Blog Topics
+
+**Primary:** "How Twitter generates billions of IDs per day"  
+**Alternative:** "UUIDs vs. auto-increment: which is better?" or "ACID transactions explained without the jargon"
+
+---
+
+## Week 8: URL Shortener & Distributed Systems Trouble
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**  
+- Chapter 8: Design a URL Shortener  
+
+**DDIA (Martin Kleppmann):**  
+- Chapter 8: The Trouble with Distributed Systems
+
+**Video:**  
+- [How Bitly Works (Systems Design)](https://www.youtube.com/watch?v=fMZMm_0ZhK4)
+
+### Project
+
+Build a working URL shortener with a database and base62 encoding.
+
+### Blog Topics
+
+**Primary:** "I built my own bit.ly in a weekend"  
+**Alternative:** "Network delays, clock drift, and why distributed systems are hard" or "How to handle 302 redirects at scale"
+
+---
+
+## Week 9: Web Crawler & Consistency/Consensus
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**  
+- Chapter 9: Design a Web Crawler  
+
+**DDIA (Martin Kleppmann):**  
+- Chapter 9: Consistency and Consensus
+
+**Video:**  
+- [How Search Engines Crawl the Web](https://www.youtube.com/watch?v=BKorP55Aqvg)
+
+### Project
+
+Write a basic web crawler (Python + Scrapy or Beautiful Soup).
+
+### Blog Topics
+
+**Primary:** "Building a mini-Googlebot: lessons learned"  
+**Alternative:** "Eventual consistency vs. strong consistency" or "How Raft/Paxos keeps databases in sync"
+
+---
+
+## Week 10: Notification System & Batch/Stream Processing
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**  
+- Chapter 10: Design a Notification System  
+
+**DDIA (Martin Kleppmann):**  
+- Chapter 10: Batch Processing
+
+**Video:**  
+- [Push Notifications at Scale (Netflix)](https://www.youtube.com/watch?v=6w6E_B55p0E)
+
+### Project
+
+Set up a simple push-notification service with FCM or a queue (e.g., RabbitMQ).
+
+### Blog Topics
+
+**Primary:** "How apps send millions of notifications per minute"  
+**Alternative:** "Batch processing vs. stream processing" or "Building a notification system with Kafka"
+
+---
+
+## Week 11: News Feed & Stream Processing
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**  
+- Chapter 11: Design a News Feed System  
+
+**DDIA (Martin Kleppmann):**  
+- Chapter 11: Stream Processing
+
+**Video:**  
+- [How Instagram's Feed Works](https://www.youtube.com/watch?v=QmX2NPkJTKg)
+
+### Project
+
+Build a mini feed aggregator (fanout-on-write or fanout-on-read).
+
+### Blog Topics
+
+**Primary:** "Designing a Twitter-like feed from scratch"  
+**Alternative:** "Fanout architectures explained" or "Real-time data processing with Kafka Streams"
+
+---
+
+## Week 12: Chat System & Future of Data Systems (AI Use Cases)
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**  
+- Chapter 12: Design a Chat System  
+
+**DDIA (Martin Kleppmann):**  
+- Chapter 12: The Future of Data Systems
+
+**Video:**  
+- [WhatsApp System Design](https://www.youtube.com/watch?v=vvhC64hQZMk)
+
+### Project
+
+Build a real-time chat app with WebSockets (Node.js + Socket.io or similar).
+
+### Blog Topics
+
+**Primary:** "I built a WhatsApp clone (here's the architecture)"  
+**Alternative:** "Real-time messaging at scale" or "How AI + data systems will shape the next decade"
+
+---
+
+## Additional Resources
+
+### System Design Patterns
+
+- [System Design Primer (GitHub)](https://github.com/donnemartin/system-design-primer)
+- [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- [ByteByteGo Newsletter](https://blog.bytebytego.com/)
+
+### AI Engineering Context
+
+- [LLM System Design](https://github.com/ray-project/llm-numbers)
+- [Building LLM Applications](https://huyenchip.com/2023/04/11/llm-engineering.html)
+- [AI Engineering Practices](https://www.latent.space/p/ai-engineer)
+
+### Practice & Community
+
+- [System Design Interview Questions](https://github.com/ashishps1/awesome-system-design-resources#must-read-engineering-articles)
+- [r/ExperiencedDevs](https://www.reddit.com/r/ExperiencedDevs/)
+- [Tech Twitter community](https://twitter.com/search?q=%23systemdesign)
+
+---
+
+## Tips for Success
+
+1. **Read actively** — Take notes, draw diagrams, question assumptions
+2. **Build something every week** — Theory without practice is incomplete
+3. **Write public blog posts** — Teaching is the best way to learn
+4. **Join study groups** — Find accountability partners on Twitter/Discord
+5. **Review previous weeks** — Spaced repetition solidifies learning
+6. **Apply to your work** — Look for opportunities to use these patterns in your day job
+
+---
+
+## Conclusion
+
+This 12-week curriculum gives you the foundation to confidently discuss system design in interviews and build scalable systems in practice. By completing both books and implementing projects, you'll understand not just *what* works, but *why* it works.
+
+**Remember:** System design is not about memorizing solutions—it's about understanding trade-offs, asking good questions, and making informed decisions.
+
+Start Week 1 today. Share your progress. Build in public. Good luck! 🚀
+
+---
+
+**Want to connect?** Find me on [Twitter](https://twitter.com/rishabhrathod01), [GitHub](https://github.com/rishabhrathod01), or [LinkedIn](https://linkedin.com/in/rishabhrathod01).
+1f:["$","$L1d","system-design-learning-path-12-week-curriculum",{"slug":"system-design-learning-path-12-week-curriculum","title":"System Design Learning Path — 12-Week Intensive Curriculum","date":"2025-02-14","description":"A 12-week intensive curriculum for frontend developers transitioning to AI engineering. Complete both System Design Interview (Alex Xu) and Designing Data-Intensive Applications (DDIA) using only free resources—weekly reading, hands-on projects, and blog topics.","tags":["System Design","Learning Path","DDIA","Alex Xu","Curriculum","Distributed Systems","AI Engineering"],"readingTime":"7 min read","content":"$23","index":1}]
+24:T1aca,
+In the article, we will be building an admin dashboard that will help us manage the product data of a balloon's store website.
+![products.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623737585900/kf-1uvKk3.png)
+The above image is a website's product page that fetches data from a google sheet acting as a database.
+Our admin dashboard will use google sheets APIs to modify data.
+#### Admin dashboard basic features:- 
+1. Create a new product. ( Insert a row )
+2. Modify existing product details. (modify a row)
+3. Remove product. (delete a row )
+
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623737493993/dCLrgHGa4.png)
+
+We will use appsmith's platform to build this dashboard.
+
+## 🤔 What is Appsmith?
+
+Appsmith is an open-source framework to build admin panels, CRUD apps, and workflows. Build everything you need, 10x faster.
+
+sounds cool? Let's build and see.
+
+
+
+### 1. Create a datasource 💽
+In this case, `datasource` is a google sheet so let's create a new sheet.
+
+![Screenshot 2021-06-15 at 12.19.32 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623740018881/GLJ-XZtMj_.png)
+
+here we created a sheet for `products` with the column as 
+```
+"product_id" ,  // unique id 
+"category_type", // product categories type like "BALLOON" or "FIREWORKS" or some other
+"product_name", // name of the product
+"product_desp" , // about the product
+"product_cost" , // cost of the product
+"product_stock", // stock quantity of product 
+"product_img_link" // image url
+``` 
+
+### 2. Integrate datasource to appsmith app
+
+when you create a new appsmith app, you will find yourself here.
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623741556622/0b_GU2Gsw.png)
+Click on Import APIs -> Choose Google Sheet -> Fill in the details.
+It will add google sheet as a datasource and route to create a new API.
+
+> Refer [Appsmith's docs](https://docs.appsmith.com/datasource-reference/querying-google-sheets) to know more about google sheet integration.
+
+### 3. Fetch data and generate widget to show UI 
+
+To get all the rows of the `products` sheet fill in the details as following
+- methods:  `fetch sheet rows`
+- spreadsheet URL: paste your google sheet URL
+- sheet name: `products` 
+
+![Untitled design.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623743329440/M5F8SQhEe.png)
+
+After a successful response from the API, click on `Generate Widget` to create a table rendering response data in a table.
+
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623750922448/FN6vTEHDf.png)
+
+### 4. Modify data using Form 🔨
+
+To create or update data in a row we will create a `Form` widget with an input field for each row of data respective to its type.
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623756084894/P-Zbh1Bea.png)
+
+here I have created a `Form` called Modify Product with input field as follows -
+
+```
+// widget_name `<WidgetType>` = {{defaultValue}}
+- Product Image `<Image>`  =  `{{appsmith.store.uploaded_image_link || productTable.selectedRow.product_img_link}}`
+- ImageURLInput  `<Text>` = `{{productTable.selectedRow.product_img_link || demo_image_URL}}`
+- product_name_input `<Text>` = `{{productTable.selectedRow.product_name || ''}}`
+- product_category_input `<Select>` = `{{productTable.selectedRow.product_name || ''}}`
+- product_desc_input `<Text>` = `{{productTable.selectedRow.product_name || ''}}`
+- product_stock_input `<Text>` = `{{productTable.selectedRow.product_name || ''}}`
+- product_cost_input `<Text>` = `{{productTable.selectedRow.product_name || ''}}`
+- product_row_index `<Text>` = `{{productTable.selectedRow.product_name || productTable.tableData.length}}`
+``` 
+
+Refer the [docs](https://docs.appsmith.com/widget-reference/table) if you aren't familiar with read value syntax like `productTable.selectedRow.column_name` mentioned above.
+
+
+`appsmith.store.uploaded_image_link` is used to read a value from the appsmith store.
+
+Check more about the appsmith store [here](https://docs.appsmith.com/framework-reference/store-value). 
+
+#### Create a new row
+
+When a table row is not selected, we would assume that the user will fill `Form` to create a new product i.e., a new row.
+In that case, we will need to create an API to insert a new row in google sheets.
+
+- createProduct API
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623847297678/6WOpFZGVG.png)
+
+#### Update an existing row
+
+- updateProduct API
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623847546411/uFDRimaA1.png)
+
+After both the APIs are created successfully. Now on click of the `Submit` button in `Form`, we would call these APIs according to the task.
+
+`Submit Button's` onClick actions :-
+
+```js
+onClick = {{
+Number(product_row_index.text) <= productTable.tableData.length - 1 ? 
+updateProduct.run(
+    // After successful  
+	() => getProducts.run(
+    // clear
+	   () => storeValue("uploaded_image_link","")  
+), () => {})
+: createProduct.run(
+	() => getProducts.run(
+		() => storeValue("uploaded_image_link","") 
+), () => {})
+}}
+```
+
+####  To Delete an existing row 
+
+Create a delete button inside the table as a new column and on click of which call deleteProductAPI
+
+- deleteProduct API
+
+![Screenshot 2021-06-20 at 12.16.40 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624171611200/i0ilO4UP6.png)
+
+
+### 5. Upload Image using Cloudinary 🌩
+
+To upload an image to appsmith, we will use the `Filepicker` widget as shown below.
+
+![Screenshot 2021-06-17 at 12.19.38 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623869432990/28bKft3ai.png)
+
+After this, I preferred adding an upload button separately on click of which we will upload selected image to cloudinary.
+
+Now let's create an account in cloudinary and get your `cloud_name` and `upload_preset` which can be used to upload images using appsmith.
+
+![Screenshot 2021-06-17 at 12.26.27 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623869891881/65HeDTjcX.png)
+
+Now let's create an API to upload the image.
+- #### uploadImageAPI
+
+Fill in the details as shown below.
+`FilePicker1` is a reference to the `FilePicker` widget.
+![Screenshot 2021-06-17 at 12.18.00 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623870070049/QwhYWcany.png)
+
+Now, we can run `uploadImageAPI` when the upload Image button is clicked.
+
+```js
+onClick = {{ 
+  uploadImageAPI.run(
+    (response) => {
+      /* onSuccess */
+      storeValue("uploaded_image_link",response.url);
+      // here, we store the value which is then read using {{appsmith.store.uploaded_image_link}}
+    },
+    (response) => {
+      /* onError */
+    },
+  )
+}}
+```
+
+And it's done. 🎉🥳
+
+
+![Screenshot 2021-06-20 at 12.25.22 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624172135740/bT1-TutUK.png)
+
+That's how it looks. 🧐🤩20:["$","$L1d","building-an-admin-panel-using-low-code-tools-appsmith",{"slug":"building-an-admin-panel-using-low-code-tools-appsmith","title":"Building an admin panel using low code tools - Appsmith","date":"2021-08-05","description":"In the article, we will be building an admin dashboard that will help us manage the product data of a balloon's store website.\nThe above image is a website's product page that fetches data from a goo","tags":["Low Code","Tools","React"],"readingTime":"5 min read","content":"$24","index":2}]
+25:Tf3e,
+In this article, I will share my experience building a website using [Quarkly](https://quarkly.io/)
+
+
+### So, What is Quarkly 🤔 ?
+
+Quarkly is a low-code design tool for creating websites and web apps.
+
+It was the best fit for all the features I needed and was also free 😋
+
+Few features are listed below -
+1. Github sync of whole website code. *(take home your website code )* 🥺
+2. Building custom components using react.
+3. Prebuild components library.
+4. performant (changes are visible close to real-time)
+
+
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623704690316/lneP3Vevcs.png)
+
+
+Now, let's begin to create the website. 🛠
+
+For the website demoed in this article, inspiration was taken from a design by [bhavya sinha](https://dribbble.com/bhavyasinha).  
+
+![Screenshot 2021-06-20 at 12.39.25 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624173716656/YTaheglVR.png)
+
+> Before starting to create anything using quarkly I would suggest checking out their tutorials on  [youtube](https://www.youtube.com/watch?v=F0SS7xuI2ug&list=PLPVxzkrdHj5mcPfXj2hVR5Kkw7j8ISDkw). Understanding how components are created and consumed will boost website development using quarkly.
+
+
+When a user creates a new project, they will see an empty canvas as shown below ⬇️
+![Screenshot 2021-06-21 at 12.20.37 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624215051212/ghylYcGFl.png)
+
+
+Now, let's start with making components that are common in multiple pages such as `Header`, `Footer`.
+
+### 1. Creating `<Header/>` and `<Footer />` component
+
+In quarkly's catalog, there are a few sample headers for the basic use case.
+
+
+![Screenshot 2021-07-11 at 2.55.09 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625952451554/sYsX42rRy.png)
+    
+I choose one of them, modified the style, and added two new pages to the project.
+Also to show the currently selected page color modify the theme accordingly.
+
+After the header was ready, I converted it as a component to use on every page.
+
+![Screenshot 2021-07-11 at 3.20.38 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625953860427/hSW0gTv7N.png)
+
+Similarly, Add a footer component. 
+
+
+### 2. Creating Product Cards
+
+
+![Screenshot 2021-07-11 at 3.27.46 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625954290167/nNGdN1M3wZ.png)
+
+Quarkly also provides a components library that can be used to create other components.
+ 
+I used quarkly's stack component to show the ProductItem (Card) inside it.
+
+
+[🔗 View on gist.github.com](https://gist.github.com/Rishabh-Rathod/6daebe9db5d704c2c9157ad3cc0e243e)
+
+
+### 3. Load data from google sheets
+
+As for this project, google Sheets is used as a database, we need a way to fetch google Sheets data.
+
+I followed the steps in the video below, to set it up. 
+
+
+[🔗 View on www.youtube.com](https://www.youtube.com/watch?v=pFpytftOYiw&t=582s)
+
+
+Here is a sample code to fetch data from google sheets.
+
+
+[🔗 View on gist.github.com](https://gist.github.com/Rishabh-Rathod/c1177aed655f4de9c0eac7797f017bb9)
+
+
+This is how [products page](https://spadeevents.netlify.app/products) of the website looks. 🤩
+
+![Screenshot 2021-07-11 at 4.07.43 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625956689300/ECUR5MfSa.png)
+
+### 4. Git Sync and smooth deploy experience 💨
+
+
+I loved the git sync and one-click netlify deployment feature. It was one of the smoothest deployment experiences I ever had.
+
+
+![Screenshot 2021-07-11 at 4.24.16 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625957850871/1KKuzKwns.png)
+
+And we are done 🎉
+
+
+![thankyoufor attention.jpeg](https://cdn.hashnode.com/res/hashnode/image/upload/v1625957451618/56Ady5LQd.jpeg)
+
+PS: I would love to know what you make using quarkly. If you are stuck anywhere feel free to  [join their discord](https://discord.com/invite/AevfxmF3TM). 
+21:["$","$L1d","create-website-using-low-code-tool",{"slug":"create-website-using-low-code-tool","title":"Building a store website","date":"2021-08-05","description":"In this article, I will share my experience building a website using Quarkly So, What is Quarkly 🤔 ? Quarkly is a low-code design tool for creating websites and web apps. It was the best fit for all ","tags":["Web Development"],"readingTime":"3 min read","content":"$25","index":3}]
+26:T24e4,
+After the MIUI 12 upgrade, I just loved playing the new smooth animations 😍 and as a developer, was excited to know how to implement it 🤔.
+
+The first thing I did was google "Wave Animation Can it be done in react-native? " 😬 and got a close result to what I was looking for but as I wanted to play with the wave. That wasn't enough and hence I tried further on my own.
+
+Here are all my learnings compiled as an article.
+
+## 1\. Make A Smooth Curve
+
+To draw a curve, we will use SVG Path which supports the cubic bezier curve.
+
+A **cubic bezier curve** is a curve line formed using 4 points, a starting point, an ending point, and control points ( c1 & c2 ).
+
+**If you are familiar with making curves using SVG, you can jump 🏃🏻‍♂️ to point 2.**
+
+#### 1.1 Let's Move To The Start Point 🎯
+
+To move to a particular point in SVG, we use the "Move to" command i.e., `M x y`.
+
+`M 0 0.5`
+
+![Screenshot 2020-12-11 at 11.51.05 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1607711013471/y_XztobMp.png align="left")
+
+#### 1.2 Make The 🧊 Cubic Curve
+
+![Screenshot 2020-12-11 at 11.51.11 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1607711136028/m9yaHkffz.png align="left")
+
+In the above example, we plot a curve that starts at (0, 0.5) and ends at (1, 0.5) with control points at (0.5, 0) and (0.5, 1).
+
+🔴 Red dots are curve endpoints and 🟢 green dots are the control points.
+
+#### 1.3 Form A Closed Figure To Fill Color
+
+To form a closed figure, we will draw lines connecting curve endpoints to (1, 1) and (0, 1).
+
+![Screenshot 2020-12-11 at 11.51.32 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1607711273821/YADt5EezP.png align="left")
+
+Hence, the complete path command is ⬇️
+
+`M 0 0.5 C 0.5 0 0.5 1 1 0.5 L 1 1 L 0 1 Z`
+
+```js
+const curveDimension = {
+  start: { x: 0, y: 0.5 },
+  c1: { x: 0.5, y: 0 },
+  c2: { x: 0.5, y: 1 },
+  end: { x: 1, y: 0.5 },
+};
+```
+
+React Native code to make curve using SVG ⬇️ .
+
+
+[🔗 View on snack.expo.io](https://snack.expo.io/@rishabhrathod2012/svg-wave-(bezier-curve-demo))
+ 
+
+> To understand how the bezier curve works check out [this](https://vimeo.com/106757336) video. To learn more about SVG path format read [this](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths).
+
+## 2\. Get Device Orientation Values 📱
+
+We will use [`expo-sensors's`](https://docs.expo.io/versions/latest/sdk/accelerometer/) accelerometer to get the values.
+
+Let's get the accelerometer (x,y,z) values and store them in the state variable `orientation`.
+
+```js
+import { Accelerometer } from 'expo-sensors';
+const Wave = () => {
+ const [orientation, setOrientation] = useState({
+    x: 0,
+    y: 0,
+    z: 0,
+  });
+
+
+ useEffect(() => {
+    subscription.current = Accelerometer.addListener(({ x, y, z }) => {
+      setOrientation(() => ({
+        x: x,
+        y: y,
+        z: z,
+      }));
+    });
+    return () => subscription.current.remove();
+  }, []);
+}
+return <View><Text>{orientation.x}</Text></View>
+}
+```
+
+![Phone Tilt Demo](https://cdn.hashnode.com/res/hashnode/image/upload/v1607778461762/XLiVKTs5M.gif align="left")
+
+> Note: On tilting the phone left, the `orientation.x` value becomes positive and vice versa when tilting right.
+
+## 3\. Moving the Curve on Phone Tilt
+
+When a phone is tilted from the extreme left to the extreme right, the `orientation.x` value moves from a positive maximum to a negative maximum.
+
+Accordingly, curve points coordinate move as shown below
+
+![Screenshot 2020-12-12 at 5.48.43 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1607780037633/ZPXghqy2a.png align="left")
+
+When you go through the above 5 steps, you can notice
+
+1. The `start` point will move from (0,0) to (0,1).
+    
+2. The `end` point will move from (1,1) to (1,0).
+    
+3. Control points `c1` moves from (0.25, 0.25) to (0.25, 0.75) and `c2` from (0.75,0.75) to (0.75, 0.25).
+    
+
+**X coordinates for all the curve points are kept constant.**
+
+Let's find the relation of the Y coordinates of the curve points and the `orientation.x` value.
+
+#### 3.1 Start Point
+
+We will find the relation between `orientation.x` and the start point. For that, we need to remember the below points.
+
+* When the phone is not tilted, the starting point stays at 0.5.
+    
+* When titled right (negative `orientation.x` value) `start` point increases from 0.5 till 1 and similarly 0.5 to 0 when titled left (positive `orientation.x` value). Hence, we negate the `orientation.x` value.
+    
+* Initial position of the `start` point is 0.5 when the `orientation.x` value is 0, so we will need to add 0.5 to the `orientation.x` value.
+    
+
+`const adjustAxis = (value) => 0.5 + (-value / 1.5);`
+
+**adjustAxis** is a helper function to map `orientation.x` to the starting point's y value.
+
+Hence, `start.y = adjustAxis(orientation.x)`
+
+#### 3.2 End Point
+
+Since the `end` point is always opposite to the `start` point.
+
+`end.y = 1 - start.y`
+
+#### 3.3 Start Control Point `c1`
+
+After scratching the brain for a long 🤯, I came up with a linear equation that works fine for control points.
+
+`c1 = (start.y / 2) + 0.25`
+
+#### 3.4 Ending Control Point `c2`
+
+`c2 = 1 - c1`
+
+#### **🤫** Enough Talking, Let's Code It Down.
+
+```js
+// start
+const startY = adjustAxis(orientation.x);
+// initial control point c1 
+const startControlPointY = (adjustAxis(orientation.x) / 2) + 0.25;
+// curvePoints
+const curveDimension = {
+  start: { x: 0, y: startY},
+   c1: { x: 0.4, y: startControlPointY},
+   c2: { x: 0.6, y: 1 - startControlPointY},
+   end: { x: 1, y: 1 - startY},
+};
+```
+
+## 4\. Let's Get Ready To Animate 🏋🏻‍♀️
+
+As our curve points are derived from the `startY` and `startControlPointY`. We will make `startY` and `startControlPointY` as \*\* [shared values](https://docs.swmansion.com/react-native-reanimated/docs/shared-values/) \*\* and curve point as \*\*derived value \*\*.
+
+* Shared values can be understood as a replacement of `Animated.Value` with more benefits.
+    
+* Derived values are similar to shared values whose value is derived from other shared values.
+    
+
+```js
+ const startY = useSharedValue(0);
+ const startControlPointY = useSharedValue(0);
+```
+
+[`useSharedValue`](https://docs.swmansion.com/react-native-reanimated/docs/api/useSharedValue/) returns a reference to shared value initialized with the provided data. A reference is an object with `.value` property, that can be accessed and modified from worklets, but also updated directly from the main JS thread.
+
+```js
+const curveDimension = useDerivedValue(() => {
+    return {
+      start: { x: 0, y: startY.value },
+      c1: { x: 0.4, y: startControlPointY.value },
+      c2: { x: 0.6, y: 1 - startControlPointY.value },
+      end: { x: 1, y: 1 - startY.value },
+    };
+  });
+```
+
+[`useDerivedValue`](https://docs.swmansion.com/react-native-reanimated/docs/api/useDerivedValue) allows for creating shared value reference that can change in response to updating of one or more other shared values.
+
+#### Create `AnimatedPath`
+
+As we will animate values supplied in the SVGpath, let's first create an `<AnimatedPath />` Component and replace it with `<Path/>`.
+
+```js
+const AnimatedPath = Animated.createAnimatedComponent(Path);
+```
+
+`animatedProps` returns an object with key `d` and value as SVG `path`.
+
+```diff
++ const animatedProps = useAnimatedProps(() => {
++   const { start, c1, c2, end } = curveDimension.value;
++   return {
++      d: `M ${start.x} ${start.y} C ${c1.x} ${c1.y} ${c2.x} ${c2.y} ${end.x} ${end.y} L 1 1 L 0 + 1 Z`,
++   };
++ });
+
+- const staticPath = `M ${curveDimension.start.x} ${curveDimension.start.y} 
+- C ${curveDimension.c1.x} ${curveDimension.c1.y} 
+- ${curveDimension.c2.x} ${curveDimension.c2.y} 
+- ${curveDimension.end.x} ${curveDimension.end.y} 
+- L 1 1 L 0 1 Z`;
+```
+
+Supply `animatedProps` instead of the `d`.
+
+```diff
+- <Path
++ <AnimatedPath
+      fill={'#0099ff'}
+-    d={d}
++     animatedProps={animatedProps}
+ />
+```
+
+## 5\. Add Spring Animation
+
+We are using [spring animation](https://reactnative.dev/docs/animated#spring) because it gives control over velocity, stiffness, friction which can be used to give a fluid property to the curve.
+
+```js
+
+ startY.value = withSpring(adjustAxis(orientation.x), {
+    damping: 80,
+    mass: 1,
+    stiffness: 10,
+    restDisplacementThreshold: 0.0001,
+    restSpeedThreshold: 0.001,
+  });
+
+  const value = (adjustAxis(orientation.x) / 2) + 0.25;
+
+  startControlPointY.value = withSpring(value, {
+    easing: Easing.out(Easing.bounce),
+  });
+```
+
+[`withSpring`](https://docs.swmansion.com/react-native-reanimated/docs/api/withSpring) is a reanimated hook to implement string physics-based animation.
+
+And finally, we are done. 🥳 🎊
+
+### This is how it looks ⬇️ .
+
+![Final Result](https://cdn.hashnode.com/res/hashnode/image/upload/v1607812388510/sSmE7cRgj.gif align="left")
+
+To play with it in the expo app [`click here`](https://expo.io/@rishabhrathod2012/projects/miui-wave-animation) and if you are interested in improving it, check out the [complete code.](https://github.com/Rishabh-Rathod/Animation)
+
+Hope you enjoyed this article and learned something new. 🙇‍♂️
+
+Also, check out William Candillon's Wave Animation [Video](https://www.youtube.com/watch?v=OU43e7TwlEY) if you haven't.
+
+#### Thank you for reading and would love to hear your suggestions to make it better. You can connect with me on [Twitter](https://twitter.com/rishabhrathod01).22:["$","$L1d","implementing-miuis-wave-animation-using-react-native-reanimated-v2",{"slug":"implementing-miuis-wave-animation-using-react-native-reanimated-v2","title":"Implementing MIUI's Wave Animation  🌊  Using React Native Reanimated v2","date":"2020-12-12","description":"After the MIUI 12 upgrade, I just loved playing the new smooth animations 😍 and as a developer, was excited to know how to implement it 🤔. The first thing I did was google \"Wave Animation Can it be","tags":["React Native","Animation","JavaScript","Tutorial","React"],"readingTime":"7 min read","content":"$26","index":4}]
+19:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+15:null
+17:{"metadata":[["$","title","0",{"children":"Blog | Rishabh Rathod"}],["$","meta","1",{"name":"description","content":"Articles about web development, programming, and technology."}],["$","meta","2",{"name":"author","content":"Rishabh Rathod"}],["$","meta","3",{"name":"keywords","content":"Frontend Developer,Web Developer,React,Next.js,TypeScript,Portfolio,Rishabh Rathod"}],["$","meta","4",{"name":"creator","content":"Rishabh Rathod"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"property":"og:title","content":"Rishabh Rathod - Staff Frontend Engineer"}],["$","meta","7",{"property":"og:description","content":"Building efficient and user-friendly developer tools, websites, and mobile apps with JavaScript, React, and React Native"}],["$","meta","8",{"property":"og:url","content":"https://rishabhrathod.com"}],["$","meta","9",{"property":"og:site_name","content":"Rishabh Rathod"}],["$","meta","10",{"property":"og:locale","content":"en_US"}],["$","meta","11",{"property":"og:type","content":"website"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:creator","content":"@rishabhrathod"}],["$","meta","14",{"name":"twitter:title","content":"Rishabh Rathod - Staff Frontend Engineer"}],["$","meta","15",{"name":"twitter:description","content":"Building efficient and user-friendly developer tools, websites, and mobile apps with JavaScript, React, and React Native"}]],"error":null,"digest":"$undefined"}
+1c:"$17:metadata"
