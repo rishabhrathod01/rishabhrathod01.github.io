@@ -1,15 +1,15 @@
 ---
 title: "How I Automated Daily WhatsApp Messages to My Cook (No More Headaches!)"
 date: "2025-02-16"
-description: "Tired of daily reminder messages to your cook? Learn how I built a free automation using GitHub Actions, TypeScript, and Whapi to send meal plans automatically — saving time and mental energy every single day."
+description: "Meal coordination with a cook: what to make and who's in. Learn how I automated daily meal notifications with GitHub Actions and Whapi, and use WhatsApp polls so the cook knows exactly what to prepare and how many to expect — zero cost, zero hassle."
 coverImage: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=1200&q=80"
 tags: ["Automation", "GitHub Actions", "TypeScript", "WhatsApp", "Productivity", "Life Hacks"]
 author: "Rishabh Rathod"
 ---
 
-**The Problem:** Every single morning at 7:30 AM and evening at 5:30 PM, I had to manually message my cook about what to prepare for lunch and dinner. Miss one message? No proper meal. It was a daily mental burden I didn't need.
+**The Problem:** Every morning at 7:30 AM and evening at 5:30 PM, I had to manually tell my cook what to prepare for lunch and dinner — and we still had to figure out *who* was eating so she knew how much to make. Miss one message? Wrong meal or no meal. Endless "who's in?" chats. Daily mental load.
 
-**The Solution:** A fully automated system using GitHub Actions, TypeScript, and Whapi that sends meal plan instructions to WhatsApp automatically. Zero cost. Zero maintenance. Zero headaches.
+**The Solution:** Two pieces that work together in one WhatsApp group: **(1)** Automated meal notifications — GitHub Actions + TypeScript + Whapi send the day’s menu from a Google Doc at the right time. **(2)** Poll messages — quick “Who would like to have dinner today?” / “Who would like to have lunch tomorrow?” so everyone ticks Yes/No and the cook sees headcount at a glance. Zero cost. Zero maintenance. One place for the full plan, the automated reminder, and who’s in.
 
 ## The Daily Headache
 
@@ -17,17 +17,25 @@ If you have a cook who comes to your home, you know the routine:
 
 - **7:30 AM:** "Di, aaj lunch mein ye banao..."
 - **5:30 PM:** "Di, dinner mein ye chahiye..."
+- **Plus:** "Who's having lunch today?" "I'm in for dinner." "Count me out tomorrow."
 - **Every. Single. Day.**
 
-Miss a message? Your cook doesn't know what to prepare. You come home to either the wrong meal or nothing at all. It's a tiny task that creates daily friction and mental overhead.
+Two problems: **what to cook** (menu) and **who’s eating** (headcount). Miss a message? Your cook doesn’t know what to prepare or how much. You end up with the wrong meal, no meal, or too much food. It’s a small task that adds up to real friction.
 
 I thought: *"I'm a software engineer. There has to be a better way."*
 
-## The Automation Stack
+## The System: Notifications + Polls
 
-Here's what I built using 100% free tools:
+Here’s what we run:
 
-### Architecture Overview
+1. **Meal notifications (automated)** — The system sends the day’s menu (sabji, chapati, rice/dal) to the cook group at 7:30 AM and 5:30 PM IST, so she always knows *what* to make.
+2. **Poll messages (manual)** — When we need a headcount, someone sends a WhatsApp poll in the same group: “Who would like to have dinner today?” or “Who would like to have lunch tomorrow?” with Yes/No. The cook and family see votes and who’s in without typing.
+
+Everything lives in one group: a pinned Google Doc link (full meal plan), the automated “what to cook” messages, and the polls for “who’s in.” Menu + attendance in one thread.
+
+### Architecture Overview (Meal Notifications)
+
+The automated part looks like this:
 
 ```
 Google Doc (Meal Plan)
@@ -38,10 +46,12 @@ TypeScript Script (Parser + Message Builder)
         ↓
 Whapi.Cloud API (WhatsApp Gateway)
         ↓
-WhatsApp Group (Cook receives message)
+WhatsApp Group (Cook receives meal notification)
 ```
 
-### Tech Stack
+Polls are sent manually in that same group when needed; no automation required.
+
+### Tech Stack (for the automation)
 
 - **GitHub Actions** — Free scheduled cron jobs (2,000 minutes/month on free tier)
 - **TypeScript** — Type-safe scripting
@@ -55,7 +65,9 @@ WhatsApp Group (Cook receives message)
 3. **Whapi** — Simplest WhatsApp API I found (no Meta Business verification needed for sandbox)
 4. **Google Docs** — My parents can update the meal plan without touching code
 
-## How It Works
+## How the Meal Notification Works
+
+The next sections walk through the **automated meal notification** only. Polls are just regular WhatsApp polls sent in the same group whenever we need a headcount — no code involved.
 
 ### 1. Meal Plan Google Doc
 
@@ -121,6 +133,7 @@ jobs:
 - Skips Sundays (our cook's day off)
 - Manual trigger available for testing
 - All secrets stored securely in GitHub
+- Same group is where we send poll messages for "who's in" — one chat for menu + headcount
 
 ### 3. TypeScript Script Logic
 
@@ -357,20 +370,35 @@ const RICE_DAYS: number[] = [3]; // Wednesday
 
 ## Real-World Impact
 
-**Before automation:**
-- 2 messages/day × 6 days/week = **12 manual messages/week**
-- Mental overhead: "Did I message the cook?"
-- Missed messages = wrong/no meal
+**Before (notifications + coordination):**
+- 2 meal messages/day × 6 days/week = **12 manual messages/week**
+- Plus back-and-forth: “Who’s in for lunch?” “I’m in.” “Not me.”
+- Mental overhead: “Did I message the cook? Did we do the headcount?”
+- Missed message = wrong meal or wrong quantity
 
-**After automation:**
-- **0 manual messages**
-- Set it and forget it
-- 100% consistent meal planning
-- Family members can update Google Doc directly
+**After (automated notifications + polls):**
+- **0 manual meal notifications** — automation sends the menu on time
+- **One place for headcount** — a quick poll in the same group when needed; no long threads
+- Set it and forget it for the menu; one tap (Yes/No) for who’s in
+- Family can update the Google Doc; cook sees the plan and the poll results in one chat
 
-**Time saved:** ~5 minutes/day = **30 hours/year**
+**Time saved:** ~5 minutes/day = **30 hours/year**, and no more “who’s eating?” chaos.
 
-More importantly: **Zero mental burden**. That's the real win.
+More importantly: **Zero mental burden**. That’s the real win.
+
+## Poll Messages: Who’s In for Lunch or Dinner?
+
+We use **WhatsApp poll messages** in the same cook group to see who’s having lunch or dinner. The automation answers *what to cook*; the polls answer *how many to expect*.
+
+**How we use it:**
+- **“Who would like to have dinner today?”** — Yes / No. The cook sees the votes and knows who’s in.
+- **“Who would like to have lunch tomorrow?”** — Same idea, one day ahead.
+
+Someone sends the poll manually when we need a headcount. The cook and family see vote counts and who voted at a glance. Together: **menu** from the automation, **attendance** from the polls, all in one thread.
+
+![WhatsApp cook group with pinned Google Doc and poll messages for dinner and lunch](/blog/assets/whatsapp-poll-screenshot.png)
+
+*Screenshot: 565A Cook group — pinned meal plan doc and poll messages in use.*
 
 ## Cost Breakdown
 
@@ -381,12 +409,10 @@ Let's talk money:
 | GitHub Actions | Free tier (2,000 min/month) | $0 |
 | Whapi.Cloud | Sandbox (150 msg/day) | $0 |
 | Google Docs | Personal account | $0 |
+| WhatsApp polls | Native feature in the same group | $0 |
 | **Total** | | **$0/month** |
 
-For my use case (12 messages/week), I use:
-- ~2 GitHub Actions minutes/day
-- ~12 Whapi messages/week
-- Both well within free limits
+For my use case: **meal notifications** = ~12 Whapi messages/week + ~2 GitHub Actions minutes/day; **polls** are sent manually in the same group (no API cost). Everything stays within free limits.
 
 **Paid option:** If you need more volume, Whapi's Developer Premium plan is $19/month (unlimited messages).
 
@@ -508,25 +534,27 @@ The full source code is open source:
 
 ## Conclusion
 
-What started as a daily annoyance turned into a fun weekend project. Now I have:
+What started as a daily annoyance turned into a simple system: **notifications for the menu, polls for who’s in.**
 
-✅ **Zero manual messages** to my cook  
-✅ **Zero cost** automation  
-✅ **Zero maintenance** (been running for months)  
-✅ **Extensible system** for future home automations  
+✅ **Automated meal notifications** — zero manual “what to cook” messages  
+✅ **Polls in the same group** — one tap for “who’s in” so the cook knows headcount  
+✅ **Zero cost** — free tier everywhere  
+✅ **Zero maintenance** — automation has been running for months  
+✅ **One place** — pinned doc + automated messages + polls in a single WhatsApp group  
 
-The best part? My parents can update the meal plan without touching code. My cook gets clear instructions every day. I never think about it anymore.
+My parents update the meal plan in the Google Doc without touching code. My cook gets the menu on time and can check the poll when she needs a headcount. I don’t think about it anymore.
 
-**That's the beauty of good automation** — you set it up once and forget it exists.
+**That’s the beauty of it** — set up the automation once, use polls when you need them, and forget the rest.
 
 ---
 
 ## Get Started Today
 
 1. Star the repo: [github.com/rishabhrathod01/personal_automation](https://github.com/rishabhrathod01/personal_automation)
-2. Follow the setup guide above
-3. Customize for your needs
-4. Share your automation story!
+2. Follow the setup guide above for the **meal notification** automation
+3. Use **WhatsApp polls** in the same group whenever you need a headcount — no code required
+4. Customize the meal plan and timings for your household
+5. Share your automation story!
 
 **Have questions?** Drop a comment or open an issue on GitHub. I'm happy to help you set this up.
 
