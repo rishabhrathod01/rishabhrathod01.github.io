@@ -1,8 +1,5 @@
-# Rishabh Rathod - Personal Portfolio Website
+# Rishabh Rathod - Personal Website
 
-A modern, SEO-optimized portfolio website built with Next.js 15, TypeScript, TailwindCSS, and MDX. Features a clean design, dark mode support, smooth animations, and a blog/travel stories section.
-
-![Portfolio Preview](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80)
 
 ## ✨ Features
 
