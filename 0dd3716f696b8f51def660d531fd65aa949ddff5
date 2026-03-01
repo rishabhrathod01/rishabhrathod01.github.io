@@ -1,0 +1,38 @@
+app/page.tsx
+  3f9ea7230096978c 4,34-39,41-43
+app/travel/[slug]/page.tsx
+  63d557db53b364d4 20,52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "0dd3716f696b8f51def660d531fd65aa949ddff5",
+  "prompts": {
+    "3f9ea7230096978c": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "8d827869-6eae-4b1a-9da4-da36d91bfbe7",
+        "model": "claude-4.6-opus-high-thinking"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>",
+      "messages": [],
+      "total_additions": 15,
+      "total_deletions": 84,
+      "accepted_lines": 10,
+      "overriden_lines": 1
+    },
+    "63d557db53b364d4": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "430b947e-b139-4bfd-9408-5b706b2c705c",
+        "model": "default"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>",
+      "messages": [],
+      "total_additions": 259,
+      "total_deletions": 78,
+      "accepted_lines": 220,
+      "overriden_lines": 0
+    }
+  }
+}
