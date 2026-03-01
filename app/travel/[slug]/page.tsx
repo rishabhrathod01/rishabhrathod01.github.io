@@ -1,33 +1,35 @@
-import { Metadata } from "next"
-import { notFound } from "next/navigation"
-import Link from "next/link"
-import Image from "next/image"
-import { Calendar, Clock, MapPin, ArrowLeft } from "lucide-react"
-import { getTravelStory, getTravelStories } from "@/lib/mdx"
-import { MDXContent } from "@/components/MDXContent"
-import { Button } from "@/components/ui/button"
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Calendar, Clock, MapPin, ArrowLeft } from 'lucide-react';
+import { getTravelStory, getTravelStories } from '@/lib/mdx';
+import { MDXContent } from '@/components/MDXContent';
+import { Button } from '@/components/ui/button';
 
 interface TravelStoryPageProps {
   params: Promise<{
-    slug: string
-  }>
+    slug: string;
+  }>;
 }
 
 export async function generateStaticParams() {
-  const stories = await getTravelStories()
+  const stories = await getTravelStories();
   return stories.map((story) => ({
     slug: story.slug,
-  }))
+  }));
 }
 
-export async function generateMetadata({ params }: TravelStoryPageProps): Promise<Metadata> {
-  const { slug } = await params
-  const story = await getTravelStory(slug)
+export async function generateMetadata({
+  params,
+}: TravelStoryPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const story = await getTravelStory(slug);
 
   if (!story) {
     return {
-      title: "Story Not Found",
-    }
+      title: 'Story Not Found',
+    };
   }
 
   return {
@@ -36,26 +38,28 @@ export async function generateMetadata({ params }: TravelStoryPageProps): Promis
     openGraph: {
       title: story.title,
       description: story.description,
-      type: "article",
+      type: 'article',
       publishedTime: story.date,
       images: [{ url: story.coverImage }],
     },
-  }
+  };
 }
 
-export default async function TravelStoryPage({ params }: TravelStoryPageProps) {
-  const { slug } = await params
-  const story = await getTravelStory(slug)
+export default async function TravelStoryPage({
+  params,
+}: TravelStoryPageProps) {
+  const { slug } = await params;
+  const story = await getTravelStory(slug);
 
   if (!story) {
-    notFound()
+    notFound();
   }
 
-  const formattedDate = new Date(story.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
+  const formattedDate = new Date(story.date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -79,11 +83,13 @@ export default async function TravelStoryPage({ params }: TravelStoryPageProps) 
 
         <header className="mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{story.title}</h1>
-          
+
           <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-4">
             <div className="flex items-center gap-1">
               <MapPin className="h-4 w-4" />
-              <span>{story.location}, {story.country}</span>
+              <span>
+                {story.location}, {story.country}
+              </span>
             </div>
             <div className="flex items-center gap-1">
               <Calendar className="h-4 w-4" />
@@ -112,6 +118,5 @@ export default async function TravelStoryPage({ params }: TravelStoryPageProps) 
         </footer>
       </article>
     </div>
-  )
+  );
 }
-

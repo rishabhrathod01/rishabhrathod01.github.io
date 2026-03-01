@@ -152,7 +152,7 @@ export default function AboutPage() {
           <div className="space-y-8">
             {experience.map((exp, index) => (
               <motion.div
-                key={exp.company}
+                key={`${exp.company}-${exp.period}-${index}`}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}

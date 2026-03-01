@@ -14,7 +14,7 @@ export const personalInfo = {
   about: {
     short:
       'I am a software developer with expertise in JavaScript, React, and React Native. I create developer tools, websites, and mobile apps that are efficient and user-friendly.',
-    long: 'With over 5 years of experience in frontend development, I specialize in building performant, scalable web and mobile applications. Currently working as a Staff Frontend Engineer at Prophecy, I&apos;ve contributed to shipping AI agent features and have a proven track record of optimizing performance, building enterprise features, and leading developer-centric initiatives. I&apos;m passionate about creating tools that make developers&apos; lives easier and delivering exceptional user experiences.',
+    long: "With over 6 years of experience in frontend development, I specialize in building performant, scalable web and mobile applications. Currently working as a Staff Frontend Engineer at Prophecy, I've contributed to shipping AI agent features and have a proven track record of optimizing performance, building enterprise features, and leading developer-centric initiatives. I'm passionate about creating tools that make developers' lives easier and delivering exceptional user experiences.",
   },
   resume:
     'https://drive.google.com/file/d/1XHhicK78OpWr3hvZA7S-gPS4_zVXtoPa/view?usp=drive_link',
@@ -141,7 +141,8 @@ export const projects = [
     image:
       'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80',
     tags: ['VS Code', 'Extension', 'CSS', 'JavaScript', 'Developer Tools'],
-    liveUrl: 'https://marketplace.visualstudio.com/items?itemName=rishabh-rathod.css-to-js',
+    liveUrl:
+      'https://marketplace.visualstudio.com/items?itemName=rishabh-rathod.css-to-js',
     githubUrl: 'https://github.com/rishabhrathod01/css-to-js',
     featured: true,
   },

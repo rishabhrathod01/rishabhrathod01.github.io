@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
@@ -30,7 +31,16 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <div className="relative w-[18rem] h-[18rem] md:w-[22rem] md:h-[22rem] mx-auto mb-4">
+              <Image
+                src="/about/portrait.png"
+                alt={personalInfo.name}
+                fill
+                priority
+                className="rounded-full object-cover ring-2 ring-background shadow-xl"
+              />
+            </div>
+            <h1 className="relative z-10 text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               {personalInfo.name}
             </h1>
             <p className="text-2xl md:text-3xl text-muted-foreground mb-4">
