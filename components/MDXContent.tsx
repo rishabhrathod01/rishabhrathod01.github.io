@@ -25,7 +25,7 @@ const components = {
   li: (props: any) => <li className="ml-4" {...props} />,
   a: (props: any) => (
     <a
-      className="text-primary hover:underline"
+      className="text-primary underline underline-offset-2 decoration-primary/70 hover:decoration-primary"
       target="_blank"
       rel="noopener noreferrer"
       {...props}
