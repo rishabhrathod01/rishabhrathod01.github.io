@@ -67,6 +67,21 @@ const components = {
   img: (props: any) => (
     <img className="rounded-lg my-4" {...props} alt={props.alt || ""} />
   ),
+  iframe: (props: any) => {
+    const { className, ...rest } = props;
+    return (
+      <div className="not-prose relative my-8 aspect-video w-full max-w-3xl overflow-hidden rounded-lg border border-border bg-muted shadow-sm">
+        <iframe
+          {...rest}
+          className={`absolute inset-0 h-full w-full ${className || ""}`}
+          title={rest.title || "Embedded video"}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      </div>
+    );
+  },
   hr: () => <hr className="my-8 border-border" />,
   table: (props: any) => (
     <div className="overflow-x-auto my-4">
