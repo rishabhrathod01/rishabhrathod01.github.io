@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # required to push to gh-pages branch
+      contents: write # required to push to gh-pages branch
       pages: write
       id-token: write
     concurrency:

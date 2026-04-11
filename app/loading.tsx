@@ -6,7 +6,7 @@ export default function Loading() {
           {/* Header skeleton */}
           <div className="h-12 bg-muted rounded w-1/3"></div>
           <div className="h-6 bg-muted rounded w-2/3"></div>
-          
+
           {/* Content skeleton */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -21,6 +21,5 @@ export default function Loading() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

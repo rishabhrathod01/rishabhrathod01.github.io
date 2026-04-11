@@ -1,9 +1,9 @@
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeSlug from 'rehype-slug';
-import rehypeRaw from 'rehype-raw';
-import 'highlight.js/styles/github-dark.css';
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug";
+import rehypeRaw from "rehype-raw";
+import "highlight.js/styles/github-dark.css";
 
 const components = {
   h1: (props: any) => (
@@ -65,7 +65,7 @@ const components = {
     />
   ),
   img: (props: any) => (
-    <img className="rounded-lg my-4" {...props} alt={props.alt || ''} />
+    <img className="rounded-lg my-4" {...props} alt={props.alt || ""} />
   ),
   hr: () => <hr className="my-8 border-border" />,
   table: (props: any) => (

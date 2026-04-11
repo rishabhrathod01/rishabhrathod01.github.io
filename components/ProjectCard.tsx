@@ -1,21 +1,28 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { ExternalLink, Github } from "lucide-react"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ExternalLink, Github } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 interface ProjectCardProps {
-  title: string
-  description: string
-  image: string
-  tags: string[]
-  liveUrl?: string
-  githubUrl?: string
-  featured?: boolean
-  index?: number
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  featured?: boolean;
+  index?: number;
 }
 
 export function ProjectCard({
@@ -85,6 +92,5 @@ export function ProjectCard({
         </CardFooter>
       </Card>
     </motion.div>
-  )
+  );
 }
-

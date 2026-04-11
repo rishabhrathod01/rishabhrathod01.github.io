@@ -3,11 +3,19 @@ title: "How I Automated Daily WhatsApp Messages to My Cook (No More Headaches!)"
 date: "2025-02-16"
 description: "Meal coordination with a cook: what to make and who's in. Learn how I automated both daily meal notifications and WhatsApp polls (dinner/lunch headcount) with GitHub Actions, TypeScript, and Whapi — zero cost, zero hassle."
 coverImage: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=1200&q=80"
-tags: ["Automation", "GitHub Actions", "TypeScript", "WhatsApp", "Productivity", "Life Hacks"]
+tags:
+  [
+    "Automation",
+    "GitHub Actions",
+    "TypeScript",
+    "WhatsApp",
+    "Productivity",
+    "Life Hacks",
+  ]
 author: "Rishabh Rathod"
 ---
 
-**The Problem:** Every morning at 7:30 AM and evening at 5:30 PM, I had to manually tell my cook what to prepare for lunch and dinner — and we still had to figure out *who* was eating so she knew how much to make. Miss one message? Wrong meal or no meal. Endless "who's in?" chats. Daily mental load.
+**The Problem:** Every morning at 7:30 AM and evening at 5:30 PM, I had to manually tell my cook what to prepare for lunch and dinner — and we still had to figure out _who_ was eating so she knew how much to make. Miss one message? Wrong meal or no meal. Endless "who's in?" chats. Daily mental load.
 
 **The Solution:** Two automated pieces in one WhatsApp group: **(1)** Meal notifications — GitHub Actions + TypeScript + Whapi send the day’s menu from a Google Doc at 7:30 AM and 5:30 PM IST. **(2)** Poll messages — the same stack sends a WhatsApp poll on schedule: “Who would like to have dinner today?” at 11:30 AM IST and “Who would like to have lunch tomorrow?” at 9:00 PM IST (day before). Everyone ticks Yes/No; the cook sees headcount at a glance. Zero cost. Zero maintenance. One place for the full plan, the automated reminder, and who’s in.
 
@@ -22,13 +30,13 @@ If you have a cook who comes to your home, you know the routine:
 
 Two problems: **what to cook** (menu) and **who’s eating** (headcount). Miss a message? Your cook doesn’t know what to prepare or how much. You end up with the wrong meal, no meal, or too much food. It’s a small task that adds up to real friction.
 
-I thought: *"I'm a software engineer. There has to be a better way."*
+I thought: _"I'm a software engineer. There has to be a better way."_
 
 ## The System: Notifications + Polls
 
 Here’s what we run:
 
-1. **Meal notifications (automated)** — The system sends the day’s menu (sabji, chapati, rice/dal) to the cook group at 7:30 AM and 5:30 PM IST, so she always knows *what* to make.
+1. **Meal notifications (automated)** — The system sends the day’s menu (sabji, chapati, rice/dal) to the cook group at 7:30 AM and 5:30 PM IST, so she always knows _what_ to make.
 2. **Poll messages (automated)** — A separate scheduled job sends a WhatsApp poll to the same group: “Who would like to have dinner today?” at **11:30 AM IST** (same day) and “Who would like to have lunch tomorrow?” at **9:00 PM IST** (day before). Options: Yes / No. The cook and family see votes and who’s in without typing.
 
 Everything lives in one group: a pinned Google Doc link (full meal plan), the automated “what to cook” messages, and the automated polls for “who’s in.” Menu + attendance in one thread.
@@ -102,9 +110,9 @@ name: Meal plan WhatsApp
 on:
   schedule:
     # 7:30 AM IST = 02:00 UTC (lunch)
-    - cron: '0 2 * * 1-6'
+    - cron: "0 2 * * 1-6"
     # 5:30 PM IST = 12:00 UTC (dinner)
-    - cron: '0 12 * * 1-6'
+    - cron: "0 12 * * 1-6"
   workflow_dispatch: # Manual trigger for testing
 
 jobs:
@@ -114,11 +122,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      
+          node-version: "20"
+
       - name: Install and build
         run: npm ci && npm run build
-      
+
       - name: Send meal plan message
         env:
           WHAPI_API_TOKEN: ${{ secrets.WHAPI_API_TOKEN }}
@@ -131,6 +139,7 @@ jobs:
 **Poll automation:** A second workflow (or extra schedule in the same repo) runs the [send-meal-plan-poll.ts](https://github.com/rishabhrathod01/personal_automation/blob/main/scripts/meal-plan/send-meal-plan-poll.ts) script: **dinner poll** at 11:30 AM IST (“Who would like to have dinner today?”) and **lunch poll** at 9:00 PM IST (“Who would like to have lunch tomorrow?”). It uses the same `WHAPI_API_TOKEN` and `WHAPI_GROUP_ID`; set `MEAL_PLAN_POLL_TYPE=lunch` or `dinner` from the schedule so the script knows which poll to send.
 
 **Key Features:**
+
 - Runs automatically at 7:30 AM and 5:30 PM IST
 - Skips Sundays (our cook's day off)
 - Manual trigger available for testing
@@ -158,7 +167,10 @@ async function fetchDoc(): Promise<string> {
 
 ```typescript
 function parseDocText(text: string): DayPlan[] {
-  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  const lines = text
+    .split(/\r?\n/)
+    .map((l) => l.trim())
+    .filter(Boolean);
   const days: DayPlan[] = [];
   let currentDay: number | null = null;
   let mains: string[] = [];
@@ -167,18 +179,18 @@ function parseDocText(text: string): DayPlan[] {
     const dayMatch = line.match(/^Day\s+(\d+)$/i);
     if (dayMatch) {
       if (currentDay !== null && mains.length >= 2) {
-        days.push({ 
-          dayNum: currentDay, 
-          lunch: mains[0], 
-          dinner: mains[1] 
+        days.push({
+          dayNum: currentDay,
+          lunch: mains[0],
+          dinner: mains[1],
         });
       }
       currentDay = parseInt(dayMatch[1], 10);
       mains = [];
       continue;
     }
-    if (currentDay !== null && line.startsWith('Main:')) {
-      mains.push(line.replace(/^Main:\s*/i, '').trim());
+    if (currentDay !== null && line.startsWith("Main:")) {
+      mains.push(line.replace(/^Main:\s*/i, "").trim());
     }
   }
   return days;
@@ -191,16 +203,17 @@ This parses the plain text export and extracts lunch/dinner dishes for each day.
 
 ```typescript
 function buildMessage(
-  mealType: 'lunch' | 'dinner',
+  mealType: "lunch" | "dinner",
   sabji: string,
   chapatiCount: number,
   isRiceDay: boolean,
   mentionPhone: string
 ): string {
-  const mealLabel = mealType === 'lunch' ? 'lunch' : 'dinner';
-  const riceLine = mealType === 'lunch'
-    ? 'Rice aur dal (subah bana lijiye, dono time ke liye)'
-    : 'Rice aur dal (subah wala use karein)';
+  const mealLabel = mealType === "lunch" ? "lunch" : "dinner";
+  const riceLine =
+    mealType === "lunch"
+      ? "Rice aur dal (subah bana lijiye, dono time ke liye)"
+      : "Rice aur dal (subah wala use karein)";
 
   return [
     `@${mentionPhone} di,`,
@@ -208,11 +221,12 @@ function buildMessage(
     `- Sabji: ${sabji}`,
     `- Chapati: ${chapatiCount}`,
     `- ${riceLine}`,
-  ].join('\n');
+  ].join("\n");
 }
 ```
 
 **Message format:**
+
 ```
 @91XXXXXXXXXX di,
 Aaj lunch mai niche di gayi chezze bana dijiye
@@ -228,12 +242,12 @@ The `@mention` ensures my cook gets a notification even in a busy group chat.
 ```typescript
 async function sendWhapiMessage(body: string): Promise<void> {
   const token = process.env.WHAPI_API_TOKEN;
-  const url = 'https://gate.whapi.cloud/messages/text';
-  
+  const url = "https://gate.whapi.cloud/messages/text";
+
   const res = await fetch(url, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
@@ -274,6 +288,7 @@ npm run build
 4. Copy your **API Token** from the dashboard
 
 **Note:** The free Sandbox plan includes:
+
 - 150 messages/day
 - 5 active conversations/month
 - Perfect for this use case!
@@ -287,11 +302,12 @@ WHAPI_API_TOKEN=your_token npm run meal-plan:get-groups
 ```
 
 Output:
+
 ```
 Groups:
 1. Name: 565A Cook
    ID: 1234567890-1234567890@g.us
-   
+
 2. Name: Family
    ID: 9876543210-9876543210@g.us
 ```
@@ -324,12 +340,12 @@ Go to your repo: **Settings → Secrets and variables → Actions**
 
 Add these 4 secrets:
 
-| Secret Name | Value |
-|------------|-------|
-| `WHAPI_API_TOKEN` | Your Whapi token |
-| `WHAPI_GROUP_ID` | Group ID from Step 3 (e.g., `123...@g.us`) |
+| Secret Name            | Value                                                 |
+| ---------------------- | ----------------------------------------------------- |
+| `WHAPI_API_TOKEN`      | Your Whapi token                                      |
+| `WHAPI_GROUP_ID`       | Group ID from Step 3 (e.g., `123...@g.us`)            |
 | `MEAL_PLAN_COOK_PHONE` | Cook's phone with country code (e.g., `919876543210`) |
-| `MEAL_PLAN_DOC_ID` | Google Doc ID from Step 4 |
+| `MEAL_PLAN_DOC_ID`     | Google Doc ID from Step 4                             |
 
 ### Step 6: Test It!
 
@@ -348,8 +364,8 @@ Uncomment the `schedule` lines in `.github/workflows/meal-plan-whatsapp.yml`:
 ```yaml
 on:
   schedule:
-    - cron: '0 2 * * 1-6'   # 7:30 AM IST
-    - cron: '0 12 * * 1-6'  # 5:30 PM IST
+    - cron: "0 2 * * 1-6" # 7:30 AM IST
+    - cron: "0 12 * * 1-6" # 5:30 PM IST
   workflow_dispatch:
 ```
 
@@ -363,7 +379,7 @@ You can customize these in `scripts/meal-plan/config.ts`:
 // Chapati count when rice is not served
 const CHAPATI_WITHOUT_RICE = 16;
 
-// Chapati count when rice is served  
+// Chapati count when rice is served
 const CHAPATI_WITH_RICE = 12;
 
 // Weekdays when rice is served (1=Mon, 6=Sat)
@@ -373,12 +389,14 @@ const RICE_DAYS: number[] = [3]; // Wednesday
 ## Real-World Impact
 
 **Before (notifications + coordination):**
+
 - 2 meal messages/day × 6 days/week = **12 manual messages/week**
 - Plus back-and-forth: “Who’s in for lunch?” “I’m in.” “Not me.”
 - Mental overhead: “Did I message the cook? Did we do the headcount?”
 - Missed message = wrong meal or wrong quantity
 
 **After (automated notifications + automated polls):**
+
 - **0 manual meal notifications** — automation sends the menu on time
 - **0 manual polls** — automation sends the dinner poll at 11:30 AM IST and the lunch poll at 9:00 PM IST (day before)
 - Set it and forget it for both; family just taps Yes/No when the poll appears
@@ -390,7 +408,7 @@ More importantly: **Zero mental burden**. That’s the real win.
 
 ## Poll Messages: Who’s In for Lunch or Dinner? (Automated)
 
-We use **WhatsApp poll messages** in the same cook group to see who’s having lunch or dinner. The meal notification answers *what to cook*; the polls answer *how many to expect*. Both are automated.
+We use **WhatsApp poll messages** in the same cook group to see who’s having lunch or dinner. The meal notification answers _what to cook_; the polls answer _how many to expect_. Both are automated.
 
 **Schedule:** A separate GitHub Actions workflow runs the [poll script](https://github.com/rishabhrathod01/personal_automation/blob/main/scripts/meal-plan/send-meal-plan-poll.ts) twice daily:
 
@@ -401,19 +419,19 @@ The script uses the same `WHAPI_API_TOKEN` and `WHAPI_GROUP_ID` as the meal plan
 
 ![WhatsApp cook group with pinned Google Doc and poll messages for dinner and lunch](/blog/assets/whatsapp-poll-screenshot.png)
 
-*Screenshot: 565A Cook group — pinned meal plan doc and poll messages in use.*
+_Screenshot: 565A Cook group — pinned meal plan doc and poll messages in use._
 
 ## Cost Breakdown
 
 Let's talk money:
 
-| Service | Plan | Cost |
-|---------|------|------|
-| GitHub Actions | Free tier (2,000 min/month) | $0 |
-| Whapi.Cloud | Sandbox (150 msg/day) | $0 |
-| Google Docs | Personal account | $0 |
-| WhatsApp polls (via Whapi) | Same API, 2 polls/day × 6 days | $0 |
-| **Total** | | **$0/month** |
+| Service                    | Plan                           | Cost         |
+| -------------------------- | ------------------------------ | ------------ |
+| GitHub Actions             | Free tier (2,000 min/month)    | $0           |
+| Whapi.Cloud                | Sandbox (150 msg/day)          | $0           |
+| Google Docs                | Personal account               | $0           |
+| WhatsApp polls (via Whapi) | Same API, 2 polls/day × 6 days | $0           |
+| **Total**                  |                                | **$0/month** |
 
 For my use case: **meal notifications** = ~12 Whapi messages/week; **polls** = ~12 Whapi poll messages/week; plus a few more GitHub Actions minutes for the poll workflow. Everything stays within free limits.
 
@@ -432,6 +450,7 @@ Initially, I used a JSON file in the repo for the meal plan. Problem: non-techni
 ### 3. Cron Time Zones are Tricky
 
 GitHub Actions runs in UTC. IST is UTC+5:30. So:
+
 - 7:30 AM IST = 2:00 AM UTC
 - 5:30 PM IST = 12:00 PM UTC
 
@@ -444,6 +463,7 @@ In a group chat, regular messages get lost. The `@mention` ensures my cook gets 
 ### 5. Error Handling Matters
 
 The script includes proper error handling:
+
 ```typescript
 if (!res.ok) {
   const errText = await res.text();
@@ -460,6 +480,7 @@ The full source code is open source:
 **GitHub:** [rishabhrathod01/personal_automation](https://github.com/rishabhrathod01/personal_automation)
 
 **Want to contribute?**
+
 - Add support for more messaging platforms (Telegram, Signal)
 - Improve meal plan parsing (handle more formats)
 - Add internationalization (i18n)
@@ -475,7 +496,7 @@ What started as a daily annoyance turned into a simple system: **automated notif
 ✅ **Automated polls** — dinner poll at 11:30 AM IST, lunch poll at 9:00 PM IST (day before), same group  
 ✅ **Zero cost** — free tier everywhere  
 ✅ **Zero maintenance** — both automations have been running for months  
-✅ **One place** — pinned doc + automated messages + automated polls in a single WhatsApp group  
+✅ **One place** — pinned doc + automated messages + automated polls in a single WhatsApp group
 
 My parents update the meal plan in the Google Doc without touching code. My cook gets the menu on time and the poll at the right time; she just checks the votes. I don’t think about it anymore.
 

@@ -1,11 +1,11 @@
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Calendar, Clock, MapPin, ArrowLeft } from 'lucide-react';
-import { getTravelStory, getTravelStories } from '@/lib/mdx';
-import { MDXContent } from '@/components/MDXContent';
-import { Button } from '@/components/ui/button';
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import { Calendar, Clock, MapPin, ArrowLeft } from "lucide-react";
+import { getTravelStory, getTravelStories } from "@/lib/mdx";
+import { MDXContent } from "@/components/MDXContent";
+import { Button } from "@/components/ui/button";
 
 interface TravelStoryPageProps {
   params: Promise<{
@@ -28,7 +28,7 @@ export async function generateMetadata({
 
   if (!story) {
     return {
-      title: 'Story Not Found',
+      title: "Story Not Found",
     };
   }
 
@@ -38,7 +38,7 @@ export async function generateMetadata({
     openGraph: {
       title: story.title,
       description: story.description,
-      type: 'article',
+      type: "article",
       publishedTime: story.date,
       images: [{ url: story.coverImage }],
     },
@@ -55,10 +55,10 @@ export default async function TravelStoryPage({
     notFound();
   }
 
-  const formattedDate = new Date(story.date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  const formattedDate = new Date(story.date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 
   return (

@@ -13,11 +13,12 @@ In the article, we will be building an admin dashboard that will help us manage 
 ![products.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623737585900/kf-1uvKk3.png)
 The above image is a website's product page that fetches data from a google sheet acting as a database.
 Our admin dashboard will use google sheets APIs to modify data.
-#### Admin dashboard basic features:- 
+
+#### Admin dashboard basic features:-
+
 1. Create a new product. ( Insert a row )
 2. Modify existing product details. (modify a row)
 3. Remove product. (delete a row )
-
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623737493993/dCLrgHGa4.png)
 
@@ -29,23 +30,23 @@ Appsmith is an open-source framework to build admin panels, CRUD apps, and workf
 
 sounds cool? Let's build and see.
 
-
-
 ### 1. Create a datasource 💽
+
 In this case, `datasource` is a google sheet so let's create a new sheet.
 
 ![Screenshot 2021-06-15 at 12.19.32 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623740018881/GLJ-XZtMj_.png)
 
-here we created a sheet for `products` with the column as 
+here we created a sheet for `products` with the column as
+
 ```
-"product_id" ,  // unique id 
+"product_id" ,  // unique id
 "category_type", // product categories type like "BALLOON" or "FIREWORKS" or some other
 "product_name", // name of the product
 "product_desp" , // about the product
 "product_cost" , // cost of the product
-"product_stock", // stock quantity of product 
+"product_stock", // stock quantity of product
 "product_img_link" // image url
-``` 
+```
 
 ### 2. Integrate datasource to appsmith app
 
@@ -57,17 +58,17 @@ It will add google sheet as a datasource and route to create a new API.
 
 > Refer [Appsmith's docs](https://docs.appsmith.com/datasource-reference/querying-google-sheets) to know more about google sheet integration.
 
-### 3. Fetch data and generate widget to show UI 
+### 3. Fetch data and generate widget to show UI
 
 To get all the rows of the `products` sheet fill in the details as following
-- methods:  `fetch sheet rows`
+
+- methods: `fetch sheet rows`
 - spreadsheet URL: paste your google sheet URL
-- sheet name: `products` 
+- sheet name: `products`
 
 ![Untitled design.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623743329440/M5F8SQhEe.png)
 
 After a successful response from the API, click on `Generate Widget` to create a table rendering response data in a table.
-
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623750922448/FN6vTEHDf.png)
 
@@ -88,14 +89,13 @@ here I have created a `Form` called Modify Product with input field as follows -
 - product_stock_input `<Text>` = `{{productTable.selectedRow.product_name || ''}}`
 - product_cost_input `<Text>` = `{{productTable.selectedRow.product_name || ''}}`
 - product_row_index `<Text>` = `{{productTable.selectedRow.product_name || productTable.tableData.length}}`
-``` 
+```
 
 Refer the [docs](https://docs.appsmith.com/widget-reference/table) if you aren't familiar with read value syntax like `productTable.selectedRow.column_name` mentioned above.
 
-
 `appsmith.store.uploaded_image_link` is used to read a value from the appsmith store.
 
-Check more about the appsmith store [here](https://docs.appsmith.com/framework-reference/store-value). 
+Check more about the appsmith store [here](https://docs.appsmith.com/framework-reference/store-value).
 
 #### Create a new row
 
@@ -103,12 +103,12 @@ When a table row is not selected, we would assume that the user will fill `Form`
 In that case, we will need to create an API to insert a new row in google sheets.
 
 - createProduct API
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623847297678/6WOpFZGVG.png)
+  ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623847297678/6WOpFZGVG.png)
 
 #### Update an existing row
 
 - updateProduct API
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623847546411/uFDRimaA1.png)
+  ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623847546411/uFDRimaA1.png)
 
 After both the APIs are created successfully. Now on click of the `Submit` button in `Form`, we would call these APIs according to the task.
 
@@ -116,28 +116,27 @@ After both the APIs are created successfully. Now on click of the `Submit` butto
 
 ```js
 onClick = {{
-Number(product_row_index.text) <= productTable.tableData.length - 1 ? 
+Number(product_row_index.text) <= productTable.tableData.length - 1 ?
 updateProduct.run(
-    // After successful  
+    // After successful
 	() => getProducts.run(
     // clear
-	   () => storeValue("uploaded_image_link","")  
+	   () => storeValue("uploaded_image_link","")
 ), () => {})
 : createProduct.run(
 	() => getProducts.run(
-		() => storeValue("uploaded_image_link","") 
+		() => storeValue("uploaded_image_link","")
 ), () => {})
 }}
 ```
 
-####  To Delete an existing row 
+#### To Delete an existing row
 
 Create a delete button inside the table as a new column and on click of which call deleteProductAPI
 
 - deleteProduct API
 
 ![Screenshot 2021-06-20 at 12.16.40 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624171611200/i0ilO4UP6.png)
-
 
 ### 5. Upload Image using Cloudinary 🌩
 
@@ -152,6 +151,7 @@ Now let's create an account in cloudinary and get your `cloud_name` and `upload_
 ![Screenshot 2021-06-17 at 12.26.27 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623869891881/65HeDTjcX.png)
 
 Now let's create an API to upload the image.
+
 - #### uploadImageAPI
 
 Fill in the details as shown below.
@@ -161,7 +161,7 @@ Fill in the details as shown below.
 Now, we can run `uploadImageAPI` when the upload Image button is clicked.
 
 ```js
-onClick = {{ 
+onClick = {{
   uploadImageAPI.run(
     (response) => {
       /* onSuccess */
@@ -176,7 +176,6 @@ onClick = {{
 ```
 
 And it's done. 🎉🥳
-
 
 ![Screenshot 2021-06-20 at 12.25.22 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624172135740/bT1-TutUK.png)
 

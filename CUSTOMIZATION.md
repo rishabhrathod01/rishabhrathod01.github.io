@@ -25,7 +25,7 @@ export const personalInfo = {
     long: "Extended bio with more details",
   },
   resume: "/your-resume.pdf", // Add PDF to public folder
-}
+};
 ```
 
 ### 2. Update Skills
@@ -38,7 +38,7 @@ export const skills = {
   frameworks: ["Your", "Frameworks"],
   tools: ["Your", "Tools"],
   design: ["Your", "Design", "Skills"],
-}
+};
 ```
 
 ### 3. Add Your Projects
@@ -57,7 +57,7 @@ export const projects = [
     featured: true, // Shows on homepage
   },
   // Add more projects...
-]
+];
 ```
 
 ### 4. Update Experience
@@ -78,7 +78,7 @@ export const experience = [
     ],
   },
   // Add more experiences...
-]
+];
 ```
 
 ## 🎨 Styling Customization
@@ -90,12 +90,12 @@ Edit `app/globals.css` to change colors:
 ```css
 :root {
   /* Light mode colors */
-  --primary: 222.2 47.4% 11.2%;        /* Main brand color */
-  --secondary: 210 40% 96.1%;           /* Secondary elements */
-  --accent: 210 40% 96.1%;              /* Accent color */
-  --background: 0 0% 100%;              /* Page background */
-  --foreground: 222.2 84% 4.9%;         /* Text color */
-  
+  --primary: 222.2 47.4% 11.2%; /* Main brand color */
+  --secondary: 210 40% 96.1%; /* Secondary elements */
+  --accent: 210 40% 96.1%; /* Accent color */
+  --background: 0 0% 100%; /* Page background */
+  --foreground: 222.2 84% 4.9%; /* Text color */
+
   /* More colors... */
 }
 
@@ -104,7 +104,7 @@ Edit `app/globals.css` to change colors:
   --primary: 210 40% 98%;
   --background: 222.2 84% 4.9%;
   --foreground: 210 40% 98%;
-  
+
   /* More colors... */
 }
 ```
@@ -155,9 +155,9 @@ Change fonts by editing `app/layout.tsx`:
 import { Inter, Roboto, Poppins } from "next/font/google"
 
 // Choose your font
-const myFont = Poppins({ 
+const myFont = Poppins({
   weight: ['400', '500', '600', '700'],
-  subsets: ["latin"] 
+  subsets: ["latin"]
 })
 
 // Apply it
@@ -165,6 +165,7 @@ const myFont = Poppins({
 ```
 
 Popular font combinations:
+
 - **Modern**: Inter + Inter
 - **Professional**: Roboto + Roboto Slab
 - **Creative**: Poppins + Poppins
@@ -182,6 +183,7 @@ Add your photo:
 ### Project Images
 
 For project thumbnails:
+
 - Recommended size: 800x600px
 - Format: WebP or JPG
 - Optimize with tools like [TinyPNG](https://tinypng.com)
@@ -202,10 +204,10 @@ Update `app/layout.tsx`:
 ```typescript
 export const metadata = {
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
-}
+};
 ```
 
 ## 📝 Content Customization
@@ -222,11 +224,13 @@ Example: Remove travel CTA:
 
 ```typescript
 // Comment out or delete this section
-{/* 
+{
+  /* 
 <section className="py-20">
   <Link href="/travel">Travel Stories</Link>
 </section>
-*/}
+*/
+}
 ```
 
 ### Navigation Menu
@@ -240,7 +244,7 @@ const navigation = [
   { name: "Blog", href: "/blog" },
   // Add or remove items
   { name: "Contact", href: "/contact" },
-]
+];
 ```
 
 ### Footer
@@ -263,7 +267,7 @@ Edit animation delays in components. For example, in `components/ProjectCard.tsx
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true }}
-  transition={{ 
+  transition={{
     duration: 0.5,        // Change this
     delay: index * 0.1    // And this
   }}
@@ -297,18 +301,15 @@ const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElemen
 Edit `components/ui/button.tsx` to add custom variants:
 
 ```typescript
-const buttonVariants = cva(
-  "...",
-  {
-    variants: {
-      variant: {
-        // ... existing variants
-        // Add custom variant
-        gradient: "bg-gradient-to-r from-purple-500 to-pink-500 text-white",
-      },
+const buttonVariants = cva("...", {
+  variants: {
+    variant: {
+      // ... existing variants
+      // Add custom variant
+      gradient: "bg-gradient-to-r from-purple-500 to-pink-500 text-white",
     },
-  }
-)
+  },
+});
 ```
 
 Use it:
@@ -333,7 +334,7 @@ export const metadata: Metadata = {
   keywords: ["your", "keywords", "here"],
   authors: [{ name: "Your Name" }],
   // ... more SEO settings
-}
+};
 ```
 
 ### OpenGraph Images
@@ -538,21 +539,25 @@ npm run build && npm run start
 ## 📚 Resources
 
 ### Design Inspiration
+
 - [Dribbble](https://dribbble.com/search/portfolio)
 - [Awwwards](https://www.awwwards.com/)
 - [Behance](https://www.behance.net/)
 
 ### Color Tools
+
 - [Coolors](https://coolors.co/) - Color palette generator
 - [Adobe Color](https://color.adobe.com/) - Color wheel
 - [Tailwind Colors](https://tailwindcss.com/docs/customizing-colors)
 
 ### Icon Resources
+
 - [Lucide Icons](https://lucide.dev/) - Already included
 - [Heroicons](https://heroicons.com/)
 - [Feather Icons](https://feathericons.com/)
 
 ### Image Resources
+
 - [Unsplash](https://unsplash.com/) - Free stock photos
 - [Pexels](https://www.pexels.com/) - Free stock photos
 - [TinyPNG](https://tinypng.com/) - Image compression
@@ -566,6 +571,7 @@ npm run build && npm run start
 3. **Test Everything**: After every change, test on mobile and desktop.
 
 4. **Git Commits**: Commit after each major customization:
+
    ```bash
    git add .
    git commit -m "Updated color scheme"
@@ -587,4 +593,3 @@ npm run build && npm run start
 ---
 
 **Happy customizing! Make it yours! 🎨**
-

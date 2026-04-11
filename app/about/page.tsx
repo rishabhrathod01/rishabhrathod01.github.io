@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { Metadata } from 'next';
-import { motion } from 'framer-motion';
-import { Mail, MapPin, Briefcase, GraduationCap } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { personalInfo, skills, experience, education } from '@/lib/data';
+import { Metadata } from "next";
+import { motion } from "framer-motion";
+import { Mail, MapPin, Briefcase, GraduationCap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { personalInfo, skills, experience, education } from "@/lib/data";
 
 export default function AboutPage() {
   return (

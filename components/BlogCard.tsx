@@ -1,18 +1,24 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { TrackedLink } from "@/components/TrackedLink"
-import { Calendar, Clock } from "lucide-react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { motion } from "framer-motion";
+import { TrackedLink } from "@/components/TrackedLink";
+import { Calendar, Clock } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface BlogCardProps {
-  slug: string
-  title: string
-  description: string
-  date: string
-  readingTime: string
-  tags: string[]
-  index?: number
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  readingTime: string;
+  tags: string[];
+  index?: number;
 }
 
 export function BlogCard({
@@ -28,7 +34,7 @@ export function BlogCard({
     year: "numeric",
     month: "long",
     day: "numeric",
-  })
+  });
 
   return (
     <motion.div
@@ -37,7 +43,11 @@ export function BlogCard({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <TrackedLink href={`/blog/${slug}`} gaLabel={`Blog: ${title}`} gaLocation="blog_listing">
+      <TrackedLink
+        href={`/blog/${slug}`}
+        gaLabel={`Blog: ${title}`}
+        gaLocation="blog_listing"
+      >
         <Card className="h-full hover:shadow-lg transition-all hover:border-primary">
           <CardHeader>
             <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
@@ -50,7 +60,9 @@ export function BlogCard({
                 <span>{readingTime}</span>
               </div>
             </div>
-            <CardTitle className="hover:text-primary transition-colors">{title}</CardTitle>
+            <CardTitle className="hover:text-primary transition-colors">
+              {title}
+            </CardTitle>
             <CardDescription>{description}</CardDescription>
           </CardHeader>
           <CardContent>
@@ -68,6 +80,5 @@ export function BlogCard({
         </Card>
       </TrackedLink>
     </motion.div>
-  )
+  );
 }
-

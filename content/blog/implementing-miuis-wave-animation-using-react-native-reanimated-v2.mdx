@@ -59,9 +59,7 @@ const curveDimension = {
 
 React Native code to make curve using SVG ⬇️ .
 
-
-[🔗 View on snack.expo.io](https://snack.expo.io/@rishabhrathod2012/svg-wave-(bezier-curve-demo))
- 
+[🔗 View on snack.expo.io](<https://snack.expo.io/@rishabhrathod2012/svg-wave-(bezier-curve-demo)>)
 
 > To understand how the bezier curve works check out [this](https://vimeo.com/106757336) video. To learn more about SVG path format read [this](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths).
 
@@ -111,11 +109,8 @@ Accordingly, curve points coordinate move as shown below
 When you go through the above 5 steps, you can notice
 
 1. The `start` point will move from (0,0) to (0,1).
-    
 2. The `end` point will move from (1,1) to (1,0).
-    
 3. Control points `c1` moves from (0.25, 0.25) to (0.25, 0.75) and `c2` from (0.75,0.75) to (0.75, 0.25).
-    
 
 **X coordinates for all the curve points are kept constant.**
 
@@ -125,12 +120,9 @@ Let's find the relation of the Y coordinates of the curve points and the `orient
 
 We will find the relation between `orientation.x` and the start point. For that, we need to remember the below points.
 
-* When the phone is not tilted, the starting point stays at 0.5.
-    
-* When titled right (negative `orientation.x` value) `start` point increases from 0.5 till 1 and similarly 0.5 to 0 when titled left (positive `orientation.x` value). Hence, we negate the `orientation.x` value.
-    
-* Initial position of the `start` point is 0.5 when the `orientation.x` value is 0, so we will need to add 0.5 to the `orientation.x` value.
-    
+- When the phone is not tilted, the starting point stays at 0.5.
+- When titled right (negative `orientation.x` value) `start` point increases from 0.5 till 1 and similarly 0.5 to 0 when titled left (positive `orientation.x` value). Hence, we negate the `orientation.x` value.
+- Initial position of the `start` point is 0.5 when the `orientation.x` value is 0, so we will need to add 0.5 to the `orientation.x` value.
 
 `const adjustAxis = (value) => 0.5 + (-value / 1.5);`
 
@@ -159,14 +151,14 @@ After scratching the brain for a long 🤯, I came up with a linear equation tha
 ```js
 // start
 const startY = adjustAxis(orientation.x);
-// initial control point c1 
-const startControlPointY = (adjustAxis(orientation.x) / 2) + 0.25;
+// initial control point c1
+const startControlPointY = adjustAxis(orientation.x) / 2 + 0.25;
 // curvePoints
 const curveDimension = {
-  start: { x: 0, y: startY},
-   c1: { x: 0.4, y: startControlPointY},
-   c2: { x: 0.6, y: 1 - startControlPointY},
-   end: { x: 1, y: 1 - startY},
+  start: { x: 0, y: startY },
+  c1: { x: 0.4, y: startControlPointY },
+  c2: { x: 0.6, y: 1 - startControlPointY },
+  end: { x: 1, y: 1 - startY },
 };
 ```
 
@@ -174,27 +166,25 @@ const curveDimension = {
 
 As our curve points are derived from the `startY` and `startControlPointY`. We will make `startY` and `startControlPointY` as \*\* [shared values](https://docs.swmansion.com/react-native-reanimated/docs/shared-values/) \*\* and curve point as \*\*derived value \*\*.
 
-* Shared values can be understood as a replacement of `Animated.Value` with more benefits.
-    
-* Derived values are similar to shared values whose value is derived from other shared values.
-    
+- Shared values can be understood as a replacement of `Animated.Value` with more benefits.
+- Derived values are similar to shared values whose value is derived from other shared values.
 
 ```js
- const startY = useSharedValue(0);
- const startControlPointY = useSharedValue(0);
+const startY = useSharedValue(0);
+const startControlPointY = useSharedValue(0);
 ```
 
 [`useSharedValue`](https://docs.swmansion.com/react-native-reanimated/docs/api/useSharedValue/) returns a reference to shared value initialized with the provided data. A reference is an object with `.value` property, that can be accessed and modified from worklets, but also updated directly from the main JS thread.
 
 ```js
 const curveDimension = useDerivedValue(() => {
-    return {
-      start: { x: 0, y: startY.value },
-      c1: { x: 0.4, y: startControlPointY.value },
-      c2: { x: 0.6, y: 1 - startControlPointY.value },
-      end: { x: 1, y: 1 - startY.value },
-    };
-  });
+  return {
+    start: { x: 0, y: startY.value },
+    c1: { x: 0.4, y: startControlPointY.value },
+    c2: { x: 0.6, y: 1 - startControlPointY.value },
+    end: { x: 1, y: 1 - startY.value },
+  };
+});
 ```
 
 [`useDerivedValue`](https://docs.swmansion.com/react-native-reanimated/docs/api/useDerivedValue) allows for creating shared value reference that can change in response to updating of one or more other shared values.
@@ -217,10 +207,10 @@ const AnimatedPath = Animated.createAnimatedComponent(Path);
 +   };
 + });
 
-- const staticPath = `M ${curveDimension.start.x} ${curveDimension.start.y} 
-- C ${curveDimension.c1.x} ${curveDimension.c1.y} 
-- ${curveDimension.c2.x} ${curveDimension.c2.y} 
-- ${curveDimension.end.x} ${curveDimension.end.y} 
+- const staticPath = `M ${curveDimension.start.x} ${curveDimension.start.y}
+- C ${curveDimension.c1.x} ${curveDimension.c1.y}
+- ${curveDimension.c2.x} ${curveDimension.c2.y}
+- ${curveDimension.end.x} ${curveDimension.end.y}
 - L 1 1 L 0 1 Z`;
 ```
 
@@ -240,20 +230,19 @@ Supply `animatedProps` instead of the `d`.
 We are using [spring animation](https://reactnative.dev/docs/animated#spring) because it gives control over velocity, stiffness, friction which can be used to give a fluid property to the curve.
 
 ```js
+startY.value = withSpring(adjustAxis(orientation.x), {
+  damping: 80,
+  mass: 1,
+  stiffness: 10,
+  restDisplacementThreshold: 0.0001,
+  restSpeedThreshold: 0.001,
+});
 
- startY.value = withSpring(adjustAxis(orientation.x), {
-    damping: 80,
-    mass: 1,
-    stiffness: 10,
-    restDisplacementThreshold: 0.0001,
-    restSpeedThreshold: 0.001,
-  });
+const value = adjustAxis(orientation.x) / 2 + 0.25;
 
-  const value = (adjustAxis(orientation.x) / 2) + 0.25;
-
-  startControlPointY.value = withSpring(value, {
-    easing: Easing.out(Easing.bounce),
-  });
+startControlPointY.value = withSpring(value, {
+  easing: Easing.out(Easing.bounce),
+});
 ```
 
 [`withSpring`](https://docs.swmansion.com/react-native-reanimated/docs/api/withSpring) is a reanimated hook to implement string physics-based animation.

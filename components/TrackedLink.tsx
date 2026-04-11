@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { trackCtaClick } from "@/lib/analytics"
+import Link from "next/link";
+import { trackCtaClick } from "@/lib/analytics";
 
 type TrackedLinkProps = React.ComponentProps<typeof Link> & {
   /** Label for analytics (e.g. "Back to Blog", "GitHub") */
-  gaLabel: string
+  gaLabel: string;
   /** Optional location (e.g. "blog_post_header", "footer") */
-  gaLocation?: string
-}
+  gaLocation?: string;
+};
 
 export function TrackedLink({
   gaLabel,
@@ -20,9 +20,9 @@ export function TrackedLink({
     <Link
       {...props}
       onClick={(e) => {
-        trackCtaClick(gaLabel, gaLocation)
-        onClick?.(e)
+        trackCtaClick(gaLabel, gaLocation);
+        onClick?.(e);
       }}
     />
-  )
+  );
 }

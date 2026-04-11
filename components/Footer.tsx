@@ -1,9 +1,9 @@
-import { Github, Linkedin, Twitter, Instagram, Mail } from "lucide-react"
-import { personalInfo } from "@/lib/data"
-import { TrackedLink } from "@/components/TrackedLink"
+import { Github, Linkedin, Twitter, Instagram, Mail } from "lucide-react";
+import { personalInfo } from "@/lib/data";
+import { TrackedLink } from "@/components/TrackedLink";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-t bg-background">
@@ -13,7 +13,8 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-3">Rishabh Rathod</h3>
             <p className="text-sm text-muted-foreground">
-              Staff Frontend Engineer passionate about building efficient developer tools and user-friendly applications.
+              Staff Frontend Engineer passionate about building efficient
+              developer tools and user-friendly applications.
             </p>
           </div>
 
@@ -22,22 +23,42 @@ export function Footer() {
             <h3 className="font-semibold mb-3">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <TrackedLink href="/projects" gaLabel="Projects" gaLocation="footer" className="text-muted-foreground hover:text-foreground transition-colors">
+                <TrackedLink
+                  href="/projects"
+                  gaLabel="Projects"
+                  gaLocation="footer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Projects
                 </TrackedLink>
               </li>
               <li>
-                <TrackedLink href="/blog" gaLabel="Blog" gaLocation="footer" className="text-muted-foreground hover:text-foreground transition-colors">
+                <TrackedLink
+                  href="/blog"
+                  gaLabel="Blog"
+                  gaLocation="footer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Blog
                 </TrackedLink>
               </li>
               <li>
-                <TrackedLink href="/travel" gaLabel="Travel Stories" gaLocation="footer" className="text-muted-foreground hover:text-foreground transition-colors">
+                <TrackedLink
+                  href="/travel"
+                  gaLabel="Travel Stories"
+                  gaLocation="footer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Travel Stories
                 </TrackedLink>
               </li>
               <li>
-                <TrackedLink href="/about" gaLabel="About" gaLocation="footer" className="text-muted-foreground hover:text-foreground transition-colors">
+                <TrackedLink
+                  href="/about"
+                  gaLabel="About"
+                  gaLocation="footer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   About
                 </TrackedLink>
               </li>
@@ -110,6 +131,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

@@ -1,11 +1,11 @@
-import { Metadata } from 'next';
-import { ProjectCard } from '@/components/ProjectCard';
-import { projects } from '@/lib/data';
+import { Metadata } from "next";
+import { ProjectCard } from "@/components/ProjectCard";
+import { projects } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: 'Projects',
+  title: "Projects",
   description:
-    'Explore my portfolio of web development projects built with modern technologies.',
+    "Explore my portfolio of web development projects built with modern technologies.",
 };
 
 export default function ProjectsPage() {

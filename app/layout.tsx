@@ -1,12 +1,12 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
-import { GoogleAnalytics } from "@/components/GoogleAnalytics"
-import { personalInfo } from "@/lib/data"
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { personalInfo } from "@/lib/data";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
@@ -39,16 +39,20 @@ export const metadata: Metadata = {
     description: personalInfo.tagline,
     creator: "@rishabhrathod",
   },
+  icons: {
+    icon: "/about/portrait.png",
+    apple: "/about/portrait.png",
+  },
   robots: {
     index: true,
     follow: true,
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -75,6 +79,5 @@ export default function RootLayout({
         </div>
       </body>
     </html>
-  )
+  );
 }
-

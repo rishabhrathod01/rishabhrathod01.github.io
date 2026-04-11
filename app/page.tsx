@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Github,
@@ -13,10 +13,10 @@ import {
   Download,
   Code,
   Briefcase,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { ProjectCard } from '@/components/ProjectCard';
-import { personalInfo, experience, projects } from '@/lib/data';
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ProjectCard } from "@/components/ProjectCard";
+import { personalInfo, experience, projects } from "@/lib/data";
 
 export default function HomePage() {
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);

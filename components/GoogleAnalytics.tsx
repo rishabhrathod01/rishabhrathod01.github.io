@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import Script from "next/script"
-import { usePathname } from "next/navigation"
-import { useEffect } from "react"
-import { GA_MEASUREMENT_ID } from "@/lib/analytics"
+import Script from "next/script";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 
 export function GoogleAnalytics() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (!GA_MEASUREMENT_ID || typeof window?.gtag !== "function") return
+    if (!GA_MEASUREMENT_ID || typeof window?.gtag !== "function") return;
     window.gtag("event", "page_view", {
       page_path: pathname,
       page_title: typeof document !== "undefined" ? document.title : "",
-    })
-  }, [pathname])
+    });
+  }, [pathname]);
 
-  if (!GA_MEASUREMENT_ID) return null
+  if (!GA_MEASUREMENT_ID) return null;
 
   return (
     <>
@@ -33,5 +33,5 @@ export function GoogleAnalytics() {
         `}
       </Script>
     </>
-  )
+  );
 }

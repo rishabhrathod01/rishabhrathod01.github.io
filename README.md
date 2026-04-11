@@ -105,10 +105,10 @@ Edit `lib/data.ts` to update your personal information:
 
 ```typescript
 export const personalInfo = {
-  name: 'Your Name',
-  role: 'Your Role',
-  tagline: 'Your tagline',
-  email: 'your@email.com',
+  name: "Your Name",
+  role: "Your Role",
+  tagline: "Your tagline",
+  email: "your@email.com",
   // ... more fields
 };
 ```
@@ -120,12 +120,12 @@ Add or modify projects in `lib/data.ts`:
 ```typescript
 export const projects = [
   {
-    title: 'Project Name',
-    description: 'Project description',
-    image: 'image-url',
-    tags: ['React', 'Next.js'],
-    liveUrl: 'https://...',
-    githubUrl: 'https://...',
+    title: "Project Name",
+    description: "Project description",
+    image: "image-url",
+    tags: ["React", "Next.js"],
+    liveUrl: "https://...",
+    githubUrl: "https://...",
     featured: true,
   },
   // ... more projects
@@ -138,10 +138,10 @@ Create new blog posts in `content/blog/`:
 
 ```mdx
 ---
-title: 'Your Blog Post Title'
-date: '2024-11-26'
-description: 'Brief description'
-tags: ['JavaScript', 'React']
+title: "Your Blog Post Title"
+date: "2024-11-26"
+description: "Brief description"
+tags: ["JavaScript", "React"]
 ---
 
 # Your Blog Post Title
@@ -155,12 +155,12 @@ Create new travel stories in `content/travel/`:
 
 ```mdx
 ---
-title: 'Your Travel Story'
-date: '2024-11-26'
-location: 'City'
-country: 'Country'
-description: 'Brief description'
-coverImage: 'image-url'
+title: "Your Travel Story"
+date: "2024-11-26"
+location: "City"
+country: "Country"
+description: "Brief description"
+coverImage: "image-url"
 ---
 
 # Your Travel Story

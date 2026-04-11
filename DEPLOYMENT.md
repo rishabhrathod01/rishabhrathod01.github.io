@@ -45,27 +45,23 @@ git push -u origin main
 ```
 
 2. **Connect to Vercel**
-
    - Go to [vercel.com](https://vercel.com)
    - Click "Add New Project"
    - Import your GitHub repository
    - Vercel will auto-detect Next.js
 
 3. **Configure (if needed)**
-
    - Framework Preset: Next.js
    - Build Command: `npm run build` (auto-detected)
    - Output Directory: `.next` (auto-detected)
    - Install Command: `npm install` (auto-detected)
 
 4. **Deploy**
-
    - Click "Deploy"
    - Wait 2-3 minutes
    - Your site is live!
 
 5. **Custom Domain (Optional)**
-
    - Go to Project Settings → Domains
    - Add your custom domain
    - Follow DNS configuration instructions
@@ -100,19 +96,16 @@ git push -u origin main
 ```
 
 2. **Connect to Netlify**
-
    - Go to [netlify.com](https://netlify.com)
    - Click "Add new site" → "Import an existing project"
    - Connect to GitHub and select your repository
 
 3. **Configure Build Settings**
-
    - Build command: `npm run build`
    - Publish directory: `.next`
    - Click "Deploy site"
 
 4. **Custom Domain**
-
    - Go to Site settings → Domain management
    - Add custom domain
    - Configure DNS
@@ -215,14 +208,14 @@ For static hosting on GitHub Pages, S3, or any static host.
 ```javascript
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: "export",
   images: {
     unoptimized: true,
   },
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-}
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
 ```
 
 ### 2. Build
@@ -275,6 +268,7 @@ NEXT_PUBLIC_GA_ID=your-google-analytics-id
 Add environment variables in your hosting platform:
 
 **Vercel/Netlify:**
+
 - Go to Project Settings → Environment Variables
 - Add variables
 - Prefix public variables with `NEXT_PUBLIC_`
@@ -320,6 +314,7 @@ Add environment variables in your hosting platform:
 ### Purchase Domain
 
 Buy from:
+
 - [Namecheap](https://namecheap.com)
 - [Google Domains](https://domains.google)
 - [Cloudflare](https://cloudflare.com)
@@ -357,39 +352,40 @@ CNAME   www     your-site.netlify.app
 Create `app/sitemap.ts`:
 
 ```typescript
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://yoursite.com',
+      url: "https://yoursite.com",
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: 'https://yoursite.com/about',
+      url: "https://yoursite.com/about",
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: 'https://yoursite.com/projects',
+      url: "https://yoursite.com/projects",
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: 'https://yoursite.com/blog',
+      url: "https://yoursite.com/blog",
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 0.8,
     },
-  ]
+  ];
 }
 ```
 
 Submit to:
+
 - [Google Search Console](https://search.google.com/search-console)
 - [Bing Webmaster Tools](https://www.bing.com/webmasters)
 
@@ -428,6 +424,7 @@ export default function RootLayout({ children }) {
 ### 3. Social Media
 
 Share your portfolio on:
+
 - LinkedIn
 - Twitter
 - Reddit (r/webdev)
@@ -439,6 +436,7 @@ Share your portfolio on:
 ### Build Fails
 
 **Error: Type errors**
+
 ```bash
 # Fix TypeScript errors
 npm run build
@@ -446,6 +444,7 @@ npm run build
 ```
 
 **Error: Module not found**
+
 ```bash
 # Clear cache and reinstall
 rm -rf node_modules .next
@@ -456,16 +455,19 @@ npm run build
 ### Deployment Issues
 
 **Images not loading:**
+
 - Check image URLs
 - Verify domains in `next.config.js`
 - Use relative paths for local images
 
 **404 on routes:**
+
 - Verify file structure
 - Check for typos in filenames
 - Clear build cache
 
 **Slow performance:**
+
 - Optimize images
 - Check bundle size
 - Enable compression
@@ -503,4 +505,3 @@ npm run build
 **Congratulations on deploying your portfolio! 🎉**
 
 Remember to keep your content updated and share it with the world!
-
