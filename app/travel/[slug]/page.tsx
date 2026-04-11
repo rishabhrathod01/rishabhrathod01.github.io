@@ -1,11 +1,14 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Calendar, Clock, MapPin, ArrowLeft } from "lucide-react";
 import { getTravelStory, getTravelStories } from "@/lib/mdx";
 import { MDXContent } from "@/components/MDXContent";
 import { Button } from "@/components/ui/button";
+
+/** When there are no MDX stories, static export still needs ≥1 param; this slug is never linked. */
+const STATIC_EXPORT_EMPTY_SLUG = "__static_export_placeholder__";
 
 interface TravelStoryPageProps {
   params: Promise<{
@@ -15,6 +18,9 @@ interface TravelStoryPageProps {
 
 export async function generateStaticParams() {
   const stories = await getTravelStories();
+  if (stories.length === 0) {
+    return [{ slug: STATIC_EXPORT_EMPTY_SLUG }];
+  }
   return stories.map((story) => ({
     slug: story.slug,
   }));
@@ -24,6 +30,9 @@ export async function generateMetadata({
   params,
 }: TravelStoryPageProps): Promise<Metadata> {
   const { slug } = await params;
+  if (slug === STATIC_EXPORT_EMPTY_SLUG) {
+    return { title: "Travel Stories" };
+  }
   const story = await getTravelStory(slug);
 
   if (!story) {
@@ -49,6 +58,9 @@ export default async function TravelStoryPage({
   params,
 }: TravelStoryPageProps) {
   const { slug } = await params;
+  if (slug === STATIC_EXPORT_EMPTY_SLUG) {
+    redirect("/travel");
+  }
   const story = await getTravelStory(slug);
 
   if (!story) {
