@@ -1,0 +1,59 @@
+components/Footer.tsx
+  s_eb4077bccea6c3::t_de978dfb025d3b 1,5-18,20,22-30,34-35,40,43-44,49,52-53,58,61-62,67,70,73-112,115-122
+components/Header.tsx
+  s_eb4077bccea6c3::t_b29aa231d4362c 5-6,8,23-29,32-33,39,41-42,50-53,55-56,58-59,68,72,74-75,83-84,91-97
+app/projects/page.tsx
+  s_eb4077bccea6c3::t_fd6ee1b27a5ea5 11-17,20-28,30-34,36-37,40-69,71-104,106
+  s_eb4077bccea6c3::t_5cce6a922f3c3f 29
+app/travel/page.tsx
+  s_eb4077bccea6c3::t_593b0d346a9766 4-6,15,18-26,28-29,32-34,37,39,41-43,45-49,51-105,107-115,118-146
+  s_eb4077bccea6c3::t_05a0149d2b2cd7 27
+  s_eb4077bccea6c3::t_edb1e7d42a43d3 50
+  s_eb4077bccea6c3::t_23a66c45bb9014 106
+components/ProjectCard.tsx
+  s_eb4077bccea6c3::t_9b2156ab5dde62 5,34,36-47,49-71,73-80,83-90,92-93
+app/about/page.tsx
+  s_eb4077bccea6c3::t_d85995c9706e99 104
+  s_eb4077bccea6c3::t_ed80add9121537 31
+  s_eb4077bccea6c3::t_947cbe62911847 3,5,8-14,17-30,32-44,46-60,63-74,76-86,88-92,94-103,105-109,111-123,125,127-128,130,134-135,137-149,151-155,160-165,167-173,175-193,197-209,211-215,217,221-225,227-239,243-244,246-277
+  s_eb4077bccea6c3::t_857554c816ff52 210
+  s_eb4077bccea6c3::t_b98006e23e5d20 150
+app/globals.css
+  s_eb4077bccea6c3::t_6d14f9befa3620 7-26,36-70,79,83,87-88,92
+tailwind.config.ts
+  s_eb4077bccea6c3::t_00ade5663c234e 13,47-75,81-83
+components/TravelCard.tsx
+  s_eb4077bccea6c3::t_585fa5de19f9d7 44-46,51,53-58,60-63,65-77,79-80
+app/page.tsx
+  s_eb4077bccea6c3::t_3199b8f606d055 286
+  s_eb4077bccea6c3::t_d2612d8cb50eac 318,344
+  s_eb4077bccea6c3::t_1230b8ec116a51 5,7,11-30,33-48,52-53,55-57,60-69,72-84,87-113,115,117-120,122-135,137-138,140-145,147-185,190-195,197-208,210-211,213-215,218,220-272,281-285,287-290,292-317,319-343,345-399
+  s_eb4077bccea6c3::t_adbc2c34ec413f 196
+  s_eb4077bccea6c3::t_8b1d0743a210ef 146
+app/blog/page.tsx
+  s_eb4077bccea6c3::t_82e6f7012eee41 81
+  s_eb4077bccea6c3::t_c9b4a034da4fb1 47
+  s_eb4077bccea6c3::t_44bab4e790470a 12,15-23,25-29,34,36,38-40,42-46,48-80,82-90,93-117
+  s_eb4077bccea6c3::t_9fc32cddd24aaa 24
+components/BlogCard.tsx
+  s_eb4077bccea6c3::t_859d0c257f98ef 43,45-74
+app/layout.tsx
+  s_eb4077bccea6c3::t_e13b89404ba10f 2,9-14,63,65-69,72-74,77-80
+  s_eb4077bccea6c3::t_a44b5c0ecd8ee6 71
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "8633ea1aa71ea5cf45c49fcb230570c5ff3e4080",
+  "prompts": {},
+  "sessions": {
+    "s_eb4077bccea6c3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1a07d4ba-1ce2-4555-844b-c8085c466115",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
