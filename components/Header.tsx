@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import { Moon, Sun, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { personalInfo } from "@/lib/data";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -17,45 +17,29 @@ const navigation = [
 
 export function Header() {
   const pathname = usePathname();
-  const [isDark, setIsDark] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setIsDark(isDarkMode);
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newIsDark = !isDark;
-    setIsDark(newIsDark);
-
-    if (newIsDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
-
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold">RR</span>
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-surface/80 backdrop-blur-xl">
+      <nav className="max-w-container-max mx-auto px-4 md:px-gutter flex h-20 items-center justify-between">
+        <Link
+          href="/"
+          className="font-geist text-lg font-semibold text-on-surface tracking-tight"
+        >
+          Rishabh Rathod
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
           {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
+                "relative text-sm transition-colors duration-200 pb-1",
                 pathname === item.href
-                  ? "text-foreground"
-                  : "text-muted-foreground"
+                  ? "text-primary font-semibold after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full"
+                  : "text-slate-muted hover:text-on-surface"
               )}
             >
               {item.name}
@@ -63,25 +47,16 @@ export function Header() {
           ))}
         </div>
 
-        <div className="flex items-center space-x-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleDarkMode}
-            aria-label="Toggle dark mode"
+        <div className="flex items-center gap-4">
+          <a
+            href={`mailto:${personalInfo.email}`}
+            className="hidden md:inline-flex items-center px-5 py-2 bg-primary text-on-primary-dark rounded-full font-jetbrains text-xs font-semibold tracking-widest uppercase transition-all hover:shadow-[0_0_20px_rgba(192,193,255,0.3)] active:scale-95"
           >
-            {isDark ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </Button>
+            Get in Touch
+          </a>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
+          <button
+            className="md:hidden text-on-surface p-1"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -90,14 +65,14 @@ export function Header() {
             ) : (
               <Menu className="h-5 w-5" />
             )}
-          </Button>
+          </button>
         </div>
       </nav>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Nav */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t">
-          <div className="container mx-auto px-4 py-4 space-y-3">
+        <div className="md:hidden border-t border-white/10 bg-surface-container-low">
+          <div className="max-w-container-max mx-auto px-4 py-4 space-y-3">
             {navigation.map((item) => (
               <Link
                 key={item.href}
@@ -105,14 +80,21 @@ export function Header() {
                 className={cn(
                   "block py-2 text-sm font-medium transition-colors",
                   pathname === item.href
-                    ? "text-foreground"
-                    : "text-muted-foreground"
+                    ? "text-primary"
+                    : "text-slate-muted hover:text-on-surface"
                 )}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="block py-2 text-sm font-jetbrains font-semibold tracking-wider uppercase text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Get in Touch
+            </a>
           </div>
         </div>
       )}
