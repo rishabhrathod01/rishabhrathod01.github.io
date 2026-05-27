@@ -1,18 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Github, ExternalLink } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -41,56 +31,66 @@ export function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="glass-card rounded-2xl overflow-hidden group kinetic-hover h-full flex flex-col"
     >
-      <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow">
-        <div className="relative h-48 w-full overflow-hidden">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover transition-transform hover:scale-105"
-          />
-          {featured && (
-            <div className="absolute top-2 right-2 bg-primary text-primary-foreground text-xs px-2 py-1 rounded">
-              Featured
-            </div>
-          )}
-        </div>
-        <CardHeader>
-          <CardTitle>{title}</CardTitle>
-          <CardDescription>{description}</CardDescription>
-        </CardHeader>
-        <CardContent className="flex-grow">
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded"
-              >
-                {tag}
-              </span>
-            ))}
+      <div className="aspect-video bg-surface-container-highest relative overflow-hidden">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
+        />
+        {featured && (
+          <div className="absolute top-4 left-4">
+            <span className="px-3 py-1 bg-primary text-on-primary-dark rounded-full font-jetbrains text-[10px] font-bold tracking-widest uppercase">
+              FEATURED
+            </span>
           </div>
-        </CardContent>
-        <CardFooter className="gap-2">
+        )}
+      </div>
+
+      <div className="p-8 flex flex-col flex-grow">
+        <h3 className="font-geist text-2xl font-medium text-on-surface mb-3">
+          {title}
+        </h3>
+        <p className="text-base text-slate-muted mb-6 leading-relaxed flex-grow">
+          {description}
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-8">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-2 py-1 bg-surface-container rounded font-jetbrains text-[10px] text-emerald uppercase tracking-widest border border-white/10"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex gap-3">
           {liveUrl && (
-            <Button size="sm" asChild>
-              <Link href={liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="h-4 w-4 mr-1" />
-                Live Demo
-              </Link>
-            </Button>
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 border border-white/10 rounded-lg hover:border-primary transition-colors text-sm text-on-surface"
+            >
+              <ExternalLink className="h-4 w-4" /> Demo
+            </a>
           )}
           {githubUrl && (
-            <Button size="sm" variant="outline" asChild>
-              <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="h-4 w-4 mr-1" />
-                Code
-              </Link>
-            </Button>
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 border border-white/10 rounded-lg hover:border-primary transition-colors text-sm text-on-surface"
+            >
+              <Github className="h-4 w-4" /> Code
+            </a>
           )}
-        </CardFooter>
-      </Card>
+        </div>
+      </div>
     </motion.div>
   );
 }

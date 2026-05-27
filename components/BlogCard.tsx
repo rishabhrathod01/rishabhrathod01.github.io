@@ -3,13 +3,6 @@
 import { motion } from "framer-motion";
 import { TrackedLink } from "@/components/TrackedLink";
 import { Calendar, Clock } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 interface BlogCardProps {
   slug: string;
@@ -47,37 +40,38 @@ export function BlogCard({
         href={`/blog/${slug}`}
         gaLabel={`Blog: ${title}`}
         gaLocation="blog_listing"
+        className="block h-full"
       >
-        <Card className="h-full hover:shadow-lg transition-all hover:border-primary">
-          <CardHeader>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
-              <div className="flex items-center gap-1">
-                <Calendar className="h-4 w-4" />
-                <span>{formattedDate}</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <Clock className="h-4 w-4" />
-                <span>{readingTime}</span>
-              </div>
-            </div>
-            <CardTitle className="hover:text-primary transition-colors">
-              {title}
-            </CardTitle>
-            <CardDescription>{description}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        <div className="glass-card rounded-2xl p-8 h-full flex flex-col kinetic-hover">
+          <div className="flex items-center gap-4 text-slate-muted mb-4">
+            <span className="flex items-center gap-1.5 font-jetbrains text-xs">
+              <Calendar className="h-3.5 w-3.5" />
+              {formattedDate}
+            </span>
+            <span className="flex items-center gap-1.5 font-jetbrains text-xs">
+              <Clock className="h-3.5 w-3.5" />
+              {readingTime}
+            </span>
+          </div>
+
+          <h3 className="font-geist text-xl font-medium text-on-surface mb-3 hover:text-primary transition-colors flex-grow">
+            {title}
+          </h3>
+          <p className="text-slate-muted text-sm leading-relaxed mb-6">
+            {description}
+          </p>
+
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-1 bg-surface-container rounded font-jetbrains text-[10px] text-emerald uppercase tracking-widest border border-white/10"
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </div>
       </TrackedLink>
     </motion.div>
   );
