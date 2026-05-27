@@ -54,6 +54,16 @@ export function Footer() {
               </li>
               <li>
                 <TrackedLink
+                  href="/bookshelf"
+                  gaLabel="Bookshelf"
+                  gaLocation="footer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Bookshelf
+                </TrackedLink>
+              </li>
+              <li>
+                <TrackedLink
                   href="/about"
                   gaLabel="About"
                   gaLocation="footer"

@@ -13,6 +13,7 @@ import {
   Download,
   Code,
   Briefcase,
+  BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -112,6 +113,12 @@ export default function HomePage() {
                 <Link href="/blog">
                   Read Blog
                   <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/bookshelf">
+                  <BookOpen className="mr-2 h-5 w-5" />
+                  My Bookshelf
                 </Link>
               </Button>
             </div>
