@@ -1,0 +1,35 @@
+app/tools/page.tsx
+  s_044012a3258010::t_08857246ebe394 1-37
+app/tools/json-diff/page.tsx
+  s_adc5d7e0f3ac79::t_e2f6c6c42d6681 31-40,74-110,129,250-254,256-295,298-308,310-311,314-427
+  s_044012a3258010::t_1ae83da23a50ab 1-30,41-73,111-128,130-249,255,296-297,309,312-313,428-432
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "da111113e7f254c75f27c666932e016414700df5",
+  "prompts": {},
+  "humans": {
+    "h_254a44d1f12105": {
+      "author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  },
+  "sessions": {
+    "s_044012a3258010": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7a574c84-7aa2-46a0-b5dc-90e0d4ca8c0b",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    },
+    "s_adc5d7e0f3ac79": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "24635811-5b6a-4bab-bd3c-b224ee2bb38f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
