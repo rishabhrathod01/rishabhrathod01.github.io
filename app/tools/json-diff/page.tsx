@@ -1,8 +1,69 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { SlidersHorizontal, Trash2, X, Link, Check } from "lucide-react";
+
+// ─── Types ───────────────────────────────────────────────────────────────────
+
+type FilterConfig = { name: string; paths: string[] };
+
+type EqualLine = { type: "equal"; line: string; lineA: number; lineB: number };
+type RemoveLine = { type: "remove"; line: string; lineA: number };
+type AddLine = { type: "add"; line: string; lineB: number };
+type DiffLine = EqualLine | RemoveLine | AddLine;
+
+type SideBySideRow =
+  | { kind: "equal"; line: string; lineA: number; lineB: number }
+  | {
+      kind: "change";
+      leftLine: string | null;
+      leftNum: number | null;
+      rightLine: string | null;
+      rightNum: number | null;
+    };
+
+// ─── localStorage ─────────────────────────────────────────────────────────────
+
+const LS_KEY = "json-diff-filter-configs";
+
+function loadConfigs(): FilterConfig[] {
+  if (typeof window === "undefined") return [];
+  try {
+    return JSON.parse(localStorage.getItem(LS_KEY) ?? "[]") as FilterConfig[];
+  } catch {
+    return [];
+  }
+}
+
+function saveConfigs(configs: FilterConfig[]) {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(LS_KEY, JSON.stringify(configs));
+  } catch {}
+}
+
+// ─── Config URL encoding ──────────────────────────────────────────────────────
+
+function encodeConfig(cfg: FilterConfig): string {
+  return btoa(JSON.stringify(cfg))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
+}
+
+function decodeConfig(raw: string): FilterConfig | null {
+  try {
+    const padded = raw.replace(/-/g, "+").replace(/_/g, "/");
+    const padding = (4 - (padded.length % 4)) % 4;
+    return JSON.parse(atob(padded + "=".repeat(padding))) as FilterConfig;
+  } catch {
+    return null;
+  }
+}
+
+// ─── JSON utilities ───────────────────────────────────────────────────────────
 
 function sortJson(value: unknown): unknown {
   if (Array.isArray(value)) {
@@ -23,25 +84,42 @@ function sortJson(value: unknown): unknown {
   return value;
 }
 
-type EqualLine = { type: "equal"; line: string; lineA: number; lineB: number };
-type RemoveLine = { type: "remove"; line: string; lineA: number };
-type AddLine = { type: "add"; line: string; lineB: number };
-type DiffLine = EqualLine | RemoveLine | AddLine;
+function applyFilter(value: unknown, parts: string[]): unknown {
+  if (!value || typeof value !== "object") return value;
+  if (Array.isArray(value)) return value.map((v) => applyFilter(v, parts));
+  const [head, ...tail] = parts;
+  const result: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(value as Record<string, unknown>)) {
+    if (k === head) {
+      if (tail.length === 0) continue; // drop key entirely
+      result[k] = applyFilter(v, tail);
+    } else {
+      result[k] = applyFilter(v, parts); // keep key, recurse full path
+    }
+  }
+  return result;
+}
 
-type SideBySideRow =
-  | { kind: "equal"; line: string; lineA: number; lineB: number }
-  | {
-      kind: "change";
-      leftLine: string | null;
-      leftNum: number | null;
-      rightLine: string | null;
-      rightNum: number | null;
-    };
+function stripPaths(value: unknown, paths: string[]): unknown {
+  return paths
+    .filter((p) => p.trim())
+    .reduce((acc, p) => applyFilter(acc, p.trim().split(".")), value);
+}
+
+function tryFormat(input: string): { value: string; error: string } {
+  if (!input.trim()) return { value: input, error: "" };
+  try {
+    return { value: JSON.stringify(JSON.parse(input), null, 2), error: "" };
+  } catch (e) {
+    return { value: input, error: (e as Error).message };
+  }
+}
+
+// ─── Diff algorithm ──────────────────────────────────────────────────────────
 
 function computeDiff(linesA: string[], linesB: string[]): DiffLine[] {
   const m = linesA.length;
   const n = linesB.length;
-
   const dp: number[][] = Array.from({ length: m + 1 }, () =>
     new Array(n + 1).fill(0)
   );
@@ -53,13 +131,17 @@ function computeDiff(linesA: string[], linesB: string[]): DiffLine[] {
           : Math.max(dp[i - 1][j], dp[i][j - 1]);
     }
   }
-
   const result: DiffLine[] = [];
   let i = m,
     j = n;
   while (i > 0 || j > 0) {
     if (i > 0 && j > 0 && linesA[i - 1] === linesB[j - 1]) {
-      result.unshift({ type: "equal", line: linesA[i - 1], lineA: i, lineB: j });
+      result.unshift({
+        type: "equal",
+        line: linesA[i - 1],
+        lineA: i,
+        lineB: j,
+      });
       i--;
       j--;
     } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
@@ -79,10 +161,14 @@ function toSideBySide(diff: DiffLine[]): SideBySideRow[] {
   while (k < diff.length) {
     const line = diff[k];
     if (line.type === "equal") {
-      rows.push({ kind: "equal", line: line.line, lineA: line.lineA, lineB: line.lineB });
+      rows.push({
+        kind: "equal",
+        line: line.line,
+        lineA: line.lineA,
+        lineB: line.lineB,
+      });
       k++;
     } else {
-      // Collect contiguous block of removes then adds
       const removes: RemoveLine[] = [];
       const adds: AddLine[] = [];
       while (k < diff.length && diff[k].type === "remove") {
@@ -110,14 +196,7 @@ function toSideBySide(diff: DiffLine[]): SideBySideRow[] {
   return rows;
 }
 
-function tryFormat(input: string): { value: string; error: string } {
-  if (!input.trim()) return { value: input, error: "" };
-  try {
-    return { value: JSON.stringify(JSON.parse(input), null, 2), error: "" };
-  } catch (e) {
-    return { value: input, error: (e as Error).message };
-  }
-}
+// ─── Component ───────────────────────────────────────────────────────────────
 
 export default function JsonDiffPage() {
   const [inputA, setInputA] = useState("");
@@ -127,6 +206,41 @@ export default function JsonDiffPage() {
   const [errorB, setErrorB] = useState("");
   const [stats, setStats] = useState({ added: 0, removed: 0, equal: 0 });
   const [viewMode, setViewMode] = useState<"unified" | "split">("split");
+
+  // Filter state
+  const [showFilter, setShowFilter] = useState(false);
+  const [activePaths, setActivePaths] = useState<string[]>([]);
+  const [draftPath, setDraftPath] = useState("");
+  const [savedConfigs, setSavedConfigs] = useState<FilterConfig[]>([]);
+  const [selectedConfig, setSelectedConfig] = useState("");
+  const [configName, setConfigName] = useState("");
+  const [shareToast, setShareToast] = useState<"idle" | "copied">("idle");
+  const [inboundBanner, setInboundBanner] = useState<string | null>(null);
+  const draftInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const existing = loadConfigs();
+    setSavedConfigs(existing);
+
+    const params = new URLSearchParams(window.location.search);
+    const raw = params.get("filter");
+    if (!raw) return;
+
+    const cfg = decodeConfig(raw);
+    if (!cfg || !cfg.name || !Array.isArray(cfg.paths)) return;
+
+    const merged = [...existing.filter((c) => c.name !== cfg.name), cfg];
+    setSavedConfigs(merged);
+    saveConfigs(merged);
+
+    setActivePaths(cfg.paths);
+    setConfigName(cfg.name);
+    setSelectedConfig(cfg.name);
+    setShowFilter(true);
+    setInboundBanner(cfg.name);
+
+    window.history.replaceState({}, "", window.location.pathname);
+  }, []);
 
   const formatA = useCallback(() => {
     const { value, error } = tryFormat(inputA);
@@ -143,29 +257,46 @@ export default function JsonDiffPage() {
   const compare = useCallback(() => {
     setErrorA("");
     setErrorB("");
-
-    if (!inputA.trim()) { setErrorA("Input is empty"); return; }
-    if (!inputB.trim()) { setErrorB("Input is empty"); return; }
-
+    if (!inputA.trim()) {
+      setErrorA("Input is empty");
+      return;
+    }
+    if (!inputB.trim()) {
+      setErrorB("Input is empty");
+      return;
+    }
     let parsedA: unknown, parsedB: unknown;
-    try { parsedA = JSON.parse(inputA); } catch (e) {
-      setErrorA(`Invalid JSON: ${(e as Error).message}`); return;
+    try {
+      parsedA = JSON.parse(inputA);
+    } catch (e) {
+      setErrorA(`Invalid JSON: ${(e as Error).message}`);
+      return;
     }
-    try { parsedB = JSON.parse(inputB); } catch (e) {
-      setErrorB(`Invalid JSON: ${(e as Error).message}`); return;
+    try {
+      parsedB = JSON.parse(inputB);
+    } catch (e) {
+      setErrorB(`Invalid JSON: ${(e as Error).message}`);
+      return;
     }
 
-    const linesA = JSON.stringify(sortJson(parsedA), null, 2).split("\n");
-    const linesB = JSON.stringify(sortJson(parsedB), null, 2).split("\n");
+    const linesA = JSON.stringify(
+      sortJson(stripPaths(parsedA, activePaths)),
+      null,
+      2
+    ).split("\n");
+    const linesB = JSON.stringify(
+      sortJson(stripPaths(parsedB, activePaths)),
+      null,
+      2
+    ).split("\n");
     const diff = computeDiff(linesA, linesB);
-
     setDiffResult(diff);
     setStats({
       added: diff.filter((d) => d.type === "add").length,
       removed: diff.filter((d) => d.type === "remove").length,
       equal: diff.filter((d) => d.type === "equal").length,
     });
-  }, [inputA, inputB]);
+  }, [inputA, inputB, activePaths]);
 
   const clear = useCallback(() => {
     setInputA("");
@@ -175,6 +306,84 @@ export default function JsonDiffPage() {
     setErrorB("");
     setStats({ added: 0, removed: 0, equal: 0 });
   }, []);
+
+  // Filter helpers
+  const addDraftPath = useCallback(() => {
+    const p = draftPath.trim();
+    if (!p || activePaths.includes(p)) {
+      setDraftPath("");
+      return;
+    }
+    setActivePaths((prev) => [...prev, p]);
+    setDraftPath("");
+    setSelectedConfig("");
+  }, [draftPath, activePaths]);
+
+  const removePath = useCallback((path: string) => {
+    setActivePaths((prev) => prev.filter((p) => p !== path));
+    setSelectedConfig("");
+  }, []);
+
+  const loadConfig = useCallback(
+    (name: string) => {
+      const cfg = savedConfigs.find((c) => c.name === name);
+      if (cfg) {
+        setActivePaths([...cfg.paths]);
+        setConfigName(cfg.name);
+      }
+      setSelectedConfig(name);
+    },
+    [savedConfigs]
+  );
+
+  const saveConfig = useCallback(() => {
+    const name = configName.trim();
+    if (!name) return;
+    const updated = [
+      ...savedConfigs.filter((c) => c.name !== name),
+      { name, paths: [...activePaths] },
+    ];
+    setSavedConfigs(updated);
+    saveConfigs(updated);
+    setSelectedConfig(name);
+  }, [configName, activePaths, savedConfigs]);
+
+  const copyShareUrl = useCallback(() => {
+    const name = configName.trim() || "Shared config";
+    const url =
+      window.location.origin +
+      window.location.pathname +
+      "?filter=" +
+      encodeConfig({ name, paths: activePaths });
+
+    const finish = () => {
+      setShareToast("copied");
+      setTimeout(() => setShareToast("idle"), 2000);
+    };
+
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(finish);
+    } else {
+      // Fallback for non-secure contexts (HTTP on LAN)
+      const ta = document.createElement("textarea");
+      ta.value = url;
+      ta.style.cssText = "position:fixed;opacity:0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      finish();
+    }
+  }, [configName, activePaths]);
+
+  const deleteConfig = useCallback(() => {
+    if (!selectedConfig) return;
+    const updated = savedConfigs.filter((c) => c.name !== selectedConfig);
+    setSavedConfigs(updated);
+    saveConfigs(updated);
+    setSelectedConfig("");
+    setConfigName("");
+  }, [selectedConfig, savedConfigs]);
 
   const noDiff =
     diffResult !== null && stats.added === 0 && stats.removed === 0;
@@ -208,7 +417,10 @@ export default function JsonDiffPage() {
             )}
             placeholder={'{\n  "name": "Alice",\n  "age": 30\n}'}
             value={inputA}
-            onChange={(e) => { setInputA(e.target.value); setErrorA(""); }}
+            onChange={(e) => {
+              setInputA(e.target.value);
+              setErrorA("");
+            }}
             spellCheck={false}
           />
           {errorA && <p className="text-xs text-destructive">{errorA}</p>}
@@ -232,17 +444,237 @@ export default function JsonDiffPage() {
             )}
             placeholder={'{\n  "name": "Alice",\n  "age": 31\n}'}
             value={inputB}
-            onChange={(e) => { setInputB(e.target.value); setErrorB(""); }}
+            onChange={(e) => {
+              setInputB(e.target.value);
+              setErrorB("");
+            }}
             spellCheck={false}
           />
           {errorB && <p className="text-xs text-destructive">{errorB}</p>}
         </div>
       </div>
 
-      <div className="flex items-center gap-3 mb-8">
+      {/* Action bar */}
+      <div className="flex items-center gap-3 mb-4">
         <Button onClick={compare}>Compare</Button>
-        <Button variant="outline" onClick={clear}>Clear</Button>
+        <Button variant="outline" onClick={clear}>
+          Clear
+        </Button>
+        {/* Filter toggle */}
+        <button
+          onClick={() => setShowFilter((v) => !v)}
+          className={cn(
+            "relative inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-sm transition-colors",
+            showFilter
+              ? "border-foreground bg-foreground text-background"
+              : "hover:bg-muted"
+          )}
+        >
+          <SlidersHorizontal className="h-3.5 w-3.5" />
+          Filters
+          {activePaths.length > 0 && (
+            <span
+              className={cn(
+                "ml-0.5 rounded-full px-1.5 py-px text-[10px] font-semibold leading-none",
+                showFilter
+                  ? "bg-background text-foreground"
+                  : "bg-foreground text-background"
+              )}
+            >
+              {activePaths.length}
+            </span>
+          )}
+        </button>
       </div>
+
+      {/* Inbound share banner */}
+      {inboundBanner && (
+        <div className="mb-4 flex items-center justify-between rounded-lg border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/30 px-4 py-2.5 text-sm text-green-800 dark:text-green-300">
+          <span>
+            Filter config <strong>&ldquo;{inboundBanner}&rdquo;</strong> loaded
+            from share link and saved to your configs.
+          </span>
+          <button
+            onClick={() => setInboundBanner(null)}
+            className="ml-4 opacity-60 hover:opacity-100 transition-opacity"
+            aria-label="Dismiss"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+      )}
+
+      {/* Filter panel */}
+      {showFilter && (
+        <div className="mb-6 rounded-lg border bg-muted/20 p-4 space-y-5">
+          {/* Active paths */}
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Keys to exclude
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Dot-notation paths applied recursively to both JSONs before
+              comparison. e.g.{" "}
+              <code className="rounded bg-muted px-1 py-px font-mono">
+                metadata.x
+              </code>{" "}
+              or{" "}
+              <code className="rounded bg-muted px-1 py-px font-mono">
+                properties.columnsSelector
+              </code>
+            </p>
+
+            {/* Path chips */}
+            {activePaths.length > 0 && (
+              <div className="flex flex-wrap gap-1.5">
+                {activePaths.map((p) => (
+                  <span
+                    key={p}
+                    className="inline-flex items-center gap-1 rounded-full border bg-background px-2.5 py-0.5 font-mono text-xs"
+                  >
+                    {p}
+                    <button
+                      onClick={() => removePath(p)}
+                      className="ml-0.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
+                      aria-label={`Remove ${p}`}
+                    >
+                      <X className="h-3 w-3" />
+                    </button>
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* Add path input */}
+            <div className="flex gap-2">
+              <input
+                ref={draftInputRef}
+                type="text"
+                value={draftPath}
+                onChange={(e) => setDraftPath(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    addDraftPath();
+                  }
+                }}
+                placeholder="e.g. metadata.x"
+                className="h-8 flex-1 rounded-md border bg-background px-3 font-mono text-xs focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={addDraftPath}
+                disabled={!draftPath.trim()}
+              >
+                Add path
+              </Button>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t" />
+
+          {/* Saved configs */}
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Saved configurations
+            </p>
+
+            <div className="flex flex-wrap gap-2 items-center">
+              {/* Load dropdown */}
+              <select
+                value={selectedConfig}
+                onChange={(e) => loadConfig(e.target.value)}
+                className="h-8 rounded-md border bg-background px-2 text-xs focus:outline-none focus:ring-2 focus:ring-ring"
+              >
+                <option value="">— Load a saved config —</option>
+                {savedConfigs.map((c) => (
+                  <option key={c.name} value={c.name}>
+                    {c.name} ({c.paths.length} path
+                    {c.paths.length !== 1 ? "s" : ""})
+                  </option>
+                ))}
+              </select>
+
+              {/* Delete */}
+              <button
+                onClick={deleteConfig}
+                disabled={!selectedConfig}
+                className={cn(
+                  "inline-flex items-center gap-1 rounded-md border px-2.5 h-8 text-xs transition-colors",
+                  selectedConfig
+                    ? "border-destructive text-destructive hover:bg-destructive/10"
+                    : "text-muted-foreground cursor-not-allowed opacity-40"
+                )}
+                aria-label="Delete selected config"
+              >
+                <Trash2 className="h-3.5 w-3.5" />
+                Delete
+              </button>
+            </div>
+
+            {/* Save current paths as named config */}
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={configName}
+                onChange={(e) => setConfigName(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    saveConfig();
+                  }
+                }}
+                placeholder="Config name…"
+                className="h-8 flex-1 rounded-md border bg-background px-3 text-xs focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+              <Button
+                size="sm"
+                onClick={saveConfig}
+                disabled={!configName.trim() || activePaths.length === 0}
+              >
+                Save config
+              </Button>
+            </div>
+            {activePaths.length === 0 && configName.trim() && (
+              <p className="text-xs text-muted-foreground">
+                Add at least one path before saving.
+              </p>
+            )}
+
+            {/* Share */}
+            <div className="flex items-center gap-2 pt-1">
+              <button
+                onClick={copyShareUrl}
+                disabled={activePaths.length === 0}
+                className={cn(
+                  "inline-flex items-center gap-1.5 rounded-md border px-3 h-8 text-xs transition-colors",
+                  activePaths.length > 0
+                    ? "hover:bg-muted"
+                    : "opacity-40 cursor-not-allowed"
+                )}
+              >
+                {shareToast === "copied" ? (
+                  <>
+                    <Check className="h-3.5 w-3.5 text-green-600" />
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <Link className="h-3.5 w-3.5" />
+                    Copy share link
+                  </>
+                )}
+              </button>
+              <span className="text-xs text-muted-foreground">
+                Anyone who opens this link will get the config saved
+                automatically.
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
 
       {diffResult !== null && (
         <div className="border rounded-lg overflow-hidden">
@@ -265,9 +697,16 @@ export default function JsonDiffPage() {
                   <span className="font-mono text-muted-foreground">
                     {stats.equal} unchanged
                   </span>
+                  {activePaths.length > 0 && (
+                    <span className="font-mono text-muted-foreground/60 text-xs">
+                      · {activePaths.length} path
+                      {activePaths.length !== 1 ? "s" : ""} excluded
+                    </span>
+                  )}
                 </>
               )}
             </div>
+
             {/* View toggle */}
             <div className="flex items-center rounded-md border overflow-hidden text-xs">
               <button
@@ -296,7 +735,6 @@ export default function JsonDiffPage() {
           </div>
 
           {viewMode === "unified" ? (
-            /* Unified diff table */
             <div className="overflow-x-auto">
               <table className="w-full font-mono text-xs border-collapse">
                 <tbody>
@@ -320,8 +758,10 @@ export default function JsonDiffPage() {
                         <td
                           className={cn(
                             "select-none w-5 text-center py-px border-r border-border/50",
-                            isAdd && "text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-950/40",
-                            isRemove && "text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-950/40"
+                            isAdd &&
+                              "text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-950/40",
+                            isRemove &&
+                              "text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-950/40"
                           )}
                         >
                           {isAdd ? "+" : isRemove ? "−" : " "}
@@ -342,7 +782,6 @@ export default function JsonDiffPage() {
               </table>
             </div>
           ) : (
-            /* Split diff table */
             <div className="overflow-x-auto">
               <table className="w-full font-mono text-xs border-collapse table-fixed">
                 <colgroup>
@@ -356,38 +795,32 @@ export default function JsonDiffPage() {
                     if (row.kind === "equal") {
                       return (
                         <tr key={idx}>
-                          {/* Left line number */}
                           <td className="select-none text-right pr-2 pl-3 py-px text-muted-foreground/60 border-r border-border/50">
                             {row.lineA}
                           </td>
-                          {/* Left content */}
                           <td className="py-px pl-3 pr-2 whitespace-pre border-r border-border">
                             {row.line}
                           </td>
-                          {/* Right line number */}
                           <td className="select-none text-right pr-2 pl-3 py-px text-muted-foreground/60 border-r border-border/50">
                             {row.lineB}
                           </td>
-                          {/* Right content */}
                           <td className="py-px pl-3 pr-4 whitespace-pre">
                             {row.line}
                           </td>
                         </tr>
                       );
                     }
-                    // change row
                     return (
                       <tr key={idx}>
-                        {/* Left line number */}
                         <td
                           className={cn(
                             "select-none text-right pr-2 pl-3 py-px text-muted-foreground/60 border-r border-border/50",
-                            row.leftLine !== null && "bg-red-100 dark:bg-red-950/40"
+                            row.leftLine !== null &&
+                              "bg-red-100 dark:bg-red-950/40"
                           )}
                         >
                           {row.leftNum ?? ""}
                         </td>
-                        {/* Left content */}
                         <td
                           className={cn(
                             "py-px pl-3 pr-2 whitespace-pre border-r border-border",
@@ -398,16 +831,15 @@ export default function JsonDiffPage() {
                         >
                           {row.leftLine ?? ""}
                         </td>
-                        {/* Right line number */}
                         <td
                           className={cn(
                             "select-none text-right pr-2 pl-3 py-px text-muted-foreground/60 border-r border-border/50",
-                            row.rightLine !== null && "bg-green-100 dark:bg-green-950/40"
+                            row.rightLine !== null &&
+                              "bg-green-100 dark:bg-green-950/40"
                           )}
                         >
                           {row.rightNum ?? ""}
                         </td>
-                        {/* Right content */}
                         <td
                           className={cn(
                             "py-px pl-3 pr-4 whitespace-pre",
