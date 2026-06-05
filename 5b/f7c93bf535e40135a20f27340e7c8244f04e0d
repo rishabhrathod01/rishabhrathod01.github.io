@@ -1,0 +1,30 @@
+lib/data.ts
+  s_adc5d7e0f3ac79::t_150760ed0d5167 130
+  s_adc5d7e0f3ac79::t_a0349bd74609f1 127-129,131-135,145
+app/page.tsx
+  s_adc5d7e0f3ac79::t_c0feff2939438f 196
+  s_adc5d7e0f3ac79::t_41fd191a6dd91c 75,77-78,82
+  s_adc5d7e0f3ac79::t_f346f5da4e1f62 208
+  s_adc5d7e0f3ac79::t_9c03d526f116e4 275,299,307-308,314-315,318,321,331,337,347
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "5bf7c93bf535e40135a20f27340e7c8244f04e0d",
+  "prompts": {},
+  "humans": {
+    "h_254a44d1f12105": {
+      "author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  },
+  "sessions": {
+    "s_adc5d7e0f3ac79": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "24635811-5b6a-4bab-bd3c-b224ee2bb38f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
