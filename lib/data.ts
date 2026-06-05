@@ -124,6 +124,16 @@ export const experience = [
 
 export const projects = [
   {
+    title: "JSON Diff",
+    description:
+      "A browser-based JSON diff tool with side-by-side and unified views. Supports recursive key-exclusion filters with named configs, shareable filter links via URL params, and sorts keys before comparison to cut through noise.",
+    image: "/projects/json-diff.png",
+    tags: ["Developer Tools", "Next.js", "TypeScript", "Open Source"],
+    liveUrl: "https://rishabhrathod01.github.io/tools/json-diff",
+    githubUrl: "https://github.com/rishabhrathod01/rishabhrathod01.github.io",
+    featured: true,
+  },
+  {
     title: "DiffyCurl",
     description:
       "A powerful developer tool for comparing API responses. Helps developers identify differences between multiple API endpoints, track API changes, and debug response variations efficiently.",
@@ -132,7 +142,7 @@ export const projects = [
     tags: ["Developer Tools", "API", "CLI", "Open Source"],
     liveUrl: "",
     githubUrl: "https://github.com/rishabhrathod01/DiffyCurl",
-    featured: true,
+    featured: false,
   },
   {
     title: "CSS to JS - VS Code Extension",

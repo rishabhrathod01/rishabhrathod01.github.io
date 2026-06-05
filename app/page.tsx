@@ -72,13 +72,14 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-on-primary-dark rounded-xl font-geist font-bold text-lg kinetic-hover"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-on-primary-dark rounded-xl font-geist font-bold text-lg transition-all duration-300 hover:-translate-y-1 hover:brightness-110 hover:shadow-[0_0_28px_rgba(192,193,255,0.45)] group"
               >
-                View Projects <ArrowRight className="h-5 w-5" />
+                View Projects{" "}
+                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-white/10 hover:border-primary rounded-xl font-geist font-medium text-lg transition-all text-on-surface"
+                className="inline-flex items-center gap-2 px-8 py-4 border border-white/10 rounded-xl font-geist font-medium text-lg transition-all duration-300 text-on-surface hover:-translate-y-1 hover:border-primary hover:text-primary hover:shadow-[0_0_16px_rgba(192,193,255,0.15)]"
               >
                 Read Blog
               </Link>
@@ -187,103 +188,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Featured Projects ── */}
-      <section className="py-section-gap" id="projects">
-        <div className="max-w-container-max mx-auto px-4 md:px-gutter">
-          <div className="flex justify-between items-end mb-16">
-            <div>
-              <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-4">
-                {'02 // WORK'}
-              </p>
-              <h2 className="font-geist text-4xl font-semibold text-on-surface">
-                Featured Projects
-              </h2>
-            </div>
-            <Link
-              href="/projects"
-              className="hidden md:flex items-center gap-2 text-slate-muted hover:text-on-surface transition-colors text-sm"
-            >
-              View All <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-stack-gap">
-            {featuredProjects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card rounded-2xl overflow-hidden group kinetic-hover"
-              >
-                <div className="aspect-video bg-surface-container-highest relative overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
-                  />
-                  {project.featured && (
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-primary text-on-primary-dark rounded-full font-jetbrains text-[10px] font-bold tracking-widest uppercase">
-                        FEATURED
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <div className="p-8">
-                  <h3 className="font-geist text-2xl font-medium text-on-surface mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-base text-slate-muted mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 bg-surface-container rounded font-jetbrains text-[10px] text-emerald uppercase tracking-widest border border-white/10"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex gap-4">
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 border border-white/10 rounded-lg hover:border-primary transition-colors text-sm text-on-surface"
-                      >
-                        Demo
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 border border-white/10 rounded-lg hover:border-primary transition-colors text-sm text-on-surface"
-                      >
-                        <Github className="h-4 w-4" /> Code
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Experience Timeline ── */}
       <section className="py-section-gap bg-surface-container-lowest">
         <div className="max-w-container-max mx-auto px-4 md:px-gutter">
           <div className="mb-16">
             <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-4">
-              {'03 // JOURNEY'}
+              {'02 // JOURNEY'}
             </p>
             <h2 className="font-geist text-4xl font-semibold text-on-surface">
               Experience
@@ -295,7 +205,7 @@ export default function HomePage() {
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10" />
 
             <div className="space-y-16">
-              {experience.slice(0, 3).map((exp, index) => (
+              {experience.map((exp, index) => (
                 <motion.div
                   key={`${exp.company}-${index}`}
                   initial={{ opacity: 0, y: 20 }}
@@ -352,6 +262,97 @@ export default function HomePage() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Featured Projects ── */}
+      <section className="py-section-gap" id="projects">
+        <div className="max-w-container-max mx-auto px-4 md:px-gutter">
+          <div className="flex justify-between items-end mb-16">
+            <div>
+              <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-4">
+                {'03 // WORK'}
+              </p>
+              <h2 className="font-geist text-4xl font-semibold text-on-surface">
+                Featured Projects
+              </h2>
+            </div>
+            <Link
+              href="/projects"
+              className="hidden md:flex items-center gap-2 text-slate-muted hover:text-on-surface transition-colors text-sm"
+            >
+              View All <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-stack-gap">
+            {featuredProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="glass-card rounded-2xl overflow-hidden group kinetic-hover"
+              >
+                <div className="aspect-[16/7] bg-surface-container-highest relative overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
+                  />
+                  {project.featured && (
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-0.5 bg-primary text-on-primary-dark rounded-full font-jetbrains text-[10px] font-bold tracking-widest uppercase">
+                        FEATURED
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="p-5">
+                  <h3 className="font-geist text-xl font-medium text-on-surface mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-slate-muted mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-surface-container rounded font-jetbrains text-[10px] text-emerald uppercase tracking-widest border border-white/10"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex gap-3">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-3 py-1.5 border border-white/10 rounded-lg hover:border-primary transition-colors text-sm text-on-surface"
+                      >
+                        Demo
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-3 py-1.5 border border-white/10 rounded-lg hover:border-primary transition-colors text-sm text-on-surface"
+                      >
+                        <Github className="h-4 w-4" /> Code
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
