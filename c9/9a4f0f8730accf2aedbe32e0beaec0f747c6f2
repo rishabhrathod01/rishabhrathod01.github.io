@@ -1,0 +1,70 @@
+lib/drone/layout.ts
+  s_5ad031dac7ddb9::t_b55e9108d75e97 61-63
+  s_5ad031dac7ddb9::t_b1d7d08abb0c6d 70-73
+.claude/launch.json
+  s_ef372243ac9a50::t_a6e6d90295b482 1-7,10-12
+  s_ef372243ac9a50::t_3c873cde97f0a6 8-9
+components/drone/world/RaceRings.tsx
+  s_5ad031dac7ddb9::t_e3341b9096e8fc 29-30,64,70-71,73,77,83-84,86,92-93,96,130,132,135,145-175
+  s_5ad031dac7ddb9::t_02fa4167a647e1 98
+components/drone/hud/FlightHUD.tsx
+  s_5ad031dac7ddb9::t_46e59c237b5e43 150,154
+  s_5ad031dac7ddb9::t_0990480f739cd9 151
+  s_5ad031dac7ddb9::t_404185f171cd38 27
+components/drone/boards/Boards.tsx
+  s_5ad031dac7ddb9::t_3392fbcba94785 17-18
+  s_5ad031dac7ddb9::t_b7f728652d0b73 16
+  s_5ad031dac7ddb9::t_4bebb5b0604c48 199-218
+components/drone/FlightScene.tsx
+  s_5ad031dac7ddb9::t_4438dbe0dc41a8 30
+  s_5ad031dac7ddb9::t_43e746eba8bac3 100
+components/drone/store.ts
+  s_5ad031dac7ddb9::t_97e33e3113183f 85-91
+  s_5ad031dac7ddb9::t_37e2431e469917 185-186
+  s_5ad031dac7ddb9::t_ca7fe8c0a1e0cd 156-158
+components/drone/InteractionManager.tsx
+  s_5ad031dac7ddb9::t_575aa942fec6e3 26
+  s_5ad031dac7ddb9::t_f4ddfa650d8220 53-63
+  s_5ad031dac7ddb9::t_69fd8ad755f24c 89-97
+  s_5ad031dac7ddb9::t_2b5bf862aabcdc 4,9
+  s_5ad031dac7ddb9::t_29d1b67bdbc045 10
+components/drone/hud/FocusPanel.tsx
+  s_5ad031dac7ddb9::t_524b5b137b0b54 25,28-31
+  s_5ad031dac7ddb9::t_24c2e853be0a6a 5,8-9
+  s_5ad031dac7ddb9::t_0c5c8074e65ecc 62-69
+  s_5ad031dac7ddb9::t_254ae8101a5105 50-56
+  s_5ad031dac7ddb9::t_0bd10e92dbdbc3 137-169
+components/drone/hud/RaceResults.tsx
+  s_5ad031dac7ddb9::t_b461b1cbc0c10e 76-77
+components/drone/RaceManager.tsx
+  s_5ad031dac7ddb9::t_c92ea1d950642e 13,17,31-32,55,61-75,84,91-92
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "c99a4f0f8730accf2aedbe32e0beaec0f747c6f2",
+  "prompts": {},
+  "humans": {
+    "h_254a44d1f12105": {
+      "author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  },
+  "sessions": {
+    "s_5ad031dac7ddb9": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3c8db8a0-2e39-4962-9cdc-0012a3fa5f63",
+        "model": "default"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    },
+    "s_ef372243ac9a50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4886e94b-3811-417b-a7b7-c71afc13cc89",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
