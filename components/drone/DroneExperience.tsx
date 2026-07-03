@@ -23,6 +23,7 @@ import {
   loadSession,
   saveSession,
   useDroneStore,
+  setTakeoffRequestHandler,
 } from "./store";
 import { engineAudio } from "@/lib/drone/audio";
 import Drone from "./Drone";
@@ -30,6 +31,7 @@ import ChaseCamera from "./ChaseCamera";
 import Lighting from "./Lighting";
 import InteractionManager from "./InteractionManager";
 import TakeoffPrompt from "./hud/TakeoffPrompt";
+import IdleInteractionLayer from "./hud/IdleInteractionLayer";
 import FlightHUD from "./hud/FlightHUD";
 import FocusPanel from "./hud/FocusPanel";
 import RaceResults from "./hud/RaceResults";
@@ -60,7 +62,6 @@ export default function DroneExperience({
   const [frameActive, setFrameActive] = useState(true);
   const [dpr, setDpr] = useState<number | [number, number]>([1, 2]);
 
-  const anchorInView = useRef(true);
   const chargeRaf = useRef(0);
 
   // WASD/arrow/space key state for the physics loop.
@@ -92,7 +93,7 @@ export default function DroneExperience({
   // --- Long-press charge machine ---
   const beginCharge = useCallback(() => {
     const st = useDroneStore.getState();
-    if (st.phase !== "idle" || !canFly || !anchorInView.current) return;
+    if (st.phase !== "idle" || !canFly) return;
     engineAudio.init(); // valid user gesture
     setWorldMounted(true); // warm the lazy world chunk during the hold
     st.setPhase("charging");
@@ -146,40 +147,10 @@ export default function DroneExperience({
     };
   }, [canFly, beginCharge, cancelCharge]);
 
-  // Anchor div: hover/focus shows the prompt, press-and-hold also charges.
   useEffect(() => {
-    const el = anchorRef.current;
-    if (!el || !canFly) return;
-    el.setAttribute("role", "button");
-    el.setAttribute("tabindex", "0");
-    el.setAttribute(
-      "aria-label",
-      "Fly the drone: hold F, or press and hold here"
-    );
-    const enter = () => setHovered(true);
-    const leave = () => {
-      setHovered(false);
-      cancelCharge();
-    };
-    const pointerDown = (e: PointerEvent) => {
-      e.preventDefault();
-      beginCharge();
-    };
-    el.addEventListener("pointerenter", enter);
-    el.addEventListener("pointerleave", leave);
-    el.addEventListener("pointerdown", pointerDown);
-    el.addEventListener("pointerup", cancelCharge);
-    el.addEventListener("focus", enter);
-    el.addEventListener("blur", leave);
-    return () => {
-      el.removeEventListener("pointerenter", enter);
-      el.removeEventListener("pointerleave", leave);
-      el.removeEventListener("pointerdown", pointerDown);
-      el.removeEventListener("pointerup", cancelCharge);
-      el.removeEventListener("focus", enter);
-      el.removeEventListener("blur", leave);
-    };
-  }, [anchorRef, canFly, beginCharge, cancelCharge]);
+    setTakeoffRequestHandler(beginCharge);
+    return () => setTakeoffRequestHandler(null);
+  }, [beginCharge]);
 
   // --- Landing (Esc) ---
   const beginLanding = useCallback(() => {
@@ -231,19 +202,12 @@ export default function DroneExperience({
     };
   }, [phase]);
 
-  // --- Frameloop + audio gating: pause when idle-offscreen or tab hidden ---
+  // --- Frameloop + audio gating: keep idle drone live on desktop ---
   useEffect(() => {
     const update = () => {
       const ph = useDroneStore.getState().phase;
-      setFrameActive(
-        !document.hidden && (ph !== "idle" || anchorInView.current)
-      );
+      setFrameActive(!document.hidden && (ph !== "idle" || canFly));
     };
-    const io = new IntersectionObserver(([entry]) => {
-      anchorInView.current = entry?.isIntersecting ?? true;
-      update();
-    });
-    if (anchorRef.current) io.observe(anchorRef.current);
     const onVis = () => {
       if (document.hidden) engineAudio.suspend();
       else engineAudio.resume();
@@ -251,12 +215,12 @@ export default function DroneExperience({
     };
     document.addEventListener("visibilitychange", onVis);
     const unsub = useDroneStore.subscribe(update);
+    update();
     return () => {
-      io.disconnect();
       document.removeEventListener("visibilitychange", onVis);
       unsub();
     };
-  }, [anchorRef]);
+  }, [canFly]);
 
   useEffect(() => {
     engineAudio.setEnabled(soundEnabled);
@@ -308,9 +272,19 @@ export default function DroneExperience({
       </Canvas>
 
       {/* DOM overlays */}
+      {canFly && (phase === "idle" || phase === "charging") && (
+        <IdleInteractionLayer
+          onHover={setHovered}
+          onChargeStart={beginCharge}
+          onChargeEnd={cancelCharge}
+        />
+      )}
       <TakeoffPrompt
-        anchorRef={anchorRef}
-        visible={canFly && (hovered || phase === "charging") && (phase === "idle" || phase === "charging")}
+        visible={
+          canFly &&
+          (hovered || phase === "charging") &&
+          (phase === "idle" || phase === "charging")
+        }
       />
       {(phase === "flight" || phase === "focus") && <FlightHUD />}
       {(phase === "flight" || phase === "focus") && <RaceResults />}

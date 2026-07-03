@@ -53,7 +53,17 @@
   .kinetic-hover:hover {
     transform: translateY(-4px) scale(1.01);
     border-color: #c0c1ff !important;
+  }
+
+  /* Glass panels only — don't strip fill from primary CTAs */
+  .glass-card.kinetic-hover:hover {
     background: rgba(192, 193, 255, 0.05);
+  }
+
+  .bg-primary.kinetic-hover:hover {
+    background: rgba(192, 193, 255, 0.2) !important;
+    color: #dce1fb !important;
+    box-shadow: 0 0 28px rgba(192, 193, 255, 0.4);
   }
 
   .hero-glow {

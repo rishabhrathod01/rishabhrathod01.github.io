@@ -14,7 +14,7 @@ export const personalInfo = {
   about: {
     short:
       "I am a software developer with expertise in JavaScript, React, and React Native. I create developer tools, websites, and mobile apps that are efficient and user-friendly.",
-    long: "With over 6 years of experience in frontend development, I specialize in building performant, scalable web and mobile applications. Currently working as a Staff Frontend Engineer at Prophecy, I've contributed to shipping AI agent features and have a proven track record of optimizing performance, building enterprise features, and leading developer-centric initiatives. I'm passionate about creating tools that make developers' lives easier and delivering exceptional user experiences.",
+    long: "With over 7 years of full-time frontend experience (plus a year of internships), I specialize in building performant, scalable web and mobile applications. Currently working as a Staff Frontend Engineer at Prophecy, I've contributed to shipping AI agent features and have a proven track record of optimizing performance, building enterprise features, and leading developer-centric initiatives. I'm passionate about creating tools that make developers' lives easier and delivering exceptional user experiences.",
   },
   resume:
     "https://drive.google.com/file/d/1mxMNR2o-UlQ5ycbg64doEkPC7vLpAtgc/view?usp=sharing",

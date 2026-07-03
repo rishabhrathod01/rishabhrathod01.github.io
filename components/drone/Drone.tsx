@@ -53,6 +53,7 @@ export default function Drone({
   const prevPhase = useRef<FlightPhase>("idle");
   const snapped = useRef(false);
   const crashCooldown = useRef(0);
+  const screenProject = useRef(new THREE.Vector3());
   const spawnPos = useMemo(
     () =>
       new THREE.Vector3(
@@ -143,6 +144,11 @@ export default function Drone({
         dt * 4
       );
       g.rotation.z = 0;
+      // World → screen for viewport-fixed DOM overlays (CTA + hit target).
+      screenProject.current.copy(g.position).project(state.camera);
+      flight.screenX = (screenProject.current.x * 0.5 + 0.5) * size.width;
+      flight.screenY = (-screenProject.current.y * 0.5 + 0.5) * size.height;
+      flight.idleInit = Boolean(idleScreenPos.current);
       flight.propSpin =
         phase === "charging" ? 0.15 + flight.charge * 0.65 : 0.15;
       if (phase === "charging") {

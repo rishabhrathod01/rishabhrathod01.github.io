@@ -9,10 +9,9 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "12+", label: "Tools Built" },
-  { value: "50k+", label: "Installs" },
-  { value: "1.2k", label: "GH Stars" },
-  { value: "6yr", label: "Experience" },
+  { value: "4+", label: "Tools Built" },
+  { value: "2k+", label: "Installs" },
+  { value: "8yr", label: "Experience" },
 ];
 
 export default function ProjectsPage() {
@@ -42,7 +41,7 @@ export default function ProjectsPage() {
       {/* ── Stats ── */}
       <section className="py-16 border-b border-white/10">
         <div className="max-w-container-max mx-auto px-4 md:px-gutter">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="font-geist text-4xl md:text-5xl font-bold text-on-surface mb-2">

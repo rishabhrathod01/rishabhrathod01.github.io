@@ -5,9 +5,10 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Github, Linkedin, Twitter, Mail, Download } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Twitter, Mail, Download, Plane } from "lucide-react";
 import { personalInfo, experience, projects } from "@/lib/data";
 import type { FlightContent } from "@/components/drone/types";
+import { requestTakeoff, useDroneStore } from "@/components/drone/store";
 
 // three.js and the whole drone experience stay out of every other route's
 // chunk graph — loaded client-side only, on the home page only.
@@ -27,6 +28,12 @@ export default function HomeClient({
   const droneAnchorRef = useRef<HTMLDivElement>(null);
   // Don't even fetch the drone chunk on small screens.
   const [show3D, setShow3D] = useState(false);
+  const dronePhase = useDroneStore((s) => s.phase);
+
+  const handleTakeFlight = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    requestTakeoff();
+  };
 
   useEffect(() => {
     setShow3D(window.innerWidth >= 768);
@@ -90,17 +97,28 @@ export default function HomeClient({
             </div>
 
             <div className="flex flex-wrap gap-4">
+              {show3D ? (
+                <button
+                  type="button"
+                  onClick={handleTakeFlight}
+                  disabled={dronePhase !== "idle"}
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-on-primary-dark rounded-xl font-geist font-bold text-lg kinetic-hover disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  Take Flight <Plane className="h-5 w-5" />
+                </button>
+              ) : (
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-on-primary-dark rounded-xl font-geist font-bold text-lg kinetic-hover"
+                >
+                  My Journey <ArrowRight className="h-5 w-5" />
+                </Link>
+              )}
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-on-primary-dark rounded-xl font-geist font-bold text-lg kinetic-hover"
-              >
-                View Projects <ArrowRight className="h-5 w-5" />
-              </Link>
-              <Link
-                href="/blog"
                 className="inline-flex items-center gap-2 px-8 py-4 border border-white/10 hover:border-primary rounded-xl font-geist font-medium text-lg transition-all text-on-surface"
               >
-                Read Blog
+                View Projects
               </Link>
             </div>
 
@@ -152,11 +170,11 @@ export default function HomeClient({
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent opacity-60" />
               </div>
-              {/* Drone anchor: the idle 3D drone is projected onto this rect,
-                  and it is the hover/long-press target for takeoff. */}
+              {/* Layout anchor: initial viewport slot for idle drone snap only */}
               <div
                 ref={droneAnchorRef}
-                className="hidden md:block absolute -bottom-32 -right-16 w-[260px] h-[180px] cursor-pointer"
+                className="hidden md:block absolute -bottom-32 -right-16 w-[260px] h-[180px] pointer-events-none"
+                aria-hidden
               />
             </div>
           </motion.div>
@@ -181,13 +199,23 @@ export default function HomeClient({
                 elite user experience.
               </p>
               <div className="mt-8">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all duration-300"
-                >
-                  Learn more about my journey{" "}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+                {show3D ? (
+                  <button
+                    type="button"
+                    onClick={handleTakeFlight}
+                    className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all duration-300"
+                  >
+                    Explore my story in 3D <Plane className="h-4 w-4" />
+                  </button>
+                ) : (
+                  <Link
+                    href="/about"
+                    className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all duration-300"
+                  >
+                    Learn more about my journey{" "}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                )}
               </div>
             </div>
             <div>
@@ -213,13 +241,91 @@ export default function HomeClient({
         </div>
       </section>
 
+      {/* ── Experience Timeline ── */}
+      <section className="py-section-gap bg-surface-container-lowest">
+        <div className="max-w-container-max mx-auto px-4 md:px-gutter">
+          <div className="mb-16">
+            <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-4">
+              {'02 // JOURNEY'}
+            </p>
+            <h2 className="font-geist text-4xl font-semibold text-on-surface">
+              Experience
+            </h2>
+          </div>
+
+          <div className="relative">
+            {/* Continuous center line */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10" />
+
+            <div className="space-y-16">
+              {experience.slice(0, 3).map((exp, index) => (
+                <motion.div
+                  key={`${exp.company}-${index}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative grid md:grid-cols-2 gap-8 md:gap-16 pl-6 md:pl-0"
+                >
+                  {/* Mobile left border */}
+                  <div className="md:hidden absolute left-0 top-2 bottom-2 w-px bg-white/10" />
+                  <div className="md:hidden absolute left-[-3px] top-2 w-1.5 h-1.5 rounded-full bg-primary" />
+
+                  {index % 2 === 0 ? (
+                    <>
+                      <div className="md:text-right">
+                        <h3 className="font-geist text-2xl font-medium text-on-surface">
+                          {exp.position}
+                        </h3>
+                        <p className="font-jetbrains text-xs text-primary mt-1 mb-3 uppercase tracking-wider">
+                          {exp.company} {'//'} {exp.period}
+                        </p>
+                        <p className="text-slate-muted max-w-md md:ml-auto leading-relaxed">
+                          {exp.description}
+                        </p>
+                      </div>
+                      <div className="hidden md:flex items-start justify-start pt-1">
+                        <div
+                          className={`w-4 h-4 rounded-full ${
+                            index === 0
+                              ? "bg-primary ring-4 ring-primary/10 shadow-[0_0_15px_rgba(192,193,255,0.4)]"
+                              : "bg-slate-muted ring-4 ring-white/5"
+                          }`}
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="hidden md:flex items-start justify-end pt-1">
+                        <div className="w-4 h-4 rounded-full bg-slate-muted ring-4 ring-white/5" />
+                      </div>
+                      <div>
+                        <h3 className="font-geist text-2xl font-medium text-on-surface">
+                          {exp.position}
+                        </h3>
+                        <p className="font-jetbrains text-xs text-primary mt-1 mb-3 uppercase tracking-wider">
+                          {exp.company} {'//'} {exp.period}
+                        </p>
+                        <p className="text-slate-muted max-w-md leading-relaxed">
+                          {exp.description}
+                        </p>
+                      </div>
+                    </>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Featured Projects ── */}
       <section className="py-section-gap" id="projects">
         <div className="max-w-container-max mx-auto px-4 md:px-gutter">
           <div className="flex justify-between items-end mb-16">
             <div>
               <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-4">
-                {'02 // WORK'}
+                {'03 // WORK'}
               </p>
               <h2 className="font-geist text-4xl font-semibold text-on-surface">
                 Featured Projects
@@ -300,84 +406,6 @@ export default function HomeClient({
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Experience Timeline ── */}
-      <section className="py-section-gap bg-surface-container-lowest">
-        <div className="max-w-container-max mx-auto px-4 md:px-gutter">
-          <div className="mb-16">
-            <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-4">
-              {'03 // JOURNEY'}
-            </p>
-            <h2 className="font-geist text-4xl font-semibold text-on-surface">
-              Experience
-            </h2>
-          </div>
-
-          <div className="relative">
-            {/* Continuous center line */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10" />
-
-            <div className="space-y-16">
-              {experience.slice(0, 3).map((exp, index) => (
-                <motion.div
-                  key={`${exp.company}-${index}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative grid md:grid-cols-2 gap-8 md:gap-16 pl-6 md:pl-0"
-                >
-                  {/* Mobile left border */}
-                  <div className="md:hidden absolute left-0 top-2 bottom-2 w-px bg-white/10" />
-                  <div className="md:hidden absolute left-[-3px] top-2 w-1.5 h-1.5 rounded-full bg-primary" />
-
-                  {index % 2 === 0 ? (
-                    <>
-                      <div className="md:text-right">
-                        <h3 className="font-geist text-2xl font-medium text-on-surface">
-                          {exp.position}
-                        </h3>
-                        <p className="font-jetbrains text-xs text-primary mt-1 mb-3 uppercase tracking-wider">
-                          {exp.company} {'//'} {exp.period}
-                        </p>
-                        <p className="text-slate-muted max-w-md md:ml-auto leading-relaxed">
-                          {exp.description}
-                        </p>
-                      </div>
-                      <div className="hidden md:flex items-start justify-start pt-1">
-                        <div
-                          className={`w-4 h-4 rounded-full ${
-                            index === 0
-                              ? "bg-primary ring-4 ring-primary/10 shadow-[0_0_15px_rgba(192,193,255,0.4)]"
-                              : "bg-slate-muted ring-4 ring-white/5"
-                          }`}
-                        />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="hidden md:flex items-start justify-end pt-1">
-                        <div className="w-4 h-4 rounded-full bg-slate-muted ring-4 ring-white/5" />
-                      </div>
-                      <div>
-                        <h3 className="font-geist text-2xl font-medium text-on-surface">
-                          {exp.position}
-                        </h3>
-                        <p className="font-jetbrains text-xs text-primary mt-1 mb-3 uppercase tracking-wider">
-                          {exp.company} {'//'} {exp.period}
-                        </p>
-                        <p className="text-slate-muted max-w-md leading-relaxed">
-                          {exp.description}
-                        </p>
-                      </div>
-                    </>
-                  )}
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

@@ -1,22 +1,16 @@
 "use client";
 
-import { useEffect, useRef, type RefObject } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useRef } from "react";
 import { flight } from "../store";
 
 const RING_R = 9;
 const RING_C = 2 * Math.PI * RING_R;
+const CTA_OFFSET_Y = 72;
 
-// Rendered into the hero anchor div via portal; the radial ring is driven
-// straight from flight.charge by rAF — no React re-renders.
-export default function TakeoffPrompt({
-  anchorRef,
-  visible,
-}: {
-  anchorRef: RefObject<HTMLDivElement | null>;
-  visible: boolean;
-}) {
+// Fixed under the viewport-locked drone; position tracks flight.screenX/Y.
+export default function TakeoffPrompt({ visible }: { visible: boolean }) {
   const ringRef = useRef<SVGCircleElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!visible) return;
@@ -27,16 +21,29 @@ export default function TakeoffPrompt({
           RING_C * (1 - flight.charge)
         );
       }
+      const el = wrapRef.current;
+      if (el && flight.idleInit) {
+        el.style.left = `${flight.screenX}px`;
+        el.style.top = `${flight.screenY + CTA_OFFSET_Y}px`;
+      }
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [visible]);
 
-  if (!anchorRef.current || !visible) return null;
+  if (!visible) return null;
 
-  return createPortal(
-    <div className="absolute inset-x-0 -bottom-12 flex justify-center pointer-events-none select-none">
+  return (
+    <div
+      ref={wrapRef}
+      className="fixed z-[61] pointer-events-none select-none"
+      style={{
+        left: 0,
+        top: 0,
+        transform: "translate(-50%, 0)",
+      }}
+    >
       <div className="glass-card px-4 py-2 rounded-full flex items-center gap-3 font-jetbrains text-xs text-on-surface whitespace-nowrap animate-in fade-in">
         <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden>
           <circle
@@ -69,7 +76,6 @@ export default function TakeoffPrompt({
           TO TAKE FLIGHT
         </span>
       </div>
-    </div>,
-    anchorRef.current
+    </div>
   );
 }

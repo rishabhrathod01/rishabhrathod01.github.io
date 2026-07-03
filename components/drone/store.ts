@@ -203,3 +203,14 @@ export function registerInteractable(item: Interactable): () => void {
     interactables.delete(item.id);
   };
 }
+
+// Hero CTA and other UI can request takeoff without reaching into DroneExperience.
+let takeoffRequestHandler: (() => void) | null = null;
+
+export function setTakeoffRequestHandler(handler: (() => void) | null) {
+  takeoffRequestHandler = handler;
+}
+
+export function requestTakeoff() {
+  takeoffRequestHandler?.();
+}
