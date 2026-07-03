@@ -1,0 +1,62 @@
+content/travel/mulki-goa-bike-trip.mdx
+  s_5ad031dac7ddb9::t_c762f0fbe41c77 6,10,12,14,16,18-42,46,49-53,55,57,59-67,71,74-94,96,98,100,102,104
+components/drone/hud/TakeoffPrompt.tsx
+  s_5ad031dac7ddb9::t_caac21ec16d68d 8,10-11,13,24-27,38-39,41-46
+  s_5ad031dac7ddb9::t_5785733c2362e1 3,35,37,40,79
+  s_5ad031dac7ddb9::t_e0680df0e81c5f 28
+components/home/HomeClient.tsx
+  s_5ad031dac7ddb9::t_d8a3cfdca895d8 202-218
+  s_5ad031dac7ddb9::t_a5690e8de3552b 8,11
+  s_5ad031dac7ddb9::t_f9316d78736fb6 104
+  s_5ad031dac7ddb9::t_6a9b829f7d7532 31
+  s_5ad031dac7ddb9::t_d167e273e39d37 100-103,105-116,121
+  s_5ad031dac7ddb9::t_3679f41ffac4fd 173,176-177
+  s_5ad031dac7ddb9::t_7e7f52649f5508 33-36
+  s_5ad031dac7ddb9::t_eb8e1e7df73cbd 244-321,328
+  s_5ad031dac7ddb9::t_aea32db5b3ebd3 32
+components/drone/store.ts
+  s_5ad031dac7ddb9::t_b1a345e291a0fa 206-216
+app/globals.css
+  s_5ad031dac7ddb9::t_c5ef0aef987ea7 56-59,63-67
+  s_5ad031dac7ddb9::t_2219610b03879f 68
+app/about/page.tsx
+  s_5ad031dac7ddb9::t_706994911efd8b 38-39
+components/drone/Drone.tsx
+  s_5ad031dac7ddb9::t_de7bd124ab491c 56
+  s_5ad031dac7ddb9::t_e7f780aab6dc2e 147-151
+components/drone/DroneExperience.tsx
+  s_5ad031dac7ddb9::t_844e1fc320e94a 26
+  s_5ad031dac7ddb9::t_355d04fa3ec09f 151-153
+  s_5ad031dac7ddb9::t_1b49d0e631e2a8 275-281,283-287
+  s_5ad031dac7ddb9::t_16b5549a70f713 205,209,218,223
+  s_5ad031dac7ddb9::t_6770d9f4c9192a 96
+  s_5ad031dac7ddb9::t_ae6b2399313afa 34
+app/projects/page.tsx
+  s_5ad031dac7ddb9::t_b8fb61372649ce 44
+  s_5ad031dac7ddb9::t_f573fe53f5f1d6 12-14
+lib/data.ts
+  s_5ad031dac7ddb9::t_83ff5581dcf2ae 17
+components/drone/hud/IdleInteractionLayer.tsx
+  s_5ad031dac7ddb9::t_807b7108296b9d 1-83
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "77834a7fe712f657fb17c534337357b262b19337",
+  "prompts": {},
+  "humans": {
+    "h_254a44d1f12105": {
+      "author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  },
+  "sessions": {
+    "s_5ad031dac7ddb9": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3c8db8a0-2e39-4962-9cdc-0012a3fa5f63",
+        "model": "default"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
