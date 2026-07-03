@@ -35,7 +35,8 @@ export default function AboutPage() {
               <em className="not-italic text-primary">Modern Engineer.</em>
             </h1>
             <p className="text-lg text-slate-muted max-w-2xl leading-relaxed">
-              Staff Frontend Engineer with 6+ years of experience specialising
+              Staff Frontend Engineer with 7+ years of full-time experience
+              specialising
               in building developer-centric platforms, enterprise features, and
               AI-powered tooling.
             </p>

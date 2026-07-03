@@ -56,6 +56,7 @@ const config: Config = {
         "on-surface-variant": "#c7c4d7",
         "slate-muted": "#64748B",
         emerald: "#4edea3",
+        gold: "#ffd166",
         "on-primary-dark": "#1000a9",
         "outline-variant": "#464554",
         "border-glass": "rgba(255, 255, 255, 0.1)",

@@ -14,10 +14,10 @@ export const personalInfo = {
   about: {
     short:
       "I am a software developer with expertise in JavaScript, React, and React Native. I create developer tools, websites, and mobile apps that are efficient and user-friendly.",
-    long: "With over 6 years of experience in frontend development, I specialize in building performant, scalable web and mobile applications. Currently working as a Staff Frontend Engineer at Prophecy, I've contributed to shipping AI agent features and have a proven track record of optimizing performance, building enterprise features, and leading developer-centric initiatives. I'm passionate about creating tools that make developers' lives easier and delivering exceptional user experiences.",
+    long: "With over 7 years of full-time frontend experience (plus a year of internships), I specialize in building performant, scalable web and mobile applications. Currently working as a Staff Frontend Engineer at Prophecy, I've contributed to shipping AI agent features and have a proven track record of optimizing performance, building enterprise features, and leading developer-centric initiatives. I'm passionate about creating tools that make developers' lives easier and delivering exceptional user experiences.",
   },
   resume:
-    "https://drive.google.com/file/d/1XHhicK78OpWr3hvZA7S-gPS4_zVXtoPa/view?usp=drive_link",
+    "https://drive.google.com/file/d/1mxMNR2o-UlQ5ycbg64doEkPC7vLpAtgc/view?usp=sharing",
 };
 
 export const skills = {
@@ -155,6 +155,40 @@ export const projects = [
       "https://marketplace.visualstudio.com/items?itemName=rishabh-rathod.css-to-js",
     githubUrl: "https://github.com/rishabhrathod01/css-to-js",
     featured: true,
+  },
+];
+
+export const droneVideos = [
+  {
+    id: "video-mandalpatti",
+    title: "Mandalpatti Peak",
+    caption: "Above the clouds — DJI Mini 4 Pro cinematic drone flight",
+    videoTitle:
+      "Mandalpatti Peak, Coorg — Above the Clouds | DJI Mini 4 Pro Cinematic Drone",
+    platform: "youtube" as const,
+    youtubeId: "NV87I6aqU18",
+    url: "https://youtu.be/NV87I6aqU18",
+    thumbnail: "https://i.ytimg.com/vi/NV87I6aqU18/hqdefault.jpg",
+  },
+  {
+    id: "video-shivanasamudra",
+    title: "Shivanasamudra Falls",
+    caption: "A waterfall in Karnataka, seen from above",
+    videoTitle: "Shivanasamudra Falls, Karnataka",
+    platform: "youtube" as const,
+    youtubeId: "_k0lbo-z7IY",
+    url: "https://youtu.be/_k0lbo-z7IY",
+    thumbnail: "https://i.ytimg.com/vi/_k0lbo-z7IY/hqdefault.jpg",
+  },
+  {
+    id: "video-vagator",
+    title: "Vagator Beach",
+    caption: "My first-ever drone shot, over the Goa coastline",
+    videoTitle: "Vagator Beach Drone Shot - My First Drone Shot",
+    platform: "youtube" as const,
+    youtubeId: "WhWniSMK5bY",
+    url: "https://youtu.be/WhWniSMK5bY",
+    thumbnail: "https://i.ytimg.com/vi/WhWniSMK5bY/hqdefault.jpg",
   },
 ];
 

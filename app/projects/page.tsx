@@ -9,10 +9,9 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "12+", label: "Tools Built" },
-  { value: "50k+", label: "Installs" },
-  { value: "1.2k", label: "GH Stars" },
-  { value: "6yr", label: "Experience" },
+  { value: "4+", label: "Tools Built" },
+  { value: "2k+", label: "Installs" },
+  { value: "8yr", label: "Experience" },
 ];
 
 export default function ProjectsPage() {
@@ -42,7 +41,7 @@ export default function ProjectsPage() {
       {/* ── Stats ── */}
       <section className="py-16 border-b border-white/10">
         <div className="max-w-container-max mx-auto px-4 md:px-gutter">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="font-geist text-4xl md:text-5xl font-bold text-on-surface mb-2">
@@ -92,7 +91,7 @@ export default function ProjectsPage() {
                   Start a Conversation
                 </a>
                 <a
-                  href="https://drive.google.com/file/d/1XHhicK78OpWr3hvZA7S-gPS4_zVXtoPa/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1mxMNR2o-UlQ5ycbg64doEkPC7vLpAtgc/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-8 py-4 border border-white/10 hover:border-primary rounded-2xl font-jetbrains text-xs font-semibold tracking-widest uppercase transition-all text-on-surface"
