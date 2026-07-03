@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-import { flight, interactables, useDroneStore, saveSession } from "./store";
+import { flight, interactables, useDroneStore, saveSession, startRace } from "./store";
 import { engineAudio } from "@/lib/drone/audio";
 import { getFocusLink } from "@/lib/drone/focus-links";
 import type { FlightContent } from "./types";
+
+const RACE_CHALLENGE_ID = "race-challenge";
 
 // Proximity + key handling (E = read/resume, Enter = nav + focus links). Runs at 10 Hz
 // speed (~16 m/s) the drone moves 1.6 m per tick, well inside the 5–7 m
@@ -21,6 +23,7 @@ export default function InteractionManager({
       const st = useDroneStore.getState();
       if (st.phase !== "flight") {
         if (st.nearest) st.setNearest(null);
+        if (st.raceBoardNearby) st.setRaceBoardNearby(false);
         return;
       }
       const p = flight.pos;
@@ -47,6 +50,17 @@ export default function InteractionManager({
         }
       }
       st.setNearest(best);
+
+      const raceBoard = interactables.get(RACE_CHALLENGE_ID);
+      let boardNearby = false;
+      if (raceBoard && st.phase === "flight") {
+        const dx = p.x - raceBoard.position[0];
+        const dy = p.y - raceBoard.position[1];
+        const dz = p.z - raceBoard.position[2];
+        const d2 = dx * dx + dy * dy + dz * dz;
+        boardNearby = d2 < raceBoard.radius * raceBoard.radius;
+      }
+      if (st.raceBoardNearby !== boardNearby) st.setRaceBoardNearby(boardNearby);
     }, 100);
     return () => clearInterval(iv);
   }, []);
@@ -72,6 +86,15 @@ export default function InteractionManager({
       if (e.code !== "Enter" && e.code !== "NumpadEnter") return;
 
       if (st.phase === "focus" && st.focus) {
+        if (st.focus.id === RACE_CHALLENGE_ID) {
+          if (st.raceStatus === "running") return;
+          e.preventDefault();
+          startRace();
+          engineAudio.playCollect();
+          st.setFocus(null);
+          st.setPhase("flight");
+          return;
+        }
         const href = getFocusLink(st.focus.id, content);
         if (!href) return;
         e.preventDefault();

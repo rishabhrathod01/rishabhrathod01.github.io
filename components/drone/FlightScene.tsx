@@ -27,6 +27,7 @@ import {
   HiddenBoard,
   NavSignposts,
   VideoBoards,
+  RaceChallengeBoard,
   WindSock,
 } from "./boards/Boards";
 
@@ -96,6 +97,7 @@ export default function FlightScene({ content }: { content: FlightContent }) {
       <ProjectBillboards content={content} />
       <ContentClusters content={content} />
       <VideoBoards content={content} />
+      <RaceChallengeBoard />
       <HiddenBoard />
       <NavSignposts />
 

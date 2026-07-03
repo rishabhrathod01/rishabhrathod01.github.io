@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { Github, ExternalLink, Mail } from "lucide-react";
-import { flight, saveSession, useDroneStore } from "../store";
+import { flight, saveSession, startRace, useDroneStore } from "../store";
 import type { FlightContent } from "../types";
 import { getFocusLink, getFocusLinkLabel } from "@/lib/drone/focus-links";
+import { RACE_RINGS, RACE_TIME_LIMIT } from "@/lib/drone/layout";
+import { engineAudio } from "@/lib/drone/audio";
 import InstagramEmbed from "./InstagramEmbed";
 
 // Focus mode: paragraphs never render in 3D
@@ -20,10 +22,13 @@ export default function FocusPanel({
   const focus = useDroneStore((s) => s.focus);
   const setFocus = useDroneStore((s) => s.setFocus);
   const setPhase = useDroneStore((s) => s.setPhase);
+  const raceStatus = useDroneStore((s) => s.raceStatus);
   if (!focus) return null;
 
-  const openLink = getFocusLink(focus.id, content);
-  const openLabel = getFocusLinkLabel(focus.id, content);
+  const isRaceBriefing = focus.id === "race-challenge";
+  const openLink = isRaceBriefing ? null : getFocusLink(focus.id, content);
+  const openLabel = isRaceBriefing ? null : getFocusLinkLabel(focus.id, content);
+  const canStartRace = isRaceBriefing && raceStatus !== "running";
 
   const close = () => {
     setFocus(null);
@@ -42,11 +47,26 @@ export default function FocusPanel({
     onNavigate(openLink);
   };
 
+  const startChallenge = () => {
+    if (!canStartRace) return;
+    startRace();
+    engineAudio.playCollect();
+    close();
+  };
+
   return (
     <div className="absolute inset-y-0 right-0 flex items-center pr-6 md:pr-12 pointer-events-none">
       <div className="glass-card rounded-2xl p-8 w-[380px] md:w-[440px] max-h-[80vh] overflow-y-auto pointer-events-auto backdrop-blur-xl bg-surface/80 animate-in slide-in-from-right duration-300">
         <PanelBody id={focus.id} content={content} />
         <div className="mt-8 flex flex-col gap-3">
+          {canStartRace && (
+            <button
+              onClick={startChallenge}
+              className="w-full px-4 py-2.5 bg-gold text-surface rounded-xl font-jetbrains text-xs tracking-widest font-bold transition-opacity hover:opacity-90"
+            >
+              [ENTER] START CHALLENGE
+            </button>
+          )}
           {openLink && openLabel && (
             <button
               onClick={open}
@@ -110,6 +130,39 @@ function PanelBody({ id, content }: { id: string; content: FlightContent }) {
           <ExternalLink className="h-3.5 w-3.5" />{" "}
           {video.platform === "youtube" ? "Watch on YouTube" : "View on Instagram"}
         </a>
+      </div>
+    );
+  }
+
+  if (id === "race-challenge") {
+    const timeLabel = `${Math.floor(RACE_TIME_LIMIT / 60)}:${String(RACE_TIME_LIMIT % 60).padStart(2, "0")}`;
+    return (
+      <div>
+        <Micro>ISLAND TIME TRIAL</Micro>
+        <h3 className="font-geist text-2xl font-semibold text-on-surface mb-3">
+          Ring Challenge
+        </h3>
+        <p className="text-slate-muted text-sm leading-relaxed mb-4">
+          Fly through all {RACE_RINGS.length} gold rings before the timer hits{" "}
+          {timeLabel}. The route tours the island — bookshelf grove, experience
+          trail, Blog Hill, Mandalpatti Peak, the pond waterfall, project
+          billboards, and Vagator Beach — before looping back to the finish
+          ring near the helipad.
+        </p>
+        <ul className="space-y-2 text-sm text-on-surface-variant">
+          <li className="flex gap-2">
+            <span className="text-gold shrink-0">▸</span>
+            Rings stay hidden until you confirm with Enter
+          </li>
+          <li className="flex gap-2">
+            <span className="text-gold shrink-0">▸</span>
+            Pass each ring in order for checkpoint points
+          </li>
+          <li className="flex gap-2">
+            <span className="text-gold shrink-0">▸</span>
+            Finish under time for a speed bonus
+          </li>
+        </ul>
       </div>
     );
   }

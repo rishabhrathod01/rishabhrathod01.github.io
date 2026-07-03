@@ -10,12 +10,11 @@ import {
   RACE_CHECKPOINT_POINTS,
   RACE_FINISH_POINTS,
 } from "@/lib/drone/layout";
-import { flight, race, resetRace, useDroneStore } from "./store";
+import { flight, race, useDroneStore } from "./store";
 import { engineAudio } from "@/lib/drone/audio";
 
 // How far (world units, along the ring's facing axis) the drone can be from
-// the ring's plane and still count as "passing through" it. Generous enough
-// that a single frame at top speed can't skip past undetected.
+// the ring's plane and still count as "passing through" it.
 const CROSS_EPSILON = 1.6;
 
 const tmpToDrone = new THREE.Vector3();
@@ -29,10 +28,8 @@ interface RingRuntime {
   finish: boolean;
 }
 
-/** No visual output — precomputes each ring's world position/orientation
- *  once, then checks every frame whether the drone just flew through one.
- *  Sibling to InteractionManager, but for the ring challenge rather than
- *  boards/signposts. */
+/** Checks ring crossings only while a confirmed run is active (started via
+ *  Enter on the briefing board). */
 export default function RaceManager() {
   const rings = useMemo<RingRuntime[]>(() => {
     const positions = RACE_RINGS.map(
@@ -54,31 +51,28 @@ export default function RaceManager() {
     });
   }, []);
 
-  const firstRingId = RACE_RINGS[0].id;
   const timeoutFired = useRef(false);
-  // Seconds since the run last transitioned to failed/finished. Starts high
-  // so the very first-ever pass of ring 1 isn't blocked; guards against the
-  // drone still sitting inside ring 1's zone the instant a run ends (e.g.
-  // timing out while looping back near the start) instantly restarting
-  // before the results screen has a chance to show.
-  const sinceEnd = useRef(Infinity);
+  const prevStatus = useRef(race.status);
 
   useFrame((_, dtRaw) => {
     const dt = Math.min(dtRaw, 0.1);
     if (useDroneStore.getState().phase !== "flight") return;
 
-    if (race.status === "running") {
-      race.elapsed += dt;
-      if (race.elapsed >= RACE_TIME_LIMIT && !timeoutFired.current) {
-        timeoutFired.current = true;
-        race.elapsed = RACE_TIME_LIMIT;
-        race.status = "failed";
-        sinceEnd.current = 0;
-        useDroneStore.getState().setRaceStatus("failed");
-        engineAudio.playTimeout();
-      }
-    } else {
-      sinceEnd.current += dt;
+    if (prevStatus.current !== race.status && race.status === "running") {
+      timeoutFired.current = false;
+    }
+    prevStatus.current = race.status;
+
+    if (race.status !== "running") return;
+
+    race.elapsed += dt;
+    if (race.elapsed >= RACE_TIME_LIMIT && !timeoutFired.current) {
+      timeoutFired.current = true;
+      race.elapsed = RACE_TIME_LIMIT;
+      race.status = "failed";
+      useDroneStore.getState().setRaceStatus("failed");
+      engineAudio.playTimeout();
+      return;
     }
 
     for (const ring of rings) {
@@ -87,35 +81,15 @@ export default function RaceManager() {
       if (Math.abs(alongAxis) > CROSS_EPSILON) continue;
       tmpPerp.copy(tmpToDrone).addScaledVector(ring.normal, -alongAxis);
       if (tmpPerp.length() > ring.radius) continue;
-      handleCrossing(ring, firstRingId, timeoutFired, sinceEnd);
+      handleCrossing(ring);
     }
   });
 
   return null;
 }
 
-function handleCrossing(
-  ring: RingRuntime,
-  firstRingId: string,
-  timeoutFired: React.MutableRefObject<boolean>,
-  sinceEnd: React.MutableRefObject<number>
-) {
-  const isRestart =
-    ring.id === firstRingId && race.status !== "running" && sinceEnd.current > 0.8;
-  if (isRestart) {
-    resetRace();
-    timeoutFired.current = false;
-    sinceEnd.current = Infinity;
-    race.status = "running";
-    race.passedIds.add(ring.id);
-    race.ringsPassed = 1;
-    race.score = RACE_CHECKPOINT_POINTS;
-    useDroneStore.getState().setRaceStatus("running");
-    engineAudio.playCollect();
-    return;
-  }
-
-  if (race.status !== "running" || race.passedIds.has(ring.id)) return;
+function handleCrossing(ring: RingRuntime) {
+  if (race.passedIds.has(ring.id)) return;
   race.passedIds.add(ring.id);
   race.ringsPassed += 1;
 
@@ -123,7 +97,6 @@ function handleCrossing(
     const timeBonus = Math.max(0, Math.round((RACE_TIME_LIMIT - race.elapsed) * 10));
     race.score += RACE_FINISH_POINTS + timeBonus;
     race.status = "finished";
-    sinceEnd.current = 0;
     useDroneStore.getState().setRaceStatus("finished");
     engineAudio.playArpeggio();
   } else {

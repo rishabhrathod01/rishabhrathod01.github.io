@@ -13,6 +13,9 @@ import {
   NAV_SIGNPOSTS,
   HIDDEN_BOARD,
   VIDEO_BOARDS,
+  RACE_CHALLENGE_BOARD,
+  RACE_RINGS,
+  RACE_TIME_LIMIT,
 } from "@/lib/drone/layout";
 import { P } from "@/lib/drone/palette";
 import { useDroneStore } from "../store";
@@ -189,6 +192,26 @@ export function HiddenBoard() {
       title="Batteries full."
       sub="Let's build something together."
       focusLabel="READ — A message for explorers"
+    />
+  );
+}
+
+export function RaceChallengeBoard() {
+  const timeLabel = `${Math.floor(RACE_TIME_LIMIT / 60)}:${String(RACE_TIME_LIMIT % 60).padStart(2, "0")}`;
+  return (
+    <ContentBoard
+      id="race-challenge"
+      x={RACE_CHALLENGE_BOARD.x}
+      z={RACE_CHALLENGE_BOARD.z}
+      yRot={faceCenter(RACE_CHALLENGE_BOARD.x, RACE_CHALLENGE_BOARD.z)}
+      accent={P.gold}
+      micro="ISLAND TIME TRIAL"
+      title="Ring Challenge"
+      sub={`${RACE_RINGS.length} rings · ${timeLabel} · tour the island`}
+      width={3.8}
+      height={2.1}
+      elevation={2.8}
+      focusLabel="READ — Ring challenge briefing"
     />
   );
 }

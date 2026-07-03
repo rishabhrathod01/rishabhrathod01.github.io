@@ -24,6 +24,7 @@ export default function FlightHUD() {
   const [raceRingsPassed, setRaceRingsPassed] = useState(0);
   const [raceScore, setRaceScore] = useState(0);
   const raceStatus = useDroneStore((s) => s.raceStatus);
+  const raceBoardNearby = useDroneStore((s) => s.raceBoardNearby);
 
   useEffect(() => {
     const iv = setInterval(() => {
@@ -146,11 +147,11 @@ export default function FlightHUD() {
         </div>
       )}
 
-      {/* Race challenge discoverability hint — only when nothing else is prompting */}
-      {inFlight && !nearest && raceStatus === "idle" && (
+      {/* Briefing board discoverability — only when near the challenge board */}
+      {inFlight && !nearest && raceStatus !== "running" && raceBoardNearby && (
         <div className="absolute bottom-28 inset-x-0 flex justify-center">
           <div className="glass-card px-5 py-2.5 rounded-full flex items-center gap-2 text-gold tracking-wider">
-            🏁 Fly through the gold ring to start the challenge
+            🏁 Press <kbd className="px-1.5 py-0.5 rounded border border-gold/30 text-primary font-bold">E</kbd> on the briefing board
           </div>
         </div>
       )}

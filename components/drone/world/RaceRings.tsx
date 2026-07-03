@@ -20,20 +20,16 @@ interface RingVisual {
   worldPos: THREE.Vector3;
   quat: THREE.Quaternion;
   normal: THREE.Vector3;
-  /** Yaw-only rotation so the number label stays upright and faces back
-   *  toward the direction the pilot approaches from. */
   yaw: number;
   radius: number;
   finish: boolean;
   label: string;
 }
 
-/** Static sign standing before ring 1, before the challenge has started —
- *  the rest of the challenge stays hidden until the pilot flies through it. */
-function ChallengeInfoSign({ ring }: { ring: RingVisual }) {
+/** Teaser at the hidden start gate — only when the briefing board is in range. */
+function ChallengeStartSign({ ring }: { ring: RingVisual }) {
   const width = 4.4;
   const height = 2.3;
-  // Sits a little before the ring, along the approach path, facing the pilot.
   const pos = ring.worldPos.clone().addScaledVector(ring.normal, -5.5);
 
   return (
@@ -65,37 +61,41 @@ function ChallengeInfoSign({ ring }: { ring: RingVisual }) {
       </Text>
       <Text
         font={MONO_FONT}
-        fontSize={0.16}
+        fontSize={0.15}
         color="#dce1fb"
         anchorX="center"
         anchorY="middle"
         position={[0, 0.05, 0.06]}
         letterSpacing={0.03}
+        maxWidth={width - 0.5}
+        textAlign="center"
       >
-        {`${RACE_RINGS.length} RINGS · ${Math.floor(RACE_TIME_LIMIT / 60)}:${String(RACE_TIME_LIMIT % 60).padStart(2, "0")}`}
+        {`${RACE_RINGS.length} RINGS · ${Math.floor(RACE_TIME_LIMIT / 60)}:${String(RACE_TIME_LIMIT % 60).padStart(2, "0")} LIMIT`}
       </Text>
       <Text
         font={MONO_FONT}
-        fontSize={0.15}
+        fontSize={0.13}
         color={P.emerald}
         anchorX="center"
         anchorY="bottom"
         position={[0, -height / 2 + 0.3, 0.06]}
         letterSpacing={0.06}
+        maxWidth={width - 0.5}
+        textAlign="center"
       >
-        FLY THROUGH TO BEGIN
+        [E] READ BRIEFING ON THE BOARD
       </Text>
     </group>
   );
 }
 
-// Purely visual — reads race.passedIds/status each frame to tint rings, but
-// all pass/fail/scoring logic lives in RaceManager. Only ring 1 (plus its
-// info sign) is ever rendered until the challenge starts, at which point
-// the rest of the challenge is revealed.
+// Rings render only after Enter confirms the run. A start-gate sign appears
+// near ring 1 when the pilot is in range of the briefing board.
 export default function RaceRings() {
   const raceStatus = useDroneStore((s) => s.raceStatus);
+  const raceBoardNearby = useDroneStore((s) => s.raceBoardNearby);
   const revealed = raceStatus === "running";
+  const showStartSign = raceBoardNearby && raceStatus !== "running";
 
   const rings = useMemo<RingVisual[]>(() => {
     const positions = RACE_RINGS.map(
@@ -124,16 +124,15 @@ export default function RaceRings() {
     });
   }, []);
 
-  const visibleRings = revealed ? rings : rings.slice(0, 1);
-
   const matRefs = useRef<(THREE.MeshStandardMaterial | null)[]>([]);
 
   useFrame((state) => {
+    if (!revealed) return;
     const pulse = 0.7 + Math.sin(state.clock.elapsedTime * 2.2) * 0.3;
-    visibleRings.forEach((ring, i) => {
+    rings.forEach((ring, i) => {
       const mat = matRefs.current[i];
       if (!mat) return;
-      const passed = race.status === "running" && race.passedIds.has(ring.id);
+      const passed = race.passedIds.has(ring.id);
       const target = ring.finish ? cFinish : passed ? cPassed : cGold;
       mat.color.lerp(target, 0.08);
       mat.emissive.lerp(target, 0.08);
@@ -143,36 +142,37 @@ export default function RaceRings() {
 
   return (
     <>
-      {visibleRings.map((ring, i) => (
-        <group key={ring.id} position={ring.worldPos}>
-          <mesh quaternion={ring.quat}>
-            <torusGeometry args={[ring.radius, 0.28, 12, 32]} />
-            <meshStandardMaterial
-              ref={(el) => {
-                matRefs.current[i] = el;
-              }}
-              color={P.gold}
-              emissive={P.gold}
-              emissiveIntensity={1.3}
-              toneMapped={false}
-              roughness={0.4}
-            />
-          </mesh>
-          <Text
-            font={MONO_FONT}
-            fontSize={0.9}
-            color={ring.finish ? P.lavender : P.gold}
-            anchorX="center"
-            anchorY="middle"
-            position={[0, ring.radius + 1.1, 0]}
-            rotation={[0, ring.yaw, 0]}
-            letterSpacing={0.05}
-          >
-            {ring.label}
-          </Text>
-        </group>
-      ))}
-      {!revealed && <ChallengeInfoSign ring={rings[0]} />}
+      {revealed &&
+        rings.map((ring, i) => (
+          <group key={ring.id} position={ring.worldPos}>
+            <mesh quaternion={ring.quat}>
+              <torusGeometry args={[ring.radius, 0.28, 12, 32]} />
+              <meshStandardMaterial
+                ref={(el) => {
+                  matRefs.current[i] = el;
+                }}
+                color={P.gold}
+                emissive={P.gold}
+                emissiveIntensity={1.3}
+                toneMapped={false}
+                roughness={0.4}
+              />
+            </mesh>
+            <Text
+              font={MONO_FONT}
+              fontSize={0.9}
+              color={ring.finish ? P.lavender : P.gold}
+              anchorX="center"
+              anchorY="middle"
+              position={[0, ring.radius + 1.1, 0]}
+              rotation={[0, ring.yaw, 0]}
+              letterSpacing={0.05}
+            >
+              {ring.label}
+            </Text>
+          </group>
+        ))}
+      {showStartSign && rings[0] && <ChallengeStartSign ring={rings[0]} />}
     </>
   );
 }

@@ -73,7 +73,8 @@ export default function RaceResults() {
         </div>
 
         <p className="text-slate-muted text-xs font-jetbrains tracking-wider">
-          Fly through ring <span className="text-gold">1</span> to try again
+          Return to the briefing board — <span className="text-gold">E</span> to read,{" "}
+          <span className="text-gold">Enter</span> to try again
         </p>
       </div>
     </div>

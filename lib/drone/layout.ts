@@ -58,19 +58,19 @@ export const BATTERY_CELLS: { id: string; x: number; z: number; yOffset: number 
 
 export const HIDDEN_BOARD = { x: 36, z: -34 } as const;
 
+/** Briefing board for the ring time trial — near ring 1, hidden start gate. */
+export const RACE_CHALLENGE_BOARD = { x: 14, z: 8 } as const;
+
 /** Themed set-pieces flanking the video boards — matched by proximity, not
  *  by id, since each is a decorative landmark rather than an interactable. */
 export const MOUNTAIN = { x: 20, z: -58, r: 9 } as const; // Mandalpatti Peak — slender spire, "above the clouds"
 export const WATERFALL = { x: 44, z: -16, r: 6 } as const; // Shivanasamudra Falls — cascades into the pond's edge
 export const BEACH = { x: 46, z: 34, r: 16 } as const; // Vagator Beach — sand + palms, coincides with the board
 
-/** Ring-flying time trial: only ring 1 is visible until it's flown through
- *  (which reveals the rest and starts the clock). The route loops past the
- *  island's landmarks — bookshelf, experience trail, the mountain, the
- *  pond/waterfall, the beach — so finishing it doubles as a sightseeing
- *  tour. Altitudes are offsets above ground (heightAt), and every ring stays
- *  well clear of the mountain/waterfall collider radii so the route is
- *  always flyable. */
+/** Ring-flying time trial: rings stay hidden until the pilot reads the briefing
+ *  board (E) and confirms with Enter. The route loops past the island's
+ *  landmarks — bookshelf, experience trail, the mountain, the pond/waterfall,
+ *  the beach — so finishing it doubles as a sightseeing tour. */
 export const RACE_TIME_LIMIT = 90; // seconds (1:30)
 export const RACE_CHECKPOINT_POINTS = 100;
 export const RACE_FINISH_POINTS = 250;

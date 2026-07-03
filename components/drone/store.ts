@@ -82,6 +82,13 @@ export function resetRace() {
   race.passedIds.clear();
 }
 
+/** Begin a ring run after the pilot confirms on the briefing board (Enter). */
+export function startRace() {
+  resetRace();
+  race.status = "running";
+  useDroneStore.getState().setRaceStatus("running");
+}
+
 /** Raw key state, written by useFlightControls, read by physics. */
 export const keys = {
   forward: false,
@@ -146,6 +153,9 @@ interface DroneStore {
       it doesn't re-render every frame the way polling `race` would. */
   raceStatus: RaceStatus;
   setRaceStatus: (status: RaceStatus) => void;
+  /** True when the drone is in range of the ring-challenge briefing board. */
+  raceBoardNearby: boolean;
+  setRaceBoardNearby: (nearby: boolean) => void;
 }
 
 export const useDroneStore = create<DroneStore>((set, get) => ({
@@ -172,6 +182,8 @@ export const useDroneStore = create<DroneStore>((set, get) => ({
   setFocus: (focus) => set({ focus }),
   raceStatus: "idle",
   setRaceStatus: (raceStatus) => set({ raceStatus }),
+  raceBoardNearby: false,
+  setRaceBoardNearby: (raceBoardNearby) => set({ raceBoardNearby }),
 }));
 
 // ---------------------------------------------------------------------------
