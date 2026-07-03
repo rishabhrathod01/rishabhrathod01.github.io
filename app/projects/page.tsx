@@ -92,7 +92,7 @@ export default function ProjectsPage() {
                   Start a Conversation
                 </a>
                 <a
-                  href="https://drive.google.com/file/d/1XHhicK78OpWr3hvZA7S-gPS4_zVXtoPa/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1mxMNR2o-UlQ5ycbg64doEkPC7vLpAtgc/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-8 py-4 border border-white/10 hover:border-primary rounded-2xl font-jetbrains text-xs font-semibold tracking-widest uppercase transition-all text-on-surface"

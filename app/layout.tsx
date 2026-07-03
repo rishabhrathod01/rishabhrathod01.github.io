@@ -77,6 +77,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-[var(--font-inter)]`}
         style={{ fontFamily: "var(--font-inter), Inter, sans-serif" }}
+        suppressHydrationWarning
       >
         <GoogleAnalytics />
         <div className="flex min-h-screen flex-col">
