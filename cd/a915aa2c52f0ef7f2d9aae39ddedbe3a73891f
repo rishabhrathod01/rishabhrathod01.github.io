@@ -1,0 +1,41 @@
+components/drone/DroneExperience.tsx
+  s_2ebac106d88e6e::t_4855d785998259 57
+  s_2ebac106d88e6e::t_cc3c4d12afc59f 230-233
+components/drone/hud/FlightHUD.tsx
+  s_2ebac106d88e6e::t_42ba7fc3a1d219 118-148
+  s_2ebac106d88e6e::t_49e8df2dab2fa5 17-18
+lib/drone/audio.ts
+  s_2ebac106d88e6e::t_24343c46e484d1 101
+  s_2ebac106d88e6e::t_3a59029378047d 12
+  s_2ebac106d88e6e::t_400a41b2e8b4d8 141
+  s_2ebac106d88e6e::t_3370dc3af314c6 59-60,63,67-69
+  s_2ebac106d88e6e::t_fabffecda7a22f 120
+  s_2ebac106d88e6e::t_d577f4ef305e58 159
+  s_2ebac106d88e6e::t_b4a872814f2d66 70-71
+components/drone/store.ts
+  s_2ebac106d88e6e::t_61ec5c7860f45c 113
+  s_2ebac106d88e6e::t_bb3d905a3afe41 154-155
+  s_2ebac106d88e6e::t_9001c91518fed1 139-148
+  s_2ebac106d88e6e::t_ef34563b2ea220 179-187
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "cda915aa2c52f0ef7f2d9aae39ddedbe3a73891f",
+  "prompts": {},
+  "humans": {
+    "h_254a44d1f12105": {
+      "author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  },
+  "sessions": {
+    "s_2ebac106d88e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d5af5377-4be4-4fcf-a7a4-967233c1b094",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
