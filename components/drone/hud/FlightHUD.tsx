@@ -14,6 +14,8 @@ export default function FlightHUD() {
   const cells = useDroneStore((s) => s.cells);
   const soundEnabled = useDroneStore((s) => s.soundEnabled);
   const toggleSound = useDroneStore((s) => s.toggleSound);
+  const volume = useDroneStore((s) => s.volume);
+  const setVolume = useDroneStore((s) => s.setVolume);
   const phase = useDroneStore((s) => s.phase);
 
   const speedRef = useRef<HTMLSpanElement>(null);
@@ -113,22 +115,37 @@ export default function FlightHUD() {
           <span className="px-3 py-1.5 rounded-full glass-card text-emerald tracking-wider">
             CELLS {cells.length}/8
           </span>
-          <button
-            onClick={toggleSound}
-            className={`p-2 rounded-full glass-card transition-colors ${
-              soundEnabled
-                ? "text-primary hover:text-on-surface"
-                : "text-slate-muted hover:text-on-surface"
-            }`}
-            aria-label={soundEnabled ? "Mute sound" : "Enable sound"}
-            aria-pressed={soundEnabled}
-          >
-            {soundEnabled ? (
-              <Volume2 className="h-4 w-4" strokeWidth={2.25} />
-            ) : (
-              <VolumeX className="h-4 w-4" strokeWidth={2.25} />
-            )}
-          </button>
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full glass-card">
+            <button
+              onClick={toggleSound}
+              className={`transition-colors ${
+                soundEnabled
+                  ? "text-primary hover:text-on-surface"
+                  : "text-slate-muted hover:text-on-surface"
+              }`}
+              aria-label={soundEnabled ? "Mute sound" : "Enable sound"}
+              aria-pressed={soundEnabled}
+            >
+              {soundEnabled ? (
+                <Volume2 className="h-4 w-4" strokeWidth={2.25} />
+              ) : (
+                <VolumeX className="h-4 w-4" strokeWidth={2.25} />
+              )}
+            </button>
+            <input
+              type="range"
+              min={0}
+              max={1}
+              step={0.05}
+              value={volume}
+              onChange={(e) => setVolume(parseFloat(e.target.value))}
+              aria-label="Volume"
+              className={`w-16 h-1 accent-primary cursor-pointer transition-opacity ${
+                soundEnabled ? "opacity-100" : "opacity-40"
+              }`}
+              style={{ accentColor: "hsl(var(--primary))" }}
+            />
+          </div>
           <span className="px-3 py-1.5 rounded-full glass-card text-slate-muted tracking-wider">
             ESC LAND
           </span>

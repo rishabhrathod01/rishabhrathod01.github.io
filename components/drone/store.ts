@@ -110,6 +110,7 @@ export function resetKeys() {
 // React-visible state (low-frequency updates only).
 
 const SESSION_KEY = "drone-flight-v1";
+const VOLUME_KEY = "drone-flight-volume-v1";
 
 interface SessionState {
   cells: string[];
@@ -135,11 +136,23 @@ export function loadSession(): SessionState | null {
   }
 }
 
+function loadVolume(): number {
+  try {
+    const raw = localStorage.getItem(VOLUME_KEY);
+    const v = raw !== null ? parseFloat(raw) : 0.5;
+    return Number.isFinite(v) ? Math.min(1, Math.max(0, v)) : 0.5;
+  } catch {
+    return 0.5;
+  }
+}
+
 interface DroneStore {
   phase: FlightPhase;
   setPhase: (phase: FlightPhase) => void;
   soundEnabled: boolean;
   toggleSound: () => void;
+  volume: number;
+  setVolume: (volume: number) => void;
   /** Collected battery cell ids. */
   cells: string[];
   collectCell: (id: string) => void;
@@ -163,6 +176,15 @@ export const useDroneStore = create<DroneStore>((set, get) => ({
   setPhase: (phase) => set({ phase }),
   soundEnabled: true,
   toggleSound: () => set((s) => ({ soundEnabled: !s.soundEnabled })),
+  volume: loadVolume(),
+  setVolume: (volume) => {
+    set({ volume });
+    try {
+      localStorage.setItem(VOLUME_KEY, String(volume));
+    } catch {
+      /* private mode etc. — non-essential */
+    }
+  },
   cells: [],
   collectCell: (id) => {
     if (get().cells.includes(id)) return;

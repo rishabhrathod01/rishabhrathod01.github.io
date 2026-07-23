@@ -54,6 +54,7 @@ export default function DroneExperience({
   const phase = useDroneStore((s) => s.phase);
   const setPhase = useDroneStore((s) => s.setPhase);
   const soundEnabled = useDroneStore((s) => s.soundEnabled);
+  const volume = useDroneStore((s) => s.volume);
 
   const [canFly, setCanFly] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -225,6 +226,10 @@ export default function DroneExperience({
   useEffect(() => {
     engineAudio.setEnabled(soundEnabled);
   }, [soundEnabled]);
+
+  useEffect(() => {
+    engineAudio.setMasterVolume(volume);
+  }, [volume]);
 
   useEffect(() => () => engineAudio.dispose(), []);
 
