@@ -1,0 +1,40 @@
+content/blog/system-design-learning-path-12-week-curriculum.mdx
+  96ac2bc80df4bd63 367-380
+app/layout.tsx
+  b8fb6e48855dd60d 42,45
+CLAUDE.md
+  96ac2bc80df4bd63 1-23,25-33,35-44,46-69,71-81
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "fa158313fa3d29c2bd86283efd80602d573ecfcc",
+  "prompts": {
+    "96ac2bc80df4bd63": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60cbba66-ede5-408a-8efa-f81ce6522fd5",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "rishabhrathod01",
+      "messages": [],
+      "total_additions": 120,
+      "total_deletions": 21,
+      "accepted_lines": 95,
+      "overriden_lines": 2
+    },
+    "b8fb6e48855dd60d": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "02e6bf12-8683-442b-8a11-cc3101ea75e9",
+        "model": "claude-4.6-opus-high-thinking"
+      },
+      "human_author": "rishabhrathod01",
+      "messages": [],
+      "total_additions": 29,
+      "total_deletions": 4,
+      "accepted_lines": 3,
+      "overriden_lines": 2
+    }
+  }
+}
