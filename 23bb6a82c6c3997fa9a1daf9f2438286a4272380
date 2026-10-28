@@ -1,0 +1,24 @@
+app/page.tsx
+  s_ed2796e8fa70cb::t_8519b17e6f0a63 67
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "23bb6a82c6c3997fa9a1daf9f2438286a4272380",
+  "prompts": {},
+  "humans": {
+    "h_254a44d1f12105": {
+      "author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  },
+  "sessions": {
+    "s_ed2796e8fa70cb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f462f0af-fc94-470a-8c20-30d0c57fd21f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
