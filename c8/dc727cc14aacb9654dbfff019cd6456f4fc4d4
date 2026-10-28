@@ -1,0 +1,29 @@
+app/page.tsx
+  s_ed2796e8fa70cb::t_7a50ef6c5666e4 86-87,89
+  s_ed2796e8fa70cb::t_779209176b457d 82,84
+  s_ed2796e8fa70cb::t_454521292586b2 88
+  s_ed2796e8fa70cb::t_75f74cf1be80b4 85
+components/home/RotatingText.tsx
+  s_ed2796e8fa70cb::t_e5ed471d0fcc92 19,56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c8dc727cc14aacb9654dbfff019cd6456f4fc4d4",
+  "prompts": {},
+  "humans": {
+    "h_254a44d1f12105": {
+      "author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  },
+  "sessions": {
+    "s_ed2796e8fa70cb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f462f0af-fc94-470a-8c20-30d0c57fd21f",
+        "model": "unknown"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
