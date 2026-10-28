@@ -1,0 +1,12 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3c2a5ea37d947bde605decf2946a890aea3923f9",
+  "prompts": {},
+  "humans": {
+    "h_254a44d1f12105": {
+      "author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
