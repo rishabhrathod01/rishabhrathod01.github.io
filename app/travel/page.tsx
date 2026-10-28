@@ -74,7 +74,7 @@ export default async function TravelPage() {
                     </p>
                     <span className="mt-4 inline-flex items-center gap-2 font-semibold text-on-surface">
                       Read the story
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight className="h-4 w-4" />
                     </span>
                   </div>
                 </Link>

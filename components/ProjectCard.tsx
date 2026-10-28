@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Github, ExternalLink } from "@/components/icons";
+import { ExternalLink } from "@/components/icons";
+import { GithubIcon } from "@/components/SocialIcons";
 import { Reveal } from "@/components/home/Reveal";
 
 interface ProjectCardProps {
@@ -84,7 +85,7 @@ export function ProjectCard({
                 rel="noopener noreferrer"
                 className={btnSecondary}
               >
-                <Github className="h-4 w-4" /> View source
+                <GithubIcon className="h-4 w-4" /> View source
               </a>
             )}
           </div>

@@ -72,7 +72,7 @@ export default async function BlogPage() {
                   </div>
                   <span className="mt-8 inline-flex items-center gap-2 font-semibold text-on-surface">
                     Read the post
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4" />
                   </span>
                 </Link>
               </Reveal>

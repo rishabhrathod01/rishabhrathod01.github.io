@@ -205,3 +205,228 @@ html {
     transform: none;
   }
 }
+
+/* Social icon hover animations (components/SocialIcons.tsx). Motion only when
+   the user hasn't asked for less; otherwise hover is just the color change. */
+@media (prefers-reduced-motion: no-preference) {
+  [class^="si-"] {
+    transform-box: view-box;
+    transform-origin: 128px 128px;
+  }
+  :is(a:hover, a:focus-visible) .si-gh-head {
+    animation: si-gh-bob 0.5s var(--ease) infinite alternate;
+  }
+  :is(a:hover, a:focus-visible) .si-gh-leg-l {
+    animation: si-gh-step 1s linear infinite;
+  }
+  :is(a:hover, a:focus-visible) .si-gh-leg-r {
+    animation: si-gh-step 1s linear -0.5s infinite;
+  }
+  .si-gh-tail {
+    transform-origin: 104px 208px;
+  }
+  :is(a:hover, a:focus-visible) .si-gh-tail {
+    animation: si-gh-swing 0.5s ease-in-out infinite alternate;
+  }
+  :is(a:hover, a:focus-visible) .si-li-box {
+    stroke-dasharray: 72 28;
+    animation: si-li-orbit 1.4s linear infinite;
+  }
+  /* Each sword pivots on its hilt at the bottom. */
+  .si-x-a {
+    transform-origin: 181px 216px;
+  }
+  .si-x-b {
+    transform-origin: 48px 216px;
+  }
+  :is(a:hover, a:focus-visible) .si-x-a {
+    animation: si-x-clash 1.2s var(--ease) infinite;
+  }
+  :is(a:hover, a:focus-visible) .si-x-b {
+    --si-dir: -1;
+    animation: si-x-clash 1.2s var(--ease) infinite;
+  }
+}
+
+@keyframes si-gh-bob {
+  from { transform: translate(0, 0) rotate(0); }
+  to { transform: translate(6px, -10px) rotate(4deg); }
+}
+/* Lift and swing forward for half the cycle, plant and push back for the other. */
+@keyframes si-gh-step {
+  0%, 100% { transform: translate(-8px, 0); }
+  25% { transform: translate(4px, -22px); }
+  50% { transform: translate(14px, 0); }
+}
+@keyframes si-gh-swing {
+  from { transform: rotate(-10deg); }
+  to { transform: rotate(14deg); }
+}
+@keyframes si-li-orbit {
+  to { stroke-dashoffset: -100; }
+}
+/* Swing apart, slam back past the cross, then a short shake as they lock. */
+@keyframes si-x-clash {
+  0%, 100% { transform: rotate(0); }
+  35% { transform: rotate(calc(var(--si-dir, 1) * -16deg)); }
+  50% { transform: rotate(calc(var(--si-dir, 1) * 6deg)); }
+  58% { transform: rotate(calc(var(--si-dir, 1) * -3deg)) translateY(-4px); }
+  66% { transform: rotate(calc(var(--si-dir, 1) * 2deg)) translateY(3px); }
+  74% { transform: rotate(0); }
+}
+
+/* Icon hover animations (components/icons.tsx). Same deal as the social icons:
+   they play while the nearest link, enabled button or `.ic-host` is hovered or
+   focused, and only when the user hasn't asked for less motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .ic * {
+    transform-box: view-box;
+    transform-origin: 128px 128px;
+  }
+  .ic-turn,
+  .ic-press,
+  .ic-mail-flap,
+  .ic-trash-lid,
+  .ic-copy-front,
+  .ic-link-a,
+  .ic-link-b,
+  .ic-slider-a,
+  .ic-slider-b {
+    transition:
+      transform 400ms var(--ease),
+      stroke-dashoffset 400ms var(--ease);
+  }
+
+  /* Arrows lean the way they point; the log-out arrow steps out the door. */
+  .ic-nudge-r { --ic-x: 20%; }
+  .ic-nudge-l { --ic-x: -20%; }
+  .ic-nudge-d { --ic-y: 20%; }
+  .ic-nudge-u { --ic-y: -15%; }
+  .ic-logout-arrow { --ic-x: 24px; }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible)
+    :is(.ic-nudge-r, .ic-nudge-l, .ic-nudge-d, .ic-nudge-u, .ic-logout-arrow) {
+    animation: ic-nudge 0.5s var(--ease) infinite alternate;
+  }
+  /* External links and the paper plane leave up-right and come back. */
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-out {
+    animation: ic-out 0.6s var(--ease);
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-fly {
+    --ic-d: 80%;
+    animation: ic-out 0.9s var(--ease);
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-pin {
+    animation: ic-pin 0.6s var(--ease);
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-spin {
+    animation: ic-spin 0.6s var(--ease);
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-rock {
+    animation: ic-rock 0.6s var(--ease);
+  }
+  /* A turn by the icon's own symmetry, so it settles looking the same. */
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-turn {
+    transform: rotate(90deg);
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-turn-45 {
+    transform: rotate(45deg);
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-press {
+    transform: scale(0.85);
+  }
+  .ic-mail-flap {
+    transform-origin: 128px 56px;
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-mail-flap {
+    transform: scaleY(-0.5);
+  }
+  .ic-trash-lid {
+    transform-origin: 40px 56px;
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-trash-lid {
+    transform: translateY(-12px) rotate(-12deg);
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-check {
+    animation: ic-draw 0.4s var(--ease);
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-copy-front {
+    transform: translate(-20px, 20px);
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-link-a {
+    transform: translate(14px, -14px);
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-link-b {
+    transform: translate(-14px, 14px);
+  }
+  .ic-share-node {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-share-node {
+    animation: ic-pulse 1.2s var(--ease) infinite;
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-share-node ~ .ic-share-node {
+    animation-delay: 0.2s;
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) path.ic-slider-a {
+    stroke-dashoffset: -24;
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) circle.ic-slider-a {
+    transform: translateX(24px);
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) path.ic-slider-b {
+    stroke-dashoffset: 24;
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) circle.ic-slider-b {
+    transform: translateX(-24px);
+  }
+  .ic-menu-bar {
+    transform-origin: 40px 128px;
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-menu-bar {
+    animation: ic-menu 0.5s var(--ease) both;
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-menu-bar:nth-child(2) {
+    animation-delay: 60ms;
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-menu-bar:nth-child(3) {
+    animation-delay: 120ms;
+  }
+  :is(a, button:enabled, .ic-host):is(:hover, :focus-visible) .ic-insta-lens {
+    animation: ic-shutter 0.5s var(--ease);
+  }
+}
+
+@keyframes ic-nudge {
+  to { transform: translate(var(--ic-x, 0), var(--ic-y, 0)); }
+}
+@keyframes ic-out {
+  45% { transform: translate(var(--ic-d, 40%), calc(var(--ic-d, 40%) * -1)); opacity: 0; }
+  46% { transform: translate(calc(var(--ic-d, 40%) * -1), var(--ic-d, 40%)); opacity: 0; }
+}
+@keyframes ic-pin {
+  40% { transform: translateY(-25%); }
+  70% { transform: none; }
+  85% { transform: translateY(-8%); }
+}
+@keyframes ic-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes ic-rock {
+  30% { transform: rotate(-16deg); }
+  65% { transform: rotate(8deg); }
+}
+@keyframes ic-draw {
+  from { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  to { stroke-dasharray: 1; stroke-dashoffset: 0; }
+}
+@keyframes ic-pulse {
+  0%, 50%, 100% { transform: none; }
+  20% { transform: scale(1.2); }
+}
+@keyframes ic-menu {
+  40% { transform: scaleX(0.55); }
+}
+@keyframes ic-shutter {
+  40% { transform: scale(0.65); }
+}

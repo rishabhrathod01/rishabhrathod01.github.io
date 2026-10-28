@@ -7,7 +7,7 @@ import { Fragment, useEffect, useRef } from "react";
 // own class (e.g. a script font).
 type Part = string | { text: string; href?: string; className?: string };
 
-// Words start at 30% and light up in reading order as they cross a line
+// Words start at 30% and blurred, and light up in reading order as they cross a line
 // 40% up from the bottom of the viewport. Plays once.
 export function TaglineReveal({
   parts,
@@ -22,14 +22,19 @@ export function TaglineReveal({
     const words = ref.current?.querySelectorAll<HTMLElement>("[data-word]");
     if (!words) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      words.forEach((w) => (w.style.opacity = "1"));
+      words.forEach((w) => {
+        w.style.opacity = "1";
+        w.style.filter = "none";
+      });
       return;
     }
     const io = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
           if (!e.isIntersecting) return;
-          (e.target as HTMLElement).style.opacity = "1";
+          const w = e.target as HTMLElement;
+          w.style.opacity = "1";
+          w.style.filter = "blur(0px)";
           io.unobserve(e.target);
         }),
       { rootMargin: "0px 0px -40% 0px" }
@@ -47,7 +52,7 @@ export function TaglineReveal({
             <span
               key={j}
               data-word
-              className="opacity-30 transition-opacity duration-500"
+              className="opacity-30 blur-[3px] transition-[opacity,filter] duration-700"
             >
               {word}{" "}
             </span>

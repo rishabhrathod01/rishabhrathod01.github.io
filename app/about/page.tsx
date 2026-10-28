@@ -33,14 +33,15 @@ export default function AboutPage() {
               food delivery app to developer platforms and AI agents.
             </p>
           </div>
-          <div className="relative h-48 w-48 overflow-hidden rounded-2xl border border-line bg-surface-container md:h-56 md:w-56">
+          <div className="group relative h-48 w-48 overflow-hidden rounded-2xl border border-line bg-surface-container md:h-56 md:w-56">
             <Image
               src="/about/portrait.png"
               alt={personalInfo.name}
               fill
               priority
-              className="object-cover grayscale"
+              className="object-cover"
             />
+            <span aria-hidden className="color-reveal" />
           </div>
         </Reveal>
       </section>

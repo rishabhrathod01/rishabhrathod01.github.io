@@ -36,7 +36,7 @@ export default function ToolsPage() {
                 </h2>
                 <p className="mt-2 text-slate-muted">{tool.description}</p>
               </div>
-              <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-slate-muted transition-transform group-hover:translate-x-1 group-hover:text-on-surface" />
+              <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-slate-muted group-hover:text-on-surface" />
             </Link>
           </Reveal>
         ))}
