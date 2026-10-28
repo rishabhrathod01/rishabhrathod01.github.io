@@ -1,10 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef } from "react";
+
+type Part = string | { text: string; href: string };
 
 // Words start at 30% and light up in reading order as they cross a line
 // 40% up from the bottom of the viewport. Plays once.
-export function TaglineReveal({ text }: { text: string }) {
+export function TaglineReveal({ parts }: { parts: Part[] }) {
   const ref = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
@@ -32,14 +35,26 @@ export function TaglineReveal({ text }: { text: string }) {
       ref={ref}
       className="max-w-[680px] text-4xl font-bold text-on-surface md:text-5xl"
     >
-      {text.split(" ").map((word, i) => (
-        <span
-          key={i}
-          className="opacity-30 transition-opacity duration-500"
-        >
-          {word}{" "}
-        </span>
-      ))}
+      {parts.map((part, i) => {
+        const words = (typeof part === "string" ? part : part.text)
+          .split(" ")
+          .map((word, j) => (
+            <span key={j} className="opacity-30 transition-opacity duration-500">
+              {word}{" "}
+            </span>
+          ));
+        return typeof part === "string" ? (
+          words
+        ) : (
+          <Link
+            key={i}
+            href={part.href}
+            className="underline decoration-line decoration-2 underline-offset-8 transition-colors hover:decoration-on-surface"
+          >
+            {words}
+          </Link>
+        );
+      })}
     </p>
   );
 }

@@ -126,7 +126,13 @@ export default async function HomePage() {
 
       {/* Tagline reveal */}
       <section className="mx-auto max-w-[760px] px-4 py-24 md:px-6">
-        <TaglineReveal text="In 2018 I shipped my first React Native app for a food startup. Since then I have cut a bundle by 65%, made an engine 200% faster, and lost a drone in its first week." />
+        <TaglineReveal
+          parts={[
+            "In 2018 I shipped my first mobile app for a food delivery startup. Then I built global crypto algo trading at Streak, rebuilt the low-code evaluation engine at Appsmith while",
+            { text: "riding solo from Bangalore to Goa", href: "/travel/mulki-goa-bike-trip" },
+            "on my bike with a drone, and now lead the agentic experience at Prophecy while chasing drone shots in Himachal, Coorg, Wayanad, and beyond.",
+          ]}
+        />
       </section>
 
       {/* Chapter one: work */}
