@@ -1,0 +1,86 @@
+404.html
+  h_254a44d1f12105 1
+_next/static/chunks/14.a91ccff942e926fb.js
+  h_254a44d1f12105 1,86,120
+_next/static/chunks/354.17516187d2c9debb.js
+  h_254a44d1f12105 1
+_next/static/chunks/384.0806bc77298f7eed.js
+  h_254a44d1f12105 1
+_next/static/chunks/44.25528f6bce6bc71a.js
+  h_254a44d1f12105 1
+_next/static/chunks/app-pages-internals.js
+  h_254a44d1f12105 1-182
+_next/static/chunks/app/about/page-25c0a21142f5024d.js
+  h_254a44d1f12105 1
+_next/static/chunks/app/blog/[slug]/page-4eb871aaf1a354a4.js
+  h_254a44d1f12105 1
+_next/static/chunks/app/blog/page-75575000a6386fd3.js
+  h_254a44d1f12105 1
+_next/static/chunks/app/bookshelf/page-877cd0bf3195ceca.js
+  h_254a44d1f12105 1
+_next/static/chunks/app/fly/page-0a2a194784aa702e.js
+  h_254a44d1f12105 1
+_next/static/chunks/app/layout-9dfd9432fa816557.js
+  h_254a44d1f12105 1
+_next/static/chunks/app/layout.js
+  h_254a44d1f12105 1-817
+_next/static/chunks/app/loading.js
+  h_254a44d1f12105 1-28
+_next/static/chunks/app/not-found-216ed68a65aca4cd.js
+  h_254a44d1f12105 1
+_next/static/chunks/app/not-found.js
+  h_254a44d1f12105 1-9,11-15,17-18,20,22-26,28-29,31,33-37,39-40,42,44-48,50-51,53,55-59,61-62,64,66-70,72-73,75,77-81,83-84,86,88-92,94-95,97,99-103,105-106,108,110-114,116-117,119,121-125,127-128,130,132-136,138-139,141,143-147,149-150,152,154-158,160-161,163,165-169,171-172,174,176-180,182-183,185,187-191,193-194,196,198-202,204-205,207,209-213,215-216,218,220-224,226-227,229,231-235,237-655
+_next/static/chunks/app/page-c6541d486c7eca3e.js
+  h_254a44d1f12105 1
+_next/static/chunks/app/page.js
+  h_254a44d1f12105 1-3171
+_next/static/chunks/app/projects/page-4076966052429ab9.js
+  h_254a44d1f12105 1
+_next/static/chunks/app/tools/json-diff/page-fa3d6189acc50c6c.js
+  h_254a44d1f12105 1
+_next/static/chunks/app/tools/page-8c1ec4525ededf42.js
+  h_254a44d1f12105 1
+_next/static/chunks/app/travel/[slug]/page-51417465e2ba2de3.js
+  h_254a44d1f12105 1
+_next/static/chunks/app/travel/page-7caf41a996127182.js
+  h_254a44d1f12105 1
+_next/static/chunks/main-app-0a162fbd2c2c8448.js
+  h_254a44d1f12105 1
+_next/static/chunks/main-app.js
+  h_254a44d1f12105 1-1893
+_next/static/chunks/polyfills.js
+  h_254a44d1f12105 1
+_next/static/chunks/webpack-4dc2ddb3361a80bd.js
+  h_254a44d1f12105 1
+_next/static/chunks/webpack.js
+  h_254a44d1f12105 1-1405
+_next/static/css/993fe09e8142989f.css
+  h_254a44d1f12105 5
+_next/static/css/app/layout.css
+  h_254a44d1f12105 1-3111
+_next/static/css/app/page.css
+  h_254a44d1f12105 1-33
+_next/static/development/_buildManifest.js
+  h_254a44d1f12105 1
+_next/static/development/_ssgManifest.js
+  h_254a44d1f12105 1
+_next/static/webpack/633457081244afec._.hot-update.json
+  h_254a44d1f12105 1
+_next/static/webpack/6d906951fbd10492.webpack.hot-update.json
+  h_254a44d1f12105 1
+_next/static/webpack/app/layout.6d906951fbd10492.hot-update.js
+  h_254a44d1f12105 1-22
+_next/static/webpack/webpack.6d906951fbd10492.hot-update.js
+  h_254a44d1f12105 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "53eb7d351cb4b2fb6951c8d2df85887ee4c055b4",
+  "prompts": {},
+  "humans": {
+    "h_254a44d1f12105": {
+      "author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
