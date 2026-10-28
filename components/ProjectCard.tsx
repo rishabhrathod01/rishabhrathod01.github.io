@@ -9,7 +9,7 @@ interface ProjectCardProps {
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
-  featured?: boolean;
+  preAI?: boolean;
   index?: number;
   large?: boolean;
   className?: string;
@@ -27,7 +27,7 @@ export function ProjectCard({
   tags,
   liveUrl,
   githubUrl,
-  featured = false,
+  preAI = false,
   index = 0,
   large = false,
   className,
@@ -44,10 +44,13 @@ export function ProjectCard({
             src={image}
             alt={title}
             fill
-            className="object-cover grayscale transition-transform duration-500 group-hover:scale-[1.03]"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
-          {featured && (
-            <span className={`absolute left-4 top-4 ${tag}`}>Featured</span>
+          <span aria-hidden className="color-reveal" />
+          {preAI && (
+            <span className={`${tag} absolute left-4 top-4 rounded-full px-3`}>
+              Pre-AI era
+            </span>
           )}
         </div>
 

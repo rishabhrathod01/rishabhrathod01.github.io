@@ -142,6 +142,8 @@ export const projects = [
     tags: ["Developer Tools", "API", "CLI", "Open Source"],
     liveUrl: "",
     githubUrl: "https://github.com/rishabhrathod01/DiffyCurl",
+    // Built before agentic AI coding tools; shown as a badge.
+    preAI: true,
     featured: false,
   },
   {
@@ -154,6 +156,8 @@ export const projects = [
     liveUrl:
       "https://marketplace.visualstudio.com/items?itemName=rishabh-rathod.css-to-js",
     githubUrl: "https://github.com/rishabhrathod01/css-to-js",
+    // Built before agentic AI coding tools; shown as a badge.
+    preAI: true,
     featured: true,
   },
 ];

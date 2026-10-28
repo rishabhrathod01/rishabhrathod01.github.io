@@ -43,8 +43,9 @@ export function TravelCard({
             src={coverImage}
             alt={title}
             fill
-            className="object-cover grayscale transition-transform duration-500 group-hover:scale-[1.03]"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
+          <span aria-hidden className="color-reveal" />
           <span className="absolute left-4 top-4 inline-flex items-center gap-1 rounded border border-line bg-surface/90 px-2 py-0.5 text-xs font-semibold text-slate-muted backdrop-blur">
             <MapPin className="h-3 w-3" />
             {location}, {country}

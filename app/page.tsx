@@ -199,8 +199,14 @@ export default async function HomePage() {
                       src={p.image}
                       alt=""
                       fill
-                      className="object-cover grayscale transition-transform duration-500 group-hover:scale-[1.03]"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
+                    <span aria-hidden className="color-reveal" />
+                    {p.preAI && (
+                      <span className="absolute left-4 top-4 rounded-full border border-line bg-surface px-3 py-0.5 text-xs font-semibold text-slate-muted">
+                        Pre-AI era
+                      </span>
+                    )}
                   </div>
                   <h3 className="mt-4 flex items-center gap-1 text-xl font-bold text-on-surface">
                     {p.title}
@@ -239,9 +245,10 @@ export default async function HomePage() {
                     src={trip.coverImage}
                     alt=""
                     fill
-                    className="object-cover grayscale transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 )}
+                <span aria-hidden className="color-reveal" />
                 <div className="absolute inset-x-4 bottom-4 rounded-xl border border-line bg-surface/90 p-4 backdrop-blur">
                   <span className="eyebrow">Travel</span>
                   <p className="mt-1 font-bold text-on-surface">{trip.title}</p>

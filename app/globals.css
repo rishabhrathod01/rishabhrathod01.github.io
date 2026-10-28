@@ -1,3 +1,9 @@
+@property --reveal {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -130,6 +136,24 @@
        descenders (g, y, p). Pad the box, cancel the layout shift. */
     padding-bottom: 0.15em;
     margin-bottom: -0.15em;
+  }
+
+  /* Grayscale overlay with a radial hole: on hover of the parent .group the
+     hole grows, so color spreads from the center and edges stay gray. */
+  .color-reveal {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    -webkit-backdrop-filter: grayscale(1);
+    backdrop-filter: grayscale(1);
+    --reveal: 0%;
+    -webkit-mask-image: radial-gradient(circle at center, transparent calc(var(--reveal) - 40%), #000 var(--reveal));
+    mask-image: radial-gradient(circle at center, transparent calc(var(--reveal) - 40%), #000 var(--reveal));
+    transition: --reveal 1.2s var(--ease);
+  }
+
+  .group:hover .color-reveal {
+    --reveal: 85%;
   }
 
   .hero-glow {

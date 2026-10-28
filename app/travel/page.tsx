@@ -53,8 +53,9 @@ export default async function TravelPage() {
                     alt={featured.title}
                     fill
                     priority
-                    className="object-cover grayscale transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
+                  <span aria-hidden className="color-reveal" />
                   <div className="absolute inset-x-4 bottom-4 max-w-[560px] rounded-xl border border-line bg-surface/90 p-6 backdrop-blur md:inset-x-8 md:bottom-8">
                     <p className="eyebrow flex items-center gap-1">
                       <MapPin className="h-3.5 w-3.5" />
