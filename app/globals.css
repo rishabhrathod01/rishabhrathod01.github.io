@@ -126,6 +126,10 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    /* background-clip stops at the box edge; with leading-none that cuts
+       descenders (g, y, p). Pad the box, cancel the layout shift. */
+    padding-bottom: 0.15em;
+    margin-bottom: -0.15em;
   }
 
   .hero-glow {
