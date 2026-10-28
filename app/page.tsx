@@ -64,7 +64,7 @@ export default async function HomePage() {
       {/* Full-bleed photo: background faded out, cutout of me on top, both
           from the same 4:3 frame so they line up exactly. */}
       <section className="relative overflow-hidden md:min-h-[760px]">
-        <div className="relative z-10 mx-auto max-w-container-max px-4 pb-12 pt-24 md:flex md:min-h-[760px] md:items-end md:px-6 md:pb-12 md:pt-24">
+        <div className="relative z-10 mx-auto max-w-container-max px-4 pb-12 pt-24 md:flex md:min-h-[760px] md:items-end md:px-6 md:pb-32 md:pt-24">
         <Reveal className="md:max-w-[52%]">
           {/* Gradient per line, not on the h1: a parent background-clip:text
               paints the rotating line at full strength and hides its fade. */}
