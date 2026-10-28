@@ -63,6 +63,10 @@ export function TaglineReveal({
             <Link
               key={i}
               href={part.href}
+              {...(part.href.startsWith("http") && {
+                target: "_blank",
+                rel: "noopener noreferrer",
+              })}
               className={`underline decoration-line decoration-2 underline-offset-8 transition-colors hover:decoration-on-surface ${part.className ?? ""}`}
             >
               {words}

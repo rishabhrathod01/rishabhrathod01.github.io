@@ -9,7 +9,7 @@ import {
   ArrowUpRight,
   Plane,
 } from "@/components/icons";
-import { GithubIcon, LinkedinIcon, XIcon } from "@/components/SocialIcons";
+import { GithubIcon, LinkedinIcon, XIcon, YoutubeIcon } from "@/components/SocialIcons";
 import { Reveal } from "@/components/home/Reveal";
 import { TaglineReveal } from "@/components/home/TaglineReveal";
 import { RotatingText } from "@/components/home/RotatingText";
@@ -120,6 +120,7 @@ export default async function HomePage() {
               { label: "GitHub", href: personalInfo.social.github, Icon: GithubIcon },
               { label: "LinkedIn", href: personalInfo.social.linkedin, Icon: LinkedinIcon },
               { label: "X", href: personalInfo.social.twitter, Icon: XIcon },
+              { label: "YouTube", href: personalInfo.social.youtube, Icon: YoutubeIcon },
             ].map(({ label, href, Icon }) => (
               <a
                 key={label}
@@ -158,31 +159,44 @@ export default async function HomePage() {
         </Reveal>
       </section>
 
-      {/* Tagline reveal: two staggered halves, script font on a few words */}
-      <section className="mx-auto grid max-w-container-max gap-12 px-4 py-24 md:grid-cols-2 md:gap-16 md:px-6 md:pt-40">
+      {/* Tagline reveal: three short paragraphs zig-zagging down the page,
+          script font on a few words */}
+      <section className="mx-auto flex max-w-container-max flex-col gap-12 px-4 py-24 md:gap-20 md:px-6 md:pt-40">
         <TaglineReveal
-          className="text-3xl md:text-4xl"
+          className="max-w-[560px] text-3xl md:text-4xl"
           parts={[
-            "In 2018 I shipped my first mobile app, for a food delivery startup. Then crypto algo trading at Streak, and a low-code engine at Appsmith, between",
+            "In 2018 I shipped my first mobile app, for a food delivery startup. Then I built a no-code algo trading platform for crypto at Streak.",
+          ]}
+        />
+        <div className="md:ml-auto md:w-1/2">
+          <TaglineReveal
+            className="max-w-[560px] text-3xl md:text-4xl"
+            parts={[
+              "After that, I worked on the low-code JS evaluation engine at Appsmith, while doing",
+              {
+                text: "solo bike rides to Goa",
+                href: "/travel/mulki-goa-bike-trip",
+                className: `${script.className} text-4xl md:text-5xl`,
+              },
+              "and capturing",
+              { text: "drone shots.", href: "https://youtu.be/WhWniSMK5bY" },
+            ]}
+          />
+        </div>
+        <TaglineReveal
+          className="max-w-[560px] text-3xl md:text-4xl"
+          parts={[
+            "Now I lead the agentic user experience at Prophecy, built for analysts. In my free time I learn calisthenics and capture drone shots on trips to",
+            { text: "Himachal,", href: "https://youtu.be/qVIHJk79q9c" },
+            { text: "Coorg,", href: "https://youtu.be/NV87I6aqU18" },
+            { text: "Wayanad,", href: personalInfo.social.droneInstagram },
             {
-              text: "solo rides to Goa.",
-              href: "/travel/mulki-goa-bike-trip",
+              text: "and beyond.",
+              href: personalInfo.social.youtube,
               className: `${script.className} text-4xl md:text-5xl`,
             },
           ]}
         />
-        <div className="md:mt-48">
-          <TaglineReveal
-            className="text-3xl md:text-4xl"
-            parts={[
-              "Now I lead the agentic experience at Prophecy, and chase drone shots over Himachal, Coorg, Wayanad,",
-              {
-                text: "and beyond.",
-                className: `${script.className} text-4xl md:text-5xl`,
-              },
-            ]}
-          />
-        </div>
       </section>
 
       {/* Chapter one: work */}

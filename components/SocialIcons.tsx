@@ -1,4 +1,4 @@
-// Stroked redraws of Phosphor's GitHub / LinkedIn / X logos (regular weight),
+// Stroked redraws of Phosphor's GitHub / LinkedIn / X / YouTube logos (regular weight),
 // split into parts so globals.css can animate them while the parent link is
 // hovered or focused. See the `.si-*` rules there.
 
@@ -47,6 +47,19 @@ export function XIcon({ className }: Props) {
     <svg {...svg} className={className}>
       <path className="si-x-a" d="M55 40h39l107 176h-39Z" />
       <path className="si-x-b" d="M48 216l60-66M148 106l60-66" />
+    </svg>
+  );
+}
+
+// The play button presses in and the frame flickers like a screen.
+export function YoutubeIcon({ className }: Props) {
+  return (
+    <svg {...svg} className={className}>
+      <path
+        className="si-yt-frame"
+        d="M234 69.2a24 24 0 0 0-14.5-16.3C185.6 39.8 128 40 128 40s-57.6-.2-91.5 12.9A24 24 0 0 0 22 69.2C19.4 89.2 16 115.6 16 128s3.4 38.8 6 58.8a24 24 0 0 0 14.5 16.3C70.4 216.2 128 216 128 216s57.6.2 91.5-12.9a24 24 0 0 0 14.5-16.3c2.6-20 6-46.4 6-58.8s-3.4-38.8-6-58.8Z"
+      />
+      <path className="si-yt-play" d="m160 128-48-32v64Z" />
     </svg>
   );
 }

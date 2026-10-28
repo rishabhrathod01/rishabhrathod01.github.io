@@ -1,5 +1,5 @@
 import { Instagram } from "@/components/icons";
-import { GithubIcon, LinkedinIcon, XIcon } from "@/components/SocialIcons";
+import { GithubIcon, LinkedinIcon, XIcon, YoutubeIcon } from "@/components/SocialIcons";
 import { personalInfo } from "@/lib/data";
 import { TrackedLink } from "@/components/TrackedLink";
 
@@ -16,6 +16,7 @@ const socials = [
   { label: "GitHub", href: personalInfo.social.github, Icon: GithubIcon },
   { label: "LinkedIn", href: personalInfo.social.linkedin, Icon: LinkedinIcon },
   { label: "X", href: personalInfo.social.twitter, Icon: XIcon },
+  { label: "YouTube", href: personalInfo.social.youtube, Icon: YoutubeIcon },
   { label: "Instagram", href: personalInfo.social.instagram, Icon: Instagram },
 ];
 

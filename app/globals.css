@@ -246,6 +246,15 @@ html {
     --si-dir: -1;
     animation: si-x-clash 1.2s var(--ease) infinite;
   }
+  .si-yt-play {
+    transform-origin: 136px 128px;
+  }
+  :is(a:hover, a:focus-visible) .si-yt-play {
+    animation: si-yt-press 0.9s var(--ease) infinite;
+  }
+  :is(a:hover, a:focus-visible) .si-yt-frame {
+    animation: si-yt-flicker 0.9s steps(1) infinite;
+  }
 }
 
 @keyframes si-gh-bob {
@@ -261,6 +270,17 @@ html {
 @keyframes si-gh-swing {
   from { transform: rotate(-10deg); }
   to { transform: rotate(14deg); }
+}
+/* Tap the play button: shrink, overshoot, settle, then rest. */
+@keyframes si-yt-press {
+  0%, 60%, 100% { transform: scale(1); }
+  20% { transform: scale(0.7); }
+  40% { transform: scale(1.15); }
+}
+@keyframes si-yt-flicker {
+  0%, 100% { opacity: 1; }
+  22% { opacity: 0.55; }
+  30% { opacity: 1; }
 }
 @keyframes si-li-orbit {
   to { stroke-dashoffset: -100; }
