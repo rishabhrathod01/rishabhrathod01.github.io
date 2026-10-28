@@ -1,0 +1,37 @@
+components/Footer.tsx
+  s_ed2796e8fa70cb::t_b82054c436d33c 2,19
+components/SocialIcons.tsx
+  s_ed2796e8fa70cb::t_b82054c436d33c 1,53-62
+  s_ed2796e8fa70cb::t_ca1d655f3e7ec3 63-65
+app/page.tsx
+  s_ed2796e8fa70cb::t_2776280ba24b7c 162-164,166,168,171,173,177-178,181-182,186-199
+  s_ed2796e8fa70cb::t_30aaf80a59d768 175
+  s_ed2796e8fa70cb::t_b82054c436d33c 12,123
+lib/data.ts
+  s_ed2796e8fa70cb::t_b82054c436d33c 13-15
+app/globals.css
+  s_ed2796e8fa70cb::t_b82054c436d33c 249-257,274-284
+components/home/TaglineReveal.tsx
+  s_ed2796e8fa70cb::t_b82054c436d33c 66-69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3e63c87ac3587cd0a73da42b84abad938a2e4559",
+  "prompts": {},
+  "humans": {
+    "h_254a44d1f12105": {
+      "author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  },
+  "sessions": {
+    "s_ed2796e8fa70cb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f462f0af-fc94-470a-8c20-30d0c57fd21f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
