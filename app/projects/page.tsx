@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { ProjectCard } from "@/components/ProjectCard";
-import { projects } from "@/lib/data";
+import { Reveal } from "@/components/home/Reveal";
+import { personalInfo, projects } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -8,8 +9,13 @@ export const metadata: Metadata = {
     "Explore my portfolio of web development projects built with modern technologies.",
 };
 
+const btnPrimary =
+  "inline-flex items-center gap-2 rounded-lg bg-on-surface px-3 py-2 text-base font-semibold text-surface transition-opacity hover:opacity-85 active:scale-[0.98]";
+const btnSecondary =
+  "inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 text-base font-semibold text-on-surface transition-colors hover:bg-surface-container active:scale-[0.98]";
+
 const stats = [
-  { value: "4+", label: "Tools Built" },
+  { value: "4+", label: "Tools built" },
   { value: "2k+", label: "Installs" },
   { value: "8yr", label: "Experience" },
 ];
@@ -17,91 +23,72 @@ const stats = [
 export default function ProjectsPage() {
   return (
     <div>
-      {/* ── Header ── */}
-      <section className="py-section-gap bg-surface-container-lowest relative overflow-hidden">
-        <div
-          className="hero-glow opacity-20"
-          style={{ top: "-5rem", left: "-5rem" }}
-        />
-        <div className="max-w-container-max mx-auto px-4 md:px-gutter relative z-10">
-          <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-4">
-            {'01 // PORTFOLIO'}
-          </p>
-          <h1 className="font-geist text-5xl md:text-7xl font-bold text-on-surface tracking-tight leading-[1.1] mb-6">
-            My Projects
+      {/* Header */}
+      <section className="mx-auto max-w-container-max px-4 pb-24 pt-24 md:px-6 md:pt-32">
+        <Reveal>
+          <p className="eyebrow">Projects</p>
+          <h1 className="text-gradient mt-4 max-w-[680px] text-5xl font-bold leading-none md:text-6xl">
+            Things I made
           </h1>
-          <p className="text-lg text-slate-muted max-w-2xl leading-relaxed">
-            A collection of projects I&apos;ve built, ranging from full-stack
-            applications to frontend experiments. Each represents a unique
-            challenge and technical mastery in the developer tooling space.
+          <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
+            Full stack apps, developer tools, and frontend experiments, mostly
+            built to solve a problem I had myself.
           </p>
-        </div>
-      </section>
-
-      {/* ── Stats ── */}
-      <section className="py-16 border-b border-white/10">
-        <div className="max-w-container-max mx-auto px-4 md:px-gutter">
-          <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
+          <dl className="mt-12 flex flex-wrap gap-12">
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <p className="font-geist text-4xl md:text-5xl font-bold text-on-surface mb-2">
+              <div key={stat.label}>
+                <dt className="eyebrow">{stat.label}</dt>
+                <dd className="mt-1 text-4xl font-bold text-on-surface">
                   {stat.value}
-                </p>
-                <p className="font-jetbrains text-xs text-slate-muted uppercase tracking-widest">
-                  {stat.label}
-                </p>
+                </dd>
               </div>
             ))}
-          </div>
+          </dl>
+        </Reveal>
+      </section>
+
+      {/* Projects: alternating wide and narrow columns */}
+      <section className="mx-auto max-w-container-max px-4 py-24 md:px-6">
+        <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-12">
+          {projects.map((project, index) => {
+            const large = index % 4 === 0 || index % 4 === 3;
+            return (
+              <ProjectCard
+                key={project.title}
+                {...project}
+                index={index}
+                large={large}
+                className={large ? "md:col-span-7" : "md:col-span-5"}
+              />
+            );
+          })}
         </div>
       </section>
 
-      {/* ── Projects Grid ── */}
-      <section className="py-section-gap">
-        <div className="max-w-container-max mx-auto px-4 md:px-gutter">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <ProjectCard key={project.title} {...project} index={index} />
-            ))}
+      {/* CTA */}
+      <section className="mx-auto max-w-container-max px-4 py-24 md:px-6">
+        <Reveal className="max-w-[680px]">
+          <h2 className="text-3xl font-bold text-on-surface md:text-4xl">
+            Have a hard problem to build?
+          </h2>
+          <p className="mt-4 text-lg text-slate-muted">
+            I am open to high impact projects, architecture reviews, and open
+            source collaborations.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-2">
+            <a href={`mailto:${personalInfo.email}`} className={btnPrimary}>
+              Email me
+            </a>
+            <a
+              href={personalInfo.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={btnSecondary}
+            >
+              View resume
+            </a>
           </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="py-section-gap bg-surface-container-low">
-        <div className="max-w-container-max mx-auto px-4 md:px-gutter">
-          <div className="glass-card rounded-4xl p-12 text-center relative overflow-hidden">
-            <div
-              className="hero-glow opacity-20"
-              style={{ top: 0, left: "50%", transform: "translateX(-50%)" }}
-            />
-            <div className="relative z-10">
-              <h2 className="font-geist text-3xl md:text-4xl font-bold text-on-surface mb-4">
-                Have a challenging project?
-              </h2>
-              <p className="text-slate-muted mb-8 max-w-lg mx-auto">
-                I&apos;m always open to discussing high-impact projects,
-                architectural consultations, or open-source collaborations.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href="mailto:rishabhrathod2012@gmail.com"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-on-primary-dark rounded-2xl font-jetbrains text-xs font-semibold tracking-widest uppercase kinetic-hover"
-                >
-                  Start a Conversation
-                </a>
-                <a
-                  href="https://drive.google.com/file/d/1mxMNR2o-UlQ5ycbg64doEkPC7vLpAtgc/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-4 border border-white/10 hover:border-primary rounded-2xl font-jetbrains text-xs font-semibold tracking-widest uppercase transition-all text-on-surface"
-                >
-                  View Resume
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

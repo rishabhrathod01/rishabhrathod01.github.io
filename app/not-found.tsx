@@ -1,37 +1,36 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Home, ArrowLeft } from "lucide-react";
+import { Home, ArrowLeft } from "@/components/icons";
+
+const btnPrimary =
+  "inline-flex items-center gap-2 rounded-lg bg-on-surface px-3 py-2 text-base font-semibold text-surface transition-opacity hover:opacity-85 active:scale-[0.98]";
+const btnSecondary =
+  "inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 text-base font-semibold text-on-surface transition-colors hover:bg-surface-container active:scale-[0.98]";
 
 export default function NotFound() {
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="max-w-2xl mx-auto text-center">
-        <h1 className="text-9xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-          404
-        </h1>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Page Not Found</h2>
-        <p className="text-lg text-muted-foreground mb-8">
-          Oops! The page you&apos;re looking for doesn&apos;t exist. It might
-          have been moved or deleted.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" asChild>
-            <Link href="/">
-              <Home className="mr-2 h-5 w-5" />
-              Go Home
-            </Link>
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            onClick={() => window.history.back()}
-          >
-            <ArrowLeft className="mr-2 h-5 w-5" />
-            Go Back
-          </Button>
-        </div>
+    <div className="mx-auto max-w-[760px] px-4 pb-24 pt-24 md:px-6 md:pt-32">
+      <p className="eyebrow">Error 404</p>
+      <h1 className="text-gradient mt-4 max-w-[680px] text-5xl font-bold leading-none md:text-6xl">
+        This page does not exist
+      </h1>
+      <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
+        It may have moved, or the link has a typo.
+      </p>
+      <div className="mt-8 flex flex-wrap gap-2">
+        <Link href="/" className={btnPrimary}>
+          <Home className="h-4 w-4" />
+          Go to the home page
+        </Link>
+        <button
+          type="button"
+          onClick={() => window.history.back()}
+          className={btnSecondary}
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Go back
+        </button>
       </div>
     </div>
   );

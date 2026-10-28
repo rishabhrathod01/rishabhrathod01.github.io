@@ -1,23 +1,20 @@
 export default function Loading() {
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="max-w-6xl mx-auto">
-        <div className="animate-pulse space-y-8">
-          {/* Header skeleton */}
-          <div className="h-12 bg-muted rounded w-1/3"></div>
-          <div className="h-6 bg-muted rounded w-2/3"></div>
+    <div className="mx-auto max-w-container-max px-4 pb-24 pt-24 md:px-6 md:pt-32">
+      <div className="animate-pulse">
+        <div className="h-4 w-24 rounded bg-surface-container" />
+        <div className="mt-4 h-12 w-2/3 max-w-[680px] rounded bg-surface-container" />
+        <div className="mt-6 h-6 w-full max-w-[680px] rounded bg-surface-container" />
 
-          {/* Content skeleton */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="space-y-4">
-                <div className="h-48 bg-muted rounded"></div>
-                <div className="h-6 bg-muted rounded w-3/4"></div>
-                <div className="h-4 bg-muted rounded w-full"></div>
-                <div className="h-4 bg-muted rounded w-5/6"></div>
-              </div>
-            ))}
-          </div>
+        <div className="mt-24 grid grid-cols-1 gap-4 md:grid-cols-12">
+          {[7, 5, 5, 7].map((span, i) => (
+            <div
+              key={i}
+              className={`h-64 rounded-2xl border border-line bg-surface-container ${
+                span === 7 ? "md:col-span-7" : "md:col-span-5"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </div>

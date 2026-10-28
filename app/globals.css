@@ -2,29 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Monochrome ink system. Light is the default; `.dark` on <html> (or any
+   wrapper, see /fly) flips every token. Channels are RGB so Tailwind
+   opacity modifiers (bg-surface/80) keep working. */
 @layer base {
   :root {
-    /* Kinetic Obsidian — always dark */
-    --background: 222 50% 9%;
-    --foreground: 231 78% 92%;
-    --card: 223 35% 13%;
-    --card-foreground: 231 78% 92%;
-    --popover: 223 35% 13%;
-    --popover-foreground: 231 78% 92%;
-    --primary: 239 100% 88%;
-    --primary-foreground: 244 100% 34%;
-    --secondary: 223 33% 15%;
-    --secondary-foreground: 231 78% 92%;
-    --muted: 225 26% 19%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 225 26% 19%;
-    --accent-foreground: 231 78% 92%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 231 78% 92%;
-    --border: 225 21% 23%;
-    --input: 225 21% 23%;
-    --ring: 239 100% 88%;
+    --bg: 250 250 247;
+    --bg-2: 241 240 235;
+    --bg-3: 232 231 225;
+    --fg: 11 11 11;
+    --fg-2: 85 83 78;
+    --fg-3: 138 136 128;
+    --line: 226 224 217;
+    --grad-from: #000000;
+    --grad-to: #666666;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* shadcn/ui (HSL) */
+    --background: 60 23% 97%;
+    --foreground: 0 0% 4%;
+    --card: 60 23% 97%;
+    --card-foreground: 0 0% 4%;
+    --popover: 60 23% 97%;
+    --popover-foreground: 0 0% 4%;
+    --primary: 0 0% 4%;
+    --primary-foreground: 60 23% 97%;
+    --secondary: 50 13% 93%;
+    --secondary-foreground: 0 0% 4%;
+    --muted: 50 13% 93%;
+    --muted-foreground: 45 4% 32%;
+    --accent: 50 13% 93%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 45 12% 87%;
+    --input: 45 12% 87%;
+    --ring: 0 0% 4%;
     --radius: 0.5rem;
+  }
+
+  .dark {
+    --bg: 24 24 24;
+    --bg-2: 31 31 31;
+    --bg-3: 39 39 39;
+    --fg: 255 255 255;
+    --fg-2: 163 163 163;
+    --fg-3: 120 120 120;
+    --line: 49 49 49;
+    --grad-from: #ffffff;
+    --grad-to: #9b9b9b;
+
+    --background: 0 0% 9%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 19%;
+    --input: 0 0% 19%;
+    --ring: 0 0% 100%;
   }
 }
 
@@ -33,51 +79,61 @@
     @apply border-border;
   }
   body {
-    background-color: #0c1324;
-    color: #dce1fb;
+    background-color: rgb(var(--bg));
+    color: rgb(var(--fg));
+    transition:
+      background-color 300ms var(--ease),
+      color 300ms var(--ease);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--fg));
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 
 @layer components {
+  /* Flat card: kept under the old name so every page picks it up. */
   .glass-card {
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgb(var(--bg-2));
+    border: 1px solid rgb(var(--line));
   }
 
   .kinetic-hover {
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transition:
+      transform 500ms var(--ease),
+      opacity 300ms var(--ease);
   }
-
   .kinetic-hover:hover {
-    transform: translateY(-4px) scale(1.01);
-    border-color: #c0c1ff !important;
+    transform: translateY(-2px);
+  }
+  .kinetic-hover:active {
+    transform: scale(0.98);
   }
 
-  /* Glass panels only — don't strip fill from primary CTAs */
-  .glass-card.kinetic-hover:hover {
-    background: rgba(192, 193, 255, 0.05);
-  }
-
-  .bg-primary.kinetic-hover:hover {
-    background: rgba(192, 193, 255, 0.2) !important;
-    color: #dce1fb !important;
-    box-shadow: 0 0 28px rgba(192, 193, 255, 0.4);
+  .text-gradient {
+    background: linear-gradient(90deg, var(--grad-from), var(--grad-to));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .hero-glow {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(
-      circle,
-      rgba(99, 102, 241, 0.15) 0%,
-      transparent 70%
-    );
-    z-index: 0;
-    filter: blur(40px);
-    pointer-events: none;
+    display: none;
+  }
+
+  .eyebrow {
+    @apply font-jetbrains text-sm text-fg-3;
   }
 }
 
@@ -85,19 +141,39 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #0c1324;
+  background: rgb(var(--bg));
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #2e3447;
+  background: rgb(var(--line));
   border-radius: 9999px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #464554;
+  background: rgb(var(--fg-3));
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

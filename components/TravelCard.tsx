@@ -1,9 +1,7 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Calendar, MapPin, Clock } from "lucide-react";
+import { MapPin } from "@/components/icons";
+import { Reveal } from "@/components/home/Reveal";
 
 interface TravelCardProps {
   slug: string;
@@ -30,55 +28,34 @@ export function TravelCard({
 }: TravelCardProps) {
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
     year: "numeric",
-    month: "long",
-    day: "numeric",
+    month: "short",
   });
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-    >
-      <Link href={`/travel/${slug}`} className="block h-full">
-        <div className="glass-card rounded-2xl overflow-hidden h-full flex flex-col kinetic-hover">
-          <div className="relative h-52 overflow-hidden">
-            <Image
-              src={coverImage}
-              alt={title}
-              fill
-              className="object-cover opacity-70 group-hover:opacity-100 transition-all duration-500 hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent" />
-            <div className="absolute bottom-4 left-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container/80 backdrop-blur-sm rounded-full font-jetbrains text-[10px] text-emerald uppercase tracking-widest border border-white/10">
-                <MapPin className="h-3 w-3" />
-                {location}, {country}
-              </span>
-            </div>
-          </div>
-
-          <div className="p-6 flex flex-col flex-grow">
-            <h3 className="font-geist text-xl font-medium text-on-surface mb-3 hover:text-primary transition-colors">
-              {title}
-            </h3>
-            <p className="text-slate-muted text-sm leading-relaxed mb-4 flex-grow">
-              {description}
-            </p>
-            <div className="flex items-center gap-4 text-slate-muted">
-              <span className="flex items-center gap-1.5 font-jetbrains text-xs">
-                <Calendar className="h-3.5 w-3.5" />
-                {formattedDate}
-              </span>
-              <span className="flex items-center gap-1.5 font-jetbrains text-xs">
-                <Clock className="h-3.5 w-3.5" />
-                {readingTime}
-              </span>
-            </div>
-          </div>
+    <Reveal delay={(index % 2) * 0.08} className="mb-4 break-inside-avoid">
+      <Link href={`/travel/${slug}`} className="group block">
+        <div
+          className={`relative overflow-hidden rounded-2xl border border-line bg-surface-container ${
+            index % 2 ? "aspect-[4/3]" : "aspect-[3/4]"
+          }`}
+        >
+          <Image
+            src={coverImage}
+            alt={title}
+            fill
+            className="object-cover grayscale transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+          <span className="absolute left-4 top-4 inline-flex items-center gap-1 rounded border border-line bg-surface/90 px-2 py-0.5 text-xs font-semibold text-slate-muted backdrop-blur">
+            <MapPin className="h-3 w-3" />
+            {location}, {country}
+          </span>
         </div>
+        <p className="eyebrow mt-4">
+          {formattedDate} · {readingTime}
+        </p>
+        <h3 className="mt-1 text-xl font-bold text-on-surface">{title}</h3>
+        <p className="mt-1 line-clamp-2 text-slate-muted">{description}</p>
       </Link>
-    </motion.div>
+    </Reveal>
   );
 }

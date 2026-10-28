@@ -1,11 +1,13 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Calendar, Clock, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "@/components/icons";
 import { getBlogPost, getBlogPosts } from "@/lib/mdx";
 import { MDXContent } from "@/components/MDXContent";
 import { CurriculumTodoList } from "@/components/CurriculumTodoList";
 import { TrackedLink } from "@/components/TrackedLink";
-import { Button } from "@/components/ui/button";
+
+const btnSecondary =
+  "inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 text-base font-semibold text-on-surface transition-colors hover:bg-surface-container active:scale-[0.98]";
 
 const CURRICULUM_TODO_SLUG = "system-design-learning-path-12-week-curriculum";
 
@@ -63,67 +65,62 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   });
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="sticky top-16 z-40 -mx-4 px-4 py-3 mb-6 flex justify-start bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-transparent">
-        <Button variant="ghost" asChild size="sm">
-          <TrackedLink
-            href="/blog"
-            gaLabel="Back to Blog"
-            gaLocation="blog_post_sticky"
-            className="flex items-center gap-2"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Blog
-          </TrackedLink>
-        </Button>
+    <div className="mx-auto max-w-[760px] px-4 pb-24 pt-24 md:px-6 md:pt-32">
+      <div className="sticky top-16 z-40 -mx-4 mb-8 bg-surface/90 px-4 py-2 backdrop-blur md:-mx-6 md:px-6">
+        <TrackedLink
+          href="/blog"
+          gaLabel="Back to Blog"
+          gaLocation="blog_post_sticky"
+          className={btnSecondary}
+        >
+          <ArrowLeft className="h-4 w-4" />
+          All posts
+        </TrackedLink>
       </div>
 
-      <article className="max-w-3xl mx-auto">
-        <header className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
-
-          <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-6">
-            <div className="flex items-center gap-1">
-              <Calendar className="h-4 w-4" />
-              <span>{formattedDate}</span>
+      <article>
+        <header className="mb-12">
+          <p className="eyebrow">
+            {formattedDate} · {post.readingTime}
+          </p>
+          <h1 className="text-gradient mt-4 max-w-[680px] text-5xl font-bold leading-none md:text-6xl">
+            {post.title}
+          </h1>
+          {post.description && (
+            <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
+              {post.description}
+            </p>
+          )}
+          {post.tags.length > 0 && (
+            <div className="mt-6 flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded border border-line bg-surface px-2 py-0.5 text-xs font-semibold text-slate-muted"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
-            <div className="flex items-center gap-1">
-              <Clock className="h-4 w-4" />
-              <span>{post.readingTime}</span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="bg-secondary text-secondary-foreground px-3 py-1 rounded-full text-sm"
-              >
-                #{tag}
-              </span>
-            ))}
-          </div>
+          )}
         </header>
 
-        <div className="prose prose-neutral dark:prose-invert max-w-none">
-          {slug === CURRICULUM_TODO_SLUG ? (
-            <CurriculumTodoList />
-          ) : (
-            <MDXContent source={post.content} />
-          )}
-        </div>
+        {slug === CURRICULUM_TODO_SLUG ? (
+          <CurriculumTodoList />
+        ) : (
+          <MDXContent source={post.content} />
+        )}
 
-        <footer className="mt-12 pt-8 border-t">
-          <Button asChild>
-            <TrackedLink
-              href="/blog"
-              gaLabel="Back to All Posts"
-              gaLocation="blog_post_footer"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to All Posts
-            </TrackedLink>
-          </Button>
+        <footer className="mt-16">
+          <TrackedLink
+            href="/blog"
+            gaLabel="Back to All Posts"
+            gaLocation="blog_post_footer"
+            className={btnSecondary}
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to all posts
+          </TrackedLink>
         </footer>
       </article>
     </div>

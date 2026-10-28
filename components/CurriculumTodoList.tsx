@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Check, Square } from "lucide-react";
+import { Check, Square } from "@/components/icons";
 import {
   SYSTEM_DESIGN_12WEEK,
   CURRICULUM_STORAGE_KEY,
@@ -68,16 +68,16 @@ export function CurriculumTodoList() {
   }, []);
 
   return (
-    <div className="space-y-10">
-      <p className="text-muted-foreground mb-2">
+    <div className="space-y-4">
+      <p className="text-lg text-slate-muted">
         This 12-week intensive completes both{" "}
-        <strong>System Design Interview</strong> (Alex Xu) and{" "}
-        <strong>Designing Data-Intensive Applications</strong> (DDIA,
+        <strong className="font-bold text-on-surface">System Design Interview</strong> (Alex Xu) and{" "}
+        <strong className="font-bold text-on-surface">Designing Data-Intensive Applications</strong> (DDIA,
         Kleppmann). Each week includes content to learn, a project, and blog
         topics.
       </p>
-      <p className="text-muted-foreground mb-6">
-        Feel free to track your progress on this site itself.
+      <p className="pb-8 text-lg text-slate-muted">
+        Tick items off as you go. Progress is saved in this browser.
       </p>
 
       {SYSTEM_DESIGN_12WEEK.map((week) => {
@@ -87,25 +87,25 @@ export function CurriculumTodoList() {
         const weekFullyDone = weekChecked || allItemsChecked;
 
         return (
-          <section key={week.id} className="rounded-xl border bg-card p-6">
+          <section key={week.id} className="rounded-2xl border border-line bg-surface-container p-6">
             <div className="flex items-start gap-3 mb-4">
               <button
                 type="button"
                 onClick={() => toggleWeek(week)}
-                className="mt-0.5 flex-shrink-0 rounded border border-input p-1 transition-colors hover:bg-muted"
+                className="mt-0.5 flex-shrink-0 rounded border border-line bg-surface p-1 transition-colors hover:bg-surface-container-high"
                 aria-label={
                   weekChecked ? "Mark week incomplete" : "Mark week complete"
                 }
               >
                 {weekFullyDone ? (
-                  <Check className="h-5 w-5 text-primary" />
+                  <Check className="h-5 w-5 text-on-surface" />
                 ) : (
-                  <Square className="h-5 w-5 text-muted-foreground" />
+                  <Square className="h-5 w-5 text-fg-3" />
                 )}
               </button>
-              <h2 className="text-2xl font-bold mt-0 pt-0">{week.title}</h2>
+              <h2 className="text-2xl font-bold text-on-surface">{week.title}</h2>
             </div>
-            <ul className="list-none space-y-2 pl-8">
+            <ul className="list-none space-y-2 pl-10 text-on-surface">
               {week.items.map((item, i) => {
                 const id = `${week.id}-${i}`;
                 const isChecked = checked[id];
@@ -114,19 +114,19 @@ export function CurriculumTodoList() {
                     <button
                       type="button"
                       onClick={() => toggle(id)}
-                      className="mt-0.5 flex-shrink-0 rounded border border-input p-1 transition-colors hover:bg-muted"
+                      className="mt-0.5 flex-shrink-0 rounded border border-line bg-surface p-1 transition-colors hover:bg-surface-container-high"
                       aria-label={isChecked ? "Uncheck" : "Check"}
                     >
                       {isChecked ? (
-                        <Check className="h-4 w-4 text-primary" />
+                        <Check className="h-4 w-4 text-on-surface" />
                       ) : (
-                        <Square className="h-4 w-4 text-muted-foreground" />
+                        <Square className="h-4 w-4 text-fg-3" />
                       )}
                     </button>
                     <span
                       className={
                         isChecked
-                          ? "text-muted-foreground line-through"
+                          ? "text-fg-3 line-through"
                           : undefined
                       }
                     >
@@ -135,7 +135,7 @@ export function CurriculumTodoList() {
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-primary hover:underline"
+                          className="font-semibold underline decoration-fg-3 underline-offset-4 transition-colors hover:decoration-on-surface"
                         >
                           {item.label}
                         </a>
@@ -148,7 +148,7 @@ export function CurriculumTodoList() {
               })}
             </ul>
             {week.description ? (
-              <p className="mt-4 pl-8 text-sm text-muted-foreground leading-relaxed">
+              <p className="mt-4 pl-10 text-base text-slate-muted">
                 {week.description}
               </p>
             ) : null}

@@ -2,43 +2,76 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Menu, Moon, Sun, X } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { personalInfo } from "@/lib/data";
 
 const navigation = [
-  { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
   { name: "Blog", href: "/blog" },
   { name: "Travel", href: "/travel" },
   { name: "About", href: "/about" },
+  { name: "Fly", href: "/fly" },
 ];
+
+function ThemeToggle() {
+  const [dark, setDark] = useState(false);
+  useEffect(() => {
+    setDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggle = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    try {
+      localStorage.setItem("theme", next ? "dark" : "light");
+    } catch {}
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
+      className="grid h-9 w-9 place-items-center rounded-lg text-slate-muted transition-colors hover:bg-surface-container hover:text-on-surface active:scale-[0.98]"
+    >
+      {dark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+    </button>
+  );
+}
 
 export function Header() {
   const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const isActive = (href: string) => pathname.startsWith(href);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+  }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-surface/80 backdrop-blur-xl">
-      <nav className="max-w-container-max mx-auto px-4 md:px-gutter flex h-20 items-center justify-between">
+    <header className="sticky top-3 z-50 px-4 md:px-6">
+      <nav className="mx-auto flex max-w-container-max items-center justify-between rounded-xl border border-line bg-surface/85 py-2 pl-4 pr-2 backdrop-blur-xl">
         <Link
           href="/"
-          className="font-geist text-lg font-semibold text-on-surface tracking-tight"
+          className="text-base font-bold text-on-surface"
+          onClick={() => setOpen(false)}
         >
           Rishabh Rathod
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-1 md:flex">
           {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
+              aria-current={isActive(item.href) ? "page" : undefined}
               className={cn(
-                "relative text-sm transition-colors duration-200 pb-1",
-                pathname === item.href
-                  ? "text-primary font-semibold after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full"
+                "rounded-lg px-3 py-1.5 text-sm font-semibold transition-colors",
+                isActive(item.href)
+                  ? "bg-surface-container text-on-surface"
                   : "text-slate-muted hover:text-on-surface"
               )}
             >
@@ -47,55 +80,55 @@ export function Header() {
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1">
+          <ThemeToggle />
           <a
             href={`mailto:${personalInfo.email}`}
-            className="hidden md:inline-flex items-center px-5 py-2 bg-primary text-on-primary-dark rounded-full font-jetbrains text-xs font-semibold tracking-widest uppercase transition-all hover:shadow-[0_0_20px_rgba(192,193,255,0.3)] active:scale-95"
+            className="hidden rounded-lg bg-on-surface px-3 py-2 text-sm font-semibold text-surface transition-opacity hover:opacity-85 active:scale-[0.98] md:inline-flex"
           >
-            Get in Touch
+            Say hello
           </a>
-
           <button
-            className="md:hidden text-on-surface p-1"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            className="grid h-9 w-9 place-items-center rounded-lg text-on-surface md:hidden"
+            onClick={() => setOpen(!open)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
           >
-            {isMobileMenuOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Nav */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-white/10 bg-surface-container-low">
-          <div className="max-w-container-max mx-auto px-4 py-4 space-y-3">
-            {navigation.map((item) => (
-              <Link
+      {open && (
+        <div className="fixed inset-x-0 bottom-0 top-[72px] z-40 bg-surface px-4 pt-8 md:hidden">
+          <ul className="space-y-2">
+            {[{ name: "Home", href: "/" }, ...navigation].map((item, i) => (
+              <li
                 key={item.href}
-                href={item.href}
-                className={cn(
-                  "block py-2 text-sm font-medium transition-colors",
-                  pathname === item.href
-                    ? "text-primary"
-                    : "text-slate-muted hover:text-on-surface"
-                )}
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="animate-[rise_400ms_cubic-bezier(0.22,1,0.36,1)_both]"
+                style={{ animationDelay: `${i * 60}ms` }}
               >
-                {item.name}
-              </Link>
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={cn(
+                    "block py-2 text-4xl font-bold",
+                    (item.href === "/" ? pathname === "/" : isActive(item.href))
+                      ? "text-on-surface"
+                      : "text-fg-3"
+                  )}
+                >
+                  {item.name}
+                </Link>
+              </li>
             ))}
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="block py-2 text-sm font-jetbrains font-semibold tracking-wider uppercase text-primary"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Get in Touch
-            </a>
-          </div>
+          </ul>
+          <a
+            href={`mailto:${personalInfo.email}`}
+            className="mt-8 inline-flex rounded-lg bg-on-surface px-3 py-2 text-base font-semibold text-surface"
+          >
+            Say hello
+          </a>
         </div>
       )}
     </header>

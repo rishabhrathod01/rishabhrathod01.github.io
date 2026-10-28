@@ -2,7 +2,7 @@
 
 import { GoodreadsBook, GoodreadsData } from "@/lib/goodreads";
 import BookSpine from "./BookSpine";
-import { RefreshCw, LogOut, Share2 } from "lucide-react";
+import { RefreshCw, LogOut, Share2 } from "@/components/icons";
 
 interface VirtualRoomProps {
   data: GoodreadsData;

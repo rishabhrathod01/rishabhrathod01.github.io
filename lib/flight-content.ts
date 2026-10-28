@@ -1,6 +1,6 @@
 // Server-only: assembles the serializable content payload for the drone
 // flight experience at build time. Replaces the API route the static export
-// can't have. Import this ONLY from server components (app/page.tsx).
+// can't have. Import this ONLY from server components (app/fly/page.tsx).
 
 import { getBlogPosts, getTravelStories } from "@/lib/mdx";
 import { personalInfo, experience, projects, droneVideos } from "@/lib/data";

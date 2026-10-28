@@ -93,7 +93,7 @@ export default function BookSpine({ book, onClick, dimmed }: BookSpineProps) {
         <p className="font-semibold truncate">{book.title}</p>
         <p className="text-muted-foreground truncate">{book.author}</p>
         {book.userRating > 0 && (
-          <p className="text-amber-500 text-[10px] mt-0.5">
+          <p className="text-amber-500 text-xs mt-0.5">
             {"★".repeat(book.userRating)}
           </p>
         )}

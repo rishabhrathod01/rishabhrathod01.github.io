@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { X, Copy, Check, Link2, Share2 } from "lucide-react";
+import { X, Copy, Check, Link2, Share2 } from "@/components/icons";
 
 interface ShareModalProps {
   userId: string;
@@ -74,7 +74,7 @@ export default function ShareModal({ userId, username, onClose }: ShareModalProp
 
           {/* Share URL */}
           <div className="mb-5">
-            <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wide">
+            <p className="text-xs font-semibold text-muted-foreground mb-2 tracking-wide">
               Share link
             </p>
             <div className="flex items-center gap-2">

@@ -244,7 +244,7 @@ export default function DroneExperience({
       {/* Backdrop behind the canvas: hides the page once we're in the world.
           Shares #0c1324 with the page + sky zenith, so every fade is seamless. */}
       <div
-        className="absolute inset-0 bg-surface transition-opacity duration-700"
+        className="absolute inset-0 bg-[#0c1324] transition-opacity duration-700"
         style={{ opacity: inWorld ? 1 : 0 }}
       />
 
@@ -302,7 +302,7 @@ export default function DroneExperience({
 
       {/* Shutter above everything: landing + page-navigation cuts. */}
       <div
-        className="absolute inset-0 bg-surface transition-opacity duration-300"
+        className="absolute inset-0 bg-[#0c1324] transition-opacity duration-300"
         style={{ opacity: shutter ? 1 : 0 }}
       />
     </div>

@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { SlidersHorizontal, Trash2, X, Link, Check } from "lucide-react";
+import { SlidersHorizontal, Trash2, X, Link, Check } from "@/components/icons";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -389,7 +389,7 @@ export default function JsonDiffPage() {
     diffResult !== null && stats.added === 0 && stats.removed === 0;
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl">
+    <div className="mx-auto max-w-container-max px-4 pb-8 pt-16 md:px-6">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">JSON Diff</h1>
         <p className="text-muted-foreground text-sm">
@@ -475,7 +475,7 @@ export default function JsonDiffPage() {
           {activePaths.length > 0 && (
             <span
               className={cn(
-                "ml-0.5 rounded-full px-1.5 py-px text-[10px] font-semibold leading-none",
+                "ml-0.5 rounded-full px-1.5 py-px text-xs font-semibold leading-none",
                 showFilter
                   ? "bg-background text-foreground"
                   : "bg-foreground text-background"
@@ -509,7 +509,7 @@ export default function JsonDiffPage() {
         <div className="mb-6 rounded-lg border bg-muted/20 p-4 space-y-5">
           {/* Active paths */}
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <p className="text-xs font-semibold tracking-wide text-muted-foreground">
               Keys to exclude
             </p>
             <p className="text-xs text-muted-foreground">
@@ -577,7 +577,7 @@ export default function JsonDiffPage() {
 
           {/* Saved configs */}
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <p className="text-xs font-semibold tracking-wide text-muted-foreground">
               Saved configurations
             </p>
 

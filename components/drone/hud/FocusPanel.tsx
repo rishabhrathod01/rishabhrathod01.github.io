@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, ExternalLink, Mail } from "lucide-react";
+import { Github, ExternalLink, Mail } from "@/components/icons";
 import { flight, saveSession, startRace, useDroneStore } from "../store";
 import type { FlightContent } from "../types";
 import { getFocusLink, getFocusLinkLabel } from "@/lib/drone/focus-links";

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/components/icons";
+import { Reveal } from "@/components/home/Reveal";
 
 const tools = [
   {
@@ -12,24 +13,32 @@ const tools = [
 
 export default function ToolsPage() {
   return (
-    <div className="container mx-auto px-4 py-16 max-w-3xl">
-      <h1 className="text-3xl font-bold mb-2">Tools</h1>
-      <p className="text-muted-foreground mb-10">
-        Small utilities I built for everyday use.
-      </p>
-      <div className="flex flex-col gap-4">
-        {tools.map((tool) => (
-          <Link
-            key={tool.href}
-            href={tool.href}
-            className="group flex items-start justify-between rounded-lg border p-5 hover:bg-muted/40 transition-colors"
-          >
-            <div>
-              <h2 className="font-semibold mb-1">{tool.name}</h2>
-              <p className="text-sm text-muted-foreground">{tool.description}</p>
-            </div>
-            <ArrowRight className="h-4 w-4 mt-0.5 shrink-0 text-muted-foreground group-hover:text-foreground transition-colors" />
-          </Link>
+    <div className="mx-auto max-w-[760px] px-4 pb-24 pt-24 md:px-6 md:pt-32">
+      <Reveal>
+        <p className="eyebrow">Tools</p>
+        <h1 className="text-gradient mt-4 max-w-[680px] text-5xl font-bold leading-none md:text-6xl">
+          Small utilities
+        </h1>
+        <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
+          Things I built for everyday use. They run in your browser.
+        </p>
+      </Reveal>
+      <div className="mt-16 flex flex-col gap-4">
+        {tools.map((tool, i) => (
+          <Reveal key={tool.href} delay={i * 0.06}>
+            <Link
+              href={tool.href}
+              className="group flex items-start justify-between gap-4 rounded-2xl border border-line bg-surface-container p-6 transition-colors hover:bg-surface-container-high"
+            >
+              <div>
+                <h2 className="text-xl font-bold text-on-surface">
+                  {tool.name}
+                </h2>
+                <p className="mt-2 text-slate-muted">{tool.description}</p>
+              </div>
+              <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-slate-muted transition-transform group-hover:translate-x-1 group-hover:text-on-surface" />
+            </Link>
+          </Reveal>
         ))}
       </div>
     </div>

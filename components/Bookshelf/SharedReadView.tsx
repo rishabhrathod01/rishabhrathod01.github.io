@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { BookOpen, ArrowRight } from "lucide-react";
+import { BookOpen, ArrowRight } from "@/components/icons";
 import { GoodreadsBook, GoodreadsData } from "@/lib/goodreads";
 import VirtualRoom from "./VirtualRoom";
 import BookDetail from "./BookDetail";

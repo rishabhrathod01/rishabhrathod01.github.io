@@ -1,6 +1,6 @@
 "use client";
 
-import { X, ExternalLink, Star } from "lucide-react";
+import { X, ExternalLink, Star } from "@/components/icons";
 import { GoodreadsBook, getBookColor } from "@/lib/goodreads";
 import { useEffect } from "react";
 

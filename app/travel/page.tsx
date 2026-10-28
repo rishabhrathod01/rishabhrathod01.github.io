@@ -1,14 +1,19 @@
 import { Metadata } from "next";
 import { TravelCard } from "@/components/TravelCard";
+import { Reveal } from "@/components/home/Reveal";
 import { getTravelStories } from "@/lib/mdx";
+import { personalInfo } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Calendar, Clock, MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Travel Stories",
   description: "Adventures and experiences from around the world.",
 };
+
+const btnPrimary =
+  "inline-flex items-center gap-2 rounded-lg bg-on-surface px-3 py-2 text-base font-semibold text-surface transition-opacity hover:opacity-85 active:scale-[0.98]";
 
 export default async function TravelPage() {
   const stories = await getTravelStories();
@@ -16,96 +21,70 @@ export default async function TravelPage() {
 
   return (
     <div>
-      {/* ── Header ── */}
-      <section className="py-section-gap bg-surface-container-lowest relative overflow-hidden">
-        <div
-          className="hero-glow opacity-20"
-          style={{ bottom: 0, left: "-5rem" }}
-        />
-        <div className="max-w-container-max mx-auto px-4 md:px-gutter relative z-10">
-          <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-4">
-            {'// EXPEDITIONS'}
-          </p>
-          <h1 className="font-geist text-5xl md:text-7xl font-bold text-on-surface tracking-tight leading-[1.1] mb-6">
-            Travel Stories
+      {/* Header */}
+      <section className="mx-auto max-w-container-max px-4 pb-24 pt-24 md:px-6 md:pt-32">
+        <Reveal>
+          <p className="eyebrow">Travel</p>
+          <h1 className="text-gradient mt-4 max-w-[680px] text-5xl font-bold leading-none md:text-6xl">
+            Travel stories
           </h1>
-          <p className="text-lg text-slate-muted max-w-2xl leading-relaxed">
-            Documenting adventures, experiences, and stories from traveling the
-            world — on bikes, drones, and everything in between.
+          <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
+            Trips on bikes, with drones, and everything in between, written
+            down so I remember them.
           </p>
-        </div>
+        </Reveal>
       </section>
 
-      <div className="max-w-container-max mx-auto px-4 md:px-gutter py-section-gap">
+      <section className="mx-auto max-w-container-max px-4 py-24 md:px-6">
         {stories.length === 0 ? (
-          <p className="text-slate-muted text-center py-16">
-            No travel stories yet. Check back soon!
-          </p>
+          <p className="text-slate-muted">No travel stories yet.</p>
         ) : (
           <>
-            {/* ── Featured story ── */}
+            {/* Featured story */}
             {featured && (
-              <div className="mb-16">
-                <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-6">
-                  {'// LATEST EXPEDITION'}
-                </p>
+              <Reveal className="mb-16">
+                <p className="eyebrow mb-4">Latest trip</p>
                 <Link
                   href={`/travel/${featured.slug}`}
-                  className="block group"
+                  className="group relative block aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-surface-container sm:aspect-[16/9]"
                 >
-                  <div className="glass-card rounded-2xl overflow-hidden kinetic-hover">
-                    <div className="relative h-64 md:h-80 overflow-hidden">
-                      <Image
-                        src={featured.coverImage}
-                        alt={featured.title}
-                        fill
-                        className="object-cover opacity-70 group-hover:opacity-90 transition-all duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-surface/90 via-surface/30 to-transparent" />
-                      <div className="absolute bottom-6 left-6">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 glass-card rounded-full font-jetbrains text-[10px] text-emerald uppercase tracking-widest">
-                          <MapPin className="h-3 w-3" />
-                          {featured.location}, {featured.country}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="p-8">
-                      <div className="flex items-center gap-4 text-slate-muted mb-4 font-jetbrains text-xs">
-                        <span className="flex items-center gap-1.5">
-                          <Calendar className="h-3.5 w-3.5" />
-                          {new Date(featured.date).toLocaleDateString("en-US", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          })}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <Clock className="h-3.5 w-3.5" />
-                          {featured.readingTime}
-                        </span>
-                      </div>
-                      <h2 className="font-geist text-3xl font-semibold text-on-surface mb-3 group-hover:text-primary transition-colors">
-                        {featured.title}
-                      </h2>
-                      <p className="text-slate-muted leading-relaxed max-w-3xl mb-6">
-                        {featured.description}
-                      </p>
-                      <span className="inline-flex items-center gap-2 text-primary font-semibold font-geist group-hover:gap-4 transition-all duration-300">
-                        Read Story <ArrowRight className="h-4 w-4" />
-                      </span>
-                    </div>
+                  <Image
+                    src={featured.coverImage}
+                    alt={featured.title}
+                    fill
+                    priority
+                    className="object-cover grayscale transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-x-4 bottom-4 max-w-[560px] rounded-xl border border-line bg-surface/90 p-6 backdrop-blur md:inset-x-8 md:bottom-8">
+                    <p className="eyebrow flex items-center gap-1">
+                      <MapPin className="h-3.5 w-3.5" />
+                      {featured.location}, {featured.country} ·{" "}
+                      {new Date(featured.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                      })}{" "}
+                      · {featured.readingTime}
+                    </p>
+                    <h2 className="mt-2 text-2xl font-bold text-on-surface md:text-3xl">
+                      {featured.title}
+                    </h2>
+                    <p className="mt-2 line-clamp-2 text-slate-muted">
+                      {featured.description}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-2 font-semibold text-on-surface">
+                      Read the story
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
                   </div>
                 </Link>
-              </div>
+              </Reveal>
             )}
 
-            {/* ── Past Expeditions ── */}
+            {/* Past trips */}
             {rest.length > 0 && (
               <>
-                <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-8">
-                  {'// PAST EXPEDITIONS'}
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <p className="eyebrow mb-4">Past trips</p>
+                <div className="gap-4 sm:columns-2">
                   {rest.map((story, index) => (
                     <TravelCard key={story.slug} {...story} index={index} />
                   ))}
@@ -114,35 +93,26 @@ export default async function TravelPage() {
             )}
           </>
         )}
-      </div>
+      </section>
 
-      {/* ── Join the Adventure CTA ── */}
-      <section className="py-section-gap bg-surface-container-low">
-        <div className="max-w-container-max mx-auto px-4 md:px-gutter">
-          <div className="glass-card rounded-4xl p-12 text-center relative overflow-hidden">
-            <div
-              className="hero-glow opacity-20"
-              style={{ top: 0, left: "50%", transform: "translateX(-50%)" }}
-            />
-            <div className="relative z-10">
-              <h2 className="font-geist text-3xl md:text-4xl font-bold text-on-surface mb-4">
-                Join the Adventure
-              </h2>
-              <p className="text-slate-muted mb-8 max-w-lg mx-auto">
-                Follow along for more stories, drone footage, and road-trip
-                chronicles from across India and beyond.
-              </p>
-              <a
-                href="https://www.instagram.com/rishabhrathod01"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-on-primary-dark rounded-2xl font-jetbrains text-xs font-semibold tracking-widest uppercase kinetic-hover"
-              >
-                Follow on Instagram
-              </a>
-            </div>
-          </div>
-        </div>
+      {/* Instagram CTA */}
+      <section className="mx-auto max-w-container-max px-4 py-24 md:px-6">
+        <Reveal className="max-w-[680px]">
+          <h2 className="text-3xl font-bold text-on-surface md:text-4xl">
+            More from the road
+          </h2>
+          <p className="mt-4 text-lg text-slate-muted">
+            Drone footage and road trip photos from across India and beyond.
+          </p>
+          <a
+            href={personalInfo.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${btnPrimary} mt-8`}
+          >
+            Follow on Instagram
+          </a>
+        </Reveal>
       </section>
     </div>
   );

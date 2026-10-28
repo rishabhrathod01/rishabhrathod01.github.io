@@ -1,11 +1,20 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { BlogCard } from "@/components/BlogCard";
+import { Reveal } from "@/components/home/Reveal";
+import { ArrowRight } from "@/components/icons";
 import { getBlogPosts } from "@/lib/mdx";
+import { personalInfo } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Blog",
   description: "Articles about web development, programming, and technology.",
 };
+
+const btnPrimary =
+  "inline-flex items-center gap-2 rounded-lg bg-on-surface px-3 py-2 text-base font-semibold text-surface transition-opacity hover:opacity-85 active:scale-[0.98]";
+const tag =
+  "rounded border border-line bg-surface px-2 py-0.5 text-xs font-semibold text-slate-muted";
 
 export default async function BlogPage() {
   const posts = await getBlogPosts();
@@ -13,75 +22,68 @@ export default async function BlogPage() {
 
   return (
     <div>
-      {/* ── Header ── */}
-      <section className="py-section-gap bg-surface-container-lowest relative overflow-hidden">
-        <div
-          className="hero-glow opacity-20"
-          style={{ top: "-5rem", right: "-5rem" }}
-        />
-        <div className="max-w-container-max mx-auto px-4 md:px-gutter relative z-10">
-          <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-4">
-            {'// WRITING'}
-          </p>
-          <h1 className="font-geist text-5xl md:text-7xl font-bold text-on-surface tracking-tight leading-[1.1] mb-6">
-            Tech Blog
+      {/* Header */}
+      <section className="mx-auto max-w-container-max px-4 pb-24 pt-24 md:px-6 md:pt-32">
+        <Reveal>
+          <p className="eyebrow">Blog</p>
+          <h1 className="text-gradient mt-4 max-w-[680px] text-5xl font-bold leading-none md:text-6xl">
+            Writing
           </h1>
-          <p className="text-lg text-slate-muted max-w-2xl leading-relaxed">
-            Thoughts, tutorials, and insights about web development,
-            programming, and the latest in tech.
+          <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
+            Notes on frontend engineering, developer tooling, and what I am
+            learning along the way.
           </p>
-        </div>
+        </Reveal>
       </section>
 
-      <div className="max-w-container-max mx-auto px-4 md:px-gutter py-section-gap">
+      <section className="mx-auto max-w-container-max px-4 py-24 md:px-6">
         {posts.length === 0 ? (
-          <p className="text-slate-muted text-center py-16">
-            No blog posts yet. Check back soon!
-          </p>
+          <p className="text-slate-muted">No posts yet.</p>
         ) : (
           <>
-            {/* ── Featured post ── */}
+            {/* Featured post */}
             {featured && (
-              <div className="mb-16">
-                <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-6">
-                  {'// LATEST'}
-                </p>
-                <a href={`/blog/${featured.slug}`} className="block group">
-                  <div className="glass-card rounded-2xl p-8 md:p-12 kinetic-hover">
-                    <div className="flex items-center gap-4 text-slate-muted mb-4 font-jetbrains text-xs">
-                      <span>{new Date(featured.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
-                      <span>·</span>
-                      <span>{featured.readingTime}</span>
-                    </div>
-                    <h2 className="font-geist text-3xl md:text-4xl font-semibold text-on-surface mb-4 group-hover:text-primary transition-colors">
-                      {featured.title}
-                    </h2>
-                    <p className="text-slate-muted text-lg leading-relaxed mb-6 max-w-3xl">
-                      {featured.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {featured.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-1 bg-surface-container rounded font-jetbrains text-[10px] text-emerald uppercase tracking-widest border border-white/10"
-                        >
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
+              <Reveal className="mb-16">
+                <p className="eyebrow mb-4">Latest post</p>
+                <Link
+                  href={`/blog/${featured.slug}`}
+                  className="group block rounded-2xl border border-line bg-surface-container p-8 transition-colors hover:bg-surface-container-high md:p-12"
+                >
+                  <p className="eyebrow">
+                    {new Date(featured.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}{" "}
+                    · {featured.readingTime}
+                  </p>
+                  <h2 className="mt-4 max-w-[760px] text-3xl font-bold text-on-surface md:text-4xl">
+                    {featured.title}
+                  </h2>
+                  <p className="mt-4 max-w-[680px] text-lg text-slate-muted">
+                    {featured.description}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {featured.tags.map((t) => (
+                      <span key={t} className={tag}>
+                        {t}
+                      </span>
+                    ))}
                   </div>
-                </a>
-              </div>
+                  <span className="mt-8 inline-flex items-center gap-2 font-semibold text-on-surface">
+                    Read the post
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </Reveal>
             )}
 
-            {/* ── Rest of posts ── */}
+            {/* Rest of posts */}
             {rest.length > 0 && (
               <>
-                <p className="font-jetbrains text-xs font-semibold tracking-widest uppercase text-primary mb-8">
-                  {'// ALL POSTS'}
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {posts.map((post, index) => (
+                <p className="eyebrow mb-4">Earlier posts</p>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  {rest.map((post, index) => (
                     <BlogCard key={post.slug} {...post} index={index} />
                   ))}
                 </div>
@@ -89,31 +91,26 @@ export default async function BlogPage() {
             )}
           </>
         )}
-      </div>
+      </section>
 
-      {/* ── Newsletter CTA ── */}
-      <section className="py-section-gap bg-surface-container-low">
-        <div className="max-w-container-max mx-auto px-4 md:px-gutter">
-          <div className="glass-card rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <h3 className="font-geist text-2xl font-semibold text-on-surface mb-2">
-                Stay ahead of the curve
-              </h3>
-              <p className="text-slate-muted">
-                Follow me for the latest articles on engineering and developer
-                tooling.
-              </p>
-            </div>
-            <a
-              href={`https://twitter.com/rishabhrathod01`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-primary text-on-primary-dark rounded-2xl font-jetbrains text-xs font-semibold tracking-widest uppercase kinetic-hover"
-            >
-              Follow on X
-            </a>
-          </div>
-        </div>
+      {/* Follow CTA */}
+      <section className="mx-auto max-w-container-max px-4 py-24 md:px-6">
+        <Reveal className="max-w-[680px]">
+          <h2 className="text-3xl font-bold text-on-surface md:text-4xl">
+            Get new posts as they land
+          </h2>
+          <p className="mt-4 text-lg text-slate-muted">
+            I share every new article on engineering and developer tooling on X.
+          </p>
+          <a
+            href={personalInfo.social.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${btnPrimary} mt-8`}
+          >
+            Follow on X
+          </a>
+        </Reveal>
       </section>
     </div>
   );

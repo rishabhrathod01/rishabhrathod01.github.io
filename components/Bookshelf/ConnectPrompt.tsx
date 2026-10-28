@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BookOpen, RefreshCw } from "lucide-react";
+import { BookOpen, RefreshCw } from "@/components/icons";
 
 interface ConnectPromptProps {
   onConnect: (input: string) => void;
@@ -24,7 +24,6 @@ export default function ConnectPrompt({
   return (
     <div
       className="min-h-[60vh] flex flex-col items-center justify-center px-4 py-16"
-      style={{ background: "var(--room-bg, #f0ece6)" }}
     >
       {/* Bookshelf illustration */}
       <div className="mb-8 opacity-60">
@@ -75,7 +74,7 @@ export default function ConnectPrompt({
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="goodreads.com/user/show/12345678 or just 12345678"
-            className="w-full px-4 py-2.5 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+            className="w-full px-4 py-2.5 text-sm rounded-lg border border-line bg-surface-container focus:outline-none focus:ring-2 focus:ring-ring"
             disabled={loading}
           />
         </div>
@@ -97,7 +96,7 @@ export default function ConnectPrompt({
               Syncing shelves…
             </>
           ) : (
-            "Sync Goodreads"
+            "Sync shelves"
           )}
         </button>
       </form>

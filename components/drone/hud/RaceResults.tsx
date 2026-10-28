@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { X } from "lucide-react";
+import { X } from "@/components/icons";
 import { RACE_RINGS, RACE_TIME_LIMIT } from "@/lib/drone/layout";
 import { race, resetRace, useDroneStore } from "../store";
 

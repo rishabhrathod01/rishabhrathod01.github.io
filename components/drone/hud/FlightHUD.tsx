@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Volume2, VolumeX } from "lucide-react";
+import { Volume2, VolumeX } from "@/components/icons";
 import { flight, race, useDroneStore } from "../store";
 import { RACE_RINGS, RACE_TIME_LIMIT } from "@/lib/drone/layout";
 import ControlLegend from "./ControlLegend";
