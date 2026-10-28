@@ -16,7 +16,7 @@ type Phase = keyof typeof POSITION;
 // Shows one phrase at a time. The current phrase wipes out left to right, then
 // the next one wipes in left to right. Only one phrase is ever in the DOM, so
 // they cannot overlap. An optional fixed `prefix` stays put so the line is
-// never empty mid-swap. One line from md up; on phones a long phrase may wrap.
+// never empty mid-swap. Always one line: on phones the font scales with the viewport so the longest phrase fits.
 // Reduced motion keeps the first phrase.
 export function RotatingText({
   prefix,
@@ -53,7 +53,7 @@ export function RotatingText({
   }, [phrases.length, interval]);
 
   return (
-    <span className="mt-2 block text-4xl md:whitespace-nowrap md:text-5xl">
+    <span className="mt-2 block whitespace-nowrap text-[min(6.5vw,2.25rem)] xl:text-5xl">
       {prefix && <span className="text-gradient">{prefix} </span>}
       <span
         className="text-gradient inline-block"

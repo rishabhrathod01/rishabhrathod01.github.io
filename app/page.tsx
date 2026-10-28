@@ -79,14 +79,14 @@ export default async function HomePage() {
             <RotatingText
               prefix="I"
               phrases={[
-                "solve complex problems.",
-                "build dev tools.",
+                "ask Claude to alter divs.",
                 "ship mobile apps.",
-                "build AI agents.",
-                "fly drones.",
-                "ride solo on my bike.",
-                "automate my chores.",
-                "write about what I learn.",
+                "build agentic UX.",
+                "solve challenging problems.",
+                "love building dev tools.",
+                "like capturing drone shots.",
+                "like slow travelling.",
+                "love riding my bike.",
               ]}
             />
           </h1>
