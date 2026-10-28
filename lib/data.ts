@@ -9,10 +9,9 @@ export const personalInfo = {
     github: "https://github.com/rishabhrathod01",
     linkedin: "https://www.linkedin.com/in/rishabhrathod01",
     twitter: "https://twitter.com/rishabhrathod01",
-    instagram: "https://www.instagram.com/rishabhrathod01",
+    instagram: "https://www.instagram.com/rishabh_ooo",
     youtube: "https://www.youtube.com/@rishabhrathod01",
     // Drone reels live on a separate Instagram account.
-    droneInstagram: "https://www.instagram.com/rishabh_ooo",
   },
   about: {
     short:

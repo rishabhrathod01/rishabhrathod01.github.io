@@ -189,7 +189,7 @@ export default async function HomePage() {
             "Now I lead the agentic user experience at Prophecy, built for analysts. In my free time I learn calisthenics and capture drone shots on trips to",
             { text: "Himachal,", href: "https://youtu.be/qVIHJk79q9c" },
             { text: "Coorg,", href: "https://youtu.be/NV87I6aqU18" },
-            { text: "Wayanad,", href: personalInfo.social.droneInstagram },
+            { text: "Wayanad,", href: personalInfo.social.instagram },
             {
               text: "and beyond.",
               href: personalInfo.social.youtube,
