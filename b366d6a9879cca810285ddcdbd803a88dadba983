@@ -1,0 +1,26 @@
+app/page.tsx
+  s_ed2796e8fa70cb::t_29804cf151588a 129-135
+components/home/TaglineReveal.tsx
+  s_ed2796e8fa70cb::t_29804cf151588a 3,6-7,10,38-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b366d6a9879cca810285ddcdbd803a88dadba983",
+  "prompts": {},
+  "humans": {
+    "h_254a44d1f12105": {
+      "author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  },
+  "sessions": {
+    "s_ed2796e8fa70cb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f462f0af-fc94-470a-8c20-30d0c57fd21f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
