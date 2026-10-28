@@ -69,17 +69,19 @@ export default async function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="mx-auto max-w-[760px] px-4 pb-24 pt-24 md:px-6 md:pt-32">
-        <Reveal>
+      <section className="mx-auto grid max-w-container-max items-center gap-8 px-4 pb-24 pt-24 md:grid-cols-[minmax(0,1fr)_auto] md:gap-12 md:px-6 md:pt-32">
+        <Reveal className="md:order-2">
           <Image
             src="/about/portrait.png"
             alt={personalInfo.name}
-            width={72}
-            height={72}
+            width={288}
+            height={288}
             priority
-            className="h-[72px] w-[72px] rounded-[28%] object-cover grayscale"
+            className="h-32 w-32 rounded-[28%] object-cover grayscale md:h-64 md:w-64 lg:h-72 lg:w-72"
           />
-          <h1 className="text-gradient mt-8 max-w-[680px] text-5xl font-bold leading-none md:text-6xl">
+        </Reveal>
+        <Reveal>
+          <h1 className="text-gradient max-w-[680px] text-5xl font-bold leading-none md:text-6xl">
             Hi, I&apos;m Rishabh. I build tools for developers, and fly drones
             on weekends.
           </h1>
