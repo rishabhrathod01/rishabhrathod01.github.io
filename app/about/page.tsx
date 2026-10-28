@@ -1,19 +1,10 @@
 import Image from "next/image";
 import { Mail, MapPin } from "@/components/icons";
 import { Reveal } from "@/components/home/Reveal";
-import { personalInfo, skills, experience, education } from "@/lib/data";
+import { personalInfo, experience, education } from "@/lib/data";
 
 const btnPrimary =
   "inline-flex items-center gap-2 rounded-lg bg-on-surface px-3 py-2 text-base font-semibold text-surface transition-opacity hover:opacity-85 active:scale-[0.98]";
-const tag =
-  "rounded border border-line bg-surface px-2 py-0.5 text-xs font-semibold text-slate-muted";
-
-const skillSections = [
-  { label: "Languages", items: skills.languages },
-  { label: "Frameworks", items: skills.frameworks },
-  { label: "Tools", items: skills.tools },
-  { label: "Core focus", items: skills.design },
-];
 
 function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
@@ -35,11 +26,11 @@ export default function AboutPage() {
           <div>
             <p className="eyebrow">About</p>
             <h1 className="text-gradient mt-4 max-w-[680px] text-5xl font-bold leading-none md:text-6xl">
-              I build tools for the engineers who build everything else.
+              I solve problems, then ship the fix.
             </h1>
             <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
-              Staff frontend engineer with 7+ years of full time experience on
-              developer platforms, enterprise features, and AI tooling.
+              Staff frontend engineer. 7+ years of shipping products, from a
+              food delivery app to developer platforms and AI agents.
             </p>
           </div>
           <div className="relative h-48 w-48 overflow-hidden rounded-2xl border border-line bg-surface-container md:h-56 md:w-56">
@@ -79,27 +70,6 @@ export default function AboutPage() {
             </div>
           </div>
         </Reveal>
-      </section>
-
-      {/* Skills */}
-      <section className="mx-auto max-w-container-max px-4 py-24 md:px-6">
-        <SectionHeading eyebrow="Skills" title="What I work with" />
-        <dl>
-          {skillSections.map((section, i) => (
-            <Reveal key={section.label} delay={i * 0.06}>
-              <div className="grid gap-4 border-t border-line py-6 md:grid-cols-[1fr_2fr]">
-                <dt className="font-bold text-on-surface">{section.label}</dt>
-                <dd className="flex flex-wrap gap-2">
-                  {section.items.map((item) => (
-                    <span key={item} className={tag}>
-                      {item}
-                    </span>
-                  ))}
-                </dd>
-              </div>
-            </Reveal>
-          ))}
-        </dl>
       </section>
 
       {/* Experience */}

@@ -2,7 +2,7 @@ export const personalInfo = {
   name: "Rishabh Rathod",
   role: "Staff Frontend Engineer",
   tagline:
-    "Building efficient and user-friendly developer tools, websites, and mobile apps with JavaScript, React, and React Native",
+    "Problem solver. I ship products people use, from food delivery apps to low-code platforms and AI agents.",
   email: "rishabhrathod2012@gmail.com",
   location: "Bengaluru, Karnataka, India",
   social: {
@@ -13,39 +13,11 @@ export const personalInfo = {
   },
   about: {
     short:
-      "I am a software developer with expertise in JavaScript, React, and React Native. I create developer tools, websites, and mobile apps that are efficient and user-friendly.",
-    long: "With over 7 years of full-time frontend experience (plus a year of internships), I specialize in building performant, scalable web and mobile applications. Currently working as a Staff Frontend Engineer at Prophecy, I've contributed to shipping AI agent features and have a proven track record of optimizing performance, building enterprise features, and leading developer-centric initiatives. I'm passionate about creating tools that make developers' lives easier and delivering exceptional user experiences.",
+      "I solve problems and ship the fix. Over 7 years that has meant mobile apps, a crypto trading platform, a low-code engine, and AI agents.",
+    long: "I care about what gets shipped and whether it works, not which tool built it. In 7+ years (plus a year of internships) I have shipped a food delivery app, a crypto algo trading platform at Streak, enterprise features and a 200% faster evaluation engine at Appsmith, and now the agentic experience at Prophecy. Outside work I take solo bike trips and fly drones.",
   },
   resume:
     "https://drive.google.com/file/d/1mxMNR2o-UlQ5ycbg64doEkPC7vLpAtgc/view?usp=sharing",
-};
-
-export const skills = {
-  languages: [
-    "JavaScript",
-    "TypeScript",
-    "HTML",
-    "CSS",
-    "English",
-    "Gujarati",
-    "Hindi",
-  ],
-  frameworks: [
-    "React",
-    "React Native",
-    "Next.js",
-    "Redux",
-    "Gatsby",
-    "Material UI",
-  ],
-  tools: ["Git", "Webpack", "Firebase", "FFMPEG", "VS Code", "Unit Testing"],
-  design: [
-    "Front-End Development",
-    "Responsive Design",
-    "UI/UX Design",
-    "Performance Optimization",
-    "SEO",
-  ],
 };
 
 export const experience = [
@@ -93,10 +65,10 @@ export const experience = [
       "Developed high-performance web and mobile solutions for fintech platform.",
     achievements: [
       "Reduced website bundle size by 65%, improving First Contentful Paint from 4.0s to 1.8s via code splitting and lazy-loading",
-      "Built platform-independent charting solution using customized TradingView Lite for React Native and web",
-      "Developed responsive website using Gatsby with >90 SEO score on Lighthouse",
-      "Led development of custom React Native components and integrated push notifications across multiple Firebase instances",
-      "Implemented Dark Theme using Material UI and created CSS-to-JS conversion tool",
+      "Shipped one charting experience across mobile and web",
+      "Shipped the marketing website with a 90+ Lighthouse SEO score",
+      "Led custom mobile components and shipped push notifications",
+      "Shipped dark theme and built a CSS-to-JS conversion tool",
       "Built internal Android dialer app integrated with CRM API to automate customer support calls",
     ],
   },
@@ -107,7 +79,7 @@ export const experience = [
     description: "Developed mobile app features for audio content platform.",
     achievements: [
       "Developed Quiz module for the BBR app, enhancing user engagement",
-      "Implemented audio trimming and merging functionality using FFMPEG scripts and react-native-ffmpeg",
+      "Built in-app audio trimming and merging",
     ],
   },
   {
@@ -116,8 +88,7 @@ export const experience = [
     period: "August 2018 - March 2019",
     description: "Built mobile application for online food ordering platform.",
     achievements: [
-      "Developed mobile application using React Native for online food ordering",
-      "Managed state using Redux and Redux-thunk",
+      "Shipped the mobile app for online food ordering",
     ],
   },
 ];
@@ -128,7 +99,7 @@ export const projects = [
     description:
       "A browser-based JSON diff tool with side-by-side and unified views. Supports recursive key-exclusion filters with named configs, shareable filter links via URL params, and sorts keys before comparison to cut through noise.",
     image: "/projects/json-diff.png",
-    tags: ["Developer Tools", "Next.js", "TypeScript", "Open Source"],
+    tags: ["Developer tool", "Free to use", "Open source"],
     liveUrl: "https://rishabhrathod01.github.io/tools/json-diff",
     githubUrl: "https://github.com/rishabhrathod01/rishabhrathod01.github.io",
     featured: true,
@@ -139,7 +110,7 @@ export const projects = [
       "A powerful developer tool for comparing API responses. Helps developers identify differences between multiple API endpoints, track API changes, and debug response variations efficiently.",
     image:
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-    tags: ["Developer Tools", "API", "CLI", "Open Source"],
+    tags: ["Developer tool", "API debugging", "Open source"],
     liveUrl: "",
     githubUrl: "https://github.com/rishabhrathod01/DiffyCurl",
     // Built before agentic AI coding tools; shown as a badge.
@@ -152,7 +123,7 @@ export const projects = [
       "A VS Code extension that converts CSS styles to JavaScript objects instantly. Streamlines the workflow for developers working with CSS-in-JS libraries like styled-components and emotion. Published on VS Code Marketplace.",
     image:
       "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
-    tags: ["VS Code", "Extension", "CSS", "JavaScript", "Developer Tools"],
+    tags: ["Developer tool", "VS Code Marketplace", "Open source"],
     liveUrl:
       "https://marketplace.visualstudio.com/items?itemName=rishabh-rathod.css-to-js",
     githubUrl: "https://github.com/rishabhrathod01/css-to-js",

@@ -31,8 +31,7 @@ export default function ProjectsPage() {
             Things I made
           </h1>
           <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
-            Full stack apps, developer tools, and frontend experiments, mostly
-            built to solve a problem I had myself.
+            Small tools, each built to fix a problem I kept running into.
           </p>
           <dl className="mt-12 flex flex-wrap gap-12">
             {stats.map((stat) => (

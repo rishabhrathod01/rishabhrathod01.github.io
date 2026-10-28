@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Dancing_Script } from "next/font/google";
 import { getBlogPosts, getTravelStories } from "@/lib/mdx";
 import { personalInfo, experience, projects } from "@/lib/data";
 import {
@@ -14,6 +15,8 @@ import {
 import { Reveal } from "@/components/home/Reveal";
 import { TaglineReveal } from "@/components/home/TaglineReveal";
 
+const script = Dancing_Script({ subsets: ["latin"], weight: "700" });
+
 const btnPrimary =
   "inline-flex items-center gap-2 rounded-lg bg-on-surface px-3 py-2 text-base font-semibold text-surface transition-opacity hover:opacity-85 active:scale-[0.98]";
 const btnSecondary =
@@ -25,7 +28,7 @@ function Chapter({
   id,
 }: {
   n: string;
-  title: string;
+  title: React.ReactNode;
   id?: string;
 }) {
   return (
@@ -82,13 +85,17 @@ export default async function HomePage() {
         </Reveal>
         <Reveal>
           <h1 className="text-gradient max-w-[680px] text-5xl font-bold leading-none md:text-6xl">
-            Hi, I&apos;m Rishabh. I build tools for developers, and fly drones
-            on weekends.
+            Hi, I&apos;m{" "}
+            <span className={`${script.className} text-6xl md:text-7xl`}>
+              Rishabh
+            </span>
+            .<br />
+            I solve problems.
           </h1>
           <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
             Staff frontend engineer at Prophecy in Bengaluru. Before that,
-            Appsmith, Streak AI, and three startups that taught me React
-            Native.
+            Appsmith, Streak AI, and three startups that taught me
+            product building.
           </p>
           <div className="mt-8 flex flex-wrap gap-2">
             <a href="#story" className={btnPrimary}>
@@ -124,15 +131,31 @@ export default async function HomePage() {
         </Reveal>
       </section>
 
-      {/* Tagline reveal */}
-      <section className="mx-auto max-w-[760px] px-4 py-24 md:px-6">
+      {/* Tagline reveal: two staggered halves, script font on a few words */}
+      <section className="mx-auto grid max-w-container-max gap-12 px-4 py-24 md:grid-cols-2 md:gap-16 md:px-6">
         <TaglineReveal
+          className="text-3xl md:text-4xl"
           parts={[
-            "In 2018 I shipped my first mobile app for a food delivery startup. Then I built global crypto algo trading at Streak, rebuilt the low-code evaluation engine at Appsmith while",
-            { text: "riding solo from Bangalore to Goa", href: "/travel/mulki-goa-bike-trip" },
-            "on my bike with a drone, and now lead the agentic experience at Prophecy while chasing drone shots in Himachal, Coorg, Wayanad, and beyond.",
+            "In 2018 I shipped my first mobile app, for a food delivery startup. Then crypto algo trading at Streak, and a low-code engine at Appsmith, between",
+            {
+              text: "solo rides to Goa.",
+              href: "/travel/mulki-goa-bike-trip",
+              className: `${script.className} text-4xl md:text-5xl`,
+            },
           ]}
         />
+        <div className="md:mt-48">
+          <TaglineReveal
+            className="text-3xl md:text-4xl"
+            parts={[
+              "Now I lead the agentic experience at Prophecy, and chase drone shots over Himachal, Coorg, Wayanad,",
+              {
+                text: "and beyond.",
+                className: `${script.className} text-4xl md:text-5xl`,
+              },
+            ]}
+          />
+        </div>
       </section>
 
       {/* Chapter one: work */}
@@ -287,7 +310,17 @@ export default async function HomePage() {
 
       {/* Chapter four: contact */}
       <section className="mx-auto max-w-[760px] px-4 py-24 md:px-6">
-        <Chapter n="four" title="Say hello" />
+        <Chapter
+          n="four"
+          title={
+            <>
+              Say{" "}
+              <span className={`${script.className} text-4xl md:text-5xl`}>
+                hello
+              </span>
+            </>
+          }
+        />
         <Reveal>
           <p className="max-w-[560px] text-lg text-slate-muted">
             I reply to every email about frontend roles, developer tools, or

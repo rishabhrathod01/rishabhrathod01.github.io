@@ -1,17 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 
-type Part = string | { text: string; href: string };
+// A plain string, or a run of words that links somewhere and/or gets its
+// own class (e.g. a script font).
+type Part = string | { text: string; href?: string; className?: string };
 
 // Words start at 30% and light up in reading order as they cross a line
 // 40% up from the bottom of the viewport. Plays once.
-export function TaglineReveal({ parts }: { parts: Part[] }) {
+export function TaglineReveal({
+  parts,
+  className = "max-w-[680px] text-4xl md:text-5xl",
+}: {
+  parts: Part[];
+  className?: string;
+}) {
   const ref = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    const words = ref.current?.querySelectorAll("span");
+    const words = ref.current?.querySelectorAll<HTMLElement>("[data-word]");
     if (!words) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       words.forEach((w) => (w.style.opacity = "1"));
@@ -31,28 +39,34 @@ export function TaglineReveal({ parts }: { parts: Part[] }) {
   }, []);
 
   return (
-    <p
-      ref={ref}
-      className="max-w-[680px] text-4xl font-bold text-on-surface md:text-5xl"
-    >
+    <p ref={ref} className={`font-bold text-on-surface ${className}`}>
       {parts.map((part, i) => {
         const words = (typeof part === "string" ? part : part.text)
           .split(" ")
           .map((word, j) => (
-            <span key={j} className="opacity-30 transition-opacity duration-500">
+            <span
+              key={j}
+              data-word
+              className="opacity-30 transition-opacity duration-500"
+            >
               {word}{" "}
             </span>
           ));
-        return typeof part === "string" ? (
-          words
-        ) : (
-          <Link
-            key={i}
-            href={part.href}
-            className="underline decoration-line decoration-2 underline-offset-8 transition-colors hover:decoration-on-surface"
-          >
+        if (typeof part === "string") return <Fragment key={i}>{words}</Fragment>;
+        if (part.href)
+          return (
+            <Link
+              key={i}
+              href={part.href}
+              className={`underline decoration-line decoration-2 underline-offset-8 transition-colors hover:decoration-on-surface ${part.className ?? ""}`}
+            >
+              {words}
+            </Link>
+          );
+        return (
+          <span key={i} className={part.className}>
             {words}
-          </Link>
+          </span>
         );
       })}
     </p>
