@@ -83,7 +83,9 @@ export function Header() {
         <div className="flex items-center gap-1">
           <ThemeToggle />
           <a
-            href={`mailto:${personalInfo.email}`}
+            href={personalInfo.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden rounded-lg bg-on-surface px-3 py-2 text-sm font-semibold text-surface transition-opacity hover:opacity-85 active:scale-[0.98] md:inline-flex"
           >
             Say hello
@@ -124,7 +126,9 @@ export function Header() {
             ))}
           </ul>
           <a
-            href={`mailto:${personalInfo.email}`}
+            href={personalInfo.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-8 inline-flex rounded-lg bg-on-surface px-3 py-2 text-base font-semibold text-surface"
           >
             Say hello

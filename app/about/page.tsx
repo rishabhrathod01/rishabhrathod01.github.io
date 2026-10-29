@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Mail, MapPin } from "@/components/icons";
+import { MapPin } from "@/components/icons";
+import { LinkedinIcon } from "@/components/SocialIcons";
 import { Reveal } from "@/components/home/Reveal";
 import { personalInfo, experience, education } from "@/lib/data";
 
@@ -62,11 +63,13 @@ export default function AboutPage() {
                 {personalInfo.location}
               </span>
               <a
-                href={`mailto:${personalInfo.email}`}
+                href={personalInfo.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 transition-colors hover:text-on-surface"
               >
-                <Mail className="h-4 w-4 text-on-surface" />
-                {personalInfo.email}
+                <LinkedinIcon className="h-4 w-4 text-on-surface" />
+                Message me on LinkedIn
               </a>
             </div>
           </div>
@@ -140,8 +143,13 @@ export default function AboutPage() {
           <p className="mt-4 text-lg text-slate-muted">
             I am open to new roles, developer tooling work, and collaborations.
           </p>
-          <a href={`mailto:${personalInfo.email}`} className={`${btnPrimary} mt-8`}>
-            Email me <Mail className="h-4 w-4" />
+          <a
+            href={personalInfo.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${btnPrimary} mt-8`}
+          >
+            Message me on LinkedIn <LinkedinIcon className="h-4 w-4" />
           </a>
         </Reveal>
       </section>

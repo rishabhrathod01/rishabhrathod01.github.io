@@ -9,9 +9,8 @@ export const personalInfo = {
     github: "https://github.com/rishabhrathod01",
     linkedin: "https://www.linkedin.com/in/rishabhrathod01",
     twitter: "https://twitter.com/rishabhrathod01",
-    instagram: "https://www.instagram.com/rishabh_ooo",
+    instagram: "https://www.instagram.com/rishabh__ooo",
     youtube: "https://www.youtube.com/@rishabhrathod01",
-    // Drone reels live on a separate Instagram account.
   },
   about: {
     short:
@@ -169,6 +168,21 @@ export const droneVideos = [
   },
 ];
 
+// Instagram reels from trips, keyed by place. `id` is the reel shortcode.
+export const reels = {
+  mandalpatti: { place: "Mandalpatti Peak, Coorg", id: "DRknx-Bk8gP" },
+  colaBeach: { place: "Cola Beach, Goa", id: "DY0HQggTBpC" },
+  arambol: { place: "Arambol Beach, Goa", id: "DY0HI-jzsUr" },
+  kaup: { place: "Kaup Beach lighthouse, Mulki", id: "DY0GdBpzFLO" },
+  marvanthe: { place: "Marvanthe Beach", id: "DY0Ete-z-wm" },
+  rohtang: { place: "Rohtang, Himachal", id: "DRStcZbDtOB" },
+  poombarai: { place: "Poombarai, near Kodaikanal", id: "DCKMkZhOeyd" },
+};
+
+export type Reel = (typeof reels)[keyof typeof reels];
+
+export const reelUrl = (r: Reel) => `https://www.instagram.com/reel/${r.id}/`;
+
 export const education = [
   {
     institution: "SJB Institute of Technology",
@@ -183,5 +197,170 @@ export const education = [
     field: "Secondary Education",
     period: "2013 - 2015",
     location: "India",
+  },
+];
+
+// The life story on the home page, drawn as one winding road. Add an event by
+// adding an object here; the timeline sorts by `start` and places it by date.
+// Dates are "YYYY", "YYYY-MM" or "YYYY-MM-DD"; `end` may also be "present".
+export type LifeIcon =
+  | "home" | "school" | "college" | "cart" | "radio" | "chart"
+  | "code" | "sparkle" | "bike" | "plant" | "cloud" | "mountain" | "tree";
+
+export type LifeEvent = {
+  start?: string; // omit only for the origin (birth)
+  end?: string; // omit for one-day events
+  kind: "life" | "education" | "work" | "trip";
+  icon: LifeIcon; // drawn on the road at the event's dot
+  // Where the road leans during this stretch, from -1 (left) to 1 (right).
+  // Leave it out and the road stays where it is. For a lean that changed,
+  // list each change with the date it started.
+  lean?: number | { from: string; lean: number }[];
+  title: string;
+  summary: string;
+  href?: string;
+  reels?: (keyof typeof reels)[]; // the first plays in the card unless there is a video
+  video?: string; // YouTube id, shown in the card
+  links?: { label: string; href: string; note?: string; image?: string }[];
+};
+
+const projectImage = (title: string) =>
+  projects.find((p) => p.title === title)?.image;
+
+export const lifeEvents: LifeEvent[] = [
+  {
+    start: "1998",
+    kind: "life",
+    icon: "home",
+    title: "Born in Silvassa",
+    summary: "This is where it starts.",
+  },
+  {
+    start: "2002",
+    end: "2015",
+    kind: "education",
+    icon: "school",
+    title: "Lions English School",
+    summary: "I studied here from the age of 4 until I finished my SSC and HSC.",
+  },
+  {
+    start: "2015",
+    end: "2019",
+    kind: "education",
+    icon: "college",
+    lean: -0.5,
+    title: "SJB Institute of Technology",
+    summary: "I moved to Bengaluru for college and studied Computer Science.",
+  },
+  {
+    start: "2018-08",
+    end: "2019-03",
+    kind: "work",
+    icon: "cart",
+    lean: 0.5,
+    title: "Shoptree",
+    summary:
+      "An 8-month internship in my final year. I shipped the mobile app for online food ordering.",
+  },
+  {
+    start: "2019-04",
+    end: "2019-06",
+    kind: "work",
+    icon: "radio",
+    lean: 0,
+    title: "Blackboard Radio",
+    summary:
+      "A 3-month internship where I built the quiz module. These internships helped me land the Streak job.",
+  },
+  {
+    start: "2019-07",
+    end: "2021-06",
+    kind: "work",
+    icon: "chart",
+    lean: -1,
+    title: "Streak",
+    summary:
+      "I worked on Streak's global no-code algo trading product and built its website.",
+    links: [
+      {
+        label: "CSS to JS",
+        href: "https://marketplace.visualstudio.com/items?itemName=rishabh-rathod.css-to-js",
+        note: "a VS Code extension to move CSS to CSS-in-JS so theming stays consistent",
+        image: projectImage("CSS to JS - VS Code Extension"),
+      },
+      {
+        label: "DiffyCurl",
+        href: "https://github.com/rishabhrathod01/DiffyCurl",
+        note: "to see what changed between two API requests",
+        image: projectImage("DiffyCurl"),
+      },
+    ],
+  },
+  {
+    start: "2021-06",
+    end: "2024-12",
+    kind: "work",
+    icon: "code",
+    lean: [
+      { from: "2021-06", lean: 1 },
+      { from: "2023-06", lean: -0.6 },
+    ],
+    title: "Appsmith",
+    summary:
+      "Almost 4 years. I worked on the engine that runs users' JavaScript in the browser, and built the Packages feature.",
+  },
+  {
+    start: "2024-02",
+    kind: "trip",
+    icon: "bike",
+    title: "Solo bike trip, Bengaluru to Goa",
+    summary: "I rode solo from Bengaluru to Goa.",
+    href: "/travel/mulki-goa-bike-trip",
+    reels: ["arambol", "colaBeach", "kaup", "marvanthe"],
+    video: "WhWniSMK5bY", // Vagator, my first drone shot
+  },
+  {
+    start: "2024-08",
+    kind: "trip",
+    icon: "plant",
+    title: "Poombarai",
+    summary: "A village near Kodaikanal.",
+    reels: ["poombarai"],
+  },
+  {
+    start: "2024-09",
+    kind: "trip",
+    icon: "cloud",
+    title: "Coorg",
+    summary: "Above the clouds at Mandalpatti Peak.",
+    reels: ["mandalpatti"],
+    video: "NV87I6aqU18",
+  },
+  {
+    start: "2024-12",
+    end: "present",
+    kind: "work",
+    icon: "sparkle",
+    lean: 0,
+    title: "Prophecy",
+    summary:
+      "I built AI features first. Now I am the sole contributor to the agentic experience.",
+  },
+  {
+    start: "2025-11",
+    kind: "trip",
+    icon: "mountain",
+    title: "Himachal",
+    summary: "A drone shot at Rohtang.",
+    reels: ["rohtang"],
+    video: "qVIHJk79q9c",
+  },
+  {
+    start: "2026-09",
+    kind: "trip",
+    icon: "tree",
+    title: "Wayanad",
+    summary: "Shots from the trip are on Instagram.",
+    links: [{ label: "Shots on Instagram", href: personalInfo.social.instagram }],
   },
 ];

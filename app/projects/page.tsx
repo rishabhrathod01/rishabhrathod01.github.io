@@ -75,8 +75,13 @@ export default function ProjectsPage() {
             source collaborations.
           </p>
           <div className="mt-8 flex flex-wrap gap-2">
-            <a href={`mailto:${personalInfo.email}`} className={btnPrimary}>
-              Email me
+            <a
+              href={personalInfo.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={btnPrimary}
+            >
+              Message me on LinkedIn
             </a>
             <a
               href={personalInfo.resume}

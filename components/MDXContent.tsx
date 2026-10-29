@@ -3,6 +3,7 @@ import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import rehypeRaw from "rehype-raw";
+import { reels, reelUrl } from "@/lib/data";
 
 // Monochrome syntax palette from theme tokens, so code reads in light and dark
 // (replaces the dark-only github-dark hljs theme).
@@ -122,6 +123,36 @@ const components = {
           allowFullScreen
         />
       </div>
+    );
+  },
+  // Instagram reel embed: <reel name="arambol"></reel> in .mdx (key from `reels`).
+  reel: ({ name }: any) => {
+    const r = reels[name as keyof typeof reels];
+    if (!r) return null;
+    return (
+      <figure className="my-8 flex flex-col items-center">
+        <div className="w-[326px] max-w-full overflow-hidden rounded-2xl border border-line bg-surface-container">
+          <iframe
+            src={`${reelUrl(r)}embed/`}
+            title={`Drone reel: ${r.place}`}
+            className="block h-[580px] w-full"
+            loading="lazy"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
+        <figcaption className="mt-3 text-sm text-slate-muted">
+          {r.place} ·{" "}
+          <a
+            href={reelUrl(r)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-on-surface underline decoration-fg-3 underline-offset-4 hover:decoration-on-surface"
+          >
+            Open on Instagram
+          </a>
+        </figcaption>
+      </figure>
     );
   },
   hr: () => <hr className="my-12 border-line" />,
