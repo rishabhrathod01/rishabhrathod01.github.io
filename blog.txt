@@ -1,0 +1,954 @@
+1:"$Sreact.fragment"
+2:I[5604,["56","static/chunks/56-66dfe03ec04564ce.js","170","static/chunks/170-70dba97d649857c9.js","840","static/chunks/840-b361fbe895a85674.js","406","static/chunks/406-9a92ee1a927b911a.js","177","static/chunks/app/layout-898522a151cc07c8.js"],"GoogleAnalytics"]
+3:I[4837,["56","static/chunks/56-66dfe03ec04564ce.js","170","static/chunks/170-70dba97d649857c9.js","840","static/chunks/840-b361fbe895a85674.js","406","static/chunks/406-9a92ee1a927b911a.js","177","static/chunks/app/layout-898522a151cc07c8.js"],"Header"]
+4:I[1661,[],""]
+5:I[4633,[],""]
+6:I[2738,["56","static/chunks/56-66dfe03ec04564ce.js","170","static/chunks/170-70dba97d649857c9.js","345","static/chunks/app/not-found-23073ce8c3198653.js"],"default"]
+7:I[5644,["56","static/chunks/56-66dfe03ec04564ce.js","170","static/chunks/170-70dba97d649857c9.js","840","static/chunks/840-b361fbe895a85674.js","406","static/chunks/406-9a92ee1a927b911a.js","177","static/chunks/app/layout-898522a151cc07c8.js"],"TrackedLink"]
+10:I[9311,[],""]
+:HL["/_next/static/media/7d4881bb7e1bf84d-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/8760c4774489e4ba-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/4fb1937c58b3d60a.css","style"]
+0:{"P":null,"b":"5XEebGwOcCMBnJ_OCz_3g","p":"","c":["","blog"],"i":false,"f":[[["",{"children":["blog",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/4fb1937c58b3d60a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem(\"theme\")===\"dark\")document.documentElement.classList.add(\"dark\")}catch(e){}"}}]}],["$","body",null,{"className":"__variable_855f89 __variable_88b4eb font-sans antialiased","suppressHydrationWarning":true,"children":[["$","a",null,{"href":"#main","className":"sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-on-surface focus:px-3 focus:py-2 focus:text-surface","children":"Skip to content"}],["$","$L2",null,{}],["$","div",null,{"className":"flex min-h-dvh flex-col","children":[["$","$L3",null,{}],["$","main",null,{"id":"main","className":"flex-1","children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L6",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"mt-24 border-t border-line","children":[["$","div",null,{"className":"mx-auto flex max-w-container-max flex-col gap-8 px-4 py-12 md:flex-row md:items-center md:justify-between md:px-6","children":[["$","nav",null,{"className":"flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold","children":[["$","$L7","/projects",{"href":"/projects","gaLabel":"Projects","gaLocation":"footer","className":"text-slate-muted transition-colors hover:text-on-surface","children":"Projects"}],["$","$L7","/blog",{"href":"/blog","gaLabel":"Blog","gaLocation":"footer","className":"text-slate-muted transition-colors hover:text-on-surface","children":"Blog"}],["$","$L7","/travel",{"href":"/travel","gaLabel":"Travel","gaLocation":"footer","className":"text-slate-muted transition-colors hover:text-on-surface","children":"Travel"}],["$","$L7","/bookshelf",{"href":"/bookshelf","gaLabel":"Bookshelf","gaLocation":"footer","className":"text-slate-muted transition-colors hover:text-on-surface","children":"Bookshelf"}],["$","$L7","/tools",{"href":"/tools","gaLabel":"Tools","gaLocation":"footer","className":"text-slate-muted transition-colors hover:text-on-surface","children":"Tools"}],["$","$L7","/fly",{"href":"/fly","gaLabel":"Fly","gaLocation":"footer","className":"text-slate-muted transition-colors hover:text-on-surface","children":"Fly"}]]}],["$","div",null,{"className":"flex items-center gap-4","children":[["$","a","GitHub",{"href":"https://github.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","aria-label":"GitHub","className":"text-slate-muted transition-colors hover:text-on-surface","children":["$","svg",null,{"viewBox":"0 0 256 256","fill":"none","stroke":"currentColor","strokeWidth":16,"strokeLinecap":"round","strokeLinejoin":"round","overflow":"visible","aria-hidden":true,"className":"h-5 w-5","children":[["$","path",null,{"className":"si-gh-head","d":"M112 160a48 48 0 0 1-48-48v-8a50 50 0 0 1 7.5-25.5A52 52 0 0 1 75 32a52 52 0 0 1 41 24h40a52 52 0 0 1 41-24 52 52 0 0 1 3.5 46.5A50 50 0 0 1 208 104v8a48 48 0 0 1-48 48Z"}],["$","path",null,{"className":"si-gh-tail","d":"M104 208H72a32 32 0 0 1-32-32 32 32 0 0 0-32-32"}],["$","path",null,{"className":"si-gh-leg-l","d":"M108 164q-4 10-4 28v40"}],["$","path",null,{"className":"si-gh-leg-r","d":"M164 164q4 10 4 28v40"}]]}]}],["$","a","LinkedIn",{"href":"https://www.linkedin.com/in/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","aria-label":"LinkedIn","className":"text-slate-muted transition-colors hover:text-on-surface","children":["$","svg",null,{"viewBox":"0 0 256 256","fill":"none","stroke":"currentColor","strokeWidth":16,"strokeLinecap":"round","strokeLinejoin":"round","overflow":"visible","aria-hidden":true,"className":"h-5 w-5","children":[["$","rect",null,{"className":"si-li-box","x":"32","y":"32","width":"192","height":"192","rx":"8","pathLength":100}],["$","path",null,{"d":"M88 112v64M128 176v-64m0 36a24 24 0 0 1 48 0v28"}],["$","circle",null,{"cx":"88","cy":"84","r":"12","fill":"currentColor","stroke":"none"}]]}]}],"$L8","$L9","$La"]}]]}],"$Lb"]}]]}]]}]]}]]}],{"children":["blog","$Lc",{"children":["__PAGE__","$Ld",{},null,false]},null,false]},["$Le",[],[]],false],"$Lf",false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+12:I[9584,[],"OutletBoundary"]
+14:I[7753,[],"AsyncMetadataOutlet"]
+16:I[9584,[],"ViewportBoundary"]
+18:I[9584,[],"MetadataBoundary"]
+19:"$Sreact.suspense"
+8:["$","a","X",{"href":"https://twitter.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","aria-label":"X","className":"text-slate-muted transition-colors hover:text-on-surface","children":["$","svg",null,{"viewBox":"0 0 256 256","fill":"none","stroke":"currentColor","strokeWidth":16,"strokeLinecap":"round","strokeLinejoin":"round","overflow":"visible","aria-hidden":true,"className":"h-5 w-5","children":[["$","path",null,{"className":"si-x-a","d":"M55 40h39l107 176h-39Z"}],["$","path",null,{"className":"si-x-b","d":"M48 216l60-66M148 106l60-66"}]]}]}]
+9:["$","a","YouTube",{"href":"https://www.youtube.com/@rishabhrathod01","target":"_blank","rel":"noopener noreferrer","aria-label":"YouTube","className":"text-slate-muted transition-colors hover:text-on-surface","children":["$","svg",null,{"viewBox":"0 0 256 256","fill":"none","stroke":"currentColor","strokeWidth":16,"strokeLinecap":"round","strokeLinejoin":"round","overflow":"visible","aria-hidden":true,"className":"h-5 w-5","children":[["$","path",null,{"className":"si-yt-frame","d":"M234 69.2a24 24 0 0 0-14.5-16.3C185.6 39.8 128 40 128 40s-57.6-.2-91.5 12.9A24 24 0 0 0 22 69.2C19.4 89.2 16 115.6 16 128s3.4 38.8 6 58.8a24 24 0 0 0 14.5 16.3C70.4 216.2 128 216 128 216s57.6.2 91.5-12.9a24 24 0 0 0 14.5-16.3c2.6-20 6-46.4 6-58.8s-3.4-38.8-6-58.8Z"}],["$","path",null,{"className":"si-yt-play","d":"m160 128-48-32v64Z"}]]}]}]
+a:["$","a","Instagram",{"href":"https://www.instagram.com/rishabh__ooo","target":"_blank","rel":"noopener noreferrer","aria-label":"Instagram","className":"text-slate-muted transition-colors hover:text-on-surface","children":["$","svg",null,{"viewBox":"0 0 256 256","fill":"none","stroke":"currentColor","strokeWidth":16,"strokeLinecap":"round","strokeLinejoin":"round","overflow":"visible","aria-hidden":true,"className":"ic h-5 w-5","children":[["$","rect",null,{"x":"32","y":"32","width":"192","height":"192","rx":"48"}],["$","circle",null,{"className":"ic-insta-lens","cx":"128","cy":"128","r":"40"}],["$","circle",null,{"cx":"180","cy":"76","r":"12","fill":"currentColor","stroke":"none"}]]}]}]
+b:["$","div",null,{"className":"mx-auto max-w-container-max px-4 pb-12 md:px-6","children":["$","p",null,{"className":"font-jetbrains text-sm text-fg-3","children":["© ",2026," Rishabh Rathod · Bengaluru"]}]}]
+c:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+d:["$","$1","c",{"children":["$L11",null,["$","$L12",null,{"children":["$L13",["$","$L14",null,{"promise":"$@15"}]]}]]}]
+e:["$","div","l",{"className":"mx-auto max-w-container-max px-4 pb-24 pt-24 md:px-6 md:pt-32","children":["$","div",null,{"className":"animate-pulse","children":[["$","div",null,{"className":"h-4 w-24 rounded bg-surface-container"}],["$","div",null,{"className":"mt-4 h-12 w-2/3 max-w-[680px] rounded bg-surface-container"}],["$","div",null,{"className":"mt-6 h-6 w-full max-w-[680px] rounded bg-surface-container"}],["$","div",null,{"className":"mt-24 grid grid-cols-1 gap-4 md:grid-cols-12","children":[["$","div","0",{"className":"h-64 rounded-2xl border border-line bg-surface-container md:col-span-7"}],["$","div","1",{"className":"h-64 rounded-2xl border border-line bg-surface-container md:col-span-5"}],["$","div","2",{"className":"h-64 rounded-2xl border border-line bg-surface-container md:col-span-5"}],["$","div","3",{"className":"h-64 rounded-2xl border border-line bg-surface-container md:col-span-7"}]]}]]}]}]
+f:["$","$1","h",{"children":[null,[["$","$L16",null,{"children":"$L17"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$L18",null,{"children":["$","div",null,{"hidden":true,"children":["$","$19",null,{"fallback":null,"children":"$L1a"}]}]}]]}]
+1b:I[7565,["56","static/chunks/56-66dfe03ec04564ce.js","521","static/chunks/521-29ec10fcc966eed1.js","831","static/chunks/app/blog/page-f1bc207b4d948669.js"],"Reveal"]
+1c:I[5056,["56","static/chunks/56-66dfe03ec04564ce.js","521","static/chunks/521-29ec10fcc966eed1.js","831","static/chunks/app/blog/page-f1bc207b4d948669.js"],""]
+1d:I[9208,["56","static/chunks/56-66dfe03ec04564ce.js","521","static/chunks/521-29ec10fcc966eed1.js","831","static/chunks/app/blog/page-f1bc207b4d948669.js"],"BlogCard"]
+1e:T2dd6,
+**For Frontend Developers Transitioning to AI Engineering**
+
+This course uses **only free and book-based sources**. No paid masterclass or subscription is required. You will complete **both** books: **System Design Interview: An Insider's Guide** (Alex Xu) and **Designing Data-Intensive Applications** (DDIA, Martin Kleppmann).
+
+**New to system design?** Start with [System Design was HARD until I Learned these 30 Concepts](https://blog.algomaster.io/p/30-system-design-concepts) and use the curated [awesome-system-design-resources](https://github.com/ashishps1/awesome-system-design-resources) repo.
+
+---
+
+## Program Overview
+
+This 12-week intensive program completes **both books** plus practical implementation from free resources and modern AI engineering patterns.
+
+**Each week includes:**
+
+- **Content to learn from** — Assigned chapters from both books plus free videos
+- **Project to implement** — Hands-on build
+- **Blog topics** — Primary and alternative topics
+
+---
+
+## Week 1: Scale from Zero to Millions & Reliable/Maintainable/Scalable Apps
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**
+
+- Chapter 1: Scale from Zero to Millions of Users
+
+**DDIA (Martin Kleppmann):**
+
+- Chapter 1: Reliable, Scalable, and Maintainable Applications
+
+**Video:**
+
+- [How Discord Stores TRILLIONS of Messages](https://www.youtube.com/watch?v=xDC71DKtDUE)
+
+### Project
+
+Build a simple Node.js + Redis app with horizontal scaling.
+
+### Blog Topics
+
+**Primary:** "Scaling my portfolio site from 0 to 1 million users (in theory)"  
+**Alternative:** "Frontend engineers: here's how to think like a backend architect" or "3 principles of well-designed systems"
+
+---
+
+## Week 2: Back-of-the-Envelope Estimation & Data Models (SQL/NoSQL)
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**
+
+- Chapter 2: Back-of-the-envelope Estimation
+
+**DDIA (Martin Kleppmann):**
+
+- Chapter 2: Data Models and Query Languages
+
+**Video:**
+
+- [Big-O Notation in 100 Seconds (Fireship)](https://www.youtube.com/watch?v=g2o22C3CRfU)
+
+### Project
+
+Run capacity planning for your own app (e.g., blog or portfolio). Try basic SQL and Postgres queries.
+
+### Blog Topics
+
+**Primary:** "How to estimate if your side project can handle 10k users"  
+**Alternative:** "SQL vs. NoSQL: which should I use for my AI app?" or "Capacity planning 101 for frontend devs"
+
+---
+
+## Week 3: System Design Framework & Storage/Retrieval
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**
+
+- Chapter 3: A Framework for System Design Interviews
+
+**DDIA (Martin Kleppmann):**
+
+- Chapter 3: Storage and Retrieval
+
+**Video:**
+
+- [System Design Interview Basics (ByteByteGo)](https://www.youtube.com/watch?v=FSR1s2b-l_I)
+
+### Project
+
+Answer a mock interview question using the 4-step framework (e.g., "Design a URL shortener").
+
+### Blog Topics
+
+**Primary:** "My system design interview framework (steal this!)"  
+**Alternative:** "How databases actually store data" or "Indexes explained for React devs"
+
+---
+
+## Week 4: Design a Rate Limiter & Encoding/Evolution
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**
+
+- Chapter 4: Design a Rate Limiter
+
+**DDIA (Martin Kleppmann):**
+
+- Chapter 4: Encoding and Evolution
+
+**Video:**
+
+- [Rate Limiting (Fireship)](https://www.youtube.com/watch?v=cIperSdIEpI)
+
+### Project
+
+Implement a token-bucket rate limiter in Node.js or Python, test under load.
+
+### Blog Topics
+
+**Primary:** "I built a rate limiter from scratch (here's how it works)"  
+**Alternative:** "How APIs handle spammy clients" or "Protobuf, JSON, Avro: what's the difference?"
+
+---
+
+## Week 5: Consistent Hashing & Replication
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**
+
+- Chapter 5: Design Consistent Hashing
+
+**DDIA (Martin Kleppmann):**
+
+- Chapter 5: Replication
+
+**Video:**
+
+- [Consistent Hashing (Gaurav Sen)](https://www.youtube.com/watch?v=zaRkONvyGr8)
+
+### Project
+
+Simulate consistent hashing with a simple ring; observe node addition/removal.
+
+### Blog Topics
+
+**Primary:** "How consistent hashing powers distributed caching"  
+**Alternative:** "Replication: why your data lives on 3+ servers" or "Simulating database failover in Python"
+
+---
+
+## Week 6: Key-Value Store & Partitioning
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**
+
+- Chapter 6: Design a Key-Value Store
+
+**DDIA (Martin Kleppmann):**
+
+- Chapter 6: Partitioning
+
+**Video:**
+
+- [Database Sharding Explained (Fireship)](https://www.youtube.com/watch?v=5faMjKuB9bc)
+
+### Project
+
+Build a tiny key-value store with partitioning logic (Python or Go).
+
+### Blog Topics
+
+**Primary:** "Building a mini Redis clone in 200 lines"  
+**Alternative:** "Sharding vs. partitioning: what's the difference?" or "Why Cassandra uses consistent hashing"
+
+---
+
+## Week 7: Unique ID Generator & Transactions
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**
+
+- Chapter 7: Design a Unique ID Generator in Distributed Systems
+
+**DDIA (Martin Kleppmann):**
+
+- Chapter 7: Transactions
+
+**Video:**
+
+- [UUID vs. Snowflake IDs](https://www.youtube.com/watch?v=gpxnbly9bz4)
+
+### Project
+
+Implement Twitter Snowflake IDs in Node.js or Python.
+
+### Blog Topics
+
+**Primary:** "How Twitter generates billions of IDs per day"  
+**Alternative:** "UUIDs vs. auto-increment: which is better?" or "ACID transactions explained without the jargon"
+
+---
+
+## Week 8: URL Shortener & Distributed Systems Trouble
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**
+
+- Chapter 8: Design a URL Shortener
+
+**DDIA (Martin Kleppmann):**
+
+- Chapter 8: The Trouble with Distributed Systems
+
+**Video:**
+
+- [How Bitly Works (Systems Design)](https://www.youtube.com/watch?v=fMZMm_0ZhK4)
+
+### Project
+
+Build a working URL shortener with a database and base62 encoding.
+
+### Blog Topics
+
+**Primary:** "I built my own bit.ly in a weekend"  
+**Alternative:** "Network delays, clock drift, and why distributed systems are hard" or "How to handle 302 redirects at scale"
+
+---
+
+## Week 9: Web Crawler & Consistency/Consensus
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**
+
+- Chapter 9: Design a Web Crawler
+
+**DDIA (Martin Kleppmann):**
+
+- Chapter 9: Consistency and Consensus
+
+**Video:**
+
+- [How Search Engines Crawl the Web](https://www.youtube.com/watch?v=BKorP55Aqvg)
+
+### Project
+
+Write a basic web crawler (Python + Scrapy or Beautiful Soup).
+
+### Blog Topics
+
+**Primary:** "Building a mini-Googlebot: lessons learned"  
+**Alternative:** "Eventual consistency vs. strong consistency" or "How Raft/Paxos keeps databases in sync"
+
+---
+
+## Week 10: Notification System & Batch/Stream Processing
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**
+
+- Chapter 10: Design a Notification System
+
+**DDIA (Martin Kleppmann):**
+
+- Chapter 10: Batch Processing
+
+**Video:**
+
+- [Push Notifications at Scale (Netflix)](https://www.youtube.com/watch?v=6w6E_B55p0E)
+
+### Project
+
+Set up a simple push-notification service with FCM or a queue (e.g., RabbitMQ).
+
+### Blog Topics
+
+**Primary:** "How apps send millions of notifications per minute"  
+**Alternative:** "Batch processing vs. stream processing" or "Building a notification system with Kafka"
+
+---
+
+## Week 11: News Feed & Stream Processing
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**
+
+- Chapter 11: Design a News Feed System
+
+**DDIA (Martin Kleppmann):**
+
+- Chapter 11: Stream Processing
+
+**Video:**
+
+- [How Instagram's Feed Works](https://www.youtube.com/watch?v=QmX2NPkJTKg)
+
+### Project
+
+Build a mini feed aggregator (fanout-on-write or fanout-on-read).
+
+### Blog Topics
+
+**Primary:** "Designing a Twitter-like feed from scratch"  
+**Alternative:** "Fanout architectures explained" or "Real-time data processing with Kafka Streams"
+
+---
+
+## Week 12: Chat System & Future of Data Systems (AI Use Cases)
+
+### Content
+
+**System Design Interview Vol. 1 (Alex Xu):**
+
+- Chapter 12: Design a Chat System
+
+**DDIA (Martin Kleppmann):**
+
+- Chapter 12: The Future of Data Systems
+
+**Video:**
+
+- [WhatsApp System Design](https://www.youtube.com/watch?v=vvhC64hQZMk)
+
+### Project
+
+Build a real-time chat app with WebSockets (Node.js + Socket.io or similar).
+
+### Blog Topics
+
+**Primary:** "I built a WhatsApp clone (here's the architecture)"  
+**Alternative:** "Real-time messaging at scale" or "How AI + data systems will shape the next decade"
+
+---
+
+## Additional Resources
+
+### 12 Must-Know System Design Case Studies
+
+Bookmark these 12 deep-dives — each one reinforces the distributed systems patterns covered in the curriculum above:
+
+1. **How ChatGPT Apps Work** — [Read →](https://newsletter.systemdesign.one/p/apps-in-chatgpt)
+2. **How YouTube Works** — [Read →](https://newsletter.systemdesign.one/p/youtube-system-design)
+3. **How Google Docs Works** — [Read →](https://newsletter.systemdesign.one/p/how-does-google-docs-work)
+4. **How Kafka Works** — [Read →](https://newsletter.systemdesign.one/p/how-kafka-works)
+5. **How WhatsApp Works** — [Read →](https://newsletter.systemdesign.one/p/whatsapp-system-design)
+6. **How Airbnb Works** — [Read →](https://newsletter.systemdesign.one/p/airbnb-system-design)
+7. **How Spotify Works** — [Read →](https://newsletter.systemdesign.one/p/spotify-system-design)
+8. **How Slack Works** — [Read →](https://systemdesign.one/slack-architecture/)
+9. **How Reddit Works** — [Read →](https://newsletter.systemdesign.one/p/reddit-architecture)
+10. **How Bluesky Works** — [Read →](https://newsletter.systemdesign.one/p/how-does-bluesky-work)
+11. **How Twitter Timeline Works** — [Read →](https://newsletter.systemdesign.one/p/system-design-interview-twitter)
+12. **How Uber Computes ETA** — [Read →](https://newsletter.systemdesign.one/p/uber-eta)
+
+_What else should make this list?_
+
+### System Design Patterns
+
+- [System Design Primer (GitHub)](https://github.com/donnemartin/system-design-primer)
+- [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- [ByteByteGo Newsletter](https://blog.bytebytego.com/)
+
+### AI Engineering Context
+
+- [LLM System Design](https://github.com/ray-project/llm-numbers)
+- [Building LLM Applications](https://huyenchip.com/2023/04/11/llm-engineering.html)
+- [AI Engineering Practices](https://www.latent.space/p/ai-engineer)
+
+### Practice & Community
+
+- [System Design Interview Questions](https://github.com/ashishps1/awesome-system-design-resources#must-read-engineering-articles)
+- [r/ExperiencedDevs](https://www.reddit.com/r/ExperiencedDevs/)
+- [Tech Twitter community](https://twitter.com/search?q=%23systemdesign)
+
+---
+
+## Tips for Success
+
+1. **Read actively** — Take notes, draw diagrams, question assumptions
+2. **Build something every week** — Theory without practice is incomplete
+3. **Write public blog posts** — Teaching is the best way to learn
+4. **Join study groups** — Find accountability partners on Twitter/Discord
+5. **Review previous weeks** — Spaced repetition solidifies learning
+6. **Apply to your work** — Look for opportunities to use these patterns in your day job
+
+---
+
+## Conclusion
+
+This 12-week curriculum gives you the foundation to confidently discuss system design in interviews and build scalable systems in practice. By completing both books and implementing projects, you'll understand not just _what_ works, but _why_ it works.
+
+**Remember:** System design is not about memorizing solutions—it's about understanding trade-offs, asking good questions, and making informed decisions.
+
+Start Week 1 today. Share your progress. Build in public. Good luck! 🚀
+
+---
+
+**Want to connect?** Find me on [Twitter](https://twitter.com/rishabhrathod01), [GitHub](https://github.com/rishabhrathod01), or [LinkedIn](https://linkedin.com/in/rishabhrathod01).
+11:["$","div",null,{"children":[["$","section",null,{"className":"mx-auto max-w-container-max px-4 pb-24 pt-24 md:px-6 md:pt-32","children":["$","$L1b",null,{"children":[["$","p",null,{"className":"eyebrow","children":"Blog"}],["$","h1",null,{"className":"text-gradient mt-4 max-w-[680px] text-5xl font-bold leading-none md:text-6xl","children":"Writing"}],["$","p",null,{"className":"mt-6 max-w-[680px] text-lg text-slate-muted","children":"Notes on frontend engineering, developer tooling, and what I am learning along the way."}]]}]}],["$","section",null,{"className":"mx-auto max-w-container-max px-4 py-24 md:px-6","children":[["$","$L1b",null,{"className":"mb-16","children":[["$","p",null,{"className":"eyebrow mb-4","children":"Latest post"}],["$","$L1c",null,{"href":"/blog/automate-whatsapp-messages-to-cook-github-actions","className":"group block rounded-2xl border border-line bg-surface-container p-8 transition-colors hover:bg-surface-container-high md:p-12","children":[["$","p",null,{"className":"eyebrow","children":["February 16, 2025"," ","· ","13 min read"]}],["$","h2",null,{"className":"mt-4 max-w-[760px] text-3xl font-bold text-on-surface md:text-4xl","children":"How I Automated Daily WhatsApp Messages to My Cook (No More Headaches!)"}],["$","p",null,{"className":"mt-4 max-w-[680px] text-lg text-slate-muted","children":"Meal coordination with a cook: what to make and who's in. Learn how I automated both daily meal notifications and WhatsApp polls (dinner/lunch headcount) with GitHub Actions, TypeScript, and Whapi — zero cost, zero hassle."}],["$","div",null,{"className":"mt-6 flex flex-wrap gap-2","children":[["$","span","Automation",{"className":"rounded border border-line bg-surface px-2 py-0.5 text-xs font-semibold text-slate-muted","children":"Automation"}],["$","span","GitHub Actions",{"className":"rounded border border-line bg-surface px-2 py-0.5 text-xs font-semibold text-slate-muted","children":"GitHub Actions"}],["$","span","TypeScript",{"className":"rounded border border-line bg-surface px-2 py-0.5 text-xs font-semibold text-slate-muted","children":"TypeScript"}],["$","span","WhatsApp",{"className":"rounded border border-line bg-surface px-2 py-0.5 text-xs font-semibold text-slate-muted","children":"WhatsApp"}],["$","span","Productivity",{"className":"rounded border border-line bg-surface px-2 py-0.5 text-xs font-semibold text-slate-muted","children":"Productivity"}],["$","span","Life Hacks",{"className":"rounded border border-line bg-surface px-2 py-0.5 text-xs font-semibold text-slate-muted","children":"Life Hacks"}]]}],["$","span",null,{"className":"mt-8 inline-flex items-center gap-2 font-semibold text-on-surface","children":["Read the post",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":"1em","height":"1em","fill":"currentColor","viewBox":"0 0 256 256","transform":"$undefined","className":"ic-nudge-r h-4 w-4","children":[false,"$undefined",["$","path",null,{"d":"M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"}]]}]]}]]}]]}],[["$","p",null,{"className":"eyebrow mb-4","children":"Earlier posts"}],["$","div",null,{"className":"grid grid-cols-1 gap-4 md:grid-cols-2","children":[["$","$L1d","system-design-learning-path-12-week-curriculum",{"slug":"system-design-learning-path-12-week-curriculum","title":"System Design Learning Path — 12-Week Intensive Curriculum","date":"2025-02-14","description":"A 12-week intensive curriculum for frontend developers transitioning to AI engineering. Complete both System Design Interview (Alex Xu) and Designing Data-Intensive Applications (DDIA) using only free resources—weekly reading, hands-on projects, and blog topics.","tags":["System Design","Learning Path","DDIA","Alex Xu","Curriculum","Distributed Systems","AI Engineering"],"readingTime":"8 min read","content":"$1e","index":0}],"$L1f","$L20","$L21"]}]]]}],"$L22"]}]
+23:T1abb,
+In the article, we will be building an admin dashboard that will help us manage the product data of a balloon's store website.
+![products.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623737585900/kf-1uvKk3.png)
+The above image is a website's product page that fetches data from a google sheet acting as a database.
+Our admin dashboard will use google sheets APIs to modify data.
+
+#### Admin dashboard basic features:-
+
+1. Create a new product. ( Insert a row )
+2. Modify existing product details. (modify a row)
+3. Remove product. (delete a row )
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623737493993/dCLrgHGa4.png)
+
+We will use appsmith's platform to build this dashboard.
+
+## 🤔 What is Appsmith?
+
+Appsmith is an open-source framework to build admin panels, CRUD apps, and workflows. Build everything you need, 10x faster.
+
+sounds cool? Let's build and see.
+
+### 1. Create a datasource 💽
+
+In this case, `datasource` is a google sheet so let's create a new sheet.
+
+![Screenshot 2021-06-15 at 12.19.32 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623740018881/GLJ-XZtMj_.png)
+
+here we created a sheet for `products` with the column as
+
+```
+"product_id" ,  // unique id
+"category_type", // product categories type like "BALLOON" or "FIREWORKS" or some other
+"product_name", // name of the product
+"product_desp" , // about the product
+"product_cost" , // cost of the product
+"product_stock", // stock quantity of product
+"product_img_link" // image url
+```
+
+### 2. Integrate datasource to appsmith app
+
+when you create a new appsmith app, you will find yourself here.
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623741556622/0b_GU2Gsw.png)
+Click on Import APIs -> Choose Google Sheet -> Fill in the details.
+It will add google sheet as a datasource and route to create a new API.
+
+> Refer [Appsmith's docs](https://docs.appsmith.com/datasource-reference/querying-google-sheets) to know more about google sheet integration.
+
+### 3. Fetch data and generate widget to show UI
+
+To get all the rows of the `products` sheet fill in the details as following
+
+- methods: `fetch sheet rows`
+- spreadsheet URL: paste your google sheet URL
+- sheet name: `products`
+
+![Untitled design.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623743329440/M5F8SQhEe.png)
+
+After a successful response from the API, click on `Generate Widget` to create a table rendering response data in a table.
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623750922448/FN6vTEHDf.png)
+
+### 4. Modify data using Form 🔨
+
+To create or update data in a row we will create a `Form` widget with an input field for each row of data respective to its type.
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623756084894/P-Zbh1Bea.png)
+
+here I have created a `Form` called Modify Product with input field as follows -
+
+```
+// widget_name `<WidgetType>` = {{defaultValue}}
+- Product Image `<Image>`  =  `{{appsmith.store.uploaded_image_link || productTable.selectedRow.product_img_link}}`
+- ImageURLInput  `<Text>` = `{{productTable.selectedRow.product_img_link || demo_image_URL}}`
+- product_name_input `<Text>` = `{{productTable.selectedRow.product_name || ''}}`
+- product_category_input `<Select>` = `{{productTable.selectedRow.product_name || ''}}`
+- product_desc_input `<Text>` = `{{productTable.selectedRow.product_name || ''}}`
+- product_stock_input `<Text>` = `{{productTable.selectedRow.product_name || ''}}`
+- product_cost_input `<Text>` = `{{productTable.selectedRow.product_name || ''}}`
+- product_row_index `<Text>` = `{{productTable.selectedRow.product_name || productTable.tableData.length}}`
+```
+
+Refer the [docs](https://docs.appsmith.com/widget-reference/table) if you aren't familiar with read value syntax like `productTable.selectedRow.column_name` mentioned above.
+
+`appsmith.store.uploaded_image_link` is used to read a value from the appsmith store.
+
+Check more about the appsmith store [here](https://docs.appsmith.com/framework-reference/store-value).
+
+#### Create a new row
+
+When a table row is not selected, we would assume that the user will fill `Form` to create a new product i.e., a new row.
+In that case, we will need to create an API to insert a new row in google sheets.
+
+- createProduct API
+  ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623847297678/6WOpFZGVG.png)
+
+#### Update an existing row
+
+- updateProduct API
+  ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623847546411/uFDRimaA1.png)
+
+After both the APIs are created successfully. Now on click of the `Submit` button in `Form`, we would call these APIs according to the task.
+
+`Submit Button's` onClick actions :-
+
+```js
+onClick = {{
+Number(product_row_index.text) <= productTable.tableData.length - 1 ?
+updateProduct.run(
+    // After successful
+	() => getProducts.run(
+    // clear
+	   () => storeValue("uploaded_image_link","")
+), () => {})
+: createProduct.run(
+	() => getProducts.run(
+		() => storeValue("uploaded_image_link","")
+), () => {})
+}}
+```
+
+#### To Delete an existing row
+
+Create a delete button inside the table as a new column and on click of which call deleteProductAPI
+
+- deleteProduct API
+
+![Screenshot 2021-06-20 at 12.16.40 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624171611200/i0ilO4UP6.png)
+
+### 5. Upload Image using Cloudinary 🌩
+
+To upload an image to appsmith, we will use the `Filepicker` widget as shown below.
+
+![Screenshot 2021-06-17 at 12.19.38 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623869432990/28bKft3ai.png)
+
+After this, I preferred adding an upload button separately on click of which we will upload selected image to cloudinary.
+
+Now let's create an account in cloudinary and get your `cloud_name` and `upload_preset` which can be used to upload images using appsmith.
+
+![Screenshot 2021-06-17 at 12.26.27 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623869891881/65HeDTjcX.png)
+
+Now let's create an API to upload the image.
+
+- #### uploadImageAPI
+
+Fill in the details as shown below.
+`FilePicker1` is a reference to the `FilePicker` widget.
+![Screenshot 2021-06-17 at 12.18.00 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623870070049/QwhYWcany.png)
+
+Now, we can run `uploadImageAPI` when the upload Image button is clicked.
+
+```js
+onClick = {{
+  uploadImageAPI.run(
+    (response) => {
+      /* onSuccess */
+      storeValue("uploaded_image_link",response.url);
+      // here, we store the value which is then read using {{appsmith.store.uploaded_image_link}}
+    },
+    (response) => {
+      /* onError */
+    },
+  )
+}}
+```
+
+And it's done. 🎉🥳
+
+![Screenshot 2021-06-20 at 12.25.22 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624172135740/bT1-TutUK.png)
+
+That's how it looks. 🧐🤩
+1f:["$","$L1d","building-an-admin-panel-using-low-code-tools-appsmith",{"slug":"building-an-admin-panel-using-low-code-tools-appsmith","title":"Building an admin panel using low code tools - Appsmith","date":"2021-08-05","description":"In the article, we will be building an admin dashboard that will help us manage the product data of a balloon's store website.\nThe above image is a website's product page that fetches data from a goo","tags":["Low Code","Tools","React"],"readingTime":"5 min read","content":"$23","index":1}]
+24:Tf21,
+In this article, I will share my experience building a website using [Quarkly](https://quarkly.io/)
+
+### So, What is Quarkly 🤔 ?
+
+Quarkly is a low-code design tool for creating websites and web apps.
+
+It was the best fit for all the features I needed and was also free 😋
+
+Few features are listed below -
+
+1. Github sync of whole website code. _(take home your website code )_ 🥺
+2. Building custom components using react.
+3. Prebuild components library.
+4. performant (changes are visible close to real-time)
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1623704690316/lneP3Vevcs.png)
+
+Now, let's begin to create the website. 🛠
+
+For the website demoed in this article, inspiration was taken from a design by [bhavya sinha](https://dribbble.com/bhavyasinha).
+
+![Screenshot 2021-06-20 at 12.39.25 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624173716656/YTaheglVR.png)
+
+> Before starting to create anything using quarkly I would suggest checking out their tutorials on [youtube](https://www.youtube.com/watch?v=F0SS7xuI2ug&list=PLPVxzkrdHj5mcPfXj2hVR5Kkw7j8ISDkw). Understanding how components are created and consumed will boost website development using quarkly.
+
+When a user creates a new project, they will see an empty canvas as shown below ⬇️
+![Screenshot 2021-06-21 at 12.20.37 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1624215051212/ghylYcGFl.png)
+
+Now, let's start with making components that are common in multiple pages such as `Header`, `Footer`.
+
+### 1. Creating `<Header/>` and `<Footer />` component
+
+In quarkly's catalog, there are a few sample headers for the basic use case.
+
+![Screenshot 2021-07-11 at 2.55.09 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625952451554/sYsX42rRy.png)
+
+I choose one of them, modified the style, and added two new pages to the project.
+Also to show the currently selected page color modify the theme accordingly.
+
+After the header was ready, I converted it as a component to use on every page.
+
+![Screenshot 2021-07-11 at 3.20.38 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625953860427/hSW0gTv7N.png)
+
+Similarly, Add a footer component.
+
+### 2. Creating Product Cards
+
+![Screenshot 2021-07-11 at 3.27.46 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625954290167/nNGdN1M3wZ.png)
+
+Quarkly also provides a components library that can be used to create other components.
+
+I used quarkly's stack component to show the ProductItem (Card) inside it.
+
+[🔗 View on gist.github.com](https://gist.github.com/Rishabh-Rathod/6daebe9db5d704c2c9157ad3cc0e243e)
+
+### 3. Load data from google sheets
+
+As for this project, google Sheets is used as a database, we need a way to fetch google Sheets data.
+
+I followed the steps in the video below, to set it up.
+
+[🔗 View on www.youtube.com](https://www.youtube.com/watch?v=pFpytftOYiw&t=582s)
+
+Here is a sample code to fetch data from google sheets.
+
+[🔗 View on gist.github.com](https://gist.github.com/Rishabh-Rathod/c1177aed655f4de9c0eac7797f017bb9)
+
+This is how [products page](https://spadeevents.netlify.app/products) of the website looks. 🤩
+
+![Screenshot 2021-07-11 at 4.07.43 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625956689300/ECUR5MfSa.png)
+
+### 4. Git Sync and smooth deploy experience 💨
+
+I loved the git sync and one-click netlify deployment feature. It was one of the smoothest deployment experiences I ever had.
+
+![Screenshot 2021-07-11 at 4.24.16 AM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1625957850871/1KKuzKwns.png)
+
+And we are done 🎉
+
+![thankyoufor attention.jpeg](https://cdn.hashnode.com/res/hashnode/image/upload/v1625957451618/56Ady5LQd.jpeg)
+
+PS: I would love to know what you make using quarkly. If you are stuck anywhere feel free to [join their discord](https://discord.com/invite/AevfxmF3TM).
+20:["$","$L1d","create-website-using-low-code-tool",{"slug":"create-website-using-low-code-tool","title":"Building a store website","date":"2021-08-05","description":"In this article, I will share my experience building a website using Quarkly So, What is Quarkly 🤔 ? Quarkly is a low-code design tool for creating websites and web apps. It was the best fit for all ","tags":["Web Development"],"readingTime":"3 min read","content":"$24","index":2}]
+25:T248e,
+After the MIUI 12 upgrade, I just loved playing the new smooth animations 😍 and as a developer, was excited to know how to implement it 🤔.
+
+The first thing I did was google "Wave Animation Can it be done in react-native? " 😬 and got a close result to what I was looking for but as I wanted to play with the wave. That wasn't enough and hence I tried further on my own.
+
+Here are all my learnings compiled as an article.
+
+## 1\. Make A Smooth Curve
+
+To draw a curve, we will use SVG Path which supports the cubic bezier curve.
+
+A **cubic bezier curve** is a curve line formed using 4 points, a starting point, an ending point, and control points ( c1 & c2 ).
+
+**If you are familiar with making curves using SVG, you can jump 🏃🏻‍♂️ to point 2.**
+
+#### 1.1 Let's Move To The Start Point 🎯
+
+To move to a particular point in SVG, we use the "Move to" command i.e., `M x y`.
+
+`M 0 0.5`
+
+![Screenshot 2020-12-11 at 11.51.05 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1607711013471/y_XztobMp.png align="left")
+
+#### 1.2 Make The 🧊 Cubic Curve
+
+![Screenshot 2020-12-11 at 11.51.11 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1607711136028/m9yaHkffz.png align="left")
+
+In the above example, we plot a curve that starts at (0, 0.5) and ends at (1, 0.5) with control points at (0.5, 0) and (0.5, 1).
+
+🔴 Red dots are curve endpoints and 🟢 green dots are the control points.
+
+#### 1.3 Form A Closed Figure To Fill Color
+
+To form a closed figure, we will draw lines connecting curve endpoints to (1, 1) and (0, 1).
+
+![Screenshot 2020-12-11 at 11.51.32 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1607711273821/YADt5EezP.png align="left")
+
+Hence, the complete path command is ⬇️
+
+`M 0 0.5 C 0.5 0 0.5 1 1 0.5 L 1 1 L 0 1 Z`
+
+```js
+const curveDimension = {
+  start: { x: 0, y: 0.5 },
+  c1: { x: 0.5, y: 0 },
+  c2: { x: 0.5, y: 1 },
+  end: { x: 1, y: 0.5 },
+};
+```
+
+React Native code to make curve using SVG ⬇️ .
+
+[🔗 View on snack.expo.io](<https://snack.expo.io/@rishabhrathod2012/svg-wave-(bezier-curve-demo)>)
+
+> To understand how the bezier curve works check out [this](https://vimeo.com/106757336) video. To learn more about SVG path format read [this](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths).
+
+## 2\. Get Device Orientation Values 📱
+
+We will use [`expo-sensors's`](https://docs.expo.io/versions/latest/sdk/accelerometer/) accelerometer to get the values.
+
+Let's get the accelerometer (x,y,z) values and store them in the state variable `orientation`.
+
+```js
+import { Accelerometer } from 'expo-sensors';
+const Wave = () => {
+ const [orientation, setOrientation] = useState({
+    x: 0,
+    y: 0,
+    z: 0,
+  });
+
+
+ useEffect(() => {
+    subscription.current = Accelerometer.addListener(({ x, y, z }) => {
+      setOrientation(() => ({
+        x: x,
+        y: y,
+        z: z,
+      }));
+    });
+    return () => subscription.current.remove();
+  }, []);
+}
+return <View><Text>{orientation.x}</Text></View>
+}
+```
+
+![Phone Tilt Demo](https://cdn.hashnode.com/res/hashnode/image/upload/v1607778461762/XLiVKTs5M.gif align="left")
+
+> Note: On tilting the phone left, the `orientation.x` value becomes positive and vice versa when tilting right.
+
+## 3\. Moving the Curve on Phone Tilt
+
+When a phone is tilted from the extreme left to the extreme right, the `orientation.x` value moves from a positive maximum to a negative maximum.
+
+Accordingly, curve points coordinate move as shown below
+
+![Screenshot 2020-12-12 at 5.48.43 PM.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1607780037633/ZPXghqy2a.png align="left")
+
+When you go through the above 5 steps, you can notice
+
+1. The `start` point will move from (0,0) to (0,1).
+2. The `end` point will move from (1,1) to (1,0).
+3. Control points `c1` moves from (0.25, 0.25) to (0.25, 0.75) and `c2` from (0.75,0.75) to (0.75, 0.25).
+
+**X coordinates for all the curve points are kept constant.**
+
+Let's find the relation of the Y coordinates of the curve points and the `orientation.x` value.
+
+#### 3.1 Start Point
+
+We will find the relation between `orientation.x` and the start point. For that, we need to remember the below points.
+
+- When the phone is not tilted, the starting point stays at 0.5.
+- When titled right (negative `orientation.x` value) `start` point increases from 0.5 till 1 and similarly 0.5 to 0 when titled left (positive `orientation.x` value). Hence, we negate the `orientation.x` value.
+- Initial position of the `start` point is 0.5 when the `orientation.x` value is 0, so we will need to add 0.5 to the `orientation.x` value.
+
+`const adjustAxis = (value) => 0.5 + (-value / 1.5);`
+
+**adjustAxis** is a helper function to map `orientation.x` to the starting point's y value.
+
+Hence, `start.y = adjustAxis(orientation.x)`
+
+#### 3.2 End Point
+
+Since the `end` point is always opposite to the `start` point.
+
+`end.y = 1 - start.y`
+
+#### 3.3 Start Control Point `c1`
+
+After scratching the brain for a long 🤯, I came up with a linear equation that works fine for control points.
+
+`c1 = (start.y / 2) + 0.25`
+
+#### 3.4 Ending Control Point `c2`
+
+`c2 = 1 - c1`
+
+#### **🤫** Enough Talking, Let's Code It Down.
+
+```js
+// start
+const startY = adjustAxis(orientation.x);
+// initial control point c1
+const startControlPointY = adjustAxis(orientation.x) / 2 + 0.25;
+// curvePoints
+const curveDimension = {
+  start: { x: 0, y: startY },
+  c1: { x: 0.4, y: startControlPointY },
+  c2: { x: 0.6, y: 1 - startControlPointY },
+  end: { x: 1, y: 1 - startY },
+};
+```
+
+## 4\. Let's Get Ready To Animate 🏋🏻‍♀️
+
+As our curve points are derived from the `startY` and `startControlPointY`. We will make `startY` and `startControlPointY` as \*\* [shared values](https://docs.swmansion.com/react-native-reanimated/docs/shared-values/) \*\* and curve point as \*\*derived value \*\*.
+
+- Shared values can be understood as a replacement of `Animated.Value` with more benefits.
+- Derived values are similar to shared values whose value is derived from other shared values.
+
+```js
+const startY = useSharedValue(0);
+const startControlPointY = useSharedValue(0);
+```
+
+[`useSharedValue`](https://docs.swmansion.com/react-native-reanimated/docs/api/useSharedValue/) returns a reference to shared value initialized with the provided data. A reference is an object with `.value` property, that can be accessed and modified from worklets, but also updated directly from the main JS thread.
+
+```js
+const curveDimension = useDerivedValue(() => {
+  return {
+    start: { x: 0, y: startY.value },
+    c1: { x: 0.4, y: startControlPointY.value },
+    c2: { x: 0.6, y: 1 - startControlPointY.value },
+    end: { x: 1, y: 1 - startY.value },
+  };
+});
+```
+
+[`useDerivedValue`](https://docs.swmansion.com/react-native-reanimated/docs/api/useDerivedValue) allows for creating shared value reference that can change in response to updating of one or more other shared values.
+
+#### Create `AnimatedPath`
+
+As we will animate values supplied in the SVGpath, let's first create an `<AnimatedPath />` Component and replace it with `<Path/>`.
+
+```js
+const AnimatedPath = Animated.createAnimatedComponent(Path);
+```
+
+`animatedProps` returns an object with key `d` and value as SVG `path`.
+
+```diff
++ const animatedProps = useAnimatedProps(() => {
++   const { start, c1, c2, end } = curveDimension.value;
++   return {
++      d: `M ${start.x} ${start.y} C ${c1.x} ${c1.y} ${c2.x} ${c2.y} ${end.x} ${end.y} L 1 1 L 0 + 1 Z`,
++   };
++ });
+
+- const staticPath = `M ${curveDimension.start.x} ${curveDimension.start.y}
+- C ${curveDimension.c1.x} ${curveDimension.c1.y}
+- ${curveDimension.c2.x} ${curveDimension.c2.y}
+- ${curveDimension.end.x} ${curveDimension.end.y}
+- L 1 1 L 0 1 Z`;
+```
+
+Supply `animatedProps` instead of the `d`.
+
+```diff
+- <Path
++ <AnimatedPath
+      fill={'#0099ff'}
+-    d={d}
++     animatedProps={animatedProps}
+ />
+```
+
+## 5\. Add Spring Animation
+
+We are using [spring animation](https://reactnative.dev/docs/animated#spring) because it gives control over velocity, stiffness, friction which can be used to give a fluid property to the curve.
+
+```js
+startY.value = withSpring(adjustAxis(orientation.x), {
+  damping: 80,
+  mass: 1,
+  stiffness: 10,
+  restDisplacementThreshold: 0.0001,
+  restSpeedThreshold: 0.001,
+});
+
+const value = adjustAxis(orientation.x) / 2 + 0.25;
+
+startControlPointY.value = withSpring(value, {
+  easing: Easing.out(Easing.bounce),
+});
+```
+
+[`withSpring`](https://docs.swmansion.com/react-native-reanimated/docs/api/withSpring) is a reanimated hook to implement string physics-based animation.
+
+And finally, we are done. 🥳 🎊
+
+### This is how it looks ⬇️ .
+
+![Final Result](https://cdn.hashnode.com/res/hashnode/image/upload/v1607812388510/sSmE7cRgj.gif align="left")
+
+To play with it in the expo app [`click here`](https://expo.io/@rishabhrathod2012/projects/miui-wave-animation) and if you are interested in improving it, check out the [complete code.](https://github.com/Rishabh-Rathod/Animation)
+
+Hope you enjoyed this article and learned something new. 🙇‍♂️
+
+Also, check out William Candillon's Wave Animation [Video](https://www.youtube.com/watch?v=OU43e7TwlEY) if you haven't.
+
+#### Thank you for reading and would love to hear your suggestions to make it better. You can connect with me on [Twitter](https://twitter.com/rishabhrathod01).
+21:["$","$L1d","implementing-miuis-wave-animation-using-react-native-reanimated-v2",{"slug":"implementing-miuis-wave-animation-using-react-native-reanimated-v2","title":"Implementing MIUI's Wave Animation  🌊  Using React Native Reanimated v2","date":"2020-12-12","description":"After the MIUI 12 upgrade, I just loved playing the new smooth animations 😍 and as a developer, was excited to know how to implement it 🤔. The first thing I did was google \"Wave Animation Can it be","tags":["React Native","Animation","JavaScript","Tutorial","React"],"readingTime":"7 min read","content":"$25","index":3}]
+22:["$","section",null,{"className":"mx-auto max-w-container-max px-4 py-24 md:px-6","children":["$","$L1b",null,{"className":"max-w-[680px]","children":[["$","h2",null,{"className":"text-3xl font-bold text-on-surface md:text-4xl","children":"Get new posts as they land"}],["$","p",null,{"className":"mt-4 text-lg text-slate-muted","children":"I share every new article on engineering and developer tooling on X."}],["$","a",null,{"href":"https://twitter.com/rishabhrathod01","target":"_blank","rel":"noopener noreferrer","className":"inline-flex items-center gap-2 rounded-lg bg-on-surface px-3 py-2 text-base font-semibold text-surface transition-opacity hover:opacity-85 active:scale-[0.98] mt-8","children":"Follow on X"}]]}]}]
+17:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+13:null
+26:I[473,[],"IconMark"]
+15:{"metadata":[["$","title","0",{"children":"Blog | Rishabh Rathod"}],["$","meta","1",{"name":"description","content":"Articles about web development, programming, and technology."}],["$","meta","2",{"name":"author","content":"Rishabh Rathod"}],["$","meta","3",{"name":"keywords","content":"Frontend Developer,Web Developer,React,Next.js,TypeScript,Portfolio,Rishabh Rathod"}],["$","meta","4",{"name":"creator","content":"Rishabh Rathod"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"property":"og:title","content":"Rishabh Rathod - Staff Frontend Engineer"}],["$","meta","7",{"property":"og:description","content":"Problem solver. I ship products people use, from food delivery apps to low-code platforms and AI agents."}],["$","meta","8",{"property":"og:url","content":"https://rishabhrathod.com"}],["$","meta","9",{"property":"og:site_name","content":"Rishabh Rathod"}],["$","meta","10",{"property":"og:locale","content":"en_US"}],["$","meta","11",{"property":"og:type","content":"website"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:creator","content":"@rishabhrathod"}],["$","meta","14",{"name":"twitter:title","content":"Rishabh Rathod - Staff Frontend Engineer"}],["$","meta","15",{"name":"twitter:description","content":"Problem solver. I ship products people use, from food delivery apps to low-code platforms and AI agents."}],["$","link","16",{"rel":"icon","href":"/about/portrait.png"}],["$","link","17",{"rel":"apple-touch-icon","href":"/about/portrait.png"}],["$","$L26","18",{}]],"error":null,"digest":"$undefined"}
+1a:"$15:metadata"
