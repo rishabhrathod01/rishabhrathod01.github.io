@@ -351,7 +351,7 @@ export const lifeEvents: LifeEvent[] = [
     kind: "trip",
     icon: "mountain",
     title: "Himachal",
-    summary: "A drone shot at Rohtang.",
+    summary: "A bike ride through Sissu, and a drone shot at Rohtang.",
     reels: ["rohtang"],
     video: "qVIHJk79q9c",
   },

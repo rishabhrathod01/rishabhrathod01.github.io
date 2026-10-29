@@ -89,14 +89,6 @@ export default async function HomePage() {
             <a href="#story" className={btnPrimary}>
               Read my story <ArrowDown className="h-4 w-4" />
             </a>
-            <a
-              href={personalInfo.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={btnSecondary}
-            >
-              Download resume
-            </a>
           </div>
           <div className="mt-8 flex gap-4 text-slate-muted">
             {[

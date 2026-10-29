@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MapPin } from "@/components/icons";
+import { ArrowUpRight, MapPin } from "@/components/icons";
 import { LinkedinIcon } from "@/components/SocialIcons";
 import { Reveal } from "@/components/home/Reveal";
 import { personalInfo, experience, education } from "@/lib/data";
@@ -33,6 +33,14 @@ export default function AboutPage() {
               Staff frontend engineer. 7+ years of shipping products, from a
               food delivery app to developer platforms and AI agents.
             </p>
+            <a
+              href={personalInfo.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${btnPrimary} mt-8`}
+            >
+              Resume <ArrowUpRight className="h-4 w-4" />
+            </a>
           </div>
           <div className="group relative h-48 w-48 overflow-hidden rounded-2xl border border-line bg-surface-container md:h-56 md:w-56">
             <Image
