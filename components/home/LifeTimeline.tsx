@@ -5,9 +5,11 @@ import Link from "next/link";
 import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import {
   motion,
+  useMotionValue,
   useMotionValueEvent,
   useReducedMotion,
   useScroll,
+  useTransform,
 } from "framer-motion";
 import {
   Backpack,
@@ -384,7 +386,7 @@ function layout(w: number, vertical: boolean) {
   const h = vertical
     ? Math.max(end.y, stackBottom) + 60
     : Math.max(end.y, ...taken.map((o) => o.b)) + 40;
-  return { placed, ticks, d, total: end.s, h };
+  return { placed, ticks, d, total: end.s, h, road };
 }
 
 const link =
@@ -551,16 +553,21 @@ function Card({ e, open }: { e: LifeEvent; open: boolean }) {
   );
 }
 
+const headerBottom = () => document.querySelector("header")?.getBoundingClientRect().bottom ?? 0;
+// The top that keeps a card of height ch on screen, below the sticky site
+// header, which hides whatever is under it.
+const onScreen = (top: number, ch: number) =>
+  Math.max(Math.min(top, window.innerHeight - 8 - ch), headerBottom() + 8);
+
 // The life story as one road, to scale: the same length of road for every
-// year. It draws itself as you scroll; events appear as the road reaches them.
+// year. It draws itself as you scroll; events appear as the road reaches them,
+// and a pointer at its tip opens each event's card in turn.
 // Hover, focus or tap an event (its label or its dot) for its card, which also
 // lights up exactly the stretch of road it covers.
 export function LifeTimeline() {
   const ref = useRef<HTMLDivElement>(null);
   const [box, setBox] = useState({ w: 0, vertical: false });
   const [active, setActive] = useState<number | null>(null);
-  // Where the open card sits, relative to its label.
-  const [cardAt, setCardAt] = useState<{ left: number; top: number } | null>(null);
   const [reached, setReached] = useState(0);
   const reduce = useReducedMotion();
   const uid = useId();
@@ -596,51 +603,168 @@ export function LifeTimeline() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => update(scrollYProgress.get()), [lay]);
 
-  // Open the card where it covers the least of the other labels and dots:
-  // try spots around its label, stay on screen and inside the timeline, and
-  // prefer spots close to the label.
-  useLayoutEffect(() => {
-    if (active === null || !lay || !ref.current) return;
-    const li = document.getElementById(`${uid}-li-${active}`);
-    const card = document.getElementById(`${uid}-${active}`);
-    if (!li || !card) return;
-    const r = li.getBoundingClientRect();
-    const box = ref.current.getBoundingClientRect();
-    const cw = card.offsetWidth;
-    const ch = card.offsetHeight;
-    const busy = [
-      ...[...ref.current.querySelectorAll("li > button")].map((el) => el.getBoundingClientRect()),
-      ...[...ref.current.querySelectorAll("[data-dot] circle")].map((el) => el.getBoundingClientRect()),
-    ];
-    const G = 8;
-    const cx = r.left + r.width / 2;
-    const cy = r.top + r.height / 2;
-    // Every spot on a 24px grid around the label, not overlapping it.
-    const spots: { left: number; top: number }[] = [];
-    for (let left = box.left; left <= box.right - cw; left += 24)
-      for (let top = r.top - ch - 400; top <= r.bottom + 400; top += 24)
-        if (left > r.right + G || left + cw < r.left - G || top > r.bottom + G || top + ch < r.top - G)
-          spots.push({ left, top });
-    let best = spots[0] ?? { left: r.left, top: r.bottom + G };
-    let bestCost = Infinity;
-    for (const sp of spots) {
-      const left = Math.min(Math.max(sp.left, box.left), box.right - cw);
-      const { top } = sp;
-      let cost = 0;
-      for (const o of busy) {
-        const ox = Math.min(left + cw, o.right) - Math.max(left, o.left);
-        const oy = Math.min(top + ch, o.bottom) - Math.max(top, o.top);
-        if (ox > 0 && oy > 0) cost += 1000 + ox * oy;
-      }
-      const off = Math.max(0, 8 - top) + Math.max(0, top + ch - (window.innerHeight - 8));
-      cost += off * 400 + Math.hypot(left + cw / 2 - cx, top + ch / 2 - cy);
-      if (cost < bestCost) {
-        bestCost = cost;
-        best = { left, top };
-      }
+  // A pointer travels the road as the timeline passes the middle of the
+  // screen; the dark road behind it is how far it has come. It opens the card
+  // of the last event it passed, one at a time, and keeps a range's card open
+  // until it reaches the range's end. The last-passed card changes only when
+  // that event changes, so a card opened by hover or tap stays until the
+  // pointer reaches the next one.
+  const { scrollYProgress: here } = useScroll({
+    target: ref,
+    offset: ["start 50%", "end 50%"],
+  });
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+  const started = useTransform(here, (v) => (v > 0 ? 1 : 0));
+  const auto = useRef(-1);
+  const [held, setHeld] = useState<number[]>([]);
+  // Where each open card sits, relative to its label.
+  const [cardAt, setCardAt] = useState<Record<number, { left: number; top: number }>>({});
+  const cardAtRef = useRef(cardAt);
+  cardAtRef.current = cardAt;
+  // An open card scrolls with the page until it reaches the top or bottom of
+  // the screen, then stays there while it is open.
+  const pin = () => {
+    for (const [k, p] of Object.entries(cardAtRef.current)) {
+      const li = document.getElementById(`${uid}-li-${k}`);
+      const el = document.getElementById(`${uid}-${k}`);
+      if (!li || !el || el.hidden) continue;
+      const top = li.getBoundingClientRect().top + p.top;
+      el.style.translate = `0 ${onScreen(top, el.offsetHeight) - top}px`;
     }
-    setCardAt({ left: best.left - r.left, top: best.top - r.top });
-  }, [active, lay, uid, box.vertical]);
+  };
+  useLayoutEffect(pin, [cardAt, uid]);
+  const follow = (v: number) => {
+    if (!lay) return;
+    pin();
+    const s = v * lay.total;
+    // The first road sample at or past s.
+    const { road } = lay;
+    let lo = 0;
+    let hi = road.length - 1;
+    while (lo < hi) {
+      const m = (lo + hi) >> 1;
+      if (road[m].s < s) lo = m + 1;
+      else hi = m;
+    }
+    px.set(road[lo].x);
+    py.set(road[lo].y);
+    const inside = lay.placed.flatMap((pl, k) => (v > 0 && pl.end && pl.at.s <= s + 1 && s < pl.end.s ? [k] : []));
+    setHeld((h) => (h.join() === inside.join() ? h : inside));
+    const i = v <= 0 ? -1 : lay.placed.filter((pl) => pl.at.s <= s + 1).length - 1;
+    if (i === auto.current) return;
+    auto.current = i;
+    setActive(i < 0 ? null : i);
+  };
+  useMotionValueEvent(here, "change", follow);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => follow(here.get()), [lay]);
+
+  // Place each newly opened card. A card that is already open keeps its place.
+  // A range's card opens in the open space between the road's sweeps, against
+  // the far left or far right of the timeline. An event inside an open range
+  // opens its card close to its own dot, clear of the range's card. Every card
+  // tries heights around its label, stays on screen, covers nothing, and
+  // prefers room all around.
+  const placedFor = useRef(lay);
+  useLayoutEffect(() => {
+    if (!lay || !ref.current) return;
+    const prev = placedFor.current === lay ? cardAtRef.current : {};
+    placedFor.current = lay;
+    const open = active === null || held.includes(active) ? held : [...held, active];
+    const next: typeof prev = {};
+    for (const i of open) if (prev[i]) next[i] = prev[i];
+    const box = ref.current.getBoundingClientRect();
+    const navBottom = headerBottom();
+    // Where an open card is on screen.
+    const rectOf = (k: number) => {
+      const li = document.getElementById(`${uid}-li-${k}`)!.getBoundingClientRect();
+      const el = document.getElementById(`${uid}-${k}`)!;
+      const left = li.left + next[k].left;
+      const top = onScreen(li.top + next[k].top, el.offsetHeight);
+      return { left, top, right: left + el.offsetWidth, bottom: top + el.offsetHeight };
+    };
+    for (const i of open) {
+      if (next[i]) continue;
+      const li = document.getElementById(`${uid}-li-${i}`);
+      const card = document.getElementById(`${uid}-${i}`);
+      if (!li || !card) continue;
+      const r = li.getBoundingClientRect();
+      const cw = card.offsetWidth;
+      const ch = card.offsetHeight;
+      const others = Object.keys(next).map((k) => rectOf(+k));
+      const busy = [
+        ...[...ref.current.querySelectorAll("li > button")].map((el) => el.getBoundingClientRect()),
+        ...[...ref.current.querySelectorAll("[data-dot] circle")].map((el) => el.getBoundingClientRect()),
+        ...others,
+      ];
+      const G = 8;
+      const pl = lay.placed[i];
+      const near = !pl.end && held.some((k) => k !== i);
+      // Close to: the dot for an event inside a range, else the label.
+      const cx = near ? box.left + pl.at.x : r.left + r.width / 2;
+      const cy = near ? box.top + pl.at.y : r.top + r.height / 2;
+      // The road near the label, in screen coordinates, one point per 4px.
+      const road = lay.road
+        .map((p) => ({ x: box.left + p.x, y: box.top + p.y }))
+        .filter((p) => p.y > r.top - ch - 400 && p.y < r.bottom + ch + 400);
+      // Cards keep the story's order: a card sits between the events before and
+      // after it, never below a later one or above an earlier one.
+      const prevY = box.top + (lay.placed[i - 1]?.at.y ?? -Infinity);
+      const nextY = box.top + (lay.placed[i + 1]?.at.y ?? Infinity);
+      // Every 24px of height around the label, not overlapping it: at either
+      // side, or anywhere across for a card that sits near its dot.
+      const lefts: number[] = [];
+      if (near) for (let l = box.left; l <= box.right - cw; l += 24) lefts.push(l);
+      else lefts.push(box.left, box.right - cw);
+      const spots: { left: number; top: number }[] = [];
+      for (const left of lefts)
+        for (let top = Math.max(r.top - ch - 400, box.top); top <= r.bottom + 400; top += 24)
+          if (left > r.right + G || left + cw < r.left - G || top > r.bottom + G || top + ch < r.top - G)
+            spots.push({ left, top });
+      let best = spots[0] ?? { left: r.left, top: r.bottom + G };
+      let bestCost = Infinity;
+      for (const sp of spots) {
+        const left = Math.min(Math.max(sp.left, box.left), box.right - cw);
+        const { top } = sp;
+        let cost = 0;
+        // How far the card is from the nearest label, dot or road.
+        let clear = Infinity;
+        const gap = (l: number, t: number, rr: number, b: number) =>
+          Math.hypot(Math.max(l - left - cw, left - rr, 0), Math.max(t - top - ch, top - b, 0));
+        for (const o of busy) {
+          const ox = Math.min(left + cw, o.right) - Math.max(left, o.left);
+          const oy = Math.min(top + ch, o.bottom) - Math.max(top, o.top);
+          if (ox > 0 && oy > 0) cost += 1000 + ox * oy;
+          clear = Math.min(clear, gap(o.left, o.top, o.right, o.bottom));
+        }
+        // An open card stays pinned at the screen's edge, so never share its column.
+        for (const o of others) if (left < o.right + G && o.left < left + cw + G) cost += 2000;
+        // Covering the road costs less than covering a label, but still a lot.
+        for (const p of road) {
+          if (p.x > left && p.x < left + cw && p.y > top && p.y < top + ch) cost += 30;
+          clear = Math.min(clear, gap(p.x, p.y, p.x, p.y));
+        }
+        const off = Math.max(0, navBottom + 8 - top) + Math.max(0, top + ch - (window.innerHeight - 8));
+        cost +=
+          off * 400 +
+          (near ? 1.5 : 0.3) * Math.hypot(left + cw / 2 - cx, top + ch / 2 - cy) -
+          4 * Math.min(clear, 48);
+        const mid = top + ch / 2;
+        cost += 20 * (Math.max(0, mid - nextY) + Math.max(0, prevY - mid));
+        // Scrolling reveals the next events below, so lean towards above.
+        if (top + ch / 2 > cy) cost += 150;
+        if (cost < bestCost) {
+          bestCost = cost;
+          best = { left, top };
+        }
+      }
+      next[i] = { left: best.left - r.left, top: best.top - r.top };
+    }
+    const same = (a: typeof prev, b: typeof prev) =>
+      Object.keys(a).length === Object.keys(b).length && Object.keys(a).every((k) => b[+k] === a[+k]);
+    setCardAt((c) => (same(c, next) ? c : next));
+  }, [active, held, lay, uid, box.vertical]);
 
   // A tap anywhere else closes the open card.
   useEffect(() => {
@@ -680,8 +804,10 @@ export function LifeTimeline() {
     if (ev.pointerType !== "mouse") setActive((a) => (a === i ? null : i));
   };
 
-  const shown = (i: number) => reduce || i < reached || active === i;
-  const dim = (i: number) => (active === null || active === i ? 1 : 0.35);
+  const isOpen = (i: number) => active === i || held.includes(i);
+  const anyOpen = active !== null || held.length > 0;
+  const shown = (i: number) => reduce || i < reached || isOpen(i);
+  const dim = (i: number) => (!anyOpen || isOpen(i) ? 1 : 0.35);
   const w = box.w;
   const vertical = box.vertical;
   const fg = "rgb(var(--fg))";
@@ -703,7 +829,7 @@ export function LifeTimeline() {
             d={lay.d}
             stroke="rgb(var(--fg-3))"
             strokeWidth={2.5}
-            style={{ pathLength: reduce ? 1 : scrollYProgress }}
+            style={{ pathLength: reduce ? 1 : here }}
           />
           {/* The scale: a tick every year, a number every five. */}
           <g stroke="rgb(var(--fg-3))" strokeWidth={1}>
@@ -743,7 +869,7 @@ export function LifeTimeline() {
               <g
                 key={i}
                 className="transition-opacity duration-500"
-                opacity={!shown(i) ? 0 : active === null ? 0.3 : active === i ? 1 : 0.08}
+                opacity={!shown(i) ? 0 : !anyOpen ? 0.3 : isOpen(i) ? 1 : 0.08}
               >
                 <path
                   d={lay.d}
@@ -802,11 +928,20 @@ export function LifeTimeline() {
               <Dot e={e} x={at.x} y={at.y} />
             </g>
           ))}
+          <motion.circle
+            cx={px}
+            cy={py}
+            r={7}
+            fill={fg}
+            stroke="rgb(var(--bg))"
+            strokeWidth={3}
+            style={{ opacity: started }}
+          />
         </svg>
       )}
       <ol className={lay ? "" : "invisible"}>
         {lay?.placed.map(({ e, label }, i) => {
-          const open = active === i;
+          const open = isOpen(i);
           const above = label.bottom !== undefined;
           const pos: React.CSSProperties = vertical
             ? { left: LEFT, top: label.top, width: w - LEFT }
@@ -864,7 +999,7 @@ export function LifeTimeline() {
               <div
                 id={`${uid}-${i}`}
                 hidden={!open}
-                style={{ left: cardAt?.left ?? 0, top: cardAt?.top ?? 0, width: cw }}
+                style={{ left: cardAt[i]?.left ?? 0, top: cardAt[i]?.top ?? 0, width: cw }}
                 className="absolute"
               >
                 <Card e={e} open={open} />

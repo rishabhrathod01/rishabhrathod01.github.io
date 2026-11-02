@@ -224,9 +224,6 @@ export type LifeEvent = {
   links?: { label: string; href: string; note?: string; image?: string }[];
 };
 
-const projectImage = (title: string) =>
-  projects.find((p) => p.title === title)?.image;
-
 export const lifeEvents: LifeEvent[] = [
   {
     start: "1998",
@@ -280,19 +277,27 @@ export const lifeEvents: LifeEvent[] = [
     lean: -1,
     title: "Streak",
     summary:
-      "I worked on Streak's global no-code algo trading product and built its website.",
+      "I worked on Streak's global no-code algo trading product. I cut the website's bundle by 65%, which brought first paint from 4.0s to 1.8s, shipped one charting experience across web and mobile, and shipped dark theme and push notifications.",
+  },
+  {
+    start: "2020-07",
+    kind: "life",
+    icon: "code",
+    title: "DiffyCurl",
+    summary: "A side project to see what changed between two API requests.",
+    links: [{ label: "DiffyCurl on GitHub", href: "https://github.com/rishabhrathod01/DiffyCurl" }],
+  },
+  {
+    start: "2020-09",
+    kind: "life",
+    icon: "code",
+    title: "CSS to JS",
+    summary:
+      "A side project: a VS Code extension that moves CSS to CSS-in-JS so theming stays consistent.",
     links: [
       {
-        label: "CSS to JS",
+        label: "CSS to JS on the VS Code Marketplace",
         href: "https://marketplace.visualstudio.com/items?itemName=rishabh-rathod.css-to-js",
-        note: "a VS Code extension to move CSS to CSS-in-JS so theming stays consistent",
-        image: projectImage("CSS to JS - VS Code Extension"),
-      },
-      {
-        label: "DiffyCurl",
-        href: "https://github.com/rishabhrathod01/DiffyCurl",
-        note: "to see what changed between two API requests",
-        image: projectImage("DiffyCurl"),
       },
     ],
   },
