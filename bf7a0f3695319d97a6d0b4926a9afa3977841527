@@ -1,0 +1,76 @@
+404.html
+  h_254a44d1f12105 1
+_next/static/chunks/406-9a92ee1a927b911a.js
+  h_254a44d1f12105 1
+about.html
+  h_254a44d1f12105 1-2
+about.txt
+  h_254a44d1f12105 2-3,7,12,15-17,23,25-40
+blog.html
+  h_254a44d1f12105 1,3
+blog.txt
+  h_254a44d1f12105 2-3,7,12
+blog/automate-whatsapp-messages-to-cook-github-actions.html
+  h_254a44d1f12105 1,446
+blog/automate-whatsapp-messages-to-cook-github-actions.txt
+  h_254a44d1f12105 2-3,12
+blog/building-an-admin-panel-using-low-code-tools-appsmith.html
+  h_254a44d1f12105 1,132
+blog/building-an-admin-panel-using-low-code-tools-appsmith.txt
+  h_254a44d1f12105 2-3,12
+blog/create-website-using-low-code-tool.html
+  h_254a44d1f12105 1,49
+blog/create-website-using-low-code-tool.txt
+  h_254a44d1f12105 2-3,12
+blog/implementing-miuis-wave-animation-using-react-native-reanimated-v2.html
+  h_254a44d1f12105 1,176
+blog/implementing-miuis-wave-animation-using-react-native-reanimated-v2.txt
+  h_254a44d1f12105 2-3,12
+blog/system-design-learning-path-12-week-curriculum.html
+  h_254a44d1f12105 1-2
+blog/system-design-learning-path-12-week-curriculum.txt
+  h_254a44d1f12105 2-3,12
+bookshelf.html
+  h_254a44d1f12105 1
+bookshelf.txt
+  h_254a44d1f12105 2-3,7,12
+fly.html
+  h_254a44d1f12105 1
+fly.txt
+  h_254a44d1f12105 2-3,7,12
+index.html
+  h_254a44d1f12105 1-2
+index.txt
+  h_254a44d1f12105 2-3,7,14,27-38,41-42
+projects.html
+  h_254a44d1f12105 1-2
+projects.txt
+  h_254a44d1f12105 2-3,7,12
+tools.html
+  h_254a44d1f12105 1
+tools.txt
+  h_254a44d1f12105 2-3,7,12
+tools/json-diff.html
+  h_254a44d1f12105 1,7
+tools/json-diff.txt
+  h_254a44d1f12105 2-3,7,12
+travel.html
+  h_254a44d1f12105 1
+travel.txt
+  h_254a44d1f12105 2-3,7,12
+travel/mulki-goa-bike-trip.html
+  h_254a44d1f12105 1,52
+travel/mulki-goa-bike-trip.txt
+  h_254a44d1f12105 2-3,7,12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bf7a0f3695319d97a6d0b4926a9afa3977841527",
+  "prompts": {},
+  "humans": {
+    "h_254a44d1f12105": {
+      "author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
