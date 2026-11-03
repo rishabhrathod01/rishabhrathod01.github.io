@@ -144,7 +144,7 @@ function PanelBody({ id, content }: { id: string; content: FlightContent }) {
         </h3>
         <p className="text-slate-muted text-sm leading-relaxed mb-4">
           Fly through all {RACE_RINGS.length} gold rings before the timer hits{" "}
-          {timeLabel}. The route tours the island — bookshelf grove, experience
+          {timeLabel}. The route tours the island — experience
           trail, Blog Hill, Mandalpatti Peak, the pond waterfall, project
           billboards, and Vagator Beach — before looping back to the finish
           ring near the helipad.

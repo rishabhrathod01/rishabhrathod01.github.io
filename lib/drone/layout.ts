@@ -40,7 +40,6 @@ export const NAV_SIGNPOSTS = [
   { id: "nav-projects", href: "/projects", label: "PROJECTS", x: 27, z: 2 },
   { id: "nav-blog", href: "/blog", label: "BLOG", x: 18, z: -44 },
   { id: "nav-travel", href: "/travel", label: "TRAVEL", x: 30, z: 28 },
-  { id: "nav-bookshelf", href: "/bookshelf", label: "BOOKSHELF", x: -20, z: 34 },
   { id: "nav-about", href: "/about", label: "ABOUT", x: -6, z: 14 },
 ] as const;
 
@@ -69,7 +68,7 @@ export const BEACH = { x: 46, z: 34, r: 16 } as const; // Vagator Beach — sand
 
 /** Ring-flying time trial: rings stay hidden until the pilot reads the briefing
  *  board (E) and confirms with Enter. The route loops past the island's
- *  landmarks — bookshelf, experience trail, the mountain, the pond/waterfall,
+ *  landmarks — experience trail, the mountain, the pond/waterfall,
  *  the beach — so finishing it doubles as a sightseeing tour. */
 export const RACE_TIME_LIMIT = 90; // seconds (1:30)
 export const RACE_CHECKPOINT_POINTS = 100;
@@ -85,8 +84,8 @@ export const RACE_RINGS: {
 }[] = [
   { id: "ring-1", x: 8, z: 6, alt: 5, radius: 3.6 }, // start, by the pad
   { id: "ring-2", x: -2, z: 18, alt: 6, radius: 3.4 }, // past the About board
-  { id: "ring-3", x: -14, z: 28, alt: 8, radius: 3.4 }, // toward Bookshelf
-  { id: "ring-4", x: -26, z: 22, alt: 9, radius: 3.2 }, // Bookshelf vantage
+  { id: "ring-3", x: -14, z: 28, alt: 8, radius: 3.4 }, // toward the west meadow
+  { id: "ring-4", x: -26, z: 22, alt: 9, radius: 3.2 }, // west meadow vantage
   { id: "ring-5", x: -32, z: 8, alt: 10, radius: 3.2 }, // top of the experience trail
   { id: "ring-6", x: -36, z: -8, alt: 9, radius: 3.2 }, // mid experience trail
   { id: "ring-7", x: -32, z: -24, alt: 10, radius: 3.2 }, // lower experience trail
