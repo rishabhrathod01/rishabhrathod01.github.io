@@ -622,15 +622,35 @@ export function LifeTimeline() {
   const [cardAt, setCardAt] = useState<Record<number, { left: number; top: number }>>({});
   const cardAtRef = useRef(cardAt);
   cardAtRef.current = cardAt;
+  // Where each card last sat, so a closing card fades out in place.
+  const lastAt = useRef<typeof cardAt>({});
+  Object.assign(lastAt.current, cardAt);
   // An open card scrolls with the page until it reaches the top or bottom of
-  // the screen, then stays there while it is open.
+  // the screen, then stays there while it is open or fading out. A card held
+  // there is position: fixed, so the browser keeps it still while scrolling;
+  // moving it from script each frame lags the scroll by a frame and jitters.
   const pin = () => {
-    for (const [k, p] of Object.entries(cardAtRef.current)) {
+    // Read every position first, then write, so the page lays out once.
+    const cards = Object.entries(lastAt.current).flatMap(([k, p]) => {
       const li = document.getElementById(`${uid}-li-${k}`);
       const el = document.getElementById(`${uid}-${k}`);
-      if (!li || !el || el.hidden) continue;
-      const top = li.getBoundingClientRect().top + p.top;
-      el.style.translate = `0 ${onScreen(top, el.offsetHeight) - top}px`;
+      if (!li || !el || getComputedStyle(el).visibility === "hidden") return [];
+      const r = li.getBoundingClientRect();
+      const top = r.top + p.top;
+      const h = el.offsetHeight;
+      const at = onScreen(top, h);
+      const left = r.left + p.left;
+      return [{ el, p, open: k in cardAtRef.current, fixed: at !== top, left, top: at, right: left + el.offsetWidth, bottom: at + h }];
+    });
+    const open = cards.filter((c) => c.open);
+    for (const c of cards) {
+      const s = c.el.style;
+      s.position = c.fixed ? "fixed" : "";
+      s.left = `${c.fixed ? c.left : c.p.left}px`;
+      s.top = `${c.fixed ? c.top : c.p.top}px`;
+      // A fading card that touches an open card leaves at once: cards never clash.
+      const clash = !c.open && open.some((o) => c.left < o.right && o.left < c.right && c.top < o.bottom && o.top < c.bottom);
+      s.transition = clash ? "opacity 150ms, visibility 150ms" : "";
     }
   };
   useLayoutEffect(pin, [cardAt, uid]);
@@ -692,7 +712,15 @@ export function LifeTimeline() {
       const r = li.getBoundingClientRect();
       const cw = card.offsetWidth;
       const ch = card.offsetHeight;
-      const others = Object.keys(next).map((k) => rectOf(+k));
+      // Open cards, and closing cards that stay on screen until this one fades in.
+      const others = [
+        ...Object.keys(next).map((k) => rectOf(+k)),
+        ...Object.keys(lastAt.current)
+          .filter((k) => !open.includes(+k))
+          .map((k) => document.getElementById(`${uid}-${k}`))
+          .filter((el) => el && getComputedStyle(el).visibility === "visible")
+          .map((el) => el!.getBoundingClientRect()),
+      ];
       const busy = [
         ...[...ref.current.querySelectorAll("li > button")].map((el) => el.getBoundingClientRect()),
         ...[...ref.current.querySelectorAll("[data-dot] circle")].map((el) => el.getBoundingClientRect()),
@@ -700,8 +728,11 @@ export function LifeTimeline() {
       ];
       const G = 8;
       const pl = lay.placed[i];
-      const near = !pl.end && held.some((k) => k !== i);
-      // Close to: the dot for an event inside a range, else the label.
+      // A card opened by hand, not by the scroll pointer, sits right by its
+      // icon, wherever it is clear of the road.
+      const byHand = i === active && i !== auto.current;
+      const near = byHand || (!pl.end && held.some((k) => k !== i));
+      // Close to: the dot for an event inside a range or opened by hand, else the label.
       const cx = near ? box.left + pl.at.x : r.left + r.width / 2;
       const cy = near ? box.top + pl.at.y : r.top + r.height / 2;
       // The road near the label, in screen coordinates, one point per 4px.
@@ -742,18 +773,20 @@ export function LifeTimeline() {
         for (const o of others) if (left < o.right + G && o.left < left + cw + G) cost += 2000;
         // Covering the road costs less than covering a label, but still a lot.
         for (const p of road) {
-          if (p.x > left && p.x < left + cw && p.y > top && p.y < top + ch) cost += 30;
+          if (p.x > left && p.x < left + cw && p.y > top && p.y < top + ch) cost += byHand ? 200 : 30;
           clear = Math.min(clear, gap(p.x, p.y, p.x, p.y));
         }
         const off = Math.max(0, navBottom + 8 - top) + Math.max(0, top + ch - (window.innerHeight - 8));
         cost +=
           off * 400 +
-          (near ? 1.5 : 0.3) * Math.hypot(left + cw / 2 - cx, top + ch / 2 - cy) -
+          (byHand ? 3 : near ? 1.5 : 0.3) * Math.hypot(left + cw / 2 - cx, top + ch / 2 - cy) -
           4 * Math.min(clear, 48);
-        const mid = top + ch / 2;
-        cost += 20 * (Math.max(0, mid - nextY) + Math.max(0, prevY - mid));
-        // Scrolling reveals the next events below, so lean towards above.
-        if (top + ch / 2 > cy) cost += 150;
+        if (!byHand) {
+          const mid = top + ch / 2;
+          cost += 20 * (Math.max(0, mid - nextY) + Math.max(0, prevY - mid));
+          // Scrolling reveals the next events below, so lean towards above.
+          if (mid > cy) cost += 150;
+        }
         if (cost < bestCost) {
           bestCost = cost;
           best = { left, top };
@@ -998,9 +1031,10 @@ export function LifeTimeline() {
               </button>
               <div
                 id={`${uid}-${i}`}
-                hidden={!open}
-                style={{ left: cardAt[i]?.left ?? 0, top: cardAt[i]?.top ?? 0, width: cw }}
-                className="absolute"
+                style={{ width: cw }}
+                className={`absolute transition-[opacity,visibility] motion-reduce:transition-none ${
+                  open ? "visible opacity-100 duration-500" : "invisible opacity-0 delay-500 duration-700"
+                }`}
               >
                 <Card e={e} open={open} />
               </div>

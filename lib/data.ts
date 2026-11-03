@@ -312,7 +312,7 @@ export const lifeEvents: LifeEvent[] = [
     ],
     title: "Appsmith",
     summary:
-      "Almost 4 years. I worked on the engine that runs users' JavaScript in the browser, and built the Packages feature.",
+      "Almost 4 years. For one of them, I was the sole maintainer of the JS evaluation engine that runs every app's logic. I also built Packages, so teams could reuse queries and logic across apps. Still the best work culture I have been part of.",
   },
   {
     start: "2024-02",
