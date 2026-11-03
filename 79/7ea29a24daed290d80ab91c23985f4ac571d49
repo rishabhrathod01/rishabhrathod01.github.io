@@ -1,0 +1,21 @@
+components/drone/hud/FocusPanel.tsx
+  s_73096bd067625f::t_50f30aeba16f37 147
+lib/drone/layout.ts
+  s_73096bd067625f::t_67fc24190c069f 71,87-88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "797ea29a24daed290d80ab91c23985f4ac571d49",
+  "prompts": {},
+  "sessions": {
+    "s_73096bd067625f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "09bd13da-f523-414f-9fdf-e082547070cd",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
