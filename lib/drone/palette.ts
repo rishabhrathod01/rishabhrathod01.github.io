@@ -1,8 +1,8 @@
 // Island palette. Terrain is a stylized daylight meadow; the sky and light
 // rig animate from morning to sunset with flight time (see SkyDome/Lighting).
-// P.bg stays the site surface colour — used for page-transition backdrops.
+// P.bg matches the /fly page background — used for page-transition backdrops.
 export const P = {
-  bg: "#0c1324",
+  bg: "#cfe2f1",
   lavender: "#c0c1ff",
   emerald: "#4edea3",
   videoAccent: "#ff6a5a",

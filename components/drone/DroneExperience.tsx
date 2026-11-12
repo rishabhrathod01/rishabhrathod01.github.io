@@ -57,7 +57,6 @@ export default function DroneExperience({
   const volume = useDroneStore((s) => s.volume);
 
   const [canFly, setCanFly] = useState(false);
-  const [hovered, setHovered] = useState(false);
   const [worldMounted, setWorldMounted] = useState(false);
   const [shutter, setShutter] = useState(false);
   const [frameActive, setFrameActive] = useState(true);
@@ -242,9 +241,9 @@ export default function DroneExperience({
   return (
     <div className="fixed inset-0 z-[60] pointer-events-none">
       {/* Backdrop behind the canvas: hides the page once we're in the world.
-          Shares #0c1324 with the page + sky zenith, so every fade is seamless. */}
+          Shares #cfe2f1 with the /fly page, so every fade is seamless. */}
       <div
-        className="absolute inset-0 bg-[#0c1324] transition-opacity duration-700"
+        className="absolute inset-0 bg-[#cfe2f1] transition-opacity duration-700"
         style={{ opacity: inWorld ? 1 : 0 }}
       />
 
@@ -279,17 +278,12 @@ export default function DroneExperience({
       {/* DOM overlays */}
       {canFly && (phase === "idle" || phase === "charging") && (
         <IdleInteractionLayer
-          onHover={setHovered}
           onChargeStart={beginCharge}
           onChargeEnd={cancelCharge}
         />
       )}
       <TakeoffPrompt
-        visible={
-          canFly &&
-          (hovered || phase === "charging") &&
-          (phase === "idle" || phase === "charging")
-        }
+        visible={canFly && (phase === "idle" || phase === "charging")}
       />
       {(phase === "flight" || phase === "focus") && <FlightHUD />}
       {(phase === "flight" || phase === "focus") && <RaceResults />}
@@ -302,7 +296,7 @@ export default function DroneExperience({
 
       {/* Shutter above everything: landing + page-navigation cuts. */}
       <div
-        className="absolute inset-0 bg-[#0c1324] transition-opacity duration-300"
+        className="absolute inset-0 bg-[#cfe2f1] transition-opacity duration-300"
         style={{ opacity: shutter ? 1 : 0 }}
       />
     </div>

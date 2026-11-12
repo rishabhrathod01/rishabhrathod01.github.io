@@ -96,6 +96,16 @@ export const experience = [
 
 export const projects = [
   {
+    title: "Ace",
+    description:
+      "An iPhone and Apple Watch app that turns your watch data into three daily scores, Recovery, Training and Nutrition, each from 1 to 10 and explained. Log sets from your wrist, tell Siri what you ate, and get a weekly review that proposes changes you choose to accept. Launching in India first.",
+    image: "/projects/ace.jpg",
+    tags: ["iPhone and Apple Watch", "Health and fitness", "Launching soon"],
+    liveUrl: "https://acehealth.app",
+    githubUrl: "",
+    featured: true,
+  },
+  {
     title: "JSON Diff",
     description:
       "A browser-based JSON diff tool with side-by-side and unified views. Supports recursive key-exclusion filters with named configs, shareable filter links via URL params, and sorts keys before comparison to cut through noise.",

@@ -8,11 +8,9 @@ const HIT_H = 180;
 
 /** Viewport-fixed hover/click target that tracks the idle drone screen position. */
 export default function IdleInteractionLayer({
-  onHover,
   onChargeStart,
   onChargeEnd,
 }: {
-  onHover: (hovered: boolean) => void;
   onChargeStart: () => void;
   onChargeEnd: () => void;
 }) {
@@ -26,32 +24,23 @@ export default function IdleInteractionLayer({
     el.setAttribute("tabindex", "0");
     el.setAttribute("aria-label", "Fly the drone: hold F, or press and hold here");
 
-    const enter = () => onHover(true);
-    const leave = () => {
-      onHover(false);
-      onChargeEnd();
-    };
     const pointerDown = (e: PointerEvent) => {
       e.preventDefault();
       onChargeStart();
     };
 
-    el.addEventListener("pointerenter", enter);
-    el.addEventListener("pointerleave", leave);
+    el.addEventListener("pointerleave", onChargeEnd);
     el.addEventListener("pointerdown", pointerDown);
     el.addEventListener("pointerup", onChargeEnd);
-    el.addEventListener("focus", enter);
-    el.addEventListener("blur", leave);
+    el.addEventListener("blur", onChargeEnd);
 
     return () => {
-      el.removeEventListener("pointerenter", enter);
-      el.removeEventListener("pointerleave", leave);
+      el.removeEventListener("pointerleave", onChargeEnd);
       el.removeEventListener("pointerdown", pointerDown);
       el.removeEventListener("pointerup", onChargeEnd);
-      el.removeEventListener("focus", enter);
-      el.removeEventListener("blur", leave);
+      el.removeEventListener("blur", onChargeEnd);
     };
-  }, [onHover, onChargeStart, onChargeEnd]);
+  }, [onChargeStart, onChargeEnd]);
 
   useEffect(() => {
     let raf = 0;

@@ -25,6 +25,7 @@ export default function TakeoffPrompt({ visible }: { visible: boolean }) {
       if (el && flight.idleInit) {
         el.style.left = `${flight.screenX}px`;
         el.style.top = `${flight.screenY + CTA_OFFSET_Y}px`;
+        el.style.visibility = "visible";
       }
       raf = requestAnimationFrame(tick);
     };
@@ -42,6 +43,8 @@ export default function TakeoffPrompt({ visible }: { visible: boolean }) {
         left: 0,
         top: 0,
         transform: "translate(-50%, 0)",
+        // Hidden until the drone reports its screen position.
+        visibility: "hidden",
       }}
     >
       <div className="glass-card px-4 py-2 rounded-full flex items-center gap-3 font-jetbrains text-xs text-on-surface whitespace-nowrap animate-in fade-in">

@@ -12,7 +12,8 @@
    wrapper, see /fly) flips every token. Channels are RGB so Tailwind
    opacity modifiers (bg-surface/80) keep working. */
 @layer base {
-  :root {
+  :root,
+  .light {
     --bg: 250 250 247;
     --bg-2: 241 240 235;
     --bg-3: 232 231 225;

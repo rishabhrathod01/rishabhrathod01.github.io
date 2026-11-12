@@ -28,9 +28,10 @@ export default function FlyClient({
   }, []);
 
   return (
-    // The scene is a night sky, so this page is always dark.
-    <div className="dark -mt-[60px] bg-[#0c1324] text-on-surface">
-      <section className="mx-auto grid min-h-dvh max-w-container-max items-center gap-12 px-4 pt-[60px] md:grid-cols-2 md:px-6">
+    // Flight HUD stays dark; the hero sits on a pale morning sky (matches the
+    // island scene) so the dark drone reads clearly.
+    <div className="dark -mt-[60px] bg-[#cfe2f1]">
+      <section className="light text-on-surface mx-auto grid min-h-dvh max-w-container-max items-center gap-12 px-4 pt-[60px] md:grid-cols-2 md:px-6">
         <div>
           <p className="eyebrow">DJI Mini 4 Pro · keyboard flight</p>
           <h1 className="text-gradient mt-4 max-w-[680px] text-5xl font-bold leading-none md:text-6xl">
