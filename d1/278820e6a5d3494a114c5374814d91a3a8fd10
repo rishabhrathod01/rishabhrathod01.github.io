@@ -1,0 +1,35 @@
+lib/drone/palette.ts
+  s_13ee7ffcf5b938::t_448b71affcb63b 3
+  s_13ee7ffcf5b938::t_2fa9fdcf2056ae 5
+components/drone/hud/TakeoffPrompt.tsx
+  s_13ee7ffcf5b938::t_bcc177cace53d4 28,46-47
+app/globals.css
+  s_13ee7ffcf5b938::t_448b71affcb63b 15-16
+lib/data.ts
+  s_13ee7ffcf5b938::t_d4a14aa24ae5e1 99-107
+  s_13ee7ffcf5b938::t_8b300371fc7197 98
+components/drone/FlyClient.tsx
+  s_13ee7ffcf5b938::t_448b71affcb63b 31-34
+components/drone/DroneExperience.tsx
+  s_13ee7ffcf5b938::t_2fa9fdcf2056ae 246,299
+  s_13ee7ffcf5b938::t_448b71affcb63b 244
+  s_13ee7ffcf5b938::t_25770636eeea8a 286
+components/drone/hud/IdleInteractionLayer.tsx
+  s_13ee7ffcf5b938::t_367731e1ee9b92 32,35,38,41,43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d1278820e6a5d3494a114c5374814d91a3a8fd10",
+  "prompts": {},
+  "sessions": {
+    "s_13ee7ffcf5b938": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3c387953-ca9d-4799-b9d2-7137f4abcd65",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
