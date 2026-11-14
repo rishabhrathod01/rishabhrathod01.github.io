@@ -30,7 +30,7 @@ export default function AboutPage() {
               I solve problems, then ship the fix.
             </h1>
             <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
-              Staff frontend engineer. 7+ years of shipping products, from a
+              Engineering at Prophecy. 7+ years of shipping products, from a
               food delivery app to developer platforms and AI agents.
             </p>
             <a

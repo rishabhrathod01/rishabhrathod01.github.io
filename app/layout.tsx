@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 const themeScript = `try{if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}`;
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rishabhrathod01.github.io"),
   title: {
     default: `${personalInfo.name} - ${personalInfo.role}`,
     template: `%s | ${personalInfo.name}`,
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://rishabhrathod.com",
+    url: "/",
     title: `${personalInfo.name} - ${personalInfo.role}`,
     description: personalInfo.tagline,
     siteName: personalInfo.name,
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${personalInfo.name} - ${personalInfo.role}`,
     description: personalInfo.tagline,
-    creator: "@rishabhrathod",
+    creator: "@rishabhrathod01",
   },
   icons: {
     icon: "/about/portrait.png",

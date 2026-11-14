@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Rishabh Rathod",
-  role: "Staff Frontend Engineer",
+  role: "Engineering at Prophecy",
   tagline:
     "Problem solver. I ship products people use, from food delivery apps to low-code platforms and AI agents.",
   email: "rishabhrathod2012@gmail.com",
@@ -24,7 +24,7 @@ export const personalInfo = {
 export const experience = [
   {
     company: "Prophecy",
-    position: "Staff Frontend Engineer",
+    position: "Engineering",
     period: "December 2024 - Present",
     description:
       "Contributing to AI-powered data engineering platform features and innovations.",

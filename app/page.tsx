@@ -74,7 +74,7 @@ export default async function HomePage() {
             />
           </h1>
           <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
-            To pay my bills, I work as a staff frontend engineer at{" "}
+            To pay my bills, I work in engineering at{" "}
             <a
               href="https://www.prophecy.ai"
               target="_blank"
