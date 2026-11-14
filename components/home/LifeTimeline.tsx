@@ -477,7 +477,7 @@ function Video({ id, title }: { id: string; title: string }) {
 }
 
 // The card's content. Media is only rendered while the card is open.
-function Card({ e, open }: { e: LifeEvent; open: boolean }) {
+function Card({ e, open, compact }: { e: LifeEvent; open: boolean; compact?: boolean }) {
   const inlineReel = !e.video && e.reels?.[0];
   const reelLinks = (inlineReel ? e.reels?.slice(1) : e.reels) ?? [];
   return (
@@ -496,7 +496,7 @@ function Card({ e, open }: { e: LifeEvent; open: boolean }) {
       )}
       {e.start && <p className="eyebrow text-xs">{fullDate(e)}</p>}
       <h3 className="mt-1 text-base font-semibold text-on-surface">{e.title}</h3>
-      <p className="mt-1 text-sm text-slate-muted">{e.summary}</p>
+      <p className={`mt-1 text-sm text-slate-muted ${compact ? "line-clamp-3" : ""}`}>{e.summary}</p>
       {e.links && hasImages(e) && (
         <ul className="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-muted">
           {e.links.map((l) => (
@@ -566,7 +566,7 @@ const onScreen = (top: number, ch: number) =>
 // lights up exactly the stretch of road it covers.
 export function LifeTimeline() {
   const ref = useRef<HTMLDivElement>(null);
-  const [box, setBox] = useState({ w: 0, vertical: false });
+  const [box, setBox] = useState({ w: 0, x: 0, vertical: false, nav: 0 });
   const [active, setActive] = useState<number | null>(null);
   const [reached, setReached] = useState(0);
   const reduce = useReducedMotion();
@@ -582,7 +582,12 @@ export function LifeTimeline() {
     const el = ref.current;
     if (!el) return;
     const measure = () =>
-      setBox({ w: el.clientWidth, vertical: window.innerWidth < 640 });
+      setBox({
+        w: el.clientWidth,
+        x: el.getBoundingClientRect().left,
+        vertical: window.innerWidth < 640,
+        nav: headerBottom(),
+      });
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(el);
@@ -630,6 +635,7 @@ export function LifeTimeline() {
   // there is position: fixed, so the browser keeps it still while scrolling;
   // moving it from script each frame lags the scroll by a frame and jitters.
   const pin = () => {
+    if (box.vertical) return;
     // Read every position first, then write, so the page lays out once.
     const cards = Object.entries(lastAt.current).flatMap(([k, p]) => {
       const li = document.getElementById(`${uid}-li-${k}`);
@@ -653,7 +659,7 @@ export function LifeTimeline() {
       s.transition = clash ? "opacity 150ms, visibility 150ms" : "";
     }
   };
-  useLayoutEffect(pin, [cardAt, uid]);
+  useLayoutEffect(pin, [cardAt, uid, box.vertical]);
   const follow = (v: number) => {
     if (!lay) return;
     pin();
@@ -687,8 +693,10 @@ export function LifeTimeline() {
   // tries heights around its label, stays on screen, covers nothing, and
   // prefers room all around.
   const placedFor = useRef(lay);
+  const phone = box.vertical;
   useLayoutEffect(() => {
-    if (!lay || !ref.current) return;
+    // Phones use the two fixed slots below instead.
+    if (!lay || !ref.current || phone) return;
     const prev = placedFor.current === lay ? cardAtRef.current : {};
     placedFor.current = lay;
     const open = active === null || held.includes(active) ? held : [...held, active];
@@ -797,7 +805,7 @@ export function LifeTimeline() {
     const same = (a: typeof prev, b: typeof prev) =>
       Object.keys(a).length === Object.keys(b).length && Object.keys(a).every((k) => b[+k] === a[+k]);
     setCardAt((c) => (same(c, next) ? c : next));
-  }, [active, held, lay, uid, box.vertical]);
+  }, [active, held, lay, uid, phone]);
 
   // A tap anywhere else closes the open card.
   useEffect(() => {
@@ -843,6 +851,24 @@ export function LifeTimeline() {
   const dim = (i: number) => (!anyOpen || isOpen(i) ? 1 : 0.35);
   const w = box.w;
   const vertical = box.vertical;
+  // Phones: a phone is too narrow to set cards beside the road, so cards take
+  // two fixed slots instead. The open range (a job, college) sits at the top
+  // under the header, the latest event at the bottom, and they never meet.
+  const topCard = vertical ? [...held].reverse().find((k) => k !== active || lay?.placed[k].end) ?? null : null;
+  const bottomCard = vertical && active !== null && active !== topCard ? active : null;
+  const slot = (i: number): React.CSSProperties | undefined =>
+    !vertical
+      ? undefined
+      : i === topCard || (i !== bottomCard && lay?.placed[i].end)
+        ? { position: "fixed", left: box.x, width: w, top: box.nav + 8 }
+        : {
+            position: "fixed",
+            left: box.x,
+            width: w,
+            bottom: "calc(8px + env(safe-area-inset-bottom))",
+            maxHeight: `calc(100dvh - ${box.nav + 16}px)`,
+            overflowY: "auto",
+          };
   const fg = "rgb(var(--fg))";
 
   return (
@@ -983,7 +1009,7 @@ export function LifeTimeline() {
                 width: LW,
                 ...(above ? { bottom: lay.h - label.bottom! } : { top: label.top }),
               };
-          const cw = Math.min(cardWidth(e), w - (vertical ? LEFT : 0));
+          const cw = Math.min(cardWidth(e), w);
           return (
             <li
               key={i}
@@ -1031,12 +1057,16 @@ export function LifeTimeline() {
               </button>
               <div
                 id={`${uid}-${i}`}
-                style={{ width: cw }}
+                style={slot(i) ?? { width: cw }}
                 className={`absolute transition-[opacity,visibility] motion-reduce:transition-none ${
-                  open ? "visible opacity-100 duration-500" : "invisible opacity-0 delay-500 duration-700"
+                  open
+                    ? "visible opacity-100 duration-500"
+                    : vertical
+                      ? "invisible opacity-0 duration-150"
+                      : "invisible opacity-0 delay-500 duration-700"
                 }`}
               >
-                <Card e={e} open={open} />
+                <Card e={e} open={open} compact={i === topCard && bottomCard !== null} />
               </div>
             </li>
           );
