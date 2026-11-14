@@ -30,8 +30,9 @@ export default function AboutPage() {
               I solve problems, then ship the fix.
             </h1>
             <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
-              Engineering at Prophecy. 7+ years of shipping products, from a
-              food delivery app to developer platforms and AI agents.
+              Building acehealth.app, a health coach on your Apple Watch.
+              Engineering at Prophecy. Most of my 7+ years went into low-code,
+              building web products and mobile apps.
             </p>
             <a
               href={personalInfo.resume}

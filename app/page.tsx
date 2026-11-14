@@ -74,7 +74,16 @@ export default async function HomePage() {
             />
           </h1>
           <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
-            To pay my bills, I work in engineering at{" "}
+            I am building{" "}
+            <a
+              href="https://acehealth.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-on-surface underline decoration-line underline-offset-4 transition-colors hover:decoration-on-surface"
+            >
+              acehealth.app
+            </a>
+            , a health coach on your Apple Watch. To pay my bills, I work in engineering at{" "}
             <a
               href="https://www.prophecy.ai"
               target="_blank"

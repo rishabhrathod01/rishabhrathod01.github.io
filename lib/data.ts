@@ -2,7 +2,7 @@ export const personalInfo = {
   name: "Rishabh Rathod",
   role: "Engineering at Prophecy",
   tagline:
-    "Problem solver. I ship products people use, from food delivery apps to low-code platforms and AI agents.",
+    "Problem solver, building acehealth.app, a health coach on your Apple Watch. Most of my career went into low-code, building web products and mobile apps.",
   email: "rishabhrathod2012@gmail.com",
   location: "Bengaluru, Karnataka, India",
   social: {
@@ -14,8 +14,8 @@ export const personalInfo = {
   },
   about: {
     short:
-      "I solve problems and ship the fix. Over 7 years that has meant mobile apps, a crypto trading platform, a low-code engine, and AI agents.",
-    long: "I care about what gets shipped and whether it works, not which tool built it. In 7+ years (plus a year of internships) I have shipped a food delivery app, a crypto algo trading platform at Streak, enterprise features and a 200% faster evaluation engine at Appsmith, and now the agentic experience at Prophecy. Outside work I take solo bike trips and fly drones.",
+      "I solve problems and ship the fix. Right now I am building acehealth.app, a health coach on your Apple Watch. For most of my 7+ years that has meant low-code, building web products and mobile apps.",
+    long: "I care about what gets shipped and whether it works, not which tool built it. Right now I am building acehealth.app, a health coach on your Apple Watch. Most of my 7+ years went into low-code, building web products and mobile apps: enterprise features and a 200% faster evaluation engine at Appsmith, and now the agentic experience at Prophecy. Before that I built a crypto algo trading platform at Streak. Outside work I take solo bike trips and fly drones.",
   },
   resume:
     "https://drive.google.com/file/d/1mxMNR2o-UlQ5ycbg64doEkPC7vLpAtgc/view?usp=sharing",
