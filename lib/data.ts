@@ -106,6 +106,16 @@ export const projects = [
     featured: true,
   },
   {
+    title: "Fly",
+    description:
+      "Fly a DJI Mini 4 Pro over an island built from my projects, posts, and drone videos. Ring races, batteries to collect, and boards that open what they stand for. Runs in the browser with Three.js and React Three Fiber.",
+    image: "/projects/fly.jpg",
+    tags: ["3D in the browser", "Three.js", "Drone"],
+    liveUrl: "/fly",
+    githubUrl: "https://github.com/rishabhrathod01/rishabhrathod01.github.io",
+    featured: false,
+  },
+  {
     title: "JSON Diff",
     description:
       "A browser-based JSON diff tool with side-by-side and unified views. Supports recursive key-exclusion filters with named configs, shareable filter links via URL params, and sorts keys before comparison to cut through noise.",

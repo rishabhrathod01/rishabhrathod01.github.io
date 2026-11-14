@@ -12,7 +12,6 @@ const navigation = [
   { name: "Blog", href: "/blog" },
   { name: "Travel", href: "/travel" },
   { name: "About", href: "/about" },
-  { name: "Fly", href: "/fly" },
 ];
 
 function ThemeToggle() {

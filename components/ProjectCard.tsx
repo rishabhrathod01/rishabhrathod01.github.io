@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ExternalLink } from "@/components/icons";
+import Link from "next/link";
+import { ArrowRight, ExternalLink } from "@/components/icons";
 import { GithubIcon } from "@/components/SocialIcons";
 import { Reveal } from "@/components/home/Reveal";
 
@@ -68,7 +69,11 @@ export function ProjectCard({
           </div>
 
           <div className="mt-8 flex flex-wrap gap-2">
-            {liveUrl && (
+            {liveUrl && liveUrl.startsWith("/") ? (
+              <Link href={liveUrl} className={btnSecondary}>
+                Take off <ArrowRight className="h-4 w-4" />
+              </Link>
+            ) : liveUrl ? (
               <a
                 href={liveUrl}
                 target="_blank"
@@ -77,7 +82,7 @@ export function ProjectCard({
               >
                 Open the app <ExternalLink className="h-4 w-4" />
               </a>
-            )}
+            ) : null}
             {githubUrl && (
               <a
                 href={githubUrl}
