@@ -440,7 +440,7 @@ function Fallback({ href, label }: { href: string; label: string }) {
 }
 
 // A YouTube video as its thumbnail; the player loads only on click.
-function Video({ id, title }: { id: string; title: string }) {
+function Video({ id, title, slim }: { id: string; title: string; slim?: boolean }) {
   const [play, setPlay] = useState(false);
   if (play)
     return (
@@ -460,7 +460,7 @@ function Video({ id, title }: { id: string; title: string }) {
       type="button"
       onClick={() => setPlay(true)}
       aria-label={`Play video: ${title}`}
-      className="group relative mb-3 block aspect-video w-full overflow-hidden rounded-lg bg-surface-container"
+      className={`group relative mb-3 block aspect-video w-full overflow-hidden rounded-lg bg-surface-container ${slim ? "max-h-[15dvh]" : ""}`}
     >
       <Image
         src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
@@ -477,12 +477,14 @@ function Video({ id, title }: { id: string; title: string }) {
 }
 
 // The card's content. Media is only rendered while the card is open.
-function Card({ e, open, compact }: { e: LifeEvent; open: boolean; compact?: boolean }) {
-  const inlineReel = !e.video && e.reels?.[0];
+// `slim` (phones) keeps the card short so the road stays in view and
+// scrollable: a shorter video, reels and places as plain links.
+function Card({ e, open, slim, compact }: { e: LifeEvent; open: boolean; slim?: boolean; compact?: boolean }) {
+  const inlineReel = !slim && !e.video && e.reels?.[0];
   const reelLinks = (inlineReel ? e.reels?.slice(1) : e.reels) ?? [];
   return (
     <div className="rounded-2xl border border-line bg-surface p-4 text-left shadow-xl">
-      {open && e.video && <Video id={e.video} title={e.title} />}
+      {open && e.video && <Video id={e.video} title={e.title} slim={slim} />}
       {open && inlineReel && (
         <div className="relative mx-auto mb-3 h-[400px] w-[240px] overflow-hidden rounded-lg bg-surface-container">
           <Fallback href={reelUrl(reels[inlineReel])} label="Open on Instagram" />
@@ -496,8 +498,8 @@ function Card({ e, open, compact }: { e: LifeEvent; open: boolean; compact?: boo
       )}
       {e.start && <p className="eyebrow text-xs">{fullDate(e)}</p>}
       <h3 className="mt-1 text-base font-semibold text-on-surface">{e.title}</h3>
-      <p className={`mt-1 text-sm text-slate-muted ${compact ? "line-clamp-3" : ""}`}>{e.summary}</p>
-      {e.links && hasImages(e) && (
+      <p className={`mt-1 text-sm text-slate-muted ${compact ? "line-clamp-2" : ""}`}>{e.summary}</p>
+      {e.links && !slim && hasImages(e) && (
         <ul className="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-muted">
           {e.links.map((l) => (
             <li key={l.href}>
@@ -520,7 +522,7 @@ function Card({ e, open, compact }: { e: LifeEvent; open: boolean; compact?: boo
           ))}
         </ul>
       )}
-      {e.links && !hasImages(e) && (
+      {e.links && (slim || !hasImages(e)) && (
         <ul className="mt-3 space-y-1.5 text-sm text-slate-muted">
           {e.links.map((l) => (
             <li key={l.href}>
@@ -866,8 +868,9 @@ export function LifeTimeline() {
             left: box.x,
             width: w,
             bottom: "calc(8px + env(safe-area-inset-bottom))",
-            maxHeight: `calc(100dvh - ${box.nav + 16}px)`,
-            overflowY: "auto",
+            // Under half the screen, so the road stays in view.
+            maxHeight: "42dvh",
+            overflow: "hidden",
           };
   const fg = "rgb(var(--fg))";
 
@@ -1066,7 +1069,7 @@ export function LifeTimeline() {
                       : "invisible opacity-0 delay-500 duration-700"
                 }`}
               >
-                <Card e={e} open={open} compact={i === topCard && bottomCard !== null} />
+                <Card e={e} open={open} slim={vertical} compact={i === topCard && bottomCard !== null} />
               </div>
             </li>
           );
