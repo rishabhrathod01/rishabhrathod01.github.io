@@ -5,6 +5,9 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { personalInfo } from "@/lib/data";
+// Global so the home-only script font never leaves a route-level CSS preload
+// unused on other pages. preload:false keeps the woff2 lazy.
+import "@/lib/fonts";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 const geistMono = Geist_Mono({

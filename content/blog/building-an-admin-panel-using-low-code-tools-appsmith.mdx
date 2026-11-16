@@ -56,7 +56,7 @@ when you create a new appsmith app, you will find yourself here.
 Click on Import APIs -> Choose Google Sheet -> Fill in the details.
 It will add google sheet as a datasource and route to create a new API.
 
-> Refer [Appsmith's docs](https://docs.appsmith.com/datasource-reference/querying-google-sheets) to know more about google sheet integration.
+> Refer [Appsmith's docs](https://docs.appsmith.com/connect-data/reference/querying-google-sheets) to know more about google sheet integration.
 
 ### 3. Fetch data and generate widget to show UI
 
@@ -91,11 +91,11 @@ here I have created a `Form` called Modify Product with input field as follows -
 - product_row_index `<Text>` = `{{productTable.selectedRow.product_name || productTable.tableData.length}}`
 ```
 
-Refer the [docs](https://docs.appsmith.com/widget-reference/table) if you aren't familiar with read value syntax like `productTable.selectedRow.column_name` mentioned above.
+Refer the [docs](https://docs.appsmith.com/reference/widgets/table) if you aren't familiar with read value syntax like `productTable.selectedRow.column_name` mentioned above.
 
 `appsmith.store.uploaded_image_link` is used to read a value from the appsmith store.
 
-Check more about the appsmith store [here](https://docs.appsmith.com/framework-reference/store-value).
+Check more about the appsmith store [here](https://docs.appsmith.com/reference/appsmith-framework/widget-actions/store-value).
 
 #### Create a new row
 

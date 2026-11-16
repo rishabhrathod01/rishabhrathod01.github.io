@@ -19,12 +19,14 @@ export default function FlyClient({
   flightContent: FlightContent;
 }) {
   const droneAnchorRef = useRef<HTMLDivElement>(null);
-  // Don't even fetch the drone chunk on small screens.
+  // Laptops only: no drone chunk or model on phones and tablets.
   const [show3D, setShow3D] = useState<boolean | null>(null);
   const dronePhase = useDroneStore((s) => s.phase);
 
   useEffect(() => {
-    setShow3D(window.innerWidth >= 768);
+    setShow3D(
+      window.matchMedia("(pointer: fine)").matches && window.innerWidth >= 768
+    );
   }, []);
 
   return (

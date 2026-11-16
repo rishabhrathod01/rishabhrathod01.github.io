@@ -569,7 +569,6 @@ export function LifeTimeline() {
   const [reached, setReached] = useState(0);
   const reduce = useReducedMotion();
   const uid = useId();
-  const hide = useRef<ReturnType<typeof setTimeout>>(undefined);
   const tap = useRef<{ type: string; wasOpen: boolean } | null>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -633,8 +632,13 @@ export function LifeTimeline() {
       if (road[m].s < s) lo = m + 1;
       else hi = m;
     }
-    px.set(road[lo].x);
-    py.set(road[lo].y);
+    // Between that sample and the one before, so the pointer glides with the
+    // drawn road instead of stepping from sample to sample.
+    const a = road[Math.max(lo - 1, 0)];
+    const b = road[lo];
+    const f = b.s > a.s ? Math.min(Math.max((s - a.s) / (b.s - a.s), 0), 1) : 0;
+    px.set(a.x + (b.x - a.x) * f);
+    py.set(a.y + (b.y - a.y) * f);
     const inside = lay.placed.flatMap((pl, k) => (v > 0 && pl.end && pl.at.s <= s + 1 && s < pl.end.s ? [k] : []));
     setHeld((h) => (h.join() === inside.join() ? h : inside));
     // Past either end of the road, no card: the slots are fixed to the screen.
@@ -666,18 +670,16 @@ export function LifeTimeline() {
   const enter = (i: number) => (ev: React.PointerEvent) => {
     if (ev.pointerType !== "mouse") return;
     clearTimeout(pend.current);
-    const swap = () => {
-      clearTimeout(hide.current);
-      setActive(i);
-    };
+    const swap = () => setActive(i);
     if (activeRef.current === null || activeRef.current === i) swap();
     else pend.current = setTimeout(swap, 200);
   };
-  const leave = (i: number) => (ev: React.PointerEvent) => {
+  // Leaving does not close the card: on desktop it sits at the screen edge,
+  // away from the road, and must stay open while the mouse travels to it.
+  // Another event, the scroll pointer, a click elsewhere or Escape closes it.
+  const leave = (_i: number) => (ev: React.PointerEvent) => {
     if (ev.pointerType !== "mouse") return;
     clearTimeout(pend.current);
-    if (activeRef.current === i)
-      hide.current = setTimeout(() => setActive((a) => (a === i ? null : a)), 300);
   };
 
   // Touch: tapping a dot or a range toggles its card.
@@ -692,23 +694,46 @@ export function LifeTimeline() {
   const w = box.w;
   const vertical = box.vertical;
   // Cards take two fixed slots, so they never cover each other or jump
-  // around: the open range (a job, college) at the top under the header, the
-  // latest event at the bottom. On desktop the range sits on the left and the
-  // event on the right; on phones both span the width.
-  const topCard = [...held].reverse().find((k) => k !== active || lay?.placed[k].end) ?? null;
+  // around: one range (a job, college) and one event (a trip, a side
+  // project). On desktop ranges sit in the empty space at the left edge of the
+  // screen and events at the right, centered below the header; a range opened
+  // by hover or tap wins the left slot over one the scroll pointer holds. On
+  // phones the range is at the top and the event at the bottom, full width.
+  const isRange = (k: number) => !!lay?.placed[k].end;
+  const topCard = vertical
+    ? [...held].reverse().find((k) => k !== active || isRange(k)) ?? null
+    : active !== null && isRange(active)
+      ? active
+      : held[held.length - 1] ?? null;
   const bottomCard = active !== null && active !== topCard ? active : null;
-  const slot = (i: number, cw: number): React.CSSProperties =>
-    i === topCard || (i !== bottomCard && lay?.placed[i].end)
+  const rangeSlot = (i: number) =>
+    vertical ? i === topCard || (i !== bottomCard && isRange(i)) : isRange(i);
+  // On desktop, a second open range (two jobs overlap) keeps its road lit but
+  // not its card, since both would take the left slot.
+  const cardOpen = (i: number) => isOpen(i) && (vertical || i === topCard || i === bottomCard);
+  const slot = (i: number, cw: number): React.CSSProperties => {
+    if (!vertical)
+      return {
+        position: "fixed",
+        width: cw,
+        [rangeSlot(i) ? "left" : "right"]: 16,
+        top: `calc(${box.nav}px + (100dvh - ${box.nav}px) / 2)`,
+        transform: "translateY(-50%)",
+        maxHeight: `calc(100dvh - ${box.nav + 16}px)`,
+        overflow: "hidden",
+      };
+    return rangeSlot(i)
       ? { position: "fixed", left: box.x, width: cw, top: box.nav + 8 }
       : {
           position: "fixed",
-          left: box.x + w - cw,
+          left: box.x,
           width: cw,
           bottom: "calc(8px + env(safe-area-inset-bottom))",
-          // On phones, under half the screen, so the road stays in view.
-          maxHeight: vertical ? "42dvh" : `calc(100dvh - ${box.nav + 16}px)`,
+          // Under half the screen, so the road stays in view.
+          maxHeight: "42dvh",
           overflow: "hidden",
         };
+  };
   const fg = "rgb(var(--fg))";
 
   return (
@@ -870,7 +895,7 @@ export function LifeTimeline() {
             >
               <button
                 type="button"
-                aria-expanded={open}
+                aria-expanded={cardOpen(i)}
                 aria-controls={`${uid}-${i}`}
                 onPointerDown={(ev) => {
                   tap.current = { type: ev.pointerType, wasOpen: open };
@@ -899,10 +924,10 @@ export function LifeTimeline() {
                 id={`${uid}-${i}`}
                 style={slot(i, cw)}
                 className={`transition-[opacity,visibility] motion-reduce:transition-none ${
-                  open ? "visible opacity-100 duration-500" : "invisible opacity-0 duration-150"
+                  cardOpen(i) ? "visible opacity-100 duration-500" : "invisible opacity-0 duration-150"
                 }`}
               >
-                <Card e={e} open={open} slim={vertical} compact={vertical && i === topCard && bottomCard !== null} />
+                <Card e={e} open={cardOpen(i)} slim={vertical} compact={vertical && i === topCard && bottomCard !== null} />
               </div>
             </li>
           );

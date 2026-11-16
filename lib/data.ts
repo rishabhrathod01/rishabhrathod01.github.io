@@ -14,8 +14,8 @@ export const personalInfo = {
   },
   about: {
     short:
-      "I solve problems and ship the fix. Right now I am building acehealth.app, a health coach on your Apple Watch. For most of my 7+ years that has meant low-code, building web products and mobile apps.",
-    long: "I care about what gets shipped and whether it works, not which tool built it. Right now I am building acehealth.app, a health coach on your Apple Watch. Most of my 7+ years went into low-code, building web products and mobile apps: enterprise features and a 200% faster evaluation engine at Appsmith, and now the agentic experience at Prophecy. Before that I built a crypto algo trading platform at Streak. Outside work I take solo bike trips and fly drones.",
+      "I solve problems and ship the fix. Right now I am building acehealth.app, a health coach on your Apple Watch. For most of my 8 years that has meant low-code, building web products and mobile apps.",
+    long: "I care about what gets shipped and whether it works, not which tool built it. Right now I am building acehealth.app, a health coach on your Apple Watch. Most of my 8 years went into low-code, building web products and mobile apps: enterprise features and a 200% faster evaluation engine at Appsmith, and now the agentic experience and the DataGPT MCP app at Prophecy. Before that I built a crypto algo trading platform at Streak. Outside work I take solo bike trips and fly drones.",
   },
   resume:
     "https://drive.google.com/file/d/1mxMNR2o-UlQ5ycbg64doEkPC7vLpAtgc/view?usp=sharing",
@@ -27,10 +27,10 @@ export const experience = [
     position: "Engineering",
     period: "December 2024 - Present",
     description:
-      "Contributing to AI-powered data engineering platform features and innovations.",
+      "AI and the agentic experience for Prophecy's data engineering platform.",
     achievements: [
-      "Shipped AI agent features for data exploration, comparison, and pipeline generation using AI",
-      "Working on cutting-edge AI integration for enterprise data workflows",
+      "Sole contributor to the agentic experience: the AI agent that explores data, compares results, and builds pipelines",
+      "Contributed to DataGPT, Prophecy's MCP app for Claude, ChatGPT and Copilot, with widgets that show pipelines, analyses and more inside the chat",
     ],
   },
   {
@@ -369,7 +369,7 @@ export const lifeEvents: LifeEvent[] = [
     lean: 0,
     title: "Prophecy",
     summary:
-      "I built AI features first. Now I am the sole contributor to the agentic experience.",
+      "I built AI features first, then helped ship DataGPT, Prophecy's MCP app for Claude, ChatGPT and Copilot. Now I am the sole contributor to the agentic experience.",
   },
   {
     start: "2025-11",

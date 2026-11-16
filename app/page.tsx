@@ -6,12 +6,12 @@ import { personalInfo } from "@/lib/data";
 import {
   ArrowDown,
   ArrowRight,
+  Mail,
   Plane,
 } from "@/components/icons";
 import { GithubIcon, LinkedinIcon, XIcon, YoutubeIcon } from "@/components/SocialIcons";
 import { Reveal } from "@/components/home/Reveal";
 import { LifeTimeline } from "@/components/home/LifeTimeline";
-import { RotatingText } from "@/components/home/RotatingText";
 
 const btnPrimary =
   "inline-flex items-center gap-2 rounded-lg bg-on-surface px-3 py-2 text-base font-semibold text-surface transition-opacity hover:opacity-85 active:scale-[0.98]";
@@ -49,8 +49,6 @@ export default async function HomePage() {
       <section className="relative overflow-hidden md:min-h-[760px]">
         <div className="relative z-10 mx-auto max-w-container-max px-4 pb-12 pt-24 md:flex md:min-h-[760px] md:items-end md:px-6 md:pb-32 md:pt-24">
         <Reveal className="md:max-w-[52%]">
-          {/* Gradient per line, not on the h1: a parent background-clip:text
-              paints the rotating line at full strength and hides its fade. */}
           <h1 className="max-w-[680px] text-5xl font-bold leading-none md:text-6xl">
             <span className="text-gradient">
               Hi, I&apos;m{" "}
@@ -59,19 +57,6 @@ export default async function HomePage() {
               </span>
               .
             </span>
-            <RotatingText
-              prefix="I"
-              phrases={[
-                "ask Claude to alter divs.",
-                "ship mobile apps.",
-                "build agentic UX.",
-                "solve challenging problems.",
-                "love building dev tools.",
-                "like capturing drone shots.",
-                "like slow travelling.",
-                "love riding my bike.",
-              ]}
-            />
           </h1>
           <p className="mt-6 max-w-[680px] text-lg text-slate-muted">
             I am building{" "}
@@ -182,7 +167,7 @@ export default async function HomePage() {
                 A DJI Mini 4 Pro over an island made of my work. Best on a
                 laptop with a keyboard.
               </p>
-              <Link href="/fly" className={`${btnSecondary} mt-4`}>
+              <Link href="/fly" prefetch={false} className={`${btnSecondary} mt-4`}>
                 Take flight
               </Link>
             </div>
@@ -209,9 +194,9 @@ export default async function HomePage() {
         />
         <Reveal>
           <p className="max-w-[560px] text-lg text-slate-muted">
-            The best way to reach me is a message on LinkedIn. I reply about
-            frontend roles, developer tools, or the best drone spots in
-            Karnataka.
+            The best way to reach me is a message on LinkedIn. Email works
+            too. I reply about roles, developer tools, or the best drone spots
+            in Karnataka.
           </p>
           <div className="mt-8 flex flex-wrap gap-2">
             <a
@@ -221,6 +206,9 @@ export default async function HomePage() {
               className={btnPrimary}
             >
               <LinkedinIcon className="h-4 w-4" /> Message me on LinkedIn
+            </a>
+            <a href={`mailto:${personalInfo.email}`} className={btnSecondary}>
+              <Mail className="h-4 w-4" /> Email me
             </a>
           </div>
         </Reveal>

@@ -70,7 +70,7 @@ export function ProjectCard({
 
           <div className="mt-8 flex flex-wrap gap-2">
             {liveUrl && liveUrl.startsWith("/") ? (
-              <Link href={liveUrl} className={btnSecondary}>
+              <Link href={liveUrl} prefetch={false} className={btnSecondary}>
                 Take off <ArrowRight className="h-4 w-4" />
               </Link>
             ) : liveUrl ? (

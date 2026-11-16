@@ -7,7 +7,6 @@ const links = [
   { name: "Projects", href: "/projects" },
   { name: "Blog", href: "/blog" },
   { name: "Travel", href: "/travel" },
-  { name: "Tools", href: "/tools" },
   { name: "Fly", href: "/fly" },
 ];
 
@@ -28,6 +27,8 @@ export function Footer() {
             <TrackedLink
               key={link.href}
               href={link.href}
+              // /fly pulls in three.js; fetch it only when someone goes there.
+              prefetch={link.href === "/fly" ? false : undefined}
               gaLabel={link.name}
               gaLocation="footer"
               className="text-slate-muted transition-colors hover:text-on-surface"

@@ -4,15 +4,12 @@ import { BlogCard } from "@/components/BlogCard";
 import { Reveal } from "@/components/home/Reveal";
 import { ArrowRight } from "@/components/icons";
 import { getBlogPosts } from "@/lib/mdx";
-import { personalInfo } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Blog",
   description: "Articles about web development, programming, and technology.",
 };
 
-const btnPrimary =
-  "inline-flex items-center gap-2 rounded-lg bg-on-surface px-3 py-2 text-base font-semibold text-surface transition-opacity hover:opacity-85 active:scale-[0.98]";
 const tag =
   "rounded border border-line bg-surface px-2 py-0.5 text-xs font-semibold text-slate-muted";
 
@@ -93,25 +90,6 @@ export default async function BlogPage() {
         )}
       </section>
 
-      {/* Follow CTA */}
-      <section className="mx-auto max-w-container-max px-4 py-24 md:px-6">
-        <Reveal className="max-w-[680px]">
-          <h2 className="text-3xl font-bold text-on-surface md:text-4xl">
-            Get new posts as they land
-          </h2>
-          <p className="mt-4 text-lg text-slate-muted">
-            I share every new article on engineering and developer tooling on X.
-          </p>
-          <a
-            href={personalInfo.social.twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${btnPrimary} mt-8`}
-          >
-            Follow on X
-          </a>
-        </Reveal>
-      </section>
     </div>
   );
 }

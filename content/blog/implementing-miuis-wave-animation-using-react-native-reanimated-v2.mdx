@@ -59,13 +59,13 @@ const curveDimension = {
 
 React Native code to make curve using SVG ⬇️ .
 
-[🔗 View on snack.expo.io](<https://snack.expo.io/@rishabhrathod2012/svg-wave-(bezier-curve-demo)>)
+[🔗 View on snack.expo.dev](<https://snack.expo.dev/@rishabhrathod2012/svg-wave-(bezier-curve-demo)>)
 
 > To understand how the bezier curve works check out [this](https://vimeo.com/106757336) video. To learn more about SVG path format read [this](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths).
 
 ## 2\. Get Device Orientation Values 📱
 
-We will use [`expo-sensors's`](https://docs.expo.io/versions/latest/sdk/accelerometer/) accelerometer to get the values.
+We will use [`expo-sensors's`](https://docs.expo.dev/versions/latest/sdk/accelerometer/) accelerometer to get the values.
 
 Let's get the accelerometer (x,y,z) values and store them in the state variable `orientation`.
 
@@ -164,7 +164,7 @@ const curveDimension = {
 
 ## 4\. Let's Get Ready To Animate 🏋🏻‍♀️
 
-As our curve points are derived from the `startY` and `startControlPointY`. We will make `startY` and `startControlPointY` as \*\* [shared values](https://docs.swmansion.com/react-native-reanimated/docs/shared-values/) \*\* and curve point as \*\*derived value \*\*.
+As our curve points are derived from the `startY` and `startControlPointY`. We will make `startY` and `startControlPointY` as \*\* [shared values](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/glossary/) \*\* and curve point as \*\*derived value \*\*.
 
 - Shared values can be understood as a replacement of `Animated.Value` with more benefits.
 - Derived values are similar to shared values whose value is derived from other shared values.
@@ -174,7 +174,7 @@ const startY = useSharedValue(0);
 const startControlPointY = useSharedValue(0);
 ```
 
-[`useSharedValue`](https://docs.swmansion.com/react-native-reanimated/docs/api/useSharedValue/) returns a reference to shared value initialized with the provided data. A reference is an object with `.value` property, that can be accessed and modified from worklets, but also updated directly from the main JS thread.
+[`useSharedValue`](https://docs.swmansion.com/react-native-reanimated/docs/core/useSharedValue/) returns a reference to shared value initialized with the provided data. A reference is an object with `.value` property, that can be accessed and modified from worklets, but also updated directly from the main JS thread.
 
 ```js
 const curveDimension = useDerivedValue(() => {
@@ -187,7 +187,7 @@ const curveDimension = useDerivedValue(() => {
 });
 ```
 
-[`useDerivedValue`](https://docs.swmansion.com/react-native-reanimated/docs/api/useDerivedValue) allows for creating shared value reference that can change in response to updating of one or more other shared values.
+[`useDerivedValue`](https://docs.swmansion.com/react-native-reanimated/docs/core/useDerivedValue/) allows for creating shared value reference that can change in response to updating of one or more other shared values.
 
 #### Create `AnimatedPath`
 
@@ -245,7 +245,7 @@ startControlPointY.value = withSpring(value, {
 });
 ```
 
-[`withSpring`](https://docs.swmansion.com/react-native-reanimated/docs/api/withSpring) is a reanimated hook to implement string physics-based animation.
+[`withSpring`](https://docs.swmansion.com/react-native-reanimated/docs/animations/withSpring/) is a reanimated hook to implement string physics-based animation.
 
 And finally, we are done. 🥳 🎊
 
@@ -253,7 +253,7 @@ And finally, we are done. 🥳 🎊
 
 ![Final Result](https://cdn.hashnode.com/res/hashnode/image/upload/v1607812388510/sSmE7cRgj.gif align="left")
 
-To play with it in the expo app [`click here`](https://expo.io/@rishabhrathod2012/projects/miui-wave-animation) and if you are interested in improving it, check out the [complete code.](https://github.com/Rishabh-Rathod/Animation)
+If you are interested in improving it, check out the [complete code.](https://github.com/rishabhrathod01/React-Native-Wave-Animation)
 
 Hope you enjoyed this article and learned something new. 🙇‍♂️
 
