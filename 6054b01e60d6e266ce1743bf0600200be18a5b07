@@ -1,0 +1,22 @@
+components/ProjectCard.tsx
+  s_13ee7ffcf5b938::t_9f31697c131411 2-3,72-76,85
+lib/data.ts
+  s_13ee7ffcf5b938::t_64b8349d5de3bc 109-110,112-117
+  s_13ee7ffcf5b938::t_bef7fc0a073110 108,111
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6054b01e60d6e266ce1743bf0600200be18a5b07",
+  "prompts": {},
+  "sessions": {
+    "s_13ee7ffcf5b938": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3c387953-ca9d-4799-b9d2-7137f4abcd65",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+components/home/LifeTimeline.tsx
+  s_13ee7ffcf5b938::t_d6a547ab8023fa 640-641
+  s_13ee7ffcf5b938::t_79c214ef57f569 694-711,852,900-902,905
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b5afedfaefa0c6ab5958da421b1479d738fc09e6",
+  "prompts": {},
+  "sessions": {
+    "s_13ee7ffcf5b938": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3c387953-ca9d-4799-b9d2-7137f4abcd65",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "rishabhrathod01 <rathod.rishabh@prophecy.io>"
+    }
+  }
+}
