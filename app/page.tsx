@@ -6,6 +6,7 @@ import { personalInfo } from "@/lib/data";
 import {
   ArrowDown,
   ArrowRight,
+  Calendar,
   Mail,
   Plane,
 } from "@/components/icons";
@@ -195,7 +196,7 @@ export default async function HomePage() {
         <Reveal>
           <p className="max-w-[560px] text-lg text-slate-muted">
             The best way to reach me is a message on LinkedIn. Email works
-            too. I reply about roles, developer tools, or the best drone spots
+            too, or book a call. I reply about roles, developer tools, or the best drone spots
             in Karnataka.
           </p>
           <div className="mt-8 flex flex-wrap gap-2">
@@ -209,6 +210,14 @@ export default async function HomePage() {
             </a>
             <a href={`mailto:${personalInfo.email}`} className={btnSecondary}>
               <Mail className="h-4 w-4" /> Email me
+            </a>
+            <a
+              href={personalInfo.cal}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={btnSecondary}
+            >
+              <Calendar className="h-4 w-4" /> Book a call
             </a>
           </div>
         </Reveal>

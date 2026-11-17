@@ -1,11 +1,14 @@
 import Image from "next/image";
-import { ArrowUpRight, MapPin } from "@/components/icons";
+import { ArrowUpRight, Calendar, MapPin } from "@/components/icons";
 import { LinkedinIcon } from "@/components/SocialIcons";
 import { Reveal } from "@/components/home/Reveal";
 import { personalInfo, experience, education } from "@/lib/data";
 
 const btnPrimary =
   "inline-flex items-center gap-2 rounded-lg bg-on-surface px-3 py-2 text-base font-semibold text-surface transition-opacity hover:opacity-85 active:scale-[0.98]";
+
+const btnSecondary =
+  "inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 text-base font-semibold text-on-surface transition-colors hover:bg-surface-container active:scale-[0.98]";
 
 function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
@@ -81,6 +84,15 @@ export default function AboutPage() {
               >
                 <LinkedinIcon className="h-4 w-4 text-on-surface" />
                 Message me on LinkedIn
+              </a>
+              <a
+                href={personalInfo.cal}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 transition-colors hover:text-on-surface"
+              >
+                <Calendar className="h-4 w-4 text-on-surface" />
+                Book a call
               </a>
             </div>
           </div>
@@ -161,6 +173,14 @@ export default function AboutPage() {
             className={`${btnPrimary} mt-8`}
           >
             Message me on LinkedIn <LinkedinIcon className="h-4 w-4" />
+          </a>
+          <a
+            href={personalInfo.cal}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${btnSecondary} mt-8 ml-2`}
+          >
+            Book a call <Calendar className="h-4 w-4" />
           </a>
         </Reveal>
       </section>

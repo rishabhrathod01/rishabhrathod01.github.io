@@ -4,6 +4,7 @@ export const personalInfo = {
   tagline:
     "Problem solver, building acehealth.app, a health coach on your Apple Watch. Most of my career went into low-code, building web products and mobile apps.",
   email: "rishabhrathod2012@gmail.com",
+  cal: "https://cal.com/rishabhrathod01",
   location: "Bengaluru, Karnataka, India",
   social: {
     github: "https://github.com/rishabhrathod01",
